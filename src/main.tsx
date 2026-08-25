@@ -19,6 +19,7 @@ import './theme/r663-market-energy.css'
 import './theme/r663-market-density.css'
 import './theme/r663-chart-electric.css'
 import './theme/r663-viewport-convergence.css'
+import './theme/r663-reference-composition.css'
 import { applyStoredAppearance } from './components/ThemeStudio'
 
 // 必须在 React 挂载**之前**同步套上主题。

@@ -1,0 +1,178 @@
+/* R6.6.3 reference-composition 012
+   Re-align desktop MARKET with the three source reference frames.
+   This pass changes composition/material hierarchy, not gameplay or mobile geometry. */
+
+@media (min-width: 1280px) {
+  .app-shell-desktop .market-command-shell {
+    width: min(100%, 1760px);
+    min-height: calc(100dvh - var(--cmd-top-h, 54px));
+    overflow: hidden;
+    background-size: cover, cover, 420px auto, 360px auto;
+  }
+
+  .app-shell-desktop .market-command-shell .trading-floor-workspace {
+    grid-template-columns: clamp(224px, 15.2vw, 272px) minmax(0, 1fr) clamp(246px, 17vw, 304px) !important;
+    gap: 8px !important;
+    padding: 7px 8px 0 !important;
+  }
+
+  .app-shell-desktop .market-command-shell .trading-floor-workspace > .fund-risk-rail,
+  .app-shell-desktop .market-command-shell .trading-floor-workspace > .war-room-command-rail {
+    position: relative !important;
+    top: 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    max-height: none !important;
+    overflow: hidden !important;
+  }
+
+  .app-shell-desktop .market-command-main {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto auto;
+    align-content: start;
+    min-height: 0;
+  }
+
+  .app-shell-desktop .market-command-main > .market-hero-stage {
+    min-height: clamp(500px, 61vh, 650px);
+    border-color: color-mix(in srgb, var(--ot-accent) 56%, var(--ot-line-strong));
+    clip-path: polygon(0 0, calc(100% - 13px) 0, 100% 13px, 100% 100%, 13px 100%, 0 calc(100% - 13px));
+    box-shadow:
+      inset 0 0 0 1px rgba(var(--ot-accent-rgb), .10),
+      inset 0 0 54px rgba(var(--ot-accent-rgb), .035),
+      0 16px 44px rgba(0,0,0,.34);
+  }
+
+  .app-shell-desktop .market-command-main .pcp-chart-stage {
+    min-height: clamp(330px, 41vh, 440px) !important;
+  }
+
+  .app-shell-desktop .market-command-main .pcp-volume-band {
+    height: clamp(54px, 7vh, 74px) !important;
+  }
+
+  .app-shell-desktop .market-command-main .pcp-network-band {
+    min-height: clamp(108px, 13vh, 142px) !important;
+    height: clamp(108px, 13vh, 142px) !important;
+    background-size: auto, auto, auto, 34px 34px, 46px 34px, auto;
+  }
+
+  .app-shell-desktop .market-command-main .pcp-network-band::before {
+    height: 2px;
+    opacity: .82;
+    filter: drop-shadow(0 0 7px rgba(var(--ot-accent-rgb), .58));
+  }
+
+  .app-shell-desktop .market-command-main .pcp-network-node {
+    width: 11px;
+    height: 11px;
+    box-shadow: 0 0 5px var(--ot-accent), 0 0 16px rgba(var(--ot-accent-rgb), .55);
+  }
+
+  .app-shell-desktop .market-command-main .decision-deck {
+    margin-top: 6px !important;
+    border-color: color-mix(in srgb, var(--ot-accent) 48%, var(--ot-line-strong));
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    box-shadow: inset 0 1px rgba(var(--ot-accent-rgb), .20), 0 10px 30px rgba(0,0,0,.28);
+  }
+
+  .app-shell-desktop .market-command-main .decision-key {
+    border-right-color: color-mix(in srgb, var(--ot-accent) 28%, var(--ot-line));
+    background:
+      linear-gradient(180deg, rgba(var(--ot-accent-rgb), .055), transparent 34%),
+      linear-gradient(90deg, transparent, rgba(var(--ot-accent-rgb), .025), transparent);
+  }
+
+  .app-shell-desktop .market-command-main .decision-key::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 5px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(var(--ot-accent-rgb), .72), transparent);
+    opacity: .62;
+  }
+
+  .app-shell-desktop .market-command-main .decision-key-label {
+    font-size: 17px;
+    letter-spacing: .01em;
+    text-shadow: 0 0 12px rgba(var(--ot-accent-rgb), .16);
+  }
+
+  .app-shell-desktop .fund-risk-rail > *,
+  .app-shell-desktop .command-right-content > * {
+    border-color: color-mix(in srgb, var(--ot-accent) 34%, var(--ot-line)) !important;
+    background:
+      linear-gradient(135deg, rgba(var(--ot-accent-rgb), .07), transparent 36%),
+      color-mix(in srgb, var(--ot-surface-raised) 94%, black) !important;
+    box-shadow:
+      inset 2px 0 rgba(var(--ot-accent-rgb), .30),
+      inset 0 1px rgba(var(--ot-accent-rgb), .10),
+      0 8px 24px rgba(0,0,0,.22);
+  }
+
+  .app-shell-desktop .reference-rail-stack {
+    gap: 5px;
+  }
+
+  .app-shell-desktop .reference-rail-instrument {
+    min-height: 68px;
+    border-left: 2px solid color-mix(in srgb, var(--ot-accent) 72%, transparent);
+  }
+
+  .app-shell-desktop .command-right-content {
+    gap: 6px;
+  }
+
+  .app-shell-desktop .command-right-content .wrr-seat-card {
+    min-height: 78px;
+    border-left: 2px solid color-mix(in srgb, var(--ot-accent) 66%, transparent) !important;
+  }
+
+  .app-shell-desktop .command-right-content .wrr-seat-card.is-speaking {
+    transform: translateX(-2px);
+    box-shadow:
+      inset 3px 0 var(--ot-accent),
+      inset 0 0 28px rgba(var(--ot-accent-rgb), .11),
+      0 0 20px rgba(var(--ot-accent-rgb), .10) !important;
+  }
+
+  .app-shell-desktop .novice-trend-guide {
+    border-color: color-mix(in srgb, var(--ot-accent) 34%, var(--ot-line)) !important;
+    background: rgba(3,8,14,.84) !important;
+  }
+
+  .app-shell-desktop .command-bottom-rail {
+    border-color: color-mix(in srgb, var(--ot-accent) 46%, var(--ot-line-strong));
+    background:
+      linear-gradient(90deg, rgba(var(--ot-accent-rgb), .08), transparent 26% 74%, rgba(var(--ot-accent-rgb), .06)),
+      color-mix(in srgb, var(--ot-bg-0) 92%, transparent);
+    box-shadow: inset 0 1px rgba(var(--ot-accent-rgb), .24), 0 -12px 34px rgba(0,0,0,.32);
+  }
+
+  html[data-theme="amber"] .market-command-shell {
+    background-image:
+      radial-gradient(circle at 50% 46%, rgba(255,165,48,.09), transparent 44%),
+      radial-gradient(circle at 12% 22%, rgba(255,196,72,.07), transparent 24%),
+      var(--cmd-backplane-image), var(--cmd-surface-grid), var(--cmd-surface-base);
+  }
+
+  html[data-theme="calm"] .market-command-shell {
+    filter: saturate(.90) contrast(1.025);
+  }
+
+  html[data-theme="neon"] .market-command-shell {
+    background-image:
+      radial-gradient(circle at 50% 46%, rgba(24,214,255,.10), transparent 42%),
+      radial-gradient(circle at 82% 28%, rgba(132,82,255,.10), transparent 26%),
+      var(--cmd-backplane-image), var(--cmd-surface-grid), var(--cmd-surface-base);
+  }
+}
+
+@media (min-width: 1280px) and (max-height: 980px) {
+  .app-shell-desktop .market-command-main > .market-hero-stage { min-height: 548px; }
+  .app-shell-desktop .market-command-main .pcp-chart-stage { min-height: 350px !important; }
+  .app-shell-desktop .market-command-main .pcp-network-band { min-height: 112px !important; height: 112px !important; }
+}
