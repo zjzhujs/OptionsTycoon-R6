@@ -1,0 +1,95 @@
+name: R6.6.3 Autopilot
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: r663-autopilot
+  cancel-in-progress: false
+
+jobs:
+  patch-build-test-visual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Read patch queue and apply one generation
+        id: queue
+        run: python3 scripts/r663_patch_queue.py
+
+      - name: Setup Node
+        if: steps.queue.outputs.pending == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.22.2'
+          cache: npm
+
+      - name: Install
+        if: steps.queue.outputs.pending == 'true'
+        run: npm ci --no-audit --no-fund
+
+      - name: Build
+        if: steps.queue.outputs.pending == 'true'
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
+        run: npm run build
+
+      - name: Prepare legacy test fixture path
+        if: steps.queue.outputs.pending == 'true'
+        run: |
+          mkdir -p ../data
+          cp src/engine/data/financial_terms.json ../data/financial_terms.json
+
+      - name: Full Vitest
+        if: steps.queue.outputs.pending == 'true'
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
+        run: npm test
+
+      - name: Install Chromium
+        if: steps.queue.outputs.pending == 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Start preview
+        if: steps.queue.outputs.pending == 'true'
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4173 > /tmp/r663-preview.log 2>&1 &
+          for i in {1..60}; do
+            curl -fsS http://127.0.0.1:4173/ >/dev/null && exit 0
+            sleep 1
+          done
+          cat /tmp/r663-preview.log
+          exit 1
+
+      - name: Capture acceptance screens
+        if: steps.queue.outputs.pending == 'true'
+        run: node scripts/r663_visual_capture.mjs
+
+      - name: Upload acceptance artifact
+        if: always() && steps.queue.outputs.pending == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: r663-${{ steps.queue.outputs.generation_id }}
+          path: /tmp/r663-artifacts/
+          if-no-files-found: warn
+          retention-days: 7
+
+      - name: Commit verified patch
+        if: steps.queue.outputs.pending == 'true' && success()
+        env:
+          MSG: ${{ steps.queue.outputs.commit_message }}
+        run: |
+          git config user.name "R6.6.3 Autopilot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "$MSG"
+          git push origin HEAD:main
