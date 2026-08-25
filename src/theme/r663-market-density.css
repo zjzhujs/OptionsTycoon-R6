@@ -1,0 +1,134 @@
+/* R6.6.3 MARKET visual convergence 005
+   Desktop-only energy-density pass after 004d visual review.
+   Mobile geometry and touch layout stay untouched. */
+
+@media (min-width: 1280px) {
+  .market-command-main .pcp-network-band {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 7% 68%, rgba(var(--ot-accent-rgb), .34) 0 1px, transparent 2.4px),
+      radial-gradient(circle at 18% 28%, rgba(var(--ot-accent-rgb), .24) 0 1px, transparent 2.2px),
+      radial-gradient(circle at 31% 76%, rgba(var(--ot-accent-rgb), .30) 0 1.2px, transparent 2.6px),
+      radial-gradient(circle at 43% 34%, rgba(var(--ot-accent-rgb), .28) 0 1px, transparent 2.4px),
+      radial-gradient(circle at 57% 72%, rgba(var(--ot-accent-rgb), .30) 0 1.1px, transparent 2.5px),
+      radial-gradient(circle at 69% 24%, rgba(var(--ot-accent-rgb), .26) 0 1px, transparent 2.4px),
+      radial-gradient(circle at 82% 67%, rgba(var(--ot-accent-rgb), .34) 0 1.2px, transparent 2.7px),
+      radial-gradient(circle at 93% 31%, rgba(var(--ot-accent-rgb), .26) 0 1px, transparent 2.4px),
+      linear-gradient(180deg, rgba(var(--ot-accent-rgb), .07), rgba(0, 0, 0, .06));
+    box-shadow:
+      inset 0 1px 0 rgba(var(--ot-accent-rgb), .24),
+      inset 0 0 42px rgba(var(--ot-accent-rgb), .10),
+      0 0 24px rgba(var(--ot-accent-rgb), .05);
+  }
+
+  .market-command-main .pcp-network-band::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: -12% -3%;
+    pointer-events: none;
+    background:
+      linear-gradient(14deg, transparent 0 42%, rgba(var(--ot-accent-rgb), .17) 42.3% 42.7%, transparent 43%),
+      linear-gradient(-16deg, transparent 0 47%, rgba(var(--ot-accent-rgb), .14) 47.3% 47.7%, transparent 48%),
+      linear-gradient(27deg, transparent 0 57%, rgba(var(--ot-accent-rgb), .11) 57.3% 57.7%, transparent 58%),
+      linear-gradient(-31deg, transparent 0 63%, rgba(var(--ot-accent-rgb), .10) 63.2% 63.6%, transparent 64%);
+    filter: drop-shadow(0 0 4px rgba(var(--ot-accent-rgb), .38));
+    opacity: .88;
+    transform: translate3d(0, 0, 0);
+    animation: ot-network-field-drift 7.4s ease-in-out infinite alternate;
+  }
+
+  .market-command-main .pcp-network-band > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .market-command-main .pcp-network-mesh {
+    opacity: .96 !important;
+    filter: drop-shadow(0 0 4px rgba(var(--ot-accent-rgb), .42));
+  }
+
+  .market-command-main .pcp-network-mesh::before,
+  .market-command-main .pcp-network-mesh::after {
+    opacity: .90 !important;
+    filter: drop-shadow(0 0 5px rgba(var(--ot-accent-rgb), .34));
+  }
+
+  .market-command-main .pcp-network-node {
+    opacity: 1 !important;
+    transform: scale(1.16);
+    box-shadow:
+      0 0 4px rgba(var(--ot-accent-rgb), .90),
+      0 0 12px rgba(var(--ot-accent-rgb), .54),
+      0 0 22px rgba(var(--ot-accent-rgb), .18);
+  }
+
+  .market-command-shell .col-left > .panel {
+    border-color: color-mix(in srgb, var(--ot-accent) 28%, var(--ot-line));
+    background:
+      linear-gradient(90deg, rgba(var(--ot-accent-rgb), .045), transparent 36%),
+      var(--ot-surface-raised);
+    box-shadow:
+      inset 2px 0 0 rgba(var(--ot-accent-rgb), .42),
+      inset 0 1px 0 rgba(var(--ot-accent-rgb), .08);
+  }
+
+  .market-command-shell .col-left > .panel strong,
+  .market-command-shell .col-left > .panel .metric-value {
+    text-shadow: 0 0 10px rgba(var(--ot-accent-rgb), .18);
+  }
+
+  .command-right-content .wrr-seat-card {
+    border-color: color-mix(in srgb, var(--ot-accent) 26%, var(--ot-line));
+    background:
+      linear-gradient(90deg, rgba(var(--ot-accent-rgb), .06), transparent 42%),
+      color-mix(in srgb, var(--ot-surface-raised) 92%, black);
+    box-shadow: inset 1px 0 0 rgba(var(--ot-accent-rgb), .26);
+  }
+
+  .command-right-content .wrr-seat-card.is-speaking {
+    border-color: color-mix(in srgb, var(--ot-accent) 68%, var(--ot-line-strong));
+    box-shadow:
+      inset 3px 0 0 var(--ot-accent),
+      inset 0 0 30px rgba(var(--ot-accent-rgb), .12),
+      0 0 22px rgba(var(--ot-accent-rgb), .12) !important;
+  }
+
+  html[data-theme="amber"] .market-command-main .pcp-network-band {
+    background:
+      radial-gradient(circle at 16% 62%, rgba(42, 184, 255, .30) 0 1px, transparent 2.5px),
+      radial-gradient(circle at 38% 31%, rgba(255, 184, 64, .38) 0 1.2px, transparent 2.7px),
+      radial-gradient(circle at 58% 72%, rgba(42, 184, 255, .26) 0 1px, transparent 2.5px),
+      radial-gradient(circle at 79% 37%, rgba(255, 184, 64, .34) 0 1.2px, transparent 2.7px),
+      linear-gradient(180deg, rgba(255, 164, 52, .07), rgba(0, 0, 0, .08));
+  }
+
+  html[data-theme="calm"] .market-command-main .pcp-network-band::before {
+    opacity: .54;
+  }
+
+  html[data-theme="neon"] .market-command-main .pcp-network-band {
+    background:
+      radial-gradient(circle at 10% 66%, rgba(25, 216, 255, .42) 0 1.2px, transparent 2.8px),
+      radial-gradient(circle at 27% 28%, rgba(136, 92, 255, .42) 0 1.2px, transparent 2.8px),
+      radial-gradient(circle at 45% 72%, rgba(25, 216, 255, .38) 0 1.2px, transparent 2.8px),
+      radial-gradient(circle at 64% 30%, rgba(136, 92, 255, .38) 0 1.2px, transparent 2.8px),
+      radial-gradient(circle at 84% 68%, rgba(25, 216, 255, .42) 0 1.2px, transparent 2.8px),
+      linear-gradient(180deg, rgba(25, 216, 255, .075), rgba(67, 32, 120, .08));
+    box-shadow:
+      inset 0 1px 0 rgba(25, 216, 255, .32),
+      inset 0 0 46px rgba(60, 120, 255, .12),
+      0 0 28px rgba(25, 216, 255, .08);
+  }
+}
+
+@keyframes ot-network-field-drift {
+  from { transform: translate3d(-1.2%, .5%, 0) scale(1.01); }
+  to { transform: translate3d(1.4%, -.7%, 0) scale(1.035); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .market-command-main .pcp-network-band::before { animation: none !important; }
+}
