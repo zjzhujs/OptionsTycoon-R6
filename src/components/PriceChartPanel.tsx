@@ -181,7 +181,7 @@ export function PriceChartPanel({
           + 0.65 * Math.sin(index * 0.971)
           + 0.35 * Math.sin(index * 0.417)
         ) / 2;
-        const raw = point.price + wave * dayRange * 0.032 * envelope;
+        const raw = point.price + wave * dayRange * 0.055 * envelope;
         const price = Math.round(Math.min(innerHigh, Math.max(innerLow, raw)) * 100) / 100;
         return { ...point, price };
       });
