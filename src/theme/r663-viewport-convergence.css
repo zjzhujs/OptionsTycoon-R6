@@ -1,0 +1,54 @@
+/* R6.6.3 visual convergence 010
+   Desktop-first viewport composition pass. Keep the market hero intact while
+   reclaiming vertical budget consumed by duplicated tutorial/mission chrome. */
+
+@media (min-width: 1280px) and (max-height: 1100px) {
+  /* MARKET already carries EP/day/context in the command topbar. The separate
+     mission banner duplicates that information and pushes the decision deck
+     under the sticky machine rail on reference-sized viewports. */
+  .app-shell-desktop:has(.market-command-shell) > .app-workspace-flow > .mission-header.current-objective-banner.mission-tracker,
+  .app-shell-desktop > .app-workspace-flow[data-active-workspace="MARKET"] > .mission-header.current-objective-banner.mission-tracker {
+    display: none !important;
+  }
+
+  /* Preserve the novice guidance, but make it read as a thin analyst ticker
+     rather than a second full panel between chart and decision console. */
+  .app-shell-desktop .market-command-shell .novice-trend-guide {
+    min-height: 38px !important;
+    max-height: 40px !important;
+    margin-top: 4px !important;
+    padding: 3px 8px !important;
+  }
+
+  .app-shell-desktop .market-command-shell .novice-trend-guide .ntg-text {
+    font-size: 8px !important;
+    line-height: 1.15 !important;
+  }
+
+  .app-shell-desktop .market-command-shell .novice-trend-guide .ntg-actions button {
+    min-height: 28px !important;
+    height: 28px !important;
+    padding: 3px 7px !important;
+  }
+
+  /* The reference keeps all five decisions legible above the fixed machine
+     base. Trim only dead vertical padding; do not alter widths or semantics. */
+  .app-shell-desktop .market-command-main .decision-deck {
+    min-height: 142px !important;
+    height: 142px !important;
+    margin-top: 4px !important;
+  }
+
+  .app-shell-desktop .market-command-main .decision-deck-thesis,
+  .app-shell-desktop .market-command-main .decision-key-console {
+    min-height: 142px !important;
+    height: 142px !important;
+  }
+
+  .app-shell-desktop .market-command-main .decision-key-grid {
+    height: 114px !important;
+  }
+
+  .app-shell-desktop .market-command-main .decision-key {
+    min-height: 114px !important;
+  }
