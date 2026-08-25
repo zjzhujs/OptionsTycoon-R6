@@ -153,7 +153,9 @@ export function PriceChartPanel({
       : null;
     if (revealed && revealed.points.length > 1) return revealed;
     if (dailyVisualAnchor && currentGameDate) {
-      return buildDailyAnchoredVisualSeries(dailyVisualAnchor, currentGameDate, 169);
+      // 391 points = 390 RTH minute intervals plus both endpoints. Interior
+      // points remain SIMULATED visual data; admitted real bars still own truth.
+      return buildDailyAnchoredVisualSeries(dailyVisualAnchor, currentGameDate, 391);
     }
     return revealed;
   }, [intradayBars, dailyVisualAnchor, currentGameDate]);
