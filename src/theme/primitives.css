@@ -1,0 +1,50 @@
+.ot-panel,
+.panel,
+.command-surface {
+  border: 1px solid var(--ot-line);
+  border-radius: var(--ot-radius-sm);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.018), transparent 42%), var(--ot-surface);
+  box-shadow: none;
+}
+
+.command-surface[data-elevation="raised"] {
+  background: var(--ot-surface-raised);
+  box-shadow: var(--ot-shadow-panel);
+}
+
+button,
+.ot-btn,
+[role="button"] {
+  min-height: 36px;
+  border-radius: var(--ot-radius-xs);
+}
+
+button:focus-visible,
+.ot-btn:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--ot-accent);
+  outline-offset: 2px;
+}
+
+.ot-btn-primary,
+button.primary,
+.ui-btn-primary {
+  color: #080b0f;
+  border-color: color-mix(in srgb, var(--ot-accent) 82%, white);
+  background: var(--ot-accent);
+  box-shadow: var(--ot-shadow-accent);
+  font-weight: 800;
+}
+
+.ot-badge {
+  border: 1px solid var(--ot-line);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.green, .is-positive, .text-green { color: var(--ot-positive); }
+.red, .is-negative, .text-red { color: var(--ot-negative); }
+

@@ -1,0 +1,262 @@
+{
+  "pack_id": "c4_intraday_v1",
+  "scenario_id": "c4",
+  "version": 1,
+  "generated_at": "2026-08-21T08:13:25.183768+00:00",
+  "runtime_network_required": false,
+  "truth_label": "REAL_INTRADAY",
+  "included_sessions": [
+    {
+      "session_id": "c4_spy_2020-03-09_1m",
+      "ticker": "SPY",
+      "date": "2020-03-09",
+      "granularity": "1m_real_dukascopy",
+      "file": "spy_2020-03-09.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_tlt_2020-03-09_1m",
+      "ticker": "TLT",
+      "date": "2020-03-09",
+      "granularity": "1m_real_dukascopy",
+      "file": "tlt_2020-03-09.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_spy_2020-03-10_1m",
+      "ticker": "SPY",
+      "date": "2020-03-10",
+      "granularity": "1m_real_dukascopy",
+      "file": "spy_2020-03-10.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_tlt_2020-03-10_1m",
+      "ticker": "TLT",
+      "date": "2020-03-10",
+      "granularity": "1m_real_dukascopy",
+      "file": "tlt_2020-03-10.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_spy_2020-03-11_1m",
+      "ticker": "SPY",
+      "date": "2020-03-11",
+      "granularity": "1m_real_dukascopy",
+      "file": "spy_2020-03-11.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_tlt_2020-03-11_1m",
+      "ticker": "TLT",
+      "date": "2020-03-11",
+      "granularity": "1m_real_dukascopy",
+      "file": "tlt_2020-03-11.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_spy_2020-03-12_1m",
+      "ticker": "SPY",
+      "date": "2020-03-12",
+      "granularity": "1m_real_dukascopy",
+      "file": "spy_2020-03-12.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_tlt_2020-03-12_1m",
+      "ticker": "TLT",
+      "date": "2020-03-12",
+      "granularity": "1m_real_dukascopy",
+      "file": "tlt_2020-03-12.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_spy_2020-03-13_1m",
+      "ticker": "SPY",
+      "date": "2020-03-13",
+      "granularity": "1m_real_dukascopy",
+      "file": "spy_2020-03-13.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_tlt_2020-03-13_1m",
+      "ticker": "TLT",
+      "date": "2020-03-13",
+      "granularity": "1m_real_dukascopy",
+      "file": "tlt_2020-03-13.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_spy_2020-03-16_1m",
+      "ticker": "SPY",
+      "date": "2020-03-16",
+      "granularity": "1m_real_dukascopy",
+      "file": "spy_2020-03-16.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_tlt_2020-03-16_1m",
+      "ticker": "TLT",
+      "date": "2020-03-16",
+      "granularity": "1m_real_dukascopy",
+      "file": "tlt_2020-03-16.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_spy_2020-03-17_1m",
+      "ticker": "SPY",
+      "date": "2020-03-17",
+      "granularity": "1m_real_dukascopy",
+      "file": "spy_2020-03-17.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_tlt_2020-03-17_1m",
+      "ticker": "TLT",
+      "date": "2020-03-17",
+      "granularity": "1m_real_dukascopy",
+      "file": "tlt_2020-03-17.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_spy_2020-03-18_1m",
+      "ticker": "SPY",
+      "date": "2020-03-18",
+      "granularity": "1m_real_dukascopy",
+      "file": "spy_2020-03-18.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_tlt_2020-03-18_1m",
+      "ticker": "TLT",
+      "date": "2020-03-18",
+      "granularity": "1m_real_dukascopy",
+      "file": "tlt_2020-03-18.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_spy_2020-03-19_1m",
+      "ticker": "SPY",
+      "date": "2020-03-19",
+      "granularity": "1m_real_dukascopy",
+      "file": "spy_2020-03-19.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_tlt_2020-03-19_1m",
+      "ticker": "TLT",
+      "date": "2020-03-19",
+      "granularity": "1m_real_dukascopy",
+      "file": "tlt_2020-03-19.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_spy_2020-03-20_1m",
+      "ticker": "SPY",
+      "date": "2020-03-20",
+      "granularity": "1m_real_dukascopy",
+      "file": "spy_2020-03-20.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_tlt_2020-03-20_1m",
+      "ticker": "TLT",
+      "date": "2020-03-20",
+      "granularity": "1m_real_dukascopy",
+      "file": "tlt_2020-03-20.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_spy_2020-03-23_1m",
+      "ticker": "SPY",
+      "date": "2020-03-23",
+      "granularity": "1m_real_dukascopy",
+      "file": "spy_2020-03-23.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c4_tlt_2020-03-23_1m",
+      "ticker": "TLT",
+      "date": "2020-03-23",
+      "granularity": "1m_real_dukascopy",
+      "file": "tlt_2020-03-23.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    }
+  ],
+  "provenance": [
+    {
+      "source_name": "Part4 C4 daily market data (StatMuse / FRED VIXCLS)",
+      "source_url_or_identifier": "https://fred.stlouisfed.org/series/VIXCLS",
+      "source_type": "REAL_VENDOR",
+      "sha256": "e8c7ca5f11c0a4b5a4a704c745dcf1284361762d5f3f5717f61fe5a5f963c507",
+      "note": "11/11 trading days (2020-03-09 through 2020-03-23) daily OHLCV."
+    },
+    {
+      "source_name": "Part26 C4/C6 ETF contract-level options",
+      "source_url_or_identifier": "https://github.com/anahatsingh-ui/options-dataset-hist",
+      "source_type": "REAL_VENDOR",
+      "sha256": "5b2efe00e76dfda3a70fcc6b9cb9587639d83751a3e0eb6ab62951153c62a74e",
+      "note": "Complete SPY EOD options chain with Greeks and zero null values."
+    },
+    {
+      "source_name": "Part33 Dukascopy 1m tick archive",
+      "source_url_or_identifier": "https://datafeed.dukascopy.com/datafeed/",
+      "source_type": "REAL_VENDOR",
+      "sha256": "9554d6e8cf2185f862261b48b24d0e003f44a18cdb2e1c484eea55f26f6babf5",
+      "note": "1-minute regular session mid quotes."
+    },
+    {
+      "source_name": "Part42 HFDL ETF 1m benchmark",
+      "source_url_or_identifier": "https://api.hfdatalibrary.com/",
+      "source_type": "REAL_VENDOR",
+      "sha256": "4a21d437eee4a15aebea6717a9d68fbd6e2be9b22bf66efcb3129bcbabad57d2",
+      "note": "Independent cross-check 1-minute dataset."
+    }
+  ],
+  "files_sha256": {
+    "spy_2020-03-09.json": "aa13e4310cf5fc1b0a1c4f25e92f8e6252f3f9d3f2b7f3a220b93212920fd5cc",
+    "tlt_2020-03-09.json": "1529856f9ccca13c7830cafb7f7d6cfe9fdd1c38c2939342e913ab232df60b3d",
+    "spy_2020-03-10.json": "91a0333aa8acb995af5933d0412c25a5ab41273f3a42d17356c8757a2d77f87d",
+    "tlt_2020-03-10.json": "9a0998a63d37a86250ae8eb901afa00f61261fa2e5278b238cae7c8618f25f84",
+    "spy_2020-03-11.json": "709496be369e1290600d5ccc8dabc07796cd71ae581314174208a534be770779",
+    "tlt_2020-03-11.json": "964f539b8d0f8461f45fc63eede00840b0551c57d421bab60b98c77251c40648",
+    "spy_2020-03-12.json": "b140cc5c76b2a5cbd0a7fac7e5897fa75263e201fc00253ef1819dbedf35282f",
+    "tlt_2020-03-12.json": "32eb66d0d929b8f660c2eb9e0b560c63005f93665ef8595de4a77c7ed166b4d6",
+    "spy_2020-03-13.json": "ec7498eedecfcc012a3ef5b52c6d3a3148e9a7b4315082138a8749e0b2de86eb",
+    "tlt_2020-03-13.json": "f5507407e03a964076b319bd70bd59936f5f26bbb596d413e5e0b4d3aa4b650f",
+    "spy_2020-03-16.json": "b3ae576abba5c3fde4d597ecc46467f9718e93099e2690a13e7891e9f762b412",
+    "tlt_2020-03-16.json": "19b9d38856b873f73bc85fa1f56d4a168d998656636e6d10f44b9d59e71a01a5",
+    "spy_2020-03-17.json": "607fcb3f7180bcce3a8bc4b2de6012d47049b48792ba161ef800230f7f21f69e",
+    "tlt_2020-03-17.json": "f1aa62fc970f9b372bd6de9751a277788fa47e67b96093b5e351a03d345c85d1",
+    "spy_2020-03-18.json": "402cc43da3614e643430caaee5209815eeb968721553dd1d67e00bec349d2db6",
+    "tlt_2020-03-18.json": "6333c69f2185f3e48737cab23d055bbab7f3769ca12588a7ccdeddd601bc7205",
+    "spy_2020-03-19.json": "3a5d4efeb2997614ffc0d35659e4ae243afce018888ee8fb40dd54d227c02053",
+    "tlt_2020-03-19.json": "8def858084af9040cb9f1f1c7aa3fd53174a0dc9fb43bb97461c1c8a1554effa",
+    "spy_2020-03-20.json": "9358c39d95fb7373ba8b4c3f24f4a83b66ad8071fd16e372b7b4cedc257d2452",
+    "tlt_2020-03-20.json": "712dd0d28a70118f7f494f90bccb7ef94b830c8c13101b69df87507817f71733",
+    "spy_2020-03-23.json": "c0de519f603b015a311cecb7ddce1afbbb5bd0900313df9968f42f79dd1beb27",
+    "tlt_2020-03-23.json": "290894c7b65ff92e1044d88041989dff0056ccf655e3b8c1bb082286c165409f"
+  }
+}

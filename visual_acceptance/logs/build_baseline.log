@@ -1,0 +1,47 @@
+
+> options-tycoon-frontend@0.1.0 build
+> tsc -b && vite build
+
+vite v5.4.21 building for production...
+transforming...
+✓ 1447 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                            0.96 kB │ gzip:     0.46 kB
+dist/assets/TradeReview360Modal-DFFKaPCp.css               0.94 kB │ gzip:     0.41 kB
+dist/assets/CapitalPowerPanel-Bmx4NpVI.css                 0.98 kB │ gzip:     0.39 kB
+dist/assets/VisualPrototypeDemo-BS9GWzDu.css               7.72 kB │ gzip:     2.20 kB
+dist/assets/index-GIant_Bh.css                           497.47 kB │ gzip:    87.94 kB
+dist/assets/BorderBeam-BzP5S1nF.js                         1.34 kB │ gzip:     0.74 kB
+dist/assets/PowerLedgerPanel-QJc7TevP.js                   2.76 kB │ gzip:     1.60 kB
+dist/assets/OptionsDataSourcePanel-DkZAX0iC.js             2.83 kB │ gzip:     1.84 kB
+dist/assets/CreditsModal-DPNDLwg7.js                       2.83 kB │ gzip:     1.52 kB
+dist/assets/SurvivalCrisisModal-B4-smiWX.js                2.92 kB │ gzip:     1.46 kB
+dist/assets/TermsModal--tHCoDhI.js                         3.20 kB │ gzip:     1.42 kB
+dist/assets/SettingsModal-DwBOssRK.js                      3.39 kB │ gzip:     1.37 kB
+dist/assets/LPRelationsPanel-g9185WSJ.js                   3.54 kB │ gzip:     1.44 kB
+dist/assets/BackgroundBeamsWithCollision-BhILTw1z.js       3.84 kB │ gzip:     1.58 kB
+dist/assets/EpisodeOutcomeModal-CdAD57-o.js                4.01 kB │ gzip:     1.54 kB
+dist/assets/MarketPulsePanel-sPf1ZaRC.js                   4.40 kB │ gzip:     1.50 kB
+dist/assets/intraday_path-Cuv6Q4sH.js                      4.76 kB │ gzip:     2.36 kB
+dist/assets/HumanActionFeedPanel-Cum4QSvL.js               5.28 kB │ gzip:     2.39 kB
+dist/assets/InteractiveTutorialModal-BMv6oS2X.js           5.53 kB │ gzip:     4.17 kB
+dist/assets/TutorialModal-SC1K3hl7.js                      5.73 kB │ gzip:     4.06 kB
+dist/assets/FirstTradeReviewModal-V6LW0x8r.js              6.37 kB │ gzip:     3.46 kB
+dist/assets/MarketRevealModal-CwmBHrWA.js                  6.47 kB │ gzip:     2.97 kB
+dist/assets/StockFundamentalsPanel-BlC_SW4V.js             6.58 kB │ gzip:     3.08 kB
+dist/assets/SeasonFinaleModal-VpTEQz_W.js                  6.92 kB │ gzip:     2.72 kB
+dist/assets/WallStreetDeskPanel-CvB1Si8u.js                7.74 kB │ gzip:     2.66 kB
+dist/assets/PolicyDeskPanel-DvZNkUV5.js                    8.58 kB │ gzip:     2.67 kB
+dist/assets/TradeReviewModal-Cuv86N1_.js                   8.76 kB │ gzip:     2.99 kB
+dist/assets/FlowPositioningDeskPanel-BY7sxx00.js          10.26 kB │ gzip:     3.93 kB
+dist/assets/VisualPrototypeDemo-DIWrCycy.js               11.08 kB │ gzip:     3.53 kB
+dist/assets/TradeReview360Modal-CPbwtjRh.js               26.46 kB │ gzip:     8.44 kB
+dist/assets/CapitalPowerPanel-BZW6MIqH.js                 30.27 kB │ gzip:    11.43 kB
+dist/assets/vendor-ogl-C0AFvV6O.js                        47.02 kB │ gzip:    13.59 kB
+dist/assets/StrategyLabModal-CMe_5wtn.js                  55.24 kB │ gzip:    32.07 kB
+dist/assets/vendor-motion-BZqfq2Gj.js                    137.12 kB │ gzip:    45.18 kB
+dist/assets/PriceChartPanel-sfYZUqOV.js                  196.12 kB │ gzip:    63.79 kB
+dist/assets/vendor-three-BDYuvPBI.js                     508.39 kB │ gzip:   127.38 kB
+dist/assets/index-CVFrGn3S.js                         35,207.96 kB │ gzip: 7,107.08 kB
+✓ built in 13.57s

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "retribution_sec_mnpi_marcus_1",
+    "incident_type": "INSIDER_MNPI_LEAK",
+    "character_id": "marcus_reed",
+    "character_name": "Marcus Reed",
+    "headline": "SEC 突击搜查：内幕通讯证据链锁定",
+    "opening_line": "两天前你以为那通私密电话没人录音？华盛顿政策智库的服务器昨晚被我们整机扣押了。梁经理，交出所有私人手机，你现在涉嫌重大非法获取 MNPI 内幕交易。",
+    "threat_level": "CRITICAL_LEGAL",
+    "consequence_summary": "合规警戒度飙升至红色，所有外部交易端口被实施二级司法审计监控。"
+  },
+  {
+    "id": "retribution_sec_mnpi_marcus_2",
+    "incident_type": "INSIDER_MNPI_LEAK",
+    "character_id": "marcus_reed",
+    "character_name": "Marcus Reed",
+    "headline": "联邦大陪审团传票送达",
+    "opening_line": "建仓时间点比公开快讯早了整整 47 秒，资金路径在离岸账户转了三次依然留下痕迹。不要解释，签字接收传票，下周三联邦法院听证会见。",
+    "threat_level": "CRITICAL_LEGAL",
+    "consequence_summary": "冻结管理费账户 20% 资金作为司法保证金，声誉直接遭受重创。"
+  },
+  {
+    "id": "retribution_pb_leverage_daniel_1",
+    "incident_type": "OVERLEVERAGED_BREACH",
+    "character_id": "daniel_ross",
+    "character_name": "Daniel Ross",
+    "headline": "主经纪商清算委员会突击查账",
+    "opening_line": "三天前您擅自绕过风控拉满 4 倍杠杆时，大概没想到美债收益率会倒挂吧？风险委员会今早已全票否决了 Dante 的豁免申请。下午一点前若无 500 万抵押品入账，强平程序即刻启动。",
+    "threat_level": "CRITICAL_LIQUIDITY",
+    "consequence_summary": "借贷点差被迫上浮 120 个基点，维持保证金比例强制提升至 40%。"
+  },
+  {
+    "id": "retribution_pb_leverage_daniel_2",
+    "incident_type": "OVERLEVERAGED_BREACH",
+    "character_id": "daniel_ross",
+    "character_name": "Daniel Ross",
+    "headline": "机构信用降级与资产冻结令",
+    "opening_line": "擅自越权放大杠杆是要付出代价的。您的资产负债表健康度已被系统降级为 C 级，现在这间办公室里所有的期权持仓，实质上都属于摩根士丹利清算台。",
+    "threat_level": "CRITICAL_LIQUIDITY",
+    "consequence_summary": "全面封锁隔夜杠杆授信额度，强制削减最大持仓手数上限。"
+  },
+  {
+    "id": "retribution_rival_smear_adrian_1",
+    "incident_type": "RIVAL_SMEAR_ARTICLE",
+    "character_id": "adrian_cross",
+    "character_name": "Adrian Cross",
+    "headline": "Apex Horizon 头版发难：引爆机构挤兑",
+    "opening_line": "两天前在盘口趁恐慌在盘口借机低吸，很痛快吧？《华尔街日报》今天的头版头条全是关于你们流动性危机的深度调查。看看你的前台吧，LP 的撤资电话已经打爆了！",
+    "threat_level": "HIGH_REPUTATION",
+    "consequence_summary": "LP 信心指数直接暴跌 15 点，赎回预警阈值收窄至 5%。"
+  },
+  {
+    "id": "retribution_rival_smear_evelyn_2",
+    "incident_type": "RIVAL_SMEAR_ARTICLE",
+    "character_id": "evelyn_shaw",
+    "character_name": "Evelyn Shaw",
+    "headline": "《华尔街日报》头版见报：独家暗访曝光",
+    "opening_line": "梁经理，你之前打官腔拒绝回应的那些隐秘仓位，有人把带公章的内部风控备忘录寄到了我的办公桌上。文章已经印刷见报了，全街的买方现在都在关注你们的合规漏洞。",
+    "threat_level": "HIGH_REPUTATION",
+    "consequence_summary": "媒体关注度指数飙升，引发监管机构关注与公关危机。"
+  },
+  {
+    "id": "retribution_compliance_raid_marcus_1",
+    "incident_type": "COMPLIANCE_INTERNAL_RAID",
+    "character_id": "marcus_reed",
+    "character_name": "Marcus Reed",
+    "headline": "合规部联合执法突击封门",
+    "opening_line": "交易员私设加密通讯频道的把戏到此为止了。技术合规小组正在镜像拷贝你们的交易终端硬盘，在完成逐笔订单撮合核验之前，全员禁止离开交易大厅。",
+    "threat_level": "CRITICAL_LEGAL",
+    "consequence_summary": "暂停当日新开仓权限，交易席位仅限执行平仓与保护性对冲。"
+  },
+  {
+    "id": "retribution_compliance_raid_victor_2",
+    "incident_type": "COMPLIANCE_INTERNAL_RAID",
+    "character_id": "victor_hale",
+    "character_name": "Victor Hale",
+    "headline": "风控一票否决权正式启动",
+    "opening_line": "我早就警告过违规操作会引火烧身！现在 SEC 和合规审查员就站在玻璃门外。依照合规章程第 14 条，我正式接管交易室最高风控权限，所有高风险头寸即刻进入冻结清算！",
+    "threat_level": "HIGH_INTERNAL",
+    "consequence_summary": "内部团队士气受到重创，风控预算被强制收缩至最低保护阈值。"
+  }
+]

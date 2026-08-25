@@ -1,0 +1,83 @@
+{
+ "session_id": "r1_qqq_2025-01-29_hourly",
+ "ticker": "QQQ",
+ "date": "2025-01-29",
+ "timezone": "America/New_York",
+ "source_timestamp_timezone": "UTC",
+ "interval_label": "60m / final partial regular-session bar",
+ "source_type": "REAL_VENDOR",
+ "source_name": "Yahoo Finance chart v8 (60m)",
+ "source_url_or_identifier": "https://query1.finance.yahoo.com/v8/finance/chart/QQQ?period1=1737417600&period2=1738454400&interval=60m&includePrePost=false",
+ "source_price_basis": "split-adjusted, not dividend-adjusted",
+ "runtime_network_required": false,
+ "captured_at": "2026-08-18",
+ "captured_by": "tools/capture_intraday.py (claude)",
+ "bars": [
+  {
+   "ts": "2025-01-29T14:30:00Z",
+   "label_et": "09:30–10:30 ET",
+   "open": 522.53,
+   "high": 522.53,
+   "low": 519.63,
+   "close": 520.11,
+   "volume": 5224550
+  },
+  {
+   "ts": "2025-01-29T15:30:00Z",
+   "label_et": "10:30–11:30 ET",
+   "open": 520.14,
+   "high": 520.75,
+   "low": 519.02,
+   "close": 519.85,
+   "volume": 1941138
+  },
+  {
+   "ts": "2025-01-29T16:30:00Z",
+   "label_et": "11:30–12:30 ET",
+   "open": 519.75,
+   "high": 521.18,
+   "low": 519.3,
+   "close": 520.74,
+   "volume": 1407361
+  },
+  {
+   "ts": "2025-01-29T17:30:00Z",
+   "label_et": "12:30–13:30 ET",
+   "open": 520.81,
+   "high": 521.0,
+   "low": 516.9,
+   "close": 519.9,
+   "volume": 2869953
+  },
+  {
+   "ts": "2025-01-29T18:30:00Z",
+   "label_et": "13:30–14:30 ET",
+   "open": 519.95,
+   "high": 520.44,
+   "low": 517.35,
+   "close": 517.66,
+   "volume": 2879219
+  },
+  {
+   "ts": "2025-01-29T19:30:00Z",
+   "label_et": "14:30–15:30 ET",
+   "open": 517.66,
+   "high": 522.41,
+   "low": 517.39,
+   "close": 522.14,
+   "volume": 6382357
+  },
+  {
+   "ts": "2025-01-29T20:30:00Z",
+   "label_et": "15:30–16:00 ET",
+   "open": 522.15,
+   "high": 522.48,
+   "low": 519.38,
+   "close": 520.78,
+   "volume": 2582760
+  }
+ ],
+ "material_windows": [],
+ "usage": "DATA_ONLY",
+ "integrity_note": "真实小时 bar，逐根来自所引 Yahoo 60m 端点，未插值、未缩放成交量、未使用日线 OHLC 推算。成交量缺失即整天拒收。"
+}

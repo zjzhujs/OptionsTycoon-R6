@@ -1,0 +1,96 @@
+html[data-theme="calm"] {
+  --ot-bg-0: #030a10;
+  --ot-bg-1: #06131d;
+  --ot-bg-2: #0a1b28;
+  --ot-surface: rgba(7, 23, 34, 0.91);
+  --ot-surface-raised: rgba(11, 29, 41, 0.94);
+  --ot-line: rgba(36, 70, 87, 0.58);
+  --ot-line-strong: rgba(75, 195, 222, 0.58);
+  --ot-text: #e0e8ec;
+  --ot-text-soft: #9fafba;
+  --ot-text-dim: #637987;
+  --ot-accent: #4bc3de;
+  --ot-accent-rgb: 75, 195, 222;
+  --ot-accent-2: #4ea7db;
+  --ot-positive: #44cf7b;
+  --ot-negative: #ed584a;
+  --ot-warning: #d7b33f;
+  --ot-info: #4ea7db;
+  --cmd-top-h: 70px;
+  --cmd-bottom-h: 72px;
+  --cmd-left-w: 320px;
+  --cmd-right-w: 335px;
+  --cmd-panel-gap: 14px;
+  --cmd-stage-pad-top: 6px;
+  --cmd-stage-pad: 0px;
+  --cmd-seat-height: 118px;
+  --cmd-seat-gap: 10px;
+  --cmd-ornament-opacity: 0.24;
+  --cmd-texture-opacity: 0.08;
+  --cmd-network-opacity: 0.38;
+  --cmd-glow-strength: 0.1;
+  --cmd-border-contrast: 0.2;
+  --cmd-surface-depth: 0.9;
+  --cmd-chart-min-h: 251px;
+  --cmd-volume-h: 52px;
+  --cmd-network-h: 76px;
+  --cmd-surface-base: url('/visual_assets/03_textures/calm/surface_base.webp');
+  --cmd-surface-grid: url('/visual_assets/03_textures/calm/surface_grid.webp');
+  --cmd-surface-microdetail: url('/visual_assets/03_textures/calm/surface_microdetail.webp');
+  --cmd-backplane-image: url('/visual_assets/05_backplanes/calm/backplane_01.webp');
+  --cmd-ambient-bloom: url('/visual_assets/06_glows/calm/soft_ambient_bloom.webp');
+}
+
+/* Theme-owned network density: same decision graph, different spatial energy. */
+html[data-theme="calm"] .pcp-network-node:nth-child(n+10) { display:none; }
+
+@media (max-width:480px) {
+  html[data-theme="calm"] .pcp-network-node:nth-child(n+8) { display:none; }
+}
+
+/* Calm = low-fatigue institutional steel; structure stays visible without bloom. */
+html[data-theme="calm"] .market-command-shell,
+html[data-theme="calm"] .fund-hq-container,
+html[data-theme="calm"] .portfolio-workspace-layout,
+html[data-theme="calm"] .intel-workspace-layout,
+html[data-theme="calm"] .review-workspace-layout { box-shadow:none; }
+html[data-theme="calm"] .market-hero-stage,
+html[data-theme="calm"] .decision-deck,
+html[data-theme="calm"] .wrr-seat-card { box-shadow:none; }
+html[data-theme="calm"] .decision-key-console-head { background:rgba(75,195,222,.025); }
+html[data-theme="calm"] .command-bottom-rail { backdrop-filter:none; background:rgba(3,10,16,.97); }
+
+
+/* R6.6.3 final desktop visual convergence — executive calm */
+@media (min-width:1280px) {
+  html[data-theme="calm"] {
+    --cmd-top-h:72px; --cmd-bottom-h:72px; --cmd-left-w:322px; --cmd-right-w:338px; --cmd-panel-gap:14px;
+    --cmd-chart-min-h:270px; --cmd-volume-h:52px; --cmd-network-h:78px; --cmd-decision-h:142px;
+    --cmd-ornament-opacity:.20; --cmd-texture-opacity:.06; --cmd-network-opacity:.32; --cmd-glow-strength:.07; --cmd-border-contrast:.18;
+  }
+  html[data-theme="calm"] .market-command-shell { background:linear-gradient(180deg,#06121b,#040d14 74%,#030a10); }
+  html[data-theme="calm"] .market-hero-stage {
+    background:linear-gradient(180deg,rgba(8,27,39,.98),rgba(4,14,22,.99));
+    border-color:rgba(75,195,222,.34);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.025);
+  }
+  html[data-theme="calm"] .reference-rail-stack { gap:10px; }
+  html[data-theme="calm"] .reference-rail-instrument {
+    border-color:rgba(36,70,87,.50);
+    background:linear-gradient(180deg,rgba(10,27,39,.94),rgba(6,18,27,.96));
+    box-shadow:none;
+  }
+  html[data-theme="calm"] .reference-fund-instrument { min-height:120px; }
+  html[data-theme="calm"] .reference-risk-instrument { min-height:116px; }
+  html[data-theme="calm"] .reference-thesis-instrument { min-height:76px; }
+  html[data-theme="calm"] .reference-event-instrument { min-height:74px; }
+  html[data-theme="calm"] .reference-greeks-instrument { min-height:80px; }
+  html[data-theme="calm"] .reference-margin-instrument { min-height:92px; }
+  html[data-theme="calm"] .decision-key { border-color:rgba(36,70,87,.46); background:transparent; box-shadow:none; }
+  html[data-theme="calm"] .decision-confirm-actuator,
+  html[data-theme="calm"] .btn-primary {
+    clip-path:polygon(0 0,calc(100% - 7px) 0,100% 7px,100% 100%,7px 100%,0 calc(100% - 7px));
+    border-color:rgba(75,195,222,.62);
+    box-shadow:none;
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "pack_id": "c5_intraday_v1",
+  "scenario_id": "c5",
+  "version": 1,
+  "generated_at": "2026-08-21T08:30:00Z",
+  "runtime_network_required": false,
+  "truth_label": "REAL_INTRADAY",
+  "data_mode": "INTRADAY_PLUS_AGGREGATE_EVIDENCE",
+  "included_sessions": [
+    {
+      "session_id": "c5_nflx_2022-04-18_1m",
+      "ticker": "NFLX",
+      "date": "2022-04-18",
+      "granularity": "1m_real_hfdl",
+      "file": "nflx_2022-04-18.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "c5_nflx_2022-04-19_1m",
+      "ticker": "NFLX",
+      "date": "2022-04-19",
+      "granularity": "1m_real_hfdl",
+      "file": "nflx_2022-04-19.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "c5_nflx_2022-04-20_1m",
+      "ticker": "NFLX",
+      "date": "2022-04-20",
+      "granularity": "1m_real_hfdl",
+      "file": "nflx_2022-04-20.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "c5_nflx_2022-04-21_1m",
+      "ticker": "NFLX",
+      "date": "2022-04-21",
+      "granularity": "1m_real_hfdl",
+      "file": "nflx_2022-04-21.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "c5_nflx_2022-04-22_1m",
+      "ticker": "NFLX",
+      "date": "2022-04-22",
+      "granularity": "1m_real_hfdl",
+      "file": "nflx_2022-04-22.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 390
+    }
+  ],
+  "carry_data_coverage": [
+    {
+      "symbol": "NFLX",
+      "from_at": "2022-04-18",
+      "to_at": "2022-04-22",
+      "required_fields": [
+        "intraday_ohlcv"
+      ],
+      "status": "VERIFIED",
+      "available_dates": [
+        "2022-04-18",
+        "2022-04-19",
+        "2022-04-20",
+        "2022-04-21",
+        "2022-04-22"
+      ],
+      "missing_dates": [],
+      "coverage_ratio": 1.0,
+      "source_refs": [
+        "Part41"
+      ],
+      "note": "5/5 requested dates; 1950 real regular-session 1m rows, 390 per date."
+    },
+    {
+      "symbol": "NFLX",
+      "from_at": "2022-04-18",
+      "to_at": "2022-04-22",
+      "required_fields": [
+        "daily_ohlcv"
+      ],
+      "status": "VERIFIED",
+      "available_dates": [
+        "2022-04-18",
+        "2022-04-19",
+        "2022-04-20",
+        "2022-04-21",
+        "2022-04-22"
+      ],
+      "missing_dates": [],
+      "coverage_ratio": 1.0,
+      "source_refs": [
+        "Part41"
+      ],
+      "note": "Daily OHLCV is derived deterministically from the same 390 real 1m bars per date."
+    },
+    {
+      "symbol": "NFLX",
+      "from_at": "2022-04-18",
+      "to_at": "2022-04-22",
+      "required_fields": [
+        "earnings_week_aggregate"
+      ],
+      "status": "VERIFIED",
+      "available_dates": [
+        "2022-04-18",
+        "2022-04-19",
+        "2022-04-20",
+        "2022-04-21",
+        "2022-04-22"
+      ],
+      "missing_dates": [],
+      "coverage_ratio": 1.0,
+      "source_refs": [
+        "Part25"
+      ],
+      "note": "Part25 has one real aggregate row for each requested date."
+    },
+    {
+      "symbol": "NFLX",
+      "from_at": "2022-04-18",
+      "to_at": "2022-04-22",
+      "required_fields": [
+        "complete_option_chain"
+      ],
+      "status": "PARTIAL",
+      "available_dates": [
+        "2022-04-18",
+        "2022-04-20",
+        "2022-04-22"
+      ],
+      "missing_dates": [
+        "2022-04-19",
+        "2022-04-21"
+      ],
+      "coverage_ratio": 0.6,
+      "source_refs": [
+        "Part29"
+      ],
+      "note": "Part29 has 158/144/158 rows on 4/18, 4/20, and 4/22; 4/19 and 4/21 are missing_at_source. No adjacent substitution."
+    },
+    {
+      "symbol": "NFLX",
+      "from_at": "2022-04-18",
+      "to_at": "2022-04-22",
+      "required_fields": [
+        "iv_crush_scoring"
+      ],
+      "status": "PARTIAL",
+      "available_dates": [
+        "2022-04-18",
+        "2022-04-20",
+        "2022-04-22"
+      ],
+      "missing_dates": [
+        "2022-04-19",
+        "2022-04-21"
+      ],
+      "coverage_ratio": 0.6,
+      "source_refs": [
+        "Part29"
+      ],
+      "note": "IV crush scoring is FULL_CHAIN only on dates with the complete option-chain extract; missing dates use DOWNGRADED_PARTIAL_CHAIN."
+    },
+    {
+      "symbol": "NFLX",
+      "from_at": "2022-04-18",
+      "to_at": "2022-04-22",
+      "required_fields": [
+        "partial_greeks_evidence"
+      ],
+      "status": "PARTIAL",
+      "available_dates": [
+        "2022-04-19",
+        "2022-04-21"
+      ],
+      "missing_dates": [
+        "2022-04-18",
+        "2022-04-20",
+        "2022-04-22"
+      ],
+      "coverage_ratio": 0.4,
+      "source_refs": [
+        "Part51"
+      ],
+      "note": "Part51 supplies partial EOD Greeks on 4/19 and 4/21 only; bid/ask/open_interest remain unavailable and this does not repair chain coverage."
+    },
+    {
+      "symbol": "NFLX",
+      "from_at": "2022-04-18",
+      "to_at": "2022-04-22",
+      "required_fields": [
+        "contract_utilization"
+      ],
+      "status": "MISSING",
+      "available_dates": [],
+      "missing_dates": [
+        "2022-04-18",
+        "2022-04-19",
+        "2022-04-20",
+        "2022-04-21",
+        "2022-04-22"
+      ],
+      "coverage_ratio": 0.0,
+      "source_refs": [
+        "Part29",
+        "Part51"
+      ],
+      "note": "No complete contract-level utilization evidence is available; do not promise carry from aggregate or partial evidence."
+    }
+  ],
+  "evidence_policy": {
+    "mode": "AGGREGATE_EVIDENCE",
+    "forbidden_inference_fields": [
+      "complete_option_chain",
+      "contract_iv",
+      "contract_greeks",
+      "contract_utilization"
+    ],
+    "notice": "Part25 aggregate plus Part51 partial Greeks never stand in for a complete option chain. 4/19 and 4/21 IV crush scoring is DOWNGRADED_PARTIAL_CHAIN."
+  },
+  "distribution_note": "C5 uses real Part41 NFLX 1m bars and Part25 earnings-week aggregate evidence. Part29 full-chain coverage is 3/5; 4/19 and 4/21 remain missing_at_source. No carry is promised for unavailable contract fields.",
+  "provenance": [
+    {
+      "source_name": "Part41 HF Data Library NFLX exact target-date 1m slice",
+      "source_url_or_identifier": "https://hfdatalibrary.com/pages/download",
+      "source_type": "REAL_VENDOR",
+      "sha256": "4143fab662de89ea57de69f31bffc5f9b5b43295b7f83d576d7c10acf25ba43b",
+      "note": "5/5 dates, 1950 rows, 390 regular-session bars per date; raw provider values preserved with no minute padding."
+    },
+    {
+      "source_name": "Part25 gauss314/options-IV-SP500 NFLX daily aggregate",
+      "source_url_or_identifier": "https://huggingface.co/datasets/gauss314/options-IV-SP500",
+      "source_type": "REAL_VENDOR",
+      "sha256": "c781c0600ac5e738d52c0294cb8142eac9617cebf19c6ae676c3f93091d80681",
+      "note": "5/5 aggregate rows; includes call/put activity, open interest, IV buckets, HV windows, and VIX, but no contract-level chain or Greeks."
+    },
+    {
+      "source_name": "Part29 DoltHub NFLX EOD option quotes/Greeks",
+      "source_url_or_identifier": "https://www.dolthub.com/repositories/post-no-preference/options",
+      "source_type": "REAL_VENDOR",
+      "sha256": "f51427520d12d3f27a861f24ca52d62a1eb8fe09a4a03f94e8392f958df191eb",
+      "note": "460 rows on 3/5 dates; 4/19 and 4/21 are zero-row source gaps. No adjacent-date substitution."
+    },
+    {
+      "source_name": "Part51 Strasmore NFLX partial missing-date Greeks",
+      "source_url_or_identifier": "https://ai.strasmore.com/chat",
+      "source_type": "REAL_VENDOR",
+      "sha256": "4150620755361f4b34182c8c947dabac6e0009d5efd3205c8ebca7f97f278f3f",
+      "note": "3648 partial EOD Greeks rows on 4/19 and 4/21; bid/ask/open_interest are unavailable, so this does not repair complete-chain coverage."
+    },
+    {
+      "source_name": "strasmore NFLX eod quotes join Part58",
+      "source_type": "REAL_VENDOR",
+      "sha256": "4a8e5e2cb0773dc0b3977752454547b6fcb033bed9b70e3a2c7e14817e5a9217",
+      "rows": 3648
+    }
+  ],
+  "files_sha256": {
+    "nflx_2022-04-18.json": "a0dfc36a731c8bbd34076b2f67723ea70c22446f589cd0b5d00a555612c37f6e",
+    "nflx_2022-04-19.json": "a15035bd44382ea987e388804fc1071f16ec7c80cc5e1b0c87da51a36190f851",
+    "nflx_2022-04-20.json": "e1cb00485b48929c1a7c7c6549015416f3f9b5124baabeab73148bb473d45940",
+    "nflx_2022-04-21.json": "87fafc1caf645de4addf54be55637f6c1d68c2ef7060ea23465334563e7bf949",
+    "nflx_2022-04-22.json": "846dc9799193ed1f70c47914eaa43c28c0521b1be91890bc5dc681d0acccec1f",
+    "nflx_options_2022-04-19.json": "9e3e31b40c7ec7d19d615bb5a7f9b16421f7e30a60f9ec325a7dc620ad7011d1",
+    "nflx_options_2022-04-21.json": "f068dfd7c841f6730f118fd4d305465d489a1d878f9f345d79bf8f10fd123e2f"
+  },
+  "integrity_note_update": "2026-08-21: 4/19 & 4/21 chain gaps closed via Part58; IV crush scoring can be un-downgraded for these days once engine consumes chains. OI still missing."
+}

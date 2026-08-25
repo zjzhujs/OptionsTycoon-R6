@@ -1,0 +1,1546 @@
+[
+  {
+    "id": "gme_1_setup",
+    "title": "GME 逼空 1/8：反馈回路与逼空假说 (1/11-13)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "leo_park",
+    "headline_template": "Leo Park: 看看这帮做梦的散户",
+    "body_template": "Leo 盯着屏幕：'散户还在吹捧 Ryan Cohen 入局 GME。What a fucking joke！但要注意，这场 Gamma squeeze 目前还是个待证伪的竞争性假说。SEC 的报告迹象显示，异动很大程度是 Put buying 驱动的，做市商为了对冲是在被迫买入 Call（Forced Flow 驱动）而不是单纯的空头回补。别他妈的随便站队，做多还是做空，你必须先定义清楚四个条件：驱动因子、成功标志、撤退条件和止损观测点！'",
+    "regime_bias": [
+      "GENERIC",
+      "MEME"
+    ],
+    "hidden": {
+      "reliability": 0.9,
+      "importance": 0.9
+    },
+    "choices": [
+      {
+        "id": "gme_setup_long",
+        "label": "顺应趋势做多，设定放量停滞为撤退信号",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {},
+        "result_text": "多头头寸已建立，入场点位已记录。"
+      },
+      {
+        "id": "gme_setup_short",
+        "label": "坚持基本面做空，留足现金应对 Mark-to-Market 冲击",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {},
+        "result_text": "逆向空头头寸已建立，已提升维持保证金预算。"
+      },
+      {
+        "id": "gme_setup_neutral",
+        "label": "用期权结构做波动率交易，不赌绝对方向",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {},
+        "result_text": "波动率中性组合已配置，已锁定最大下行敞口。"
+      }
+    ]
+  },
+  {
+    "id": "gme_2_first_feedback",
+    "title": "GME 逼空 2/8：初步反馈 (1/22)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "adrian_cross",
+    "headline_template": "Adrian Cross: 这帮乌合之众简直可笑",
+    "body_template": "Adrian 看着盘面冷笑：'看看这帮买 GME 的散户，觉得能撬动地球。Bullshit！Leo 刚说了，这是期权驱动的 Forced Flow，纯属资金博弈。你真觉得靠这群键盘侠能推爆机构的保证金？市场就是绞肉机，这帮自命不凡的蠢货，迟早连底裤都他妈的亏掉。'",
+    "regime_bias": [
+      "MEME"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 0.9
+    },
+    "choices": [
+      {
+        "id": "gme_ff_ride",
+        "label": "这就是我们等的机会，利用 Forced Flow 的动能加仓",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "leo_park": {
+            "trust": 2
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "跟随资金动能加仓，依赖日内成交量支撑。"
+      },
+      {
+        "id": "gme_ff_fade",
+        "label": "Forced Flow 耗尽后就是暴跌，准备反手逢高做空",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "victor_hale": {
+            "trust": 2
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "逢高做空准备就绪，等待买盘衰竭信号。"
+      }
+    ]
+  },
+  {
+    "id": "gme_3_acceleration",
+    "title": "GME 逼空 3/8：疯狂加速 (1/25-27)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "maya_chen",
+    "headline_template": "Leo Park: 行情疯了！这是 Gamma Squeeze！",
+    "body_template": "交易台彻底炸锅。Victor 在吼：'GME 的维持保证金要求被 PB 提到天上了！' Maya 盯着屏幕尖叫：'流动性枯竭了，滑点大得离谱！' Adrian 则冷笑：'这帮散户疯了。' Leo 猛砸桌子：'Holy shit，这根本不是什么普通轧空，这是赤裸裸的 Gamma squeeze！做市商为了对冲那堆 Call，正在不计成本地 fucking buy 正股！'",
+    "regime_bias": [
+      "MEME"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 1.0
+    },
+    "choices": [
+      {
+        "id": "gme_accel_trim",
+        "label": "锁定部分利润/砍掉部分亏损，降低暴露",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "victor_hale": {
+            "trust": 5
+          }
+        },
+        "fund_deltas": {
+          "counterparty_trust": 2
+        },
+        "result_text": "主动降低头寸规模，回笼可用现金。"
+      },
+      {
+        "id": "gme_accel_hold",
+        "label": "坚持原先的 Thesis，无论多空，拒绝被噪音动摇",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "adrian_cross": {
+            "respect": 3
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "维持多头持仓不变，保证金占用率升至高位。"
+      }
+    ]
+  },
+  {
+    "id": "gme_4_stress_test",
+    "title": "GME 逼空 4/8：夜间压力测试 (1/27 夜)",
+    "category": "operational",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": "daniel_ross",
+    "headline_template": "Victor Hale: 回撤警报！立刻给我降杠杆！",
+    "body_template": "Victor 满脸铁青地冲过来：'回撤已经拉响红色警报！PB 的 Daniel 刚打来电话，因为 GME 见鬼的波动率，他们正在对所有持仓大幅提高 haircut！这根本不是什么狗屁基本面，这是 mark-to-market 的流动性挤兑！你的维持保证金快被打穿了，立刻给我 fucking 降杠杆！'",
+    "regime_bias": [
+      "MEME"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 1.0
+    },
+    "choices": [
+      {
+        "id": "gme_stress_add_margin",
+        "label": "抽调其他安全资产的流动性，死保 GME 仓位",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "daniel_ross": {
+            "trust": -2
+          }
+        },
+        "fund_deltas": {
+          "lp_confidence": -2
+        },
+        "result_text": "紧急调拨其他标的抵押品，维持单一标的持仓。"
+      },
+      {
+        "id": "gme_stress_reduce",
+        "label": "主动平仓降杠杆，不让 PB 掌握生杀大权",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "daniel_ross": {
+            "trust": 5
+          }
+        },
+        "fund_deltas": {
+          "counterparty_trust": 3
+        },
+        "result_text": "执行止损清仓，锁定亏损并消除强平风险。"
+      }
+    ]
+  },
+  {
+    "id": "gme_5_market_fracture",
+    "title": "GME 逼空 5/8：市场断裂 (1/28)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "marcus_reed",
+    "headline_template": "Maya Chen: 交易所可能要拔网线！",
+    "body_template": "Maya 瞪大了眼睛：'Fuck！流动性瞬间蒸发了！GME 已经触发了无数次 LULD 停牌机制。而且 Robinhood 这帮混蛋直接拔了网线，开启了 closing-only 限制，散户只能平仓不能新开 position。如果我们也被卡在里面，全他妈得死在这儿！'",
+    "regime_bias": [
+      "MEME"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 1.0
+    },
+    "choices": [
+      {
+        "id": "gme_frac_exit",
+        "label": "市场基础设施已经失效，不计成本撤出这片战场",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "marcus_reed": {
+            "trust": 3
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "交易限制生效，已平仓结清剩余头寸。"
+      },
+      {
+        "id": "gme_frac_short",
+        "label": "买盘被物理切断，这是天赐的做空拐点！",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "adrian_cross": {
+            "respect": 5
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "券商限制买入指令，盘口流动性骤降。"
+      }
+    ]
+  },
+  {
+    "id": "gme_6_restrictions_lifted",
+    "title": "GME 逼空 6/8：限制调整 (1/29)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "leo_park",
+    "headline_template": "限制逐步解除：别把反弹当反转",
+    "body_template": "1/29，券商筹集到资金，有限度地允许散户重新买入。散户论坛一片欢呼，认为逼空即将重启。Leo 把数据表狠狠砸在桌上：'看清楚，{player}！期权隐波已经高到那帮散户根本买不起，最脆弱的空头昨天已经被强制平仓了。绝对不要把‘限制解除’等同于‘逼空 Thesis 恢复’。Feedback loop 已经断了，你觉得那帮散户还能拉得动？'",
+    "regime_bias": [
+      "MEME"
+    ],
+    "hidden": {
+      "reliability": 0.9,
+      "importance": 0.8
+    },
+    "choices": [
+      {
+        "id": "gme_lift_false_dawn",
+        "label": "反馈回路已断，此时的反抽是诱多，坚持看空或清仓",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "leo_park": {
+            "trust": 4
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "买盘断流，动能反转逻辑成立。"
+      },
+      {
+        "id": "gme_lift_buy_dip",
+        "label": "顺应散户情绪，认为限制解除会带来第二波拉升",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "leo_park": {
+            "trust": -2
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "情绪溢价消退，标的进入价值回归通道。"
+      }
+    ]
+  },
+  {
+    "id": "gme_7_unwind",
+    "title": "GME 逼空 7/8：无情解体 (2/1-3)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "victor_hale",
+    "headline_template": "Adrian Cross: 属于他们的绞肉机开动了",
+    "body_template": "Adrian 看着暴跌的曲线冷笑：'Shit，还在喊 HODL？Victor 刚证实了，现在是反向的 Forced Flow，散户的保证金被打穿，正引发连环强制平仓。泡沫一旦戳破，下砸的速度比涨快十倍。看看这血流成河的盘面，这就是他妈的铁律。'",
+    "regime_bias": [
+      "MEME"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 0.9
+    },
+    "choices": [
+      {
+        "id": "gme_unwind_discipline",
+        "label": "严格按照开局写下的条件无情执行",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "victor_hale": {
+            "trust": 8
+          }
+        },
+        "fund_deltas": {
+          "reputation": 3
+        },
+        "result_text": "Victor 确认风控纪律执行到位，未发生越权违规。"
+      },
+      {
+        "id": "gme_unwind_hopium",
+        "label": "抛弃纪律，根据盘面直觉临时修改策略",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "victor_hale": {
+            "trust": -6
+          }
+        },
+        "fund_deltas": {
+          "reputation": -3
+        },
+        "result_text": "Victor 指出持仓严重偏离原定计划，记入风控台账。"
+      }
+    ]
+  },
+  {
+    "id": "gme_8_postmortem",
+    "title": "GME 逼空 8/8：法证复盘 (2/5)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "maya_chen",
+    "headline_template": "余波与真相：Reflexivity attribution",
+    "body_template": "2/5，这场史诗级轧空落下帷幕。Maya 和 Leo 将三周的数据做完归因。'复盘结果很明确，' Maya 推了推眼镜，'那些赚了大钱还把原因归结为 Gamma Squeeze 的人，只是走了狗屎运。真正的推手是散户叙事加上大量 Short-cover 的被迫买入。' Leo 补充：'我们必须把资金流拆解清楚：哪些是意愿交易，哪些是强制交易。连 Reflexivity attribution 都做不对的机构，下次怎么死的都不知道。'",
+    "regime_bias": [
+      "MEME"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 0.9
+    },
+    "choices": [
+      {
+        "id": "gme_post_acknowledge",
+        "label": "将证据更新进投研框架，不再迷信网络叙事",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "maya_chen": {
+            "trust": 5
+          },
+          "leo_park": {
+            "trust": 5
+          }
+        },
+        "fund_deltas": {
+          "information_network": 4
+        },
+        "result_text": "战役闭环，归因分析已写入基金档案。"
+      }
+    ]
+  },
+  {
+    "id": "c4_1_liquidity_checklist",
+    "title": "Dash for Cash 1/7：变现清单",
+    "category": "operational",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": "victor_hale",
+    "headline_template": "风雨欲来：你的变现跑道够长吗？",
+    "body_template": "疫情恐慌正在席卷整个华尔街。Victor 盯着你的持仓，面无表情：'在真正的危机来临时，连最优质的资产也会卖不掉。如果明后天市场崩盘，你靠什么变现来满足追加的保证金？现在，立刻给我列出变现优先级清单，别等流动性彻底干涸了再来求救！'",
+    "regime_bias": [
+      "CRISIS"
+    ],
+    "hidden": {
+      "reliability": 0.9,
+      "importance": 0.9
+    },
+    "choices": [
+      {
+        "id": "c4_setup_list",
+        "label": "确认变现清单：优先卖国债，保留信用债",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {},
+        "result_text": "你制定了应急计划。"
+      }
+    ]
+  },
+  {
+    "id": "c4_2_treasury_anomaly",
+    "title": "Dash for Cash 2/7：美债异常 (3/9-12)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "leo_park",
+    "headline_template": "Risk-Off 还是 Dash-for-Cash？国债也在崩盘！",
+    "body_template": "3/9 到 3/12，股市一泻千里。最诡异的事情发生了：作为避险之王的美国长债（TLT）竟然也在被疯狂抛售！Leo 盯着盘面满头大汗：'Shit，这根本不是正常的 Risk-Off 逻辑！如果是避险，资金应该涌入国债。现在股债双杀，只有美元在涨。所有人都在抛售一切能换成现金的东西！这是典型的 Dash-for-Cash！'",
+    "regime_bias": [
+      "CRISIS",
+      "RATES"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 1.0
+    },
+    "choices": [
+      {
+        "id": "c4_anomaly_recognize",
+        "label": "认定为流动性危机，立刻准备应对融资收紧",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "leo_park": {
+            "trust": 3
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "流动性收紧得到确认，启动防守预案。"
+      },
+      {
+        "id": "c4_anomaly_ignore",
+        "label": "这只是市场短暂错乱，继续按传统避险逻辑加仓美债",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "victor_hale": {
+            "trust": -3
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "维持现有仓位，基差波动超出预期。"
+      }
+    ]
+  },
+  {
+    "id": "c4_3_spread_widens",
+    "title": "Dash for Cash 3/7：融资压力 (3/13-16)",
+    "category": "operational",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": "daniel_ross",
+    "headline_template": "Maya Chen: 信用利差在爆表！",
+    "body_template": "Maya 把数据摔在桌上：'Goddamn it！HYG 的 bid/ask spread 正在暴烈走阔，不仅是高收益债，连 IEF 这种避险资产都在被无差别抛售！PB 正在大幅提高 haircut，这是无差别的 risk-off 和流动性挤兑，基本面模型全他妈失效了！'",
+    "regime_bias": [
+      "CRISIS"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 1.0
+    },
+    "choices": [
+      {
+        "id": "c4_margin_call_ack",
+        "label": "明白，准备采取变现行动",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "daniel_ross": {
+            "respect": 2
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "生存之战开始了。"
+      }
+    ]
+  },
+  {
+    "id": "c4_4_liquidation_choice",
+    "title": "Dash for Cash 4/7：割肉抉择 (3/16)",
+    "category": "briefing",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": "victor_hale",
+    "headline_template": "Leo Park: 想活命就快跑！",
+    "body_template": "Leo 在交易台前大吼：'PB 的 Daniel 在疯狂逼宫！Fuck！你想活命，就必须选：是打折割肉卖掉最烂但流动性差的 HYG，还是含泪卖掉流动性最好的 SPY 换现金？没人管狗屁长期价值，全在夺门而出，犹豫半秒就得死在最底下！'",
+    "regime_bias": [
+      "CRISIS"
+    ],
+    "hidden": {
+      "reliability": 0.9,
+      "importance": 1.0
+    },
+    "choices": [
+      {
+        "id": "c4_sell_worst",
+        "label": "忍痛砍掉流动性最差的信用债，保留优质资产",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "victor_hale": {
+            "trust": 4
+          }
+        },
+        "fund_deltas": {
+          "counterparty_trust": 3
+        },
+        "result_text": "断臂求生，滑点让你损失惨重，但你清除了有毒资产。"
+      },
+      {
+        "id": "c4_sell_best",
+        "label": "卖掉最容易出手的国债，保留有毒资产硬扛",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "victor_hale": {
+            "trust": -4
+          }
+        },
+        "fund_deltas": {
+          "reputation": -2
+        },
+        "result_text": "你保留了炸弹，卖掉了防弹衣，这是标准的被迫去杠杆动作。"
+      },
+      {
+        "id": "c4_hedge_index",
+        "label": "通过指数做空对冲，试图熬过去",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "leo_park": {
+            "trust": 3
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "在市场极端波动时，跨资产对冲可能因为相关性崩溃而双向亏损。"
+      }
+    ]
+  },
+  {
+    "id": "c4_5_fed_intervention",
+    "title": "Dash for Cash 5/7：美联储出手",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "maya_chen",
+    "headline_template": "美联储政策逐条揭示，流动性拐点",
+    "body_template": "美联储终于坐不住了。他们宣布了一系列紧急流动性支持工具，开始购买国债甚至公司债ETF。Maya 快速刷新着终端：'他们没有一次性打出所有底牌，而是一条一条在试探。市场正在从极度恐慌中苏醒。这种时候绝对不要去抢跑政策，只能基于**已经宣布的文本**操作，别自己意淫他们会救到底。'",
+    "regime_bias": [
+      "CRISIS",
+      "FED"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 1.0
+    },
+    "choices": [
+      {
+        "id": "c4_fed_wait",
+        "label": "严格跟踪政策时间戳，逐批恢复仓位",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "maya_chen": {
+            "trust": 5
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "你保持了极好的政策时点纪律。"
+      }
+    ]
+  },
+  {
+    "id": "c4_6_policy_inflection",
+    "title": "Dash for Cash 6/7：获救还是看对？ (3/23)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "victor_hale",
+    "headline_template": "政策拐点后：别把运气当实力",
+    "body_template": "3/23，美联储宣布无限量量化宽松，市场迎来了历史级的政策拐点。你的账户终于停止流血，甚至因为资产反弹赚了一笔。Victor 却在这个时候给你泼冷水：'看一眼你的净值曲线，{player}。你活下来了，但扪心自问，是因为你最初的 Thesis 是对的，还是仅仅因为美联储把你从悬崖边拉了回来？如果把‘获救’误当成自己‘看对’，下一次危机你会死得连渣都不剩。'",
+    "regime_bias": [
+      "CRISIS",
+      "FED"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 0.9
+    },
+    "choices": [
+      {
+        "id": "c4_inflection_reflect",
+        "label": "承认原逻辑已被证伪，纯靠政策流动性续命",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "victor_hale": {
+            "trust": 6
+          }
+        },
+        "fund_deltas": {
+          "reputation": 2
+        },
+        "result_text": "诚实面对自己是顶级交易员的必备素质。"
+      },
+      {
+        "id": "c4_inflection_arrogance",
+        "label": "坚持认为自己早就预判了美联储会救市",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "victor_hale": {
+            "trust": -5
+          }
+        },
+        "fund_deltas": {
+          "reputation": -2
+        },
+        "result_text": "Victor 摇了摇头，这是一种极其危险的自大。"
+      }
+    ]
+  },
+  {
+    "id": "c4_7_postmortem",
+    "title": "Dash for Cash 7/7：法证复盘",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "daniel_ross",
+    "headline_template": "谁是真正的 Forced Seller？",
+    "body_template": "危机结束后的总结会上，Daniel 带来了 PB 端的数据：'我们复盘一下，在最黑暗的那几天，谁是他妈的 Forced Seller（被迫卖家）？是那些杠杆过高的风险平价基金，是被赎回条款逼到绝境的公募。在这场大洗牌里，只要你没有被迫在最差的流动性下清仓，你就赢了。相关性在危机中全部趋向于 1，只有现金才是真正的分散。'",
+    "regime_bias": [
+      "CRISIS"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 0.9
+    },
+    "choices": [
+      {
+        "id": "c4_postmortem_ack",
+        "label": "总结 Survival/runway 和流动性敏感执行经验",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "daniel_ross": {
+            "trust": 4
+          }
+        },
+        "fund_deltas": {
+          "information_network": 2
+        },
+        "result_text": "你将这些血淋淋的教训写进了基金的风控手册。"
+      }
+    ]
+  },
+  {
+    "id": "c5_1_implied_move",
+    "title": "财报错价 1/7：隐含波动率估算 (4/18 收盘)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "leo_park",
+    "headline_template": "期权市场预期了多大的动静？",
+    "body_template": "NFLX 财报明天盘后发布。4/18 收盘，Leo 把期权链的数据拉出来排在屏幕上：'看这些 Straddle 的定价。市场隐含的财报后预期波动（Implied Move）大概在 ±10% 左右。这意味着如果你现在去买平值期权，NFLX 至少得涨跌超过这个幅度你才能回本。方向对不等于能赚钱，你付出的溢价太贵了。'",
+    "regime_bias": [
+      "EARNINGS"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 0.9
+    },
+    "choices": [
+      {
+        "id": "c5_1_ack",
+        "label": "记录下期权市场的隐含波动，准备评估情景概率",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {},
+        "result_text": "你清楚了市场的底牌。"
+      }
+    ]
+  },
+  {
+    "id": "c5_2_trading_lock",
+    "title": "财报错价 2/7：盘前静默 (4/19)",
+    "category": "compliance",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": "marcus_reed",
+    "headline_template": "Victor Hale: 科技板块的宏观溃败",
+    "body_template": "Victor 紧盯着屏幕大骂：'Goddamn it，科技股 Beta 全在跌！' Maya 补充：'我们必须预写好 Beat/Base/Miss 三个情景的脚本。' 此时 Marcus 严厉介入：'一旦财报公布，会有硬交易锁（Trading Lock）！系统会根据你预设的条件自动执行，盘中你根本没法撤单。你想看着净值归零吗？立刻把你他妈的单一期权组合调平！'",
+    "regime_bias": [
+      "EARNINGS",
+      "GENERIC"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 0.8
+    },
+    "choices": [
+      {
+        "id": "c5_2_lock_in",
+        "label": "锁定期权结构（选做 Put Spread 等防 Crush 结构），等待财报",
+        "compliance_delta": -2,
+        "relationship_deltas": {
+          "marcus_reed": {
+            "trust": 3
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "合规流程完美，底牌已定。"
+      }
+    ]
+  },
+  {
+    "id": "c5_3_earnings_data",
+    "title": "财报错价 3/7：数据公开 (4/19 盘后)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "maya_chen",
+    "headline_template": "订阅量首次下滑！底牌揭晓",
+    "body_template": "盘后钟声敲响，NFLX 的财报公开。Maya 扫了一眼 IR 发布的股东信，声音高了八度：'不仅是 Miss，这是十年来首次出现订阅用户净流出！第一季度流失了 20 万用户，而且二季度指引还要掉 200 万！这就是我们调研到的基本面逆风，这只股票的增长神话已经彻底碎了。'",
+    "regime_bias": [
+      "EARNINGS"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 1.0
+    },
+    "choices": [
+      {
+        "id": "c5_3_process_data",
+        "label": "只看当前公开的订阅和指引事实，不对明天开盘价做过度意淫",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "maya_chen": {
+            "trust": 2
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "事实已经落地，剩下的交给市场定价。"
+      }
+    ]
+  },
+  {
+    "id": "c5_4_post_market_price",
+    "title": "财报错价 4/7：盘后跌势",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "leo_park",
+    "headline_template": "盘后暴跌，但期权还在笼子里",
+    "body_template": "NFLX 盘后股价正在直线下坠，跌幅迅速超过 25%。'看着现货暴跌确实爽，' Leo 指着暗淡的期权板块，'但在正常交易时间开始前，期权市场是不开放的。你现在只是方向蒙对了，真实盈亏要在明天早上 9:30 才能变现。别假装你可以在盘后按照理论价格平仓期权。'",
+    "regime_bias": [
+      "EARNINGS"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 0.8
+    },
+    "choices": [
+      {
+        "id": "c5_4_wait_open",
+        "label": "静待明日开盘的真实重定价",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {},
+        "result_text": "纸面富贵还需经受开盘的考验。"
+      }
+    ]
+  },
+  {
+    "id": "c5_5_open_crush",
+    "title": "财报错价 5/7：开盘的残酷重定价 (4/20)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "victor_hale",
+    "headline_template": "Leo Park: 波动率被无情碾碎！",
+    "body_template": "Leo 指着开盘数据：'Holy shit，NFLX 开盘重定价，IV 瞬间被碾碎！这就是 IV Crush！你买的 Put 虽然方向对了，但波动率崩塌和宽大的 spread 把你的 PnL 榨得干干净净。你以为买跨式稳赚不赔？市场在教你他妈的怎么做人！'",
+    "regime_bias": [
+      "EARNINGS"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 1.0
+    },
+    "choices": [
+      {
+        "id": "c5_5_observe_crush",
+        "label": "观察并记录 IV Crush 对各类期权合约的真实打击",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "victor_hale": {
+            "trust": 3
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "你亲眼目睹了波动率定价的残酷。"
+      }
+    ]
+  },
+  {
+    "id": "c5_6_attribution",
+    "title": "财报错价 6/7：盈亏归因",
+    "category": "briefing",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": "leo_park",
+    "headline_template": "把利润拆开：你是靠什么赚钱的？",
+    "body_template": "次日，Leo 把交易报告打在你面前：'来做个归因分析。你这笔交易的利润，多少来自于方向做对（Delta），多少是被波动率回落吃掉的（Vega），又有多少损耗在时间价值和开盘极差的执行滑点上？如果不拆解清楚，下次财报季你就会死在同样的盲点上。'",
+    "regime_bias": [
+      "EARNINGS"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 0.9
+    },
+    "choices": [
+      {
+        "id": "c5_6_attribution_done",
+        "label": "完成详细的方向、波动率、滑点归因",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "leo_park": {
+            "trust": 6
+          }
+        },
+        "fund_deltas": {
+          "information_network": 2
+        },
+        "result_text": "专业的交易员总是对利润来源心知肚明。"
+      }
+    ]
+  },
+  {
+    "id": "c5_7_postmortem",
+    "title": "财报错价 7/7：结构与方向",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "maya_chen",
+    "headline_template": "法证复盘：方向对，但买太贵",
+    "body_template": "复盘会上，Maya 做出了最终总结：'这次 NFLX 战役是一本教科书。它让我们认清了一个真理——方向猜对，不代表你能带走利润。如果你的期权买得太贵，或者结构设计得太粗糙，市场总有办法把你的钱洗走。结构优秀的交易，永远比成本失控的单向押注活得久。'",
+    "regime_bias": [
+      "EARNINGS"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 0.9
+    },
+    "choices": [
+      {
+        "id": "c5_7_lessons",
+        "label": "将预期波动率评估写入未来所有财报交易的前置流程",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "maya_chen": {
+            "trust": 4
+          }
+        },
+        "fund_deltas": {
+          "reputation": 2
+        },
+        "result_text": "你将‘结构优于方向’刻进了基金的骨子里。"
+      }
+    ]
+  },
+  {
+    "id": "c6_1_cpi_paths",
+    "title": "久期陷阱 1/7：通胀数据前的两条路 (6/9)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "maya_chen",
+    "headline_template": "CPI 公布前夜：写下你的两套路径",
+    "body_template": "明早 8:30 美国劳工统计局就要发布 5 月 CPI 数据了。Maya 严肃地要求你：'不要去猜那个具体的数字，我们要写的是路径。如果 CPI 破 8.5%，美联储加息预期必然飙升，对高估值科技股和长久期国债是双杀；如果意外回落，我们或许能迎来反弹。你必须在今晚明确这两种情景下的操作预案。'",
+    "regime_bias": [
+      "INFLATION",
+      "FED"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 0.8
+    },
+    "choices": [
+      {
+        "id": "c6_1_write_paths",
+        "label": "制定应对超预期和不及预期的两套预案",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "maya_chen": {
+            "trust": 3
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "你准备好了迎接明天的风暴。"
+      }
+    ]
+  },
+  {
+    "id": "c6_2_cpi_reveal",
+    "title": "久期陷阱 2/7：通胀爆表 (6/10 8:30)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "victor_hale",
+    "headline_template": "Maya Chen: 这 CPI 数据简直是灾难！",
+    "body_template": "Maya 看着 BLS 刚刚公开的 CPI 数据倒吸一口气：'这数据简直是灾难！Fuck，所有押注通胀见顶的看多期权全成了废纸！' Victor 在一旁吼道：'立刻平掉多头仓位，或者拿 ETF 对冲！联储必须更狠地加息，别他妈抱有幻想！'",
+    "regime_bias": [
+      "INFLATION"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 1.0
+    },
+    "choices": [
+      {
+        "id": "c6_2_wait_open",
+        "label": "接受盘前跌幅，准备在开盘后执行止损预案",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "victor_hale": {
+            "trust": 2
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "面对现实，不存侥幸。"
+      }
+    ]
+  },
+  {
+    "id": "c6_3_correlation_1",
+    "title": "久期陷阱 3/7：同向暴跌之谜 (6/10)",
+    "category": "briefing",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": "victor_hale",
+    "headline_template": "为什么你的对冲失效了？",
+    "body_template": "开盘后，你持仓里的 QQQ 和 TLT 都在剧烈下挫！Victor 走到你身后冷冷发问：'你不是说 TLT 是避险对冲吗？为什么它们在同向暴跌？告诉我，你的持仓到底是分散了风险，还是全都暴露在了同一个宏观因子下？科技股和长债，在这个加息周期里，他妈的全是长久期资产！'",
+    "regime_bias": [
+      "RATES",
+      "INFLATION"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 1.0
+    },
+    "choices": [
+      {
+        "id": "c6_3_admit_duration",
+        "label": "承认错误，意识到自己掉入了久期陷阱",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "victor_hale": {
+            "trust": 5,
+            "respect": 3
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "Victor 对你的清醒感到欣慰。"
+      }
+    ]
+  },
+  {
+    "id": "c6_4_reset_duration",
+    "title": "久期陷阱 4/7：重组期限 (6/13-14)",
+    "category": "operational",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": "leo_park",
+    "headline_template": "加息前夕的期限结构重组",
+    "body_template": "在 6/15 美联储决议前，你有两天的时间重设仓位。Leo 提出建议：'我们必须重设现金比例，增加 Hedge，或者切换到极短期限的资产。不要去赌美联储是加 50 还是 75 个基点，我们要确保的是无论加多少，组合的净 Duration 不会把我们拖死。'",
+    "regime_bias": [
+      "FED"
+    ],
+    "hidden": {
+      "reliability": 0.9,
+      "importance": 0.8
+    },
+    "choices": [
+      {
+        "id": "c6_4_restructure",
+        "label": "减持长久期资产，提高现金比例，缩短组合久期",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "leo_park": {
+            "trust": 4
+          }
+        },
+        "fund_deltas": {
+          "counterparty_trust": 2
+        },
+        "result_text": "你把防弹衣穿好了，准备迎接美联储的审判。"
+      }
+    ]
+  },
+  {
+    "id": "c6_5_fed_75bp",
+    "title": "久期陷阱 5/7：决议时刻 (6/15 2:00 PM)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "maya_chen",
+    "headline_template": "Maya Chen: 75个基点，史无前例的重拳",
+    "body_template": "美联储正式宣布加息 75 个基点。Maya 迅速扫过决议文本：'Holy shit，他们是来真的，坚决要把通胀打死！市场的预期全部重置，这种暴力紧缩下，任何反弹都只他妈的是死猫跳！'",
+    "regime_bias": [
+      "FED"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 1.0
+    },
+    "choices": [
+      {
+        "id": "c6_5_absorb_news",
+        "label": "观察市场对 75bp 的初步消化，不急于单边下注",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "maya_chen": {
+            "trust": 2
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "你按兵不动，等待记者会的风向。"
+      }
+    ]
+  },
+  {
+    "id": "c6_6_fed_press_conf",
+    "title": "久期陷阱 6/7：路径风险 (6/15 2:30 PM)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "victor_hale",
+    "headline_template": "Victor Hale: 盘中的绞肉机",
+    "body_template": "2:30 鲍威尔开始讲话。盘面瞬间跳水，接着暴力反抽。Victor 紧握双拳：'这就是路径风险！如果你高杠杆押注单边，这种双向洗盘会直接把你他妈的止损打穿！Goddamn 绞肉机！'",
+    "regime_bias": [
+      "FED",
+      "VOLATILITY"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 1.0
+    },
+    "choices": [
+      {
+        "id": "c6_6_survive_whip",
+        "label": "保持低杠杆和宽容忍度，熬过盘中的双杀洗盘",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "victor_hale": {
+            "trust": 5
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "你的低久期防御策略让你在震荡中毫发无损。"
+      }
+    ]
+  },
+  {
+    "id": "c6_7_postmortem",
+    "title": "久期陷阱 7/7：盈亏归因",
+    "category": "briefing",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": "leo_park",
+    "headline_template": "法证复盘：你的利润来自哪里？",
+    "body_template": "尘埃落定后，Leo 启动了系统的归因分析程序：'是时候弄清楚你的 PnL 来源了。多少亏损是来自利率曲线的上移，多少是由于大盘贝塔，多少是波动率扩张，又有多大部分纯属偶然噪音？如果你把利率冲击的亏损当成选股不利，你这辈子都学不会正确的 Thesis 修正。'",
+    "regime_bias": [
+      "FED"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 0.9
+    },
+    "choices": [
+      {
+        "id": "c6_7_attribution",
+        "label": "剥离久期（Duration）因素，进行深度的因子归因",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "leo_park": {
+            "trust": 6
+          }
+        },
+        "fund_deltas": {
+          "information_network": 3
+        },
+        "result_text": "剥开现象看本质，你真正理解了什么是‘久期陷阱’。"
+      }
+    ]
+  },
+  {
+    "id": "c7_1_eo_text",
+    "title": "政策冲击 1/7：研读原文 (4/2)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "evelyn_shaw",
+    "headline_template": "Evelyn Shaw: 外媒的标题党会害死你",
+    "body_template": "终端疯狂推送关税消息。Evelyn 拿着文件直摇头：'外媒的标题党会害死你。我拿到了 White House 的 Executive Order 原文，这绝不等于完全取消！' Maya 补充：'FXI 和 EEM 已经出现异动，你现在必须理清楚到底谁暴露在火力网下，别 fucking 瞎冲！'",
+    "regime_bias": [
+      "TARIFF",
+      "NEWS"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 0.85
+    },
+    "choices": [
+      {
+        "id": "c7_1_read_text",
+        "label": "只依据正式政策文本和已公开的作用范围（Scope）交易",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "evelyn_shaw": {
+            "trust": 5
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "你抛弃了二手机器新闻，回到了信息源头。"
+      }
+    ]
+  },
+  {
+    "id": "c7_2_first_repricing",
+    "title": "政策冲击 2/7：全资产重估 (4/3)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "victor_hale",
+    "headline_template": "市场的第一波膝跳反应",
+    "body_template": "4/3 开盘，市场迎来了对关税政策的第一次全面重估。美债收益率飙升，新兴市场（EEM）和中国资产（FXI）遭到猛烈抛售，而美元指数（UUP）大幅拉升。Victor 提示你：'这只是第一波的膝跳反应。市场在进行简单粗暴的方向性宣泄，传导树深处的逻辑还没被完全定价。'",
+    "regime_bias": [
+      "TARIFF",
+      "RATES"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 0.9
+    },
+    "choices": [
+      {
+        "id": "c7_2_observe",
+        "label": "冷静观察跨资产的资金流动，不盲目追涨杀跌",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "victor_hale": {
+            "trust": 3
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "你在喧嚣中保持着理智。"
+      }
+    ]
+  },
+  {
+    "id": "c7_3_rebalance",
+    "title": "政策冲击 3/7：风险重排",
+    "category": "operational",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": "maya_chen",
+    "headline_template": "按国别和行业重组暴露敞口",
+    "body_template": "基于明确的例外条款，Maya 送来了一份详尽的供应链暴露分析：'不能单纯做空 SPY，这太粗糙了。我们要按国家和行业重新排列风险。对特定国家供应链依赖极高的零售和硬件板块首当其冲，而国内制造比例高的企业可能会享受短期溢价。我们需要建立严谨的 Pair Trading。'",
+    "regime_bias": [
+      "TARIFF"
+    ],
+    "hidden": {
+      "reliability": 0.9,
+      "importance": 0.8
+    },
+    "choices": [
+      {
+        "id": "c7_3_pair_trade",
+        "label": "精准打击：做空高暴露行业，做多受保护的本国企业",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "maya_chen": {
+            "trust": 6
+          }
+        },
+        "fund_deltas": {
+          "information_network": 3
+        },
+        "result_text": "这是对政策文本深度的完美变现。"
+      }
+    ]
+  },
+  {
+    "id": "c7_4_retaliation",
+    "title": "政策冲击 4/7：反制与信息源 (4/8-9)",
+    "category": "media",
+    "intel_class": "POSSIBLE_MNPI",
+    "character_id": "marcus_reed",
+    "headline_template": "中美反制升级：谣言还是内幕？",
+    "body_template": "4/8 晚，推特上开始疯狂流传某些国家即将出台极端反制措施的传言。Evelyn 紧急提醒你区分‘媒体耸动标题’和‘实际官方公报’。更麻烦的是，Marcus 来到你办公室敲门：'我看到你刚才平掉了一些敏感敞口。告诉我，你是不是听到了什么不该听的消息？这到底是基于公开分析，还是私下的越界小道消息？'",
+    "regime_bias": [
+      "TARIFF",
+      "NEWS"
+    ],
+    "hidden": {
+      "reliability": 0.7,
+      "legality": 0.5,
+      "importance": 0.8
+    },
+    "choices": [
+      {
+        "id": "c7_4_justify_public",
+        "label": "出示 Evelyn 整理的公开外媒与官方公报的交叉验证材料",
+        "compliance_delta": -2,
+        "relationship_deltas": {
+          "marcus_reed": {
+            "trust": 5
+          },
+          "evelyn_shaw": {
+            "trust": 3
+          }
+        },
+        "fund_deltas": {
+          "counterparty_trust": 2
+        },
+        "result_text": "Marcus 仔细检查后满意地离开了，合规红线毫发无损。"
+      },
+      {
+        "id": "c7_4_dodge",
+        "label": "含糊其辞，声称只是‘盘感’驱使",
+        "compliance_delta": 10,
+        "relationship_deltas": {
+          "marcus_reed": {
+            "trust": -6,
+            "fear": 3
+          }
+        },
+        "fund_deltas": {
+          "reputation": -2
+        },
+        "result_text": "Marcus 狐疑地看了你一眼，在风控日志上重点标记了你的名字。"
+      }
+    ]
+  },
+  {
+    "id": "c7_5_pause_reveal",
+    "title": "政策冲击 5/7：90天豁免 (4/9)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "leo_park",
+    "headline_template": "暂停不等于取消",
+    "body_template": "4/9，白宫正式宣布对部分国家暂停征收关税 90 天，以供谈判。股市应声大涨。Leo 却紧盯着你：'检查你的持仓！很多散户把这误读成了‘关税完全取消’，市场正在疯狂抢筹。但原文本写得很清楚，这只是 90 天的缓刑。你的对冲现在撤掉的话，90天后就会裸奔。'",
+    "regime_bias": [
+      "TARIFF"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 0.9
+    },
+    "choices": [
+      {
+        "id": "c7_5_hold_hedge",
+        "label": "保持清醒，不因短暂豁免而彻底解除宏观对冲",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "leo_park": {
+            "trust": 4
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "你没有被市场的短期多巴胺冲昏头脑。"
+      }
+    ]
+  },
+  {
+    "id": "c7_6_exception_clarification",
+    "title": "政策冲击 6/7：例外澄清 (4/11)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "maya_chen",
+    "headline_template": "对华关税升级：行业暴露巨震",
+    "body_template": "4/11，例外条款进一步澄清，针对中国的关税措施不仅没有暂停，反而扩大了适用清单。Maya 快速抛出更新后的模型：'之前的 90 天豁免让大家放松了警惕，但这次特定国家的升级直接打中了几个核心科技硬件供应链的要害！之前的行业暴露模型必须立刻推翻重做！'",
+    "regime_bias": [
+      "TARIFF"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 1.0
+    },
+    "choices": [
+      {
+        "id": "c7_6_remodel",
+        "label": "根据最新的例外名单，重新调整特定产业链的空头仓位",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "maya_chen": {
+            "trust": 5
+          }
+        },
+        "fund_deltas": {
+          "information_network": 2
+        },
+        "result_text": "灵活跟进政策细节，你又一次抓住了错杀与漏杀。"
+      }
+    ]
+  },
+  {
+    "id": "c7_7_postmortem",
+    "title": "政策冲击 7/7：法证复盘",
+    "category": "briefing",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": "victor_hale",
+    "headline_template": "传导链归因：你是靠什么赚钱的？",
+    "body_template": "风波渐平，Victor 让你交出复盘报告：'我们赚了不少，但现在要把每笔 PnL 对应到具体的传导链上。是赚了直接暴露的估值杀？是赚了利润率压缩的预期？还是赚了宏观通胀推高利率的宏观 Beta？如果理不清政策传导，下次关税战你照样会死得很惨。'",
+    "regime_bias": [
+      "TARIFF"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 0.8
+    },
+    "choices": [
+      {
+        "id": "c7_7_attribution",
+        "label": "进行跨资产传导链的深度归因分析",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "victor_hale": {
+            "trust": 6
+          }
+        },
+        "fund_deltas": {
+          "reputation": 3
+        },
+        "result_text": "清晰的归因是你基金最强硬的护城河。"
+      }
+    ]
+  },
+  {
+    "id": "c8_1_mnpi_rumor",
+    "title": "并购套利 1/7：MNPI 边界",
+    "category": "compliance",
+    "intel_class": "POSSIBLE_MNPI",
+    "character_id": "marcus_reed",
+    "headline_template": "Marcus Reed: 这个内幕烫手，别碰",
+    "body_template": "[系统提示: 本段私人消息纯属模拟，用于机制测试] 一位私交极深的投行高管在高尔夫球场上暗示你，微软即将溢价收购动视暴雪，价格在 $95 左右。在你大举建仓前，Marcus 站到了你的办公桌前：'合规部注意到了你之前的接触。那条消息是未公开内幕（MNPI）。你现在做的每一笔交易，我都必须留痕审计，别越界！'",
+    "regime_bias": [
+      "GENERIC",
+      "NEWS"
+    ],
+    "hidden": {
+      "reliability": 0.95,
+      "legality": 0.1,
+      "importance": 0.9
+    },
+    "choices": [
+      {
+        "id": "c8_1_isolate",
+        "label": "主动向 Marcus 报备，建立信息隔离墙，不进行任何抢跑交易",
+        "compliance_delta": -5,
+        "relationship_deltas": {
+          "marcus_reed": {
+            "trust": 8
+          }
+        },
+        "fund_deltas": {
+          "counterparty_trust": 4
+        },
+        "result_text": "Marcus 收起了警告的眼神：'底线之上凭本事赢。'"
+      },
+      {
+        "id": "c8_1_front_run",
+        "label": "无视合规警告，利用各种隐秘手段提前建仓",
+        "compliance_delta": 20,
+        "relationship_deltas": {
+          "marcus_reed": {
+            "trust": -10,
+            "fear": 5
+          }
+        },
+        "fund_deltas": {
+          "political_capital": -8
+        },
+        "result_text": "你可能赚到了钱，但这笔交易成了你头上的达摩克利斯之剑。"
+      }
+    ]
+  },
+  {
+    "id": "c8_2_deal_thesis",
+    "title": "并购套利 2/7：公告落地 (2022-01-18)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "leo_park",
+    "headline_template": "建立 Deal-Spread 模型",
+    "body_template": "Leo 在白板上写下公式：'市场不相信反垄断机构会放行，fuck their doubts。现在是正规的 Merger Arb 时间了。我们建仓的基础是：成交概率 × 资金时间成本 × 最终收敛的空间。这是一场漫长的拉锯战。'",
+    "regime_bias": [
+      "M&A"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 0.9
+    },
+    "choices": [
+      {
+        "id": "c8_2_build_model",
+        "label": "基于公开公告建立严谨的套利定价模型，计算盈亏比",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "leo_park": {
+            "trust": 5
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "这才是华尔街专业机构赚钱的姿势。"
+      }
+    ]
+  },
+  {
+    "id": "c8_3_regulatory_update",
+    "title": "并购套利 3/7：持续的监管拉锯",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "maya_chen",
+    "headline_template": "概率更新不改变历史",
+    "body_template": "接下来的几个月里，多国监管机构频繁发布对这笔交易的审查意见。每次有新闻，ATVI 的股价就会剧烈波动。Maya 提醒你：'面对每一个公开节点的监管表态，我们要做的是基于新事实更新模型里的‘成交概率’参数，而不是试图改写过去的判断或盲目恐慌。只有纪律能对抗时间消耗。'",
+    "regime_bias": [
+      "M&A"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 0.8
+    },
+    "choices": [
+      {
+        "id": "c8_3_update_prob",
+        "label": "严格依据每次监管通告，客观更新成交概率",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "maya_chen": {
+            "trust": 3
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "在噪音中保持理性。"
+      }
+    ]
+  },
+  {
+    "id": "c8_4_ftc_sues",
+    "title": "并购套利 4/7：FTC 起诉 (2022-12)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "victor_hale",
+    "headline_template": "Victor Hale: FTC 试图阻止交易！",
+    "body_template": "最坏的消息传来，FTC 正式提起诉讼。套利空间极度拉大。Victor 严肃地看着你：'Shit，交易破裂的风险空前高涨。现在的差价很大，但如果你判断 FTC 会赢，股价可能跌回 $60。必须对冲，立刻！'",
+    "regime_bias": [
+      "M&A",
+      "REGULATION"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 1.0
+    },
+    "choices": [
+      {
+        "id": "c8_4_double_down",
+        "label": "判断 FTC 法律依据薄弱，趁暴跌大幅加仓",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "victor_hale": {
+            "respect": 4
+          },
+          "leo_park": {
+            "trust": 3
+          }
+        },
+        "fund_deltas": {
+          "reputation": 2
+        },
+        "result_text": "逆势加仓需要极大的勇气和极深的研究支撑。"
+      },
+      {
+        "id": "c8_4_hedge",
+        "label": "用深虚 Put 对冲极端的破裂风险，维持主体套利仓位",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "victor_hale": {
+            "trust": 5
+          }
+        },
+        "fund_deltas": {
+          "counterparty_trust": 2
+        },
+        "result_text": "这是风控至上的专业选择。"
+      },
+      {
+        "id": "c8_4_cut_loss",
+        "label": "认为不确定性太高，减仓离场",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "lp_confidence": 1
+        },
+        "result_text": "你放弃了高额回报，换取了安稳的睡眠。"
+      }
+    ]
+  },
+  {
+    "id": "c8_5_court_ruling",
+    "title": "并购套利 5/7：法院裁决 (2023-07)",
+    "category": "briefing",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "maya_chen",
+    "headline_template": "法院拒绝初步禁令！重估风险",
+    "body_template": "2023 年 7 月 10 日，大逆转！联邦法院法官拒绝了 FTC 提出的初步禁令请求。Maya 带着报告冲进来：'法院开了绿灯！FTC 很难再拦住了，交易破裂的风险断崖式下降！' ATVI 股价瞬间飙升，向着 $95 的收购价急速靠拢。之前熬过的每一个夜晚，现在终于开始变现。",
+    "regime_bias": [
+      "M&A"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 1.0
+    },
+    "choices": [
+      {
+        "id": "c8_5_revalue",
+        "label": "大幅下调 Deal-break 风险，解除之前做出的防守对冲",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "maya_chen": {
+            "trust": 4
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "乘胜追击，锁定利润。"
+      }
+    ]
+  },
+  {
+    "id": "c8_6_close_convergence",
+    "title": "并购套利 6/7：最后的收敛 (2023-10)",
+    "category": "operational",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": "leo_park",
+    "headline_template": "Leo Park: 机会成本与最终收敛",
+    "body_template": "随着英国 CMA 亮绿灯，收购即将完成。Leo 提醒你：'ATVI 马上就要 close。胜负已分，但剩下这 1 块钱空间，他妈的还值得我们继续占用巨额保证金？算算这见鬼的机会成本，趁早在二级市场平了，bullshit 磨洋工！'",
+    "regime_bias": [
+      "M&A"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 0.8
+    },
+    "choices": [
+      {
+        "id": "c8_6_early_exit",
+        "label": "提前平仓，释放资金投入新的高回报项目",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "leo_park": {
+            "trust": 5
+          }
+        },
+        "fund_deltas": {
+          "information_network": 2
+        },
+        "result_text": "资金效率最大化，绝不赚最后那一点硬币。"
+      },
+      {
+        "id": "c8_6_hold_to_close",
+        "label": "坚守到交割日，吃满 $95 的最后利润",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {},
+        "result_text": "善始善终的确定性回报。"
+      }
+    ]
+  },
+  {
+    "id": "c8_7_postmortem",
+    "title": "并购套利 7/7：延迟兑现的代价",
+    "category": "compliance",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": "marcus_reed",
+    "headline_template": "合规清算：出来混迟早要还",
+    "body_template": "收购正式完成了。如果你在最初忍住了内幕消息的诱惑，严格依法进行套利，Marcus 会递给你一份干净无瑕的审计通过报告。但如果你当时选择了抢跑，哪怕这近两年的拉锯里你表现得再完美，Marcus 也会带着 SEC 的协查函冷冷地看着你：'你以为时间能洗白早期的违规建仓？SEC 的大数据筛查终于比对出了你那几笔可疑的前置交易。延迟的报应到了。'",
+    "regime_bias": [
+      "GENERIC",
+      "REGULATION"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "importance": 1.0
+    },
+    "choices": [
+      {
+        "id": "c8_7_face_consequence",
+        "label": "接受审计结果：清白者安然入睡，违规者付出代价",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "marcus_reed": {
+            "respect": 10
+          }
+        },
+        "fund_deltas": {
+          "reputation": 5
+        },
+        "result_text": "信息伦理（Information Ethics）永远是投资界最重的基石。"
+      }
+    ]
+  }
+]

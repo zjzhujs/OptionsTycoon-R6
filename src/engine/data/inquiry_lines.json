@@ -1,0 +1,234 @@
+{
+  "version": 1,
+  "description": "LP Quarterly Tribunal & Compliance Inquiry Dialogue Library",
+  "tiers": {
+    "MAJOR_DRAWDOWN": {
+      "tier_label": "季末大幅回撤",
+      "inquirers": {
+        "lp_representative": {
+          "character_id": "daniel_ross",
+          "character_name": "Daniel Ross",
+          "role_label": "LP 投资委员会代表",
+          "opening_inquiries": [
+            "梁经理，这是你们本季度的净值曲线。最大回撤超过了 15%，甚至跑输了标普 500 指数。我们付 20% 的超额业绩提成，不是为了让你们拿养老金在科技股上做单边赌博。",
+            "投资委员会今天全员出席，只为了搞清楚一件事：你们承诺的非对称风险控制到底在哪？如果无法证明这笔回撤在事前有严格模型支撑，我们将在下周一赎回全部 AUM。"
+          ],
+          "response_choices": [
+            {
+              "id": "ADMIT_AND_REFORM",
+              "label": "认错整改：承认风控执行缺陷，立即调降仓位上限并提交整改方案",
+              "subsequent_reaction": "Daniel 缓缓合上文件夹：'希望整改备忘录能在周五前送到我的桌上。我们会缩减下季度 30% 的委托额度，直到你们重新证明自己的风控纪律。'"
+            },
+            {
+              "id": "STAND_GROUND_LOGIC",
+              "label": "据理力争：出示完整的供应链调研底稿与证伪链，证明回撤属于短期宏观挤压",
+              "subsequent_reaction": "Daniel 翻阅了附录报告：'逻辑很严密，但市场永远按现价结算。看在调研深度的份上，委员会同意保留现有额度，但单日 VaR 阈值必须立刻缩减一半。'"
+            },
+            {
+              "id": "VISION_AND_REASSURE",
+              "label": "画饼安抚：强调底层产业进入关键交付期，当前估值底部是下季度翻盘的关键阵地",
+              "subsequent_reaction": "Daniel 靠在椅背上冷笑了一声：'华尔街最不值钱的就是远景预期。给你最后一个季度的时间，如果净值无法创出新高，清盘程序会自动启动。'"
+            }
+          ]
+        },
+        "marcus_compliance": {
+          "character_id": "marcus_reed",
+          "character_name": "Marcus Reed",
+          "role_label": "首席合规官 / 监管联络人",
+          "opening_inquiries": [
+            "梁经理，在净值急剧击穿回撤线的那几天，系统记录到你们的交易员存在多次规避单票敞口上限的操作。合规审查不会因为亏损就网开一面，解释清楚这些越权授权。",
+            "这是主经纪商发来的强制平仓风险报告。你们在头寸承受单日 8% 跌幅时依然拒绝止损，这已经构成了对基金信托责任的严重挑战。"
+          ],
+          "response_choices": [
+            {
+              "id": "ADMIT_AND_REFORM",
+              "label": "认错整改：全面封存越权交易权限，引入自动化硬风控熔断机制",
+              "subsequent_reaction": "Marcus 在审查表上盖下留单章：'整改承诺已录入 SEC 备忘录。所有涉事交易员的二级开仓权限已被系统自动冻结两周。'"
+            },
+            {
+              "id": "STAND_GROUND_LOGIC",
+              "label": "据理力争：调出当日流动性数据，证明当时若市价砍仓滑点会造成更大的实际损失",
+              "subsequent_reaction": "Marcus 逐笔核对了时间戳：'执行层面的止损滑点抗辩成立。合规调查暂时降级为内部观察，但你们的盯市日志必须每日向我直报。'"
+            },
+            {
+              "id": "VISION_AND_REASSURE",
+              "label": "画饼安抚：承诺通过后续收益覆盖合规审计成本，并聘请独立第三方机构做尽调背书",
+              "subsequent_reaction": "Marcus 面无表情地看着你：'合规底线不是商业谈判的筹码。独立审计师下周一进驻交易室，任何瑕疵都会直接上报监管。'"
+            }
+          ]
+        }
+      }
+    },
+    "COMPLIANCE_BLEMISH": {
+      "tier_label": "合规有污点/监管问询",
+      "inquirers": {
+        "lp_representative": {
+          "character_id": "daniel_ross",
+          "character_name": "Daniel Ross",
+          "role_label": "LP 投资委员会代表",
+          "opening_inquiries": [
+            "梁经理，我们收到风声，SEC 执法部最近对你们的几笔异常大宗期权挂单展开了非正式问询。作为机构出资人，我们绝不能卷入任何带有内幕交易指控的丑闻中。",
+            "合规风险已经开始侵蚀基金的声誉底线。几家家族办公室甚至在考虑行使道德违约赎回条款。我们需要一个不含糊的官方交代。"
+          ],
+          "response_choices": [
+            {
+              "id": "ADMIT_AND_REFORM",
+              "label": "认错整改：主动披露全部审计日志，辞退涉事违规人员并缴纳合规准备金",
+              "subsequent_reaction": "Daniel 微微点头：'态度很决绝。委员会暂缓赎回决定，但你们必须把管理费的 10% 锁定为法律隔离准备金。'"
+            },
+            {
+              "id": "STAND_GROUND_LOGIC",
+              "label": "据理力争：出示完整的公开信息交叉研判链条，证明交易决策完全基于合法公开数据",
+              "subsequent_reaction": "Daniel 仔细审阅了时间戳底稿：'只要法务团队能出具无瑕疵意见书，我们愿意继续背书，但外部公关必须由我们统一接管。'"
+            },
+            {
+              "id": "VISION_AND_REASSURE",
+              "label": "画饼安抚：向 LP 保证这只是对手盘恶意做空发起的舆论抹黑，基金法务实力足以化解",
+              "subsequent_reaction": "Daniel 语气冷淡：'希望事实如你所说。如果调查升级为正式立案，我们不仅会全部撤资，还会追究管理层的法律责任。'"
+            }
+          ]
+        },
+        "marcus_compliance": {
+          "character_id": "marcus_reed",
+          "character_name": "Marcus Reed",
+          "role_label": "首席合规官 / 监管联络人",
+          "opening_inquiries": [
+            "梁经理，这是司法部门要求调取的加密通讯记录清单。上个月那笔在重大快讯发布前 45 秒建立的大额 Call 仓位，资金路径存在严重异常。",
+            "监管机构已经将 Dante Capital 列入异常交易监控名单。只要再出现一次非公开信息的模糊交易，合规执照就会被当场吊销。"
+          ],
+          "response_choices": [
+            {
+              "id": "ADMIT_AND_REFORM",
+              "label": "认错整改：全盘接受合规审计，安装实时屏幕录像与通信监控探针",
+              "subsequent_reaction": "Marcus 启动了监控终端：'探针已部署完毕。从现在起，交易室内的每一通电话和每一笔指令都会被实时备份至合规服务器。'"
+            },
+            {
+              "id": "STAND_GROUND_LOGIC",
+              "label": "据理力争：出示算法自动捕捉的盘口 Skew 异动记录，证明建仓是跟单做市商对冲流而非内幕",
+              "subsequent_reaction": "Marcus 调取了微观盘口回放：'微观结构异动分析成立，数据链条吻合。这次的正式问询函我替你们回签，但绝不许有第二次。'"
+            },
+            {
+              "id": "VISION_AND_REASSURE",
+              "label": "画饼安抚：声称已经在华盛顿建立了强大的法律公关通道，任何监管风波都能在萌芽阶段压下",
+              "subsequent_reaction": "Marcus 眼神变得极度冷峻：'不要在合规官面前卖弄政界关系。在这个房间里，唯一能保护你的只有合法的交易时间戳。'"
+            }
+          ]
+        }
+      }
+    },
+    "STEADY_ON_TARGET": {
+      "tier_label": "业绩平稳达标",
+      "inquirers": {
+        "lp_representative": {
+          "character_id": "daniel_ross",
+          "character_name": "Daniel Ross",
+          "role_label": "LP 投资委员会代表",
+          "opening_inquiries": [
+            "梁经理，恭喜。本季度的净值表现稳健，夏普比率维持在 1.8，严格执行了风控指引。委员会对资金的安全性表示满意。",
+            "虽然收益率没有冲进全街前 10%，但在这种极端波动的宏观环境下，你们的纪律性证明了 Dante 是一家成熟的机构管理人。"
+          ],
+          "response_choices": [
+            {
+              "id": "ADMIT_AND_REFORM",
+              "label": "认错整改：谦逊表态，主动复盘几个保守错失的良机，承诺下季度进一步优化赔率",
+              "subsequent_reaction": "Daniel 露出满意的微笑：'不骄不躁是优秀 PM 的品质。我们决定追加 2000 万的增量 AUM，交由你们团队管理。'"
+            },
+            {
+              "id": "STAND_GROUND_LOGIC",
+              "label": "据理力争：强调稳健收益来源于对宏观尾部风险的精准定价，证明策略具备长期可复制性",
+              "subsequent_reaction": "Daniel 赞同地点头：'这种低回撤的可复制性正是养老金最看重的。下周我们会把 Dante 列入核心长期合作名单。'"
+            },
+            {
+              "id": "VISION_AND_REASSURE",
+              "label": "画饼安抚：向 LP 展示全新的多策略算力模型，宣称下季度准备全面发力冲刺行业前三",
+              "subsequent_reaction": "Daniel 提醒道：'野心是好事，但别为了追求虚荣的排名打破现在的稳健平衡。我们更看重长期的确定性。'"
+            }
+          ]
+        },
+        "marcus_compliance": {
+          "character_id": "marcus_reed",
+          "character_name": "Marcus Reed",
+          "role_label": "首席合规官 / 监管联络人",
+          "opening_inquiries": [
+            "本季度的交易台账没有任何违规标记，所有的期权对冲都有清晰的 Thesis 留痕。这是过去一年来最干净的一份报告。",
+            "各交易员的授权额度均在风控框架内运作，主经纪商对 Dante 的合规评级已上调至最高级别 AAA。"
+          ],
+          "response_choices": [
+            {
+              "id": "ADMIT_AND_REFORM",
+              "label": "认错整改：感谢合规部门的日常监督，提议给风控团队增加年终预算",
+              "subsequent_reaction": "Marcus 嘴角微微动了一下：'做好本职工作即可。合规委员会已批准为你们开通更高权限的衍生品交易通道。'"
+            },
+            {
+              "id": "STAND_GROUND_LOGIC",
+              "label": "据理力争：指出严格的合规不但没有拖累业绩，反而帮基金避开了两次做空机构的黑天鹅陷阱",
+              "subsequent_reaction": "Marcus 记录了这一结论：'这证明合规与 Alpha 并不冲突。这份报告将作为合规创造商业价值的标杆案例归档。'"
+            },
+            {
+              "id": "VISION_AND_REASSURE",
+              "label": "画饼安抚：表示未来将建立全自动化合规 AI 防线，彻底实现零人工干预的顶级治理",
+              "subsequent_reaction": "Marcus 严肃地推了推眼镜：'技术只是工具，交易员的职业操守才是底线。保持现在的谨慎态度。'"
+            }
+          ]
+        }
+      }
+    },
+    "SUPER_ALPHA": {
+      "tier_label": "超级 Alpha / 领跑全街",
+      "inquirers": {
+        "lp_representative": {
+          "character_id": "daniel_ross",
+          "character_name": "Daniel Ross",
+          "role_label": "LP 投资委员会代表",
+          "opening_inquiries": [
+            "难以置信的战绩，梁经理！本季度净值飙升超过 40%，你们在科技股上的期权凸性收割甚至引起了彭博头条的专访关注！",
+            "出资人大会上所有的 LP 都在为 Dante 鼓掌。整条街都在问你们是怎么在黑天鹅中抓到这波超级大行情的。"
+          ],
+          "response_choices": [
+            {
+              "id": "ADMIT_AND_REFORM",
+              "label": "认错整改：保持清醒，指出暴利中包含部分市场波动率红利，提示下季度需警惕均值回归",
+              "subsequent_reaction": "Daniel 赞赏地起立鼓掌：'在暴利面前依然保持敬畏，这才是顶级基金掌门人的格局。我们将为主基金注入 5000 万新资本！'"
+            },
+            {
+              "id": "STAND_GROUND_LOGIC",
+              "label": "据理力争：拆解 360 度法证复盘数据，证明超额收益 90% 来自精准的产业链供需证伪与 Gamma 结构",
+              "subsequent_reaction": "Daniel 翻阅着复盘图谱惊叹：'纯粹的硬核 Alpha。投资委员会全票通过，将你们的管理费提成比例提升至上限。'"
+            },
+            {
+              "id": "VISION_AND_REASSURE",
+              "label": "画饼安抚：宣布启动第二期旗舰基金，号召在场所有 LP 立即抢购下一阶段的扩容份额",
+              "subsequent_reaction": "Daniel 爽快地拿出支票簿：'根本不需要推销，我们的额度已经被抢超募了。期待你们下季度的封神之战！'"
+            }
+          ]
+        },
+        "marcus_compliance": {
+          "character_id": "marcus_reed",
+          "character_name": "Marcus Reed",
+          "role_label": "首席合规官 / 监管联络人",
+          "opening_inquiries": [
+            "收益率高过市场 4 个标准差通常是监管部门立案的第一触发条件。但我核查了全部 240 笔交易的时间戳，你们在合规程序上做到了滴水不漏。",
+            "在如此激进的单边行情中依然没有发生一次突破 VaR 预算的违规越权，这是一场教科书级别的衍生品战役。"
+          ],
+          "response_choices": [
+            {
+              "id": "ADMIT_AND_REFORM",
+              "label": "认错整改：强调合规审计是保驾护航的关键，主动要求将本季复盘案例作为内部培训教材",
+              "subsequent_reaction": "Marcus 递过签署完毕的终审合格令：'我已经向监管机构提交了无异常背书。祝贺你们，梁经理，这是一场干净而辉煌的胜利。'"
+            },
+            {
+              "id": "STAND_GROUND_LOGIC",
+              "label": "据理力争：出示完整的期权风险对冲结构图，证明每笔超额利润都在严格保护下获取",
+              "subsequent_reaction": "Marcus 郑重地在档案上签字：'完美的风险收益对冲链条。Dante Capital 正式通过年度最高等级合规豁免审查。'"
+            },
+            {
+              "id": "VISION_AND_REASSURE",
+              "label": "画饼安抚：表示将推动行业建立全新的衍生品风控标准，让 Dante 成为华尔街新时代的标杆",
+              "subsequent_reaction": "Marcus 难得地露出一丝赞许：'如果全街的基金都能守住这种纪律，金融危机就不会发生。继续保持。'"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "pack_id": "r1_intraday_v2",
+  "scenario_id": "r1",
+  "version": 2,
+  "generated_at": "2026-08-20T04:26:44.717270+00:00",
+  "runtime_network_required": false,
+  "truth_label": "REAL_INTRADAY",
+  "included_sessions": [
+    {
+      "session_id": "r1_nvda_2025-01-23_1m",
+      "ticker": "NVDA",
+      "date": "2025-01-23",
+      "granularity": "1m_real_dukascopy",
+      "file": "nvda_2025-01-23.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "r1_nvda_2025-01-24_1m",
+      "ticker": "NVDA",
+      "date": "2025-01-24",
+      "granularity": "1m_real_dukascopy",
+      "file": "nvda_2025-01-24.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "r1_nvda_2025-01-27_1m",
+      "ticker": "NVDA",
+      "date": "2025-01-27",
+      "granularity": "1m_real_dukascopy",
+      "file": "nvda_2025-01-27.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 4
+    },
+    {
+      "session_id": "r1_nvda_2025-01-28_1m",
+      "ticker": "NVDA",
+      "date": "2025-01-28",
+      "granularity": "1m_real_dukascopy",
+      "file": "nvda_2025-01-28.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "r1_nvda_2025-01-29_1m",
+      "ticker": "NVDA",
+      "date": "2025-01-29",
+      "granularity": "1m_real_dukascopy",
+      "file": "nvda_2025-01-29.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "r1_nvda_2025-01-30_1m",
+      "ticker": "NVDA",
+      "date": "2025-01-30",
+      "granularity": "1m_real_dukascopy",
+      "file": "nvda_2025-01-30.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "r1_nvda_2025-01-31_1m",
+      "ticker": "NVDA",
+      "date": "2025-01-31",
+      "granularity": "1m_real_dukascopy",
+      "file": "nvda_2025-01-31.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 4
+    },
+    {
+      "session_id": "r1_qqq_2025-01-23_hourly",
+      "ticker": "QQQ",
+      "date": "2025-01-23",
+      "granularity": "60m___final_partial_regular-session_bar",
+      "file": "qqq_2025-01-23.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "r1_qqq_2025-01-24_hourly",
+      "ticker": "QQQ",
+      "date": "2025-01-24",
+      "granularity": "60m___final_partial_regular-session_bar",
+      "file": "qqq_2025-01-24.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "r1_qqq_2025-01-27_hourly",
+      "ticker": "QQQ",
+      "date": "2025-01-27",
+      "granularity": "60m___final_partial_regular-session_bar",
+      "file": "qqq_2025-01-27.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "r1_qqq_2025-01-28_hourly",
+      "ticker": "QQQ",
+      "date": "2025-01-28",
+      "granularity": "60m___final_partial_regular-session_bar",
+      "file": "qqq_2025-01-28.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "r1_qqq_2025-01-29_hourly",
+      "ticker": "QQQ",
+      "date": "2025-01-29",
+      "granularity": "60m___final_partial_regular-session_bar",
+      "file": "qqq_2025-01-29.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "r1_qqq_2025-01-30_hourly",
+      "ticker": "QQQ",
+      "date": "2025-01-30",
+      "granularity": "60m___final_partial_regular-session_bar",
+      "file": "qqq_2025-01-30.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "r1_qqq_2025-01-31_hourly",
+      "ticker": "QQQ",
+      "date": "2025-01-31",
+      "granularity": "60m___final_partial_regular-session_bar",
+      "file": "qqq_2025-01-31.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "r1_vix_2025-01-23_hourly",
+      "ticker": "VIX",
+      "date": "2025-01-23",
+      "granularity": "60m_regular-session_bars",
+      "file": "vix_2025-01-23.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "r1_vix_2025-01-24_hourly",
+      "ticker": "VIX",
+      "date": "2025-01-24",
+      "granularity": "60m_regular-session_bars",
+      "file": "vix_2025-01-24.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "r1_vix_2025-01-27_hourly",
+      "ticker": "VIX",
+      "date": "2025-01-27",
+      "granularity": "60m_regular-session_bars",
+      "file": "vix_2025-01-27.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "r1_vix_2025-01-28_hourly",
+      "ticker": "VIX",
+      "date": "2025-01-28",
+      "granularity": "60m_regular-session_bars",
+      "file": "vix_2025-01-28.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "r1_vix_2025-01-29_hourly",
+      "ticker": "VIX",
+      "date": "2025-01-29",
+      "granularity": "60m_regular-session_bars",
+      "file": "vix_2025-01-29.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "r1_vix_2025-01-30_hourly",
+      "ticker": "VIX",
+      "date": "2025-01-30",
+      "granularity": "60m_regular-session_bars",
+      "file": "vix_2025-01-30.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "r1_vix_2025-01-31_hourly",
+      "ticker": "VIX",
+      "date": "2025-01-31",
+      "granularity": "60m_regular-session_bars",
+      "file": "vix_2025-01-31.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    }
+  ],
+  "provenance": [
+    {
+      "source_name": "Dukascopy historical tick archive",
+      "source_url_or_identifier": "https://datafeed.dukascopy.com/datafeed/",
+      "source_type": "REAL_VENDOR",
+      "note": "1m tick data resampled to 1m. Mid price = (ask+bid)/2."
+    },
+    {
+      "source_name": "Yahoo Finance chart v8 (60m)",
+      "source_type": "REAL_VENDOR",
+      "note": "Retained from prior ingest."
+    }
+  ]
+}

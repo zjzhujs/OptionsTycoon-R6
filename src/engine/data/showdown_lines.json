@@ -1,0 +1,38 @@
+[
+  {
+    "situation": "BULLISH_UNDER_PRESSURE",
+    "character_id": "victor_hale",
+    "claim": "STOP",
+    "line": "高点下来已经够深了。别把纪律写在复盘里——现在就把这笔风险砍掉。"
+  },
+  {
+    "situation": "BULLISH_UNDER_PRESSURE",
+    "character_id": "leo_park",
+    "claim": "HEDGE",
+    "line": "你不想卖就买保险。Put 不便宜，但继续裸着挨打更贵。"
+  },
+  {
+    "situation": "BULLISH_UNDER_PRESSURE",
+    "character_id": "maya_chen",
+    "claim": "ADD",
+    "line": "如果你的证伪条件没破，这才是价格给你的折扣；不敢加，就承认信念没你说的那么高。"
+  },
+  {
+    "situation": "BEARISH_IN_PROFIT",
+    "character_id": "victor_hale",
+    "claim": "STOP",
+    "line": "你已经吃到这段下杀。把利润从屏幕上变成现金，别让赢家重新变成风险预算。"
+  },
+  {
+    "situation": "BEARISH_IN_PROFIT",
+    "character_id": "leo_park",
+    "claim": "HEDGE",
+    "line": "空头现在占便宜，但反抽会先杀你的 Gamma。买 Call，把右尾先封住。"
+  },
+  {
+    "situation": "BEARISH_IN_PROFIT",
+    "character_id": "leo_park",
+    "claim": "ADD",
+    "line": "如果你判断这是流动性继续断裂，就别只盯旧仓。用 Put 加方向，但把新增权利金当成独立风险。"
+  }
+]

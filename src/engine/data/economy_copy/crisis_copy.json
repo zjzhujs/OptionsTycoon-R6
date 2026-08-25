@@ -1,0 +1,115 @@
+{
+  "_schema_note": "法务公关战备金与危机处理全量文案包。包含六大主动危机处理 Action（描述/反馈/不可洗白禁令）、30天递减收益规则、过度公关反噬事件『THE STORY BECOMES THE STORY』（正文/选项/反馈）、以及全局资金保全 (CASH_PRESERVATION) 与 RUNWAY 红色告警文案。",
+  "actions": [
+    {
+      "action_id": "OUTSIDE_COUNSEL",
+      "name_cn": "聘请顶级外部辩护律所 (OUTSIDE COUNSEL)",
+      "name_en": "Retain Elite White-Collar Defense Counsel",
+      "base_cost_desc": "$2,000 基础；若监管审查指数 >=60 或已立案则为 $3,500",
+      "cooldown_nodes": 3,
+      "diminishing_bucket": "LEGAL_DEFENSE",
+      "summary_pitch": "委托华尔街顶尖白领犯罪与证券诉讼律所组建辩护团队，接管所有监管通信与法庭预审程序。",
+      "effect_desc": "显著提升抗辩质量 (Defense Quality +10~18)，为后续罚款与和解谈判解锁合法轻罚分支；在未正式立案前可小幅压制审查压力 (Scrutiny -2~4) 并降低程序合规风险。",
+      "forbidden_rule_note": "【法证红线铁律】外部律师只能强化程序性辩护，绝不能减少已记录的违法证据数量 (Evidence Count)，绝不能删除已生成的 MNPI_FLAG 或 BRIBERY_FLAG，绝不能修改既定违法事实！",
+      "feedback_text": "顶级诉讼合伙人进驻了基金办公室，所有与监管机构的通信已被正式纳入律师-委托人保密特权（Attorney-Client Privilege）保护之下。法务防线已全面筑牢。"
+    },
+    {
+      "action_id": "LP_COMMUNICATION",
+      "name_cn": "主动召开 LP 沟通会 (LP COMMUNICATION)",
+      "name_en": "Proactive LP Briefing & Town Hall",
+      "base_cost_desc": "$750 基础；危机/大回撤状态下为 $1,250",
+      "cooldown_nodes": 2,
+      "diminishing_bucket": "LP_RELATIONS",
+      "summary_pitch": "主动向所有出资人（LP）发布透明运作简报，坦诚当前市场环境与组合风险敞口，安抚大资金情绪。",
+      "effect_desc": "若披露内容真实完整，LP 信心指数 (LP Confidence) 稳步回升 +4~8 点；若处于净值回撤期且管理团队主动承认策略失误，额外获得声誉 (Reputation +1~3)；若隐瞒已知重大违法事实，短期微增 +2 但埋下毁灭性暴雷隐患！",
+      "forbidden_rule_note": "【信义义务警告】若在简报中刻意隐瞒已存在的重大调查证据，系统将打上『误导 LP 欺诈标记 (MISLEADING_LP_COMM)』，未来一旦曝光将招致 LP 信心断崖暴跌 (-12~-20) 与监管严惩！",
+      "feedback_text": "你向全体 LP 发送了诚恳详实的说明函并召开了线上答疑会。绝大多数机构投资者对基金透明坦诚的管理态度表示赞赏，恐慌赎回情绪明显缓解。"
+    },
+    {
+      "action_id": "PUBLIC_RESPONSE",
+      "name_cn": "发布公开公关声明 (PUBLIC RESPONSE)",
+      "name_en": "Official PR Statement & Press Release",
+      "base_cost_desc": "$1,250 / 次",
+      "cooldown_nodes": 2,
+      "diminishing_bucket": "PR_PRESSURE",
+      "summary_pitch": "通过官方公关渠道向彭博社与主流财经媒体发布正式声明，对负面传闻或市场质疑进行正面回应与预期引导。",
+      "effect_desc": "将单次媒体负面事件的声誉伤害系数削减至 0.65x~0.80x，稳住公众声誉 (Reputation +2~5)；但会同步增加媒体曝光度 (Media Attention +4~8)。若危机已升级为正式法律诉讼，公关声明无法改变法证合规与证据判定。",
+      "forbidden_rule_note": "【公关边界提醒】公关只能重塑公众舆论感知，无法干预司法调查。连续频繁发布公关通稿将急剧累积公关压力 (PR_PRESSURE)，诱发严重的舆论反噬！",
+      "feedback_text": "一份措辞严谨、立场坚定的公关声明在彭博终端与各大财经头条同步发布。市场恐慌传闻被有效遏制，主流舆论重新转向中性。"
+    },
+    {
+      "action_id": "POLICY_COUNSEL",
+      "name_cn": "聘请政策顾问与立法游说 (POLICY COUNSEL)",
+      "name_en": "Retain Policy & Regulatory Lobbyists",
+      "base_cost_desc": "$2,500 / 次 (若团队拥有 EX_REG 人才效果显著增强)",
+      "cooldown_nodes": 4,
+      "diminishing_bucket": "POLICY_ADVISORY",
+      "summary_pitch": "调动华盛顿资深游说专家与前监管幕僚，梳理即将落地的行业政策、反垄断诉讼日程与闭门听证会议程。",
+      "effect_desc": "解锁政策应对全景路线图；在行政摩擦尚未升级为正式执法立案前，可降低监管审查压力 (Scrutiny -2~5) 并通过合规流程整改降低合规风险 (Compliance Risk -3~6)；若已立案，则全额转化为抗辩质量加成。",
+      "forbidden_rule_note": "【法律界限声明】政策咨询属于合法游说与规则解读范畴，不能承诺撤销正式传票或暗箱操纵执法结果。",
+      "feedback_text": "华盛顿的高级游说团队向你提交了一份详尽的国会听证预演备忘录。你清晰地掌握了监管层关注的核心痛点，提前做好了应对预案。"
+    },
+    {
+      "action_id": "MEDIA_COUNTER",
+      "name_cn": "媒体定向反击与澄清 (MEDIA COUNTER)",
+      "name_en": "Targeted Counter-Narrative & Fact Check",
+      "base_cost_desc": "$1,500 / 次",
+      "cooldown_nodes": 3,
+      "diminishing_bucket": "PR_PRESSURE",
+      "summary_pitch": "针对做空机构恶意做空报告、竞争对手散布的不实谣言或个别媒体的歪曲报道，发起精准的法证数据反击与澄清。",
+      "effect_desc": "对确属造谣或竞争对手抹黑的不实事件，可强力挽回声誉 (Reputation +3~7)；但若报道内容本身属实却执意攻击记者，将极大概率触发『舆论反噬 (BACKFIRE)』，引来监管审查与媒体更猛烈的深扒！",
+      "forbidden_rule_note": "【事实铁律】若试图用媒体反击去掩盖真实存在的违法交易，谎言被戳破时声誉将遭受双倍毁灭性惩罚。",
+      "feedback_text": "你公布了详实的第三方核验数据与律师函，严厉驳斥了对手的恶意做空抹黑。做空机构的阴谋被彻底揭穿，市场信心强劲回升。"
+    },
+    {
+      "action_id": "INTERNAL_REMEDIATION",
+      "name_cn": "启动内部合规整改与制度封堵 (INTERNAL REMEDIATION)",
+      "name_en": "Comprehensive Internal Compliance Overhaul",
+      "base_cost_desc": "$1,000 ~ $3,000 / 次 (每月最多执行 2 次)",
+      "cooldown_nodes": 0,
+      "diminishing_bucket": "INTERNAL_CONTROL",
+      "summary_pitch": "主动启动内部控制整改：封堵未授权通讯软件、收紧 MNPI 敏感标的交易隔离墙、完善客户赠礼与差旅审批流程。",
+      "effect_desc": "大幅削减基金未来的潜在合规风险 (Compliance Risk -6~12)，并在后续监管检查中展现积极的自我纠错意愿；整改期间可能会临时冻结部分灰色行动 2-4 个节点。",
+      "forbidden_rule_note": "【不可撤销原则】内部整改只能防止未来的违规发生，绝不能删除历史已记录的违法证据或篡改既往交易时间线。",
+      "feedback_text": "合规团队对全员交易通讯进行了拉网式自查与权限重构，堵住了多个关键内控漏洞。基金的合规健康度得到了根本性改善。"
+    }
+  ],
+  "diminishing_returns_rules": {
+    "title": "30天递减收益与公关压力累积规则 (Diminishing Returns & PR Pressure)",
+    "description": "为防止通过频繁刷公关与律师 Action 无限洗白声誉，系统实行严格的递减收益法则：\n1. 同一 30 天周期内，同一 Action 效果按次数衰减：第 1 次 100%，第 2 次 75%，第 3 次 50%，第 4 次及以后仅生效 25%（但每次执行成本分文不减！）；\n2. 『公开公关回应 (PUBLIC_RESPONSE)』与『媒体反击 (MEDIA_COUNTER)』共享同一个 PR_PRESSURE 累积池，防止交替刷声誉；\n3. 『主动 LP 沟通 (LP_COMMUNICATION)』若在缺乏真实新进展的情况下连续使用，从第 2 次起效果直接额外减半。"
+  },
+  "backfire_event": {
+    "event_id": "EVT_CRISIS_PR_BACKFIRE",
+    "title": "公关反噬成为头条新闻 (The Story Becomes the Story)",
+    "description": "由于近期公关通稿过于频繁、且媒体反击措辞过于激进，主流媒体开始调转枪口，发表专题深度报道——《操纵叙事还是掩盖亏损？揭秘对冲基金的昂贵公关战》。公关行动本身成为了全华尔街关注的新丑闻！",
+    "trigger_conditions": "30天内 PR_PRESSURE 使用 >= 3 次，或媒体曝光度 (Media Attention) >= 65 且再次使用公关 Action",
+    "choices": [
+      {
+        "choice_id": "A_GO_SILENT",
+        "label": "立刻全面禁言：关闭所有公关声浪，团队进入静默期",
+        "action_cost_desc": "管理公司现金 $0 · 公关 Action 锁定 2 个节点",
+        "feedback_text": "你选择了彻底保持沉默。媒体在失去对骂焦点后逐渐转移了视线。虽然短期内声誉承受了微小压制，但舆论风暴成功降温。",
+        "risk_impact_summary": "媒体曝光度 (Media Attention) -10 · 基金声誉 -2 · 公关功能锁定 2 节点"
+      },
+      {
+        "choice_id": "B_TRANSPARENT_BRIEFING",
+        "label": "召开开放式媒体吹风会：出示经审计的底稿，彻底透明化",
+        "action_cost_desc": "管理公司现金 -$750 · 吹风会组织费",
+        "feedback_text": "你用无可辩驳的真实底稿直面记者提问。若此前未隐瞒任何重大未披露证据，媒体对你的透明与坦荡深表信服，声誉大幅逆风翻盘；若曾隐瞒重大丑闻，则吹风会将当场演变为灾难性曝光！",
+        "risk_impact_summary": "无重大未披露证据时：声誉 +3 · LP 信心 +4；若存在隐瞒：声誉 -10 · 监管审查 (Scrutiny) +10"
+      },
+      {
+        "choice_id": "C_DOUBLE_DOWN",
+        "label": "重金加码公关战！买断各大主流财经专栏强力反击报道",
+        "action_cost_desc": "管理公司现金 -$1,500 · 顶格公关反扑",
+        "feedback_text": "你选择了正面硬刚。铺天盖地的反驳文章充斥着财经版面，虽然短期内勉强稳住了表面评分，但媒体被彻底激怒，未来负面报道的爆发概率被指数级放大！",
+        "risk_impact_summary": "声誉短期 +2 · 媒体曝光度 +15 · 监管审查 +5 · 未来负面媒体事件权重 1.5x 持续 4 节点"
+      }
+    ]
+  },
+  "cash_preservation_alerts": {
+    "runway_warning_2m": "【现金跑道预警 (RUNWAY < 2 MONTHS)】管理公司运营现金储备已不足以支撑未来 2 个月的固定开支（人才工资 + 量化中台 + 情报订阅）！请尽快削减非核心订阅或筹备注资，防止进入强制断供！",
+    "runway_critical_1m": "【最高危机警报 · 全局资金保全 (CASH_PRESERVATION)】警告！管理公司现金跑道已跌破 1 个月底线！系统全面进入强制保全模式：立即冻结所有新招聘、留任奖金、量化/情报升级及非必要外部顾问！已有月度承诺按法定优先级结算，余额不足项目强制进入违约/挂起 (DELINQUENT/SUSPENDED)。严禁挪用基金交易资产！",
+    "preservation_rules_desc": "【月度扣款法定优先级】资金保全状态下，月结严格按以下顺序确定性扣款：\n1. 已签核心人才工资与法定劳动承诺（欠薪将导致忠诚度暴跌与离职）；\n2. 已生效的量化中台基础设施维持费（欠费进入只读挂起）；\n3. 已生效的情报订阅网络（欠费进入网络衰减）；\n4. 可选软件与会籍等可取消服务；\n5. 当期新增主动危机 Action。\n任何情况下，绝不允许自动挪用 Fund NAV 或交易保证金填补管理公司窟窿！"
+  }
+}

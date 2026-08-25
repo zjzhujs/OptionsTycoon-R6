@@ -1,0 +1,193 @@
+{
+  "_schema_note": "人才管理与团队生态全量文案包。包含五类核心专业人才小传（《亿万》风）、主动与被动技能拆解、签约/留任/离职/欠薪全场景对白、以及三大团队内讧与利益冲突事件（正文/选项/反馈）。",
+  "roles": [
+    {
+      "role_id": "ANALYST",
+      "name_cn": "行业与基本面首席分析师",
+      "name_en": "Lead Fundamental Analyst",
+      "signing_cost": 2000,
+      "monthly_burn": 900,
+      "conflict_tags": [
+        "INDUSTRY_TIES"
+      ],
+      "bio_pitch": "前卖方全明星首席，能从财报注脚里闻出造假的血腥味。他不相信神话，只相信供应链出货单据与法证现金流。在华尔街，一个好的分析师能在全市场盲目狂欢时，为你提前指出悬崖的边缘。",
+      "passive_ability_desc": "被动增益：研究面板与每日焦点栈（What Matters）每节点额外解锁 1 条严密的基本面证据链，其长期逻辑观点将永久沉淀入角色记忆（Character Memory）。",
+      "active_ability_desc": "主动技能『深度研判 (DEEP_DIVE)』：指定任意标的进行深度尽调，次节点返回多头假设（Bull Case）、空头风险（Bear Case）与关键破局点（Key Risk），不给确定性买卖结论，只给最坚实的逻辑底座。",
+      "dialogue": {
+        "hire_dialogue": "“我来这里不是为了写那些讨好上市公司公关的八股文。给我预算和看盘权限，我会把产业链底层的每一颗螺丝钉都给你翻个底朝天。”",
+        "retention_dialogue": "“Apex Horizon 给我开出了六位数的留任签字费，但如果你愿意在奖金协议上展现诚意，我更愿意留在能把我的研究变现的真正交易台。”",
+        "resign_dialogue": "“当一家基金开始无视基本面常识去追逐赌博式期权时，就是分析师该交还工牌的时候了。祝你好运，老板。”",
+        "delinquent_dialogue": "“管理公司的工资账户已经连续两周空头支票了。我的研究需要体面的报酬来维持专注，而不是在焦虑下个月房贷中替你猜财报。”"
+      }
+    },
+    {
+      "role_id": "QUANT",
+      "name_cn": "衍生品与算法量化架构师",
+      "name_en": "Quantitative Strategies Lead",
+      "signing_cost": 4000,
+      "monthly_burn": 1500,
+      "conflict_tags": [
+        "IP_SENSITIVE"
+      ],
+      "bio_pitch": "从麻省理工应用数学系走出来的微观结构狂人，将期权链视为多维概率流形。他从不看公司新闻，眼中只有做市商对冲盘的被动仓位与伽马失衡。对他而言，市场不是赌场，而是一套等待被套利的复杂微分方程。",
+      "passive_ability_desc": "被动增益：为量化基础设施提供算力承载（支撑最高 T4 等级），解锁高级多因子筛选预设与自定义 Greeks/压力测试情景保存。",
+      "active_ability_desc": "主动技能『模型审计 (MODEL_AUDIT)』：全面扫描当前运行的自定义策略与打分模型，指出数据过拟合、因子衰减与缺失输入风险。",
+      "dialogue": {
+        "hire_dialogue": "“我需要最低延迟的算力通道和干净的数据流。只要架构不欠费，我会让你看清每一个隐藏在做市商盘口背后的 Gamma 陷阱。”",
+        "retention_dialogue": "“一家量化巨头正在用双倍薪水和更强大的算力集群招揽我。要我留下来，就拿出能匹配我算法价值的留任奖金或合伙人分成。”",
+        "resign_dialogue": "“很遗憾，这里的算力架构和团队机制无法支撑我的模型迭代。我已经封存了我的私有算法库，交接文档在服务器根目录下。”",
+        "delinquent_dialogue": "“算法是优雅的，但欠薪是丑陋的。如果管理公司的现金流无法维持基本契约，我的自动化对冲脚本将在明天收盘后终止服务。”"
+      }
+    },
+    {
+      "role_id": "COUNSEL",
+      "name_cn": "证券合规与资深诉讼律师",
+      "name_en": "Chief Legal Counsel",
+      "signing_cost": 3500,
+      "monthly_burn": 1300,
+      "conflict_tags": [
+        "LEGAL_PRIVILEGE"
+      ],
+      "bio_pitch": "前联邦助理检察官出身的辩护悍将，精通联邦证券法与 SEC 执法手册的每一个缝隙。他的职责不是替你洗白违法事实，而是在危机呼啸而来时，确保基金的程序性防御滴水不漏，把巨额罚款化解在预和解区间内。",
+      "passive_ability_desc": "被动增益：合规事件触发时自动附带专业法务意见书（Legal Readout），清晰标明合法、灰区与高危红线，赋予后续和解更多的法律选项（不降低既有违法事实与证据）。",
+      "active_ability_desc": "主动技能『特权合规预审 (PRIVILEGED_REVIEW)』：在执行高风险或灰色行动前进行模拟合规审查，精确测算可能产生的法证审计留痕（Evidence）与合规风险区间。",
+      "dialogue": {
+        "hire_dialogue": "“在华尔街，赚到钱只是第一步，能把钱安全留在兜里才是本事。记住：从现在起，所有高风险决策必须先经过我的特权合规审查。”",
+        "retention_dialogue": "“大型律所邀请我重返合伙人席位。但我清楚这家基金未来会面临何等凶险的监管暴风雨——留下我的价格，远比被 SEC 抄家便宜得多。”",
+        "resign_dialogue": "“当客户开始肆无忌惮地践踏法证红线时，作为律师唯一的自保之道就是正式解除代理。我的辞呈已经抄送合规委员会。”",
+        "delinquent_dialogue": "“法律特权建立在信托合同的基础上。如果管理公司的法务预付金（Retainer）无法按时履约，我将无法在监管传票送达时为你签字出庭。”"
+      }
+    },
+    {
+      "role_id": "CRISIS_PR",
+      "name_cn": "危机公关与叙事管理总监",
+      "name_en": "Crisis PR & Narrative Director",
+      "signing_cost": 2500,
+      "monthly_burn": 1100,
+      "conflict_tags": [
+        "MEDIA_EXPOSURE"
+      ],
+      "bio_pitch": "曾操盘过多起跨国并购舆论战的媒体操盘手，在各大主流财经媒体编辑部拥有深厚人脉。她深谙华尔街的本质就是叙事游戏——当真相还在穿鞋时，她已经将重塑后的市场预期铺满了彭博社与华尔街日报的头条。",
+      "passive_ability_desc": "被动增益：发生负面声誉事件（Reputation Event）时，自动解锁专属公关分流分支，有效防止恐慌情绪单向蔓延至 LP 赎回池。",
+      "active_ability_desc": "主动技能『叙事重塑 (SHAPE_NARRATIVE)』：针对单次突发媒体负面事件进行定向公关引导，将声誉伤害大幅削减 25%-40%（会伴随中等程度的媒体曝光度上升）。",
+      "dialogue": {
+        "hire_dialogue": "“只要价格到位，我可以把一次惨重的爆仓回撤包装成‘充满前瞻性的战略流动性压力测试’。但记住，别对我说谎，我需要知道最丑陋的真相。”",
+        "retention_dialogue": "“硅谷的独角兽企业正在高薪挖我去做全球传播主管。如果你想在下一次舆论风暴中保住你在 LP 面前的体面，就把留任合约签了。”",
+        "resign_dialogue": "“公关可以粉饰策略失误，但救不了一个彻底失去诚信底线的管理团队。我的公关声誉不能被埋葬在这里，再见。”",
+        "delinquent_dialogue": "“媒体记者的咖啡不是免费的，危机公关团队的电话账单也不会自己结清。请立即结清管理公司的公关月费，否则明天的负面通稿我可压不住。”"
+      }
+    },
+    {
+      "role_id": "EX_REG",
+      "name_cn": "前监管资深高级顾问",
+      "name_en": "Ex-Regulator & Policy Advisor",
+      "signing_cost": 6000,
+      "monthly_burn": 2200,
+      "conflict_tags": [
+        "REVOLVING_DOOR"
+      ],
+      "bio_pitch": "曾任职于监管机构执法与立法事务部二十余载的老江湖，熟悉监管闭门听证与反垄断审查的全部潜规则。他是对冲基金游走在华盛顿与华尔街灰色缝隙间的引路人，自带极度敏感的旋转门（Revolving Door）光环与审慎光环。",
+      "passive_ability_desc": "被动增益：在重大监管与执法剧情发生前，提前 1 个程序节点触发『程序性合规预警（Procedural Warning）』，提前掌握听证会排期与监管关注方向（不泄露最终调查裁决）。",
+      "active_ability_desc": "主动技能『监管暴露全景图 (REGULATORY_MAP)』：全面梳理基金当前在各监管部门面前的暴露漏洞与必要留档清单，指明程序整改合规路径。",
+      "dialogue": {
+        "hire_dialogue": "“我了解他们怎么立案、怎么取证、以及在什么条件下会愿意在私下达成和解。我的顾问费不是成本，而是你买给这家基金最昂贵的一份免死险。”",
+        "retention_dialogue": "“几家千亿规模的多策略巨头正在邀请我担任华盛顿游说首席。如果你们希望继续享有第一手的政策风向雷达，请拿出具有说服力的留任条件。”",
+        "resign_dialogue": "“你们正在越过不可挽回的法律深渊。我珍惜我几十年的声誉与人脉，旋转门不是为了替违法洗地而开的。我的顾问合同到此为止。”",
+        "delinquent_dialogue": "“前任公职人员的专业意见不是慈善施舍。请注意管理公司账户的合规履约，拖欠顾问薪资会让我不得不重新评估这段咨询关系的必要性。”"
+      }
+    }
+  ],
+  "team_events": [
+    {
+      "event_id": "EVT_TALENT_STAR_JEALOUSY",
+      "title": "明星薪酬引发团队嫉妒风暴 (Star Bonus Jealousy Crisis)",
+      "description": "由于近期向核心量化/分析师支付了巨额留任奖金，消息在办公室不胫而走。另一位功勋核心成员发现自己的薪酬待遇被严重拉开差距，在早会后怒气冲冲地走进你的办公室，要求重新评估薪资！",
+      "trigger_conditions": "某核心成员 retention_bonus >= 职级年薪 40% + 另一核心成员 loyalty < 60",
+      "choices": [
+        {
+          "choice_id": "A_PUBLIC_RAISE",
+          "label": "推动透明薪酬调整，按比例提升受影响成员的基本薪资",
+          "action_cost_desc": "管理公司月度持续开支 (Burn) 永久增加 15% · 消除团队嫉妒",
+          "feedback_text": "你选择了公开制度化调薪。虽然管理公司的月度运营成本上升，但团队内部的怨气得以平息，团队凝聚力恢复如初。",
+          "risk_impact_summary": "受影响成员忠诚度 (Loyalty) +15 · 团队嫉妒 (Team Jealousy) 归零 · 月度固定成本上升"
+        },
+        {
+          "choice_id": "B_PRIVATE_BONUS",
+          "label": "从管理现金中掏出一笔秘密奖金私下安抚，要求其对外保密",
+          "action_cost_desc": "管理公司现金 -$1,500 · 私下安抚",
+          "feedback_text": "你用一次性现金安抚了对方的情绪。短期内危机缓解，但角色记忆中记录了『区别对待与暗箱操作』，未来团队内讧的复发概率显著提高！",
+          "risk_impact_summary": "忠诚度短期 +10 · 写入区别对待记忆 · 未来内讧权重 +15"
+        },
+        {
+          "choice_id": "C_DISMISS_COMPLAINT",
+          "label": "冷酷拒绝：业绩说话，没有达到明星成员的创收就不配拿高薪",
+          "action_cost_desc": "0 成本 · 强硬压制",
+          "feedback_text": "你的冷酷激怒了功勋成员。对方在工位上开始消极怠工，主动技能触发率大幅下滑，并在猎头的挖角清单上将状态改为了‘随时可约’。",
+          "risk_impact_summary": "该成员忠诚度 -18 · 主动技能触发率下降 20% · 离职风险急剧升高"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT_TALENT_CONFLICT_INTEREST",
+      "title": "旋转门与律师双重利益冲突 (Revolving Door & Conflict of Interest)",
+      "description": "前监管顾问在参与某起反垄断调查公关时，恰好遇到了他曾经在司法部的直属下属负责主审；与此同时，律师在处理某笔大宗交易时发现该标的是其前雇主的重仓股。旋转门与合规冲突红灯闪烁！",
+      "trigger_conditions": "EX_REG / COUNSEL 参与涉密行动 + 命中 REVOLVING_DOOR 标签",
+      "choices": [
+        {
+          "choice_id": "A_RECUSE",
+          "label": "严格遵守道德墙协议：要求相关人员在本次行动中主动回避",
+          "action_cost_desc": "0 显式现金 · 该角色暂停使用 2 个节点",
+          "feedback_text": "你执行了华尔街最严格的利益冲突回避制度。虽然短期内失去了得力干将的协助，但基金彻底洗脱了利用不当人脉干预司法的嫌疑，合规记录完美无瑕。",
+          "risk_impact_summary": "该角色冷却 2 节点 · 合规风险 0 增长 · 树立崇高合规声誉"
+        },
+        {
+          "choice_id": "B_DISCLOSE",
+          "label": "向监管机构与交易对手进行正式利益冲突信息披露",
+          "action_cost_desc": "程序披露证据 +1 · 短期基金声誉 -3",
+          "feedback_text": "你选择了坦白披露。虽然这引来了财经媒体的短暂议论与轻微声誉折损，但合法披露彻底免除了后续 SEC 隐瞒利益冲突的重罪起诉权重。",
+          "risk_impact_summary": "声誉短期 -3 · 审计证据 +1 · SEC 潜在追责权重显著下降"
+        },
+        {
+          "choice_id": "C_PUSH_THROUGH",
+          "label": "强行推进！利用其深层人脉与私人关系强行打通阻碍",
+          "action_cost_desc": "0 成本 · 立即推进",
+          "feedback_text": "你成功利用人脉解决了眼前的麻烦，但这笔危险的双重代理交易被执法部门的内审机构牢牢锁定。合规炸弹的引信已被点燃！",
+          "risk_impact_summary": "合规风险 +12 · 严重审计证据 +2 · 后续正式执法与立案权重飙升"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT_TALENT_ANALYST_VS_QUANT",
+      "title": "投委会路线决裂：分析师 vs 量化师 (IC Clash: Fundamentals vs Quantitative)",
+      "description": "在周一早上的投资委员会（IC）上，分析师 Maya 依据实地调研坚定看空，而量化架构师依据微观 Gamma 信号坚决主张做多。双方在会议室拍桌对峙，要求你必须在两种路线中二选一！",
+      "trigger_conditions": "分析师与量化师结论严重冲突 + 玩家连续两次单向偏袒某一方",
+      "choices": [
+        {
+          "choice_id": "A_HOLD_FORMAL_IC",
+          "label": "追加预算召开独立特别投委会，组织双方盲测并冻结决策证据",
+          "action_cost_desc": "管理公司现金 -$750 · 投委会组织费",
+          "feedback_text": "你用严谨的制度化流程化解了个人恩怨。双方的论点被严密归档进决策时间轴，两位核心负责人的专业尊严都得到了尊重，团队凝聚力不降反升。",
+          "risk_impact_summary": "双方忠诚度各 +5 · 论点冻结入 360 复盘追踪 · 打造专业投研文化"
+        },
+        {
+          "choice_id": "B_BACK_ANALYST",
+          "label": "力挺基本面分析师：相信真实商业常识，无视冰冷公式",
+          "action_cost_desc": "0 成本 · 单向站队",
+          "feedback_text": "分析师得到了你的全力支持，但量化架构师深感自己的专业模型被当成了废纸。量化师的忠诚度受挫，模型维护积极性显著下滑。",
+          "risk_impact_summary": "分析师忠诚度 +8 · 量化师忠诚度 -12 · 量化设施可靠性轻微受损"
+        },
+        {
+          "choice_id": "C_BACK_QUANT",
+          "label": "力挺量化架构师：相信衍生品订单流数学，无视主观叙事",
+          "action_cost_desc": "0 成本 · 单向站队",
+          "feedback_text": "量化师在争论中胜出，但基本面分析师感到自己的深度调研被粗暴践踏。分析师的忠诚度骤降，并拒绝在下个节点提供深度内参报告。",
+          "risk_impact_summary": "量化师忠诚度 +8 · 分析师忠诚度 -12 · 下节点基本面内参输出受阻"
+        }
+      ]
+    }
+  ],
+  "retention_mechanics_note": {
+    "title": "核心人才留任与挖角应对机制 (Retention & Counter-Offer Mechanics)",
+    "description": "当团队核心成员的忠诚度 (Loyalty) < 65 或市场热度 (Market Heat) > 70 且连续高负荷工作时，竞对基金（如 Apex Horizon）将发起高薪挖角。玩家拥有四种应对手段：\n1. MATCH（现金留任）：支付月薪 3-6 倍的专项留任奖金 (Retention Bonus)，忠诚度大幅回升；\n2. PROMOTE（晋升加薪）：一次性发放晋升津贴并永久上调 20% 月薪，提升忠诚度但可能诱发团队嫉妒；\n3. LET_GO（放手离职）：0 成本允许其离职，但会触发对应基础设施降级或能力真空；\n4. COUNTER_WITH_EQUITY（合伙人股权分成）：仅限后期高声誉阶段解锁，约定管理公司远期利润分红，彻底绑定核心人才。"
+  }
+}

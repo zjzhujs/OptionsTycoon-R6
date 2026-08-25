@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "choice_to_faction": {
+    "opt_aggressive": "MAYA",
+    "opt_defensive": "VICTOR"
+  },
+  "missions": {
+    "MAYA": {
+      "thesis": "【Maya线·投研论点】把产业判断写成可被击穿的 Thesis，并设定可证伪指标",
+      "position": "【Maya线·资金分配】只给通过反证检验的研究结论分配实盘资金",
+      "review": "【Maya线·归因复盘】复盘收益来源：究竟来自 Thesis 兑现，还是大盘 Beta"
+    },
+    "VICTOR": {
+      "thesis": "【Victor线·止损红线】设定最大回撤限制、撤退阈值与不可逾越的止损红线",
+      "position": "【Victor线·风险预算】仓位规模必须严格受制于维持保证金与现金流底线",
+      "review": "【Victor线·纪律审查】复盘风控执行度：核验是否守住预算上限，而非仅看账面盈亏"
+    }
+  }
+}

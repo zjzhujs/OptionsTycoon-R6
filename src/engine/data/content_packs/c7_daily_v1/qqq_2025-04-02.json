@@ -1,0 +1,36 @@
+{
+  "session_id": "c7_qqq_2025-04-02_1d",
+  "ticker": "QQQ",
+  "date": "2025-04-02",
+  "timezone": "America/New_York",
+  "source_timestamp_timezone": "America/New_York session date",
+  "interval_label": "1d real Part6 daily row",
+  "source_type": "REAL_VENDOR",
+  "source_name": "Part6 real QQQ daily OHLCV",
+  "source_url_or_identifier": "https://uk.finance.yahoo.com/quote/QQQ/history/",
+  "runtime_network_required": false,
+  "source_price_basis": "raw Close/OHLC; Adj Close retained only in checkpoint, not used for replay",
+  "previous_close": null,
+  "daily_cross_check": {
+    "open": 466.12,
+    "high": 479.56,
+    "low": 465.86,
+    "close": 476.15,
+    "volume": 49894500.0
+  },
+  "bars": [
+    {
+      "ts": "2025-04-02T16:00:00-04:00",
+      "label_et": "16:00 ET",
+      "open": 466.12,
+      "high": 479.56,
+      "low": 465.86,
+      "close": 476.15,
+      "volume": 49894500.0
+    }
+  ],
+  "material_windows": [],
+  "integrity_note": "Real daily context row. The policy timeline, not a fabricated price reaction, is the C7 authoritative event layer.",
+  "truth_label": "REAL_DAILY",
+  "usage": "DATA_ONLY_CONTEXT"
+}

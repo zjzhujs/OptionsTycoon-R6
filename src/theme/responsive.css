@@ -1,0 +1,832 @@
+@media (max-width: 1279px) and (min-width: 768px) {
+  .market-command-shell .trading-floor-workspace {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 34vw);
+    padding-bottom: 72px;
+  }
+
+  .market-command-shell .col-left { display: none; }
+  .command-bottom-rail { grid-template-columns: minmax(200px, 1fr) auto; }
+}
+
+@media (max-width: 767px) {
+  .market-command-shell { width: 100%; border-top: 0; }
+  .market-command-shell .trading-floor-workspace { display: block; padding: 0; }
+  .market-command-shell .col-center { min-width: 0; }
+  .market-command-shell .col-left,
+  .market-command-shell > .trading-floor-workspace > .wrr,
+  .market-command-shell .war-room-command-rail { display: none; }
+  .command-bottom-rail { display: none; }
+  button, .ot-btn, [role="button"], input, select { min-height: 44px; }
+}
+
+@media (max-width: 480px) {
+  html, body, #root { width: 100%; height: 100%; min-height: 0; overflow: hidden; }
+  body { overscroll-behavior: none; }
+
+  .app-shell-mobile {
+    position: relative;
+    display: grid;
+    grid-template-rows: calc(var(--ot-system-cap) + var(--ot-safe-top)) minmax(0, 1fr) calc(var(--ot-command-dock) + var(--ot-safe-bottom));
+    width: 100%;
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+    background: var(--ot-bg-0);
+  }
+
+  .app-shell-mobile > .app-rail,
+  .app-shell-mobile > .app-nav,
+  .app-shell-mobile > nav:not(.mobile-nav-bar) { display: none; }
+
+  .app-shell-mobile > .app-status-bar {
+    position: relative;
+    z-index: 80;
+    grid-row: 1;
+    width: 100%;
+    min-height: calc(var(--ot-system-cap) + var(--ot-safe-top));
+    padding: var(--ot-safe-top) 10px 0;
+    overflow: hidden;
+    border-bottom: 1px solid var(--ot-line-strong);
+    background: color-mix(in srgb, var(--ot-bg-0) 96%, transparent);
+    backdrop-filter: blur(12px);
+  }
+
+  .app-shell-mobile > .app-status-bar.ot-instrument-strip {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .app-shell-mobile .app-status-title-en,
+  .app-shell-mobile .app-status-left > :not(.app-status-title),
+  .app-shell-mobile .app-status-right,
+  .app-shell-mobile .app-status-mission { display: none; }
+  .app-shell-mobile .app-status-title { font-size: 12px; }
+  .app-shell-mobile .app-status-mid { display: flex; gap: 8px; justify-self: end; font: 10px "IBM Plex Mono", monospace; color: var(--ot-text-soft); }
+
+  .mobile-command-scroll {
+    grid-row: 2;
+    min-width: 0;
+    min-height: 0;
+    overflow-x: clip;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scrollbar-width: thin;
+    scroll-padding-bottom: 90px;
+    padding-bottom: 72px;
+    width: 100vw;
+    max-width: 100vw;
+  }
+
+  .mobile-command-scroll > * { max-width: 100%; }
+
+  .app-shell-mobile .mobile-command-scroll > .mission-header.current-objective-banner.mission-tracker {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(96px, 31%);
+    align-items: stretch;
+    gap: 8px;
+    min-height: 82px;
+    max-height: 96px;
+    padding: 8px;
+    overflow: hidden;
+  }
+
+  .app-shell-mobile .mobile-command-scroll > .mission-header.current-objective-banner.mission-tracker > .mission-header-main {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 5px;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .app-shell-mobile .mission-header .objective-badge-row { display: flex; gap: 4px; min-width: 0; overflow: hidden; }
+  .app-shell-mobile .mission-header .objective-hdr-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .app-shell-mobile .mission-header .objective-title {
+    display: -webkit-box;
+    min-width: 0;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 1.35;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .app-shell-mobile .mobile-command-scroll > .mission-header.current-objective-banner.mission-tracker > .mission-header-action {
+    display: flex;
+    min-width: 0;
+    align-items: stretch;
+  }
+
+  .app-shell-mobile .mission-header .btn-objective-primary { width: 100%; min-width: 0; min-height: 44px; padding: 6px; font-size: 11px; white-space: normal; }
+  .app-shell-mobile .workspace-return-hq { display: none; }
+
+  .app-shell-mobile > .mobile-nav-bar {
+    position: fixed;
+    z-index: 90;
+    inset: auto 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    width: 100%;
+    height: calc(var(--ot-command-dock) + var(--ot-safe-bottom));
+    box-sizing: border-box;
+    padding: 0 4px var(--ot-safe-bottom);
+    border-top: 1px solid var(--ot-line-strong);
+    background: color-mix(in srgb, var(--ot-bg-0) 96%, transparent);
+    backdrop-filter: blur(14px);
+  }
+
+  .mobile-nav-bar .nav-tab-btn {
+    min-width: 0;
+    min-height: 58px;
+    padding: 4px 2px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--ot-text-dim);
+    font-size: 10px;
+  }
+
+  .mobile-nav-bar .nav-tab-btn.active { color: var(--ot-accent); box-shadow: inset 0 2px 0 var(--ot-accent); }
+
+  .mission-header,
+  .mobile-fund-pulse,
+  .workspace-return-hq { margin: 8px 8px 0; }
+
+  .mobile-fund-pulse {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    padding: 1px;
+    border: 1px solid var(--ot-line);
+    border-radius: var(--ot-radius-sm);
+    background: var(--ot-line);
+    width: calc(100vw - 16px);
+    max-width: calc(100vw - 16px);
+  }
+
+  .mobile-fund-pulse-item,
+  .mobile-fund-pulse-risk {
+    display: grid;
+    align-content: center;
+    min-width: 0;
+    min-height: 48px;
+    padding: 6px 8px;
+    border: 0;
+    border-radius: 0;
+    background: var(--ot-bg-1);
+    color: var(--ot-text);
+    text-align: left;
+  }
+  .app-shell-mobile .mobile-fund-pulse > button { width: 100%; min-width: 0; max-width: 100%; }
+
+  .mobile-fund-pulse-label { color: var(--ot-text-dim); font-size: 9px; }
+  .mobile-fund-pulse strong { overflow: hidden; font: 700 12px/1.2 "IBM Plex Mono", monospace; text-overflow: ellipsis; }
+
+  .market-command-shell { width: 100vw; max-width: 100vw; margin-top: 8px; }
+  .market-command-shell::before { display: none; }
+  .market-command-shell .trading-floor-workspace { padding: 0 8px 16px; }
+  .app-shell-mobile .market-command-shell .trading-floor-workspace > .col-center {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+  .market-command-shell .col-center > .panel:first-child { margin: 0 0 8px; border-radius: var(--ot-radius-sm); }
+  .market-command-shell .market-capital-scope { overflow-x: auto; }
+  .market-command-shell .market-capital-strip { min-width: 620px; }
+
+  .market-hero-stage { margin-top: 8px; }
+  .app-shell-mobile .market-hero-stage { height: auto; overflow: visible; }
+  .app-shell-mobile .market-hero-stage .pcp-panel,
+  .app-shell-mobile .market-hero-stage .pcp-panel[data-density] { height: auto; min-height: 0; overflow: visible; border: 0; }
+  .pcp-header { min-height: 44px; padding-inline: 8px; }
+  .pcp-range-strip { min-height: 44px; overflow-x: auto; }
+  .app-shell-mobile .market-hero-stage .pcp-range-strip button { flex: 0 0 auto; min-width: 44px; height: 44px; min-height: 44px; }
+  .app-shell-mobile .market-hero-stage .pcp-chart-stage { flex: 0 0 238px; height: 238px; min-height: 238px; max-height: 238px; }
+  .pcp-volume-band { height: 40px; }
+  .pcp-network-band { min-height: 56px; height: 56px; }
+  .pcp-secondary-controls { min-height: 44px; overflow-x: auto; }
+  .app-shell-mobile .market-hero-stage .pcp-secondary-controls button { height: 44px; min-height: 44px; }
+  .app-shell-mobile .pcp-event-strip,
+  .app-shell-mobile .pcp-boundary-bar { display: none; }
+
+  .decision-deck { margin-top: 8px; }
+  .decision-deck-thesis { grid-template-columns: 1fr; gap: 2px; min-height: 58px; }
+  .decision-deck-thesis strong { white-space: normal; }
+  .decision-key-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .decision-key { grid-column: span 2; min-height: 66px; border-bottom: 1px solid var(--ot-line); }
+  .decision-key:nth-child(4) { grid-column: 2 / span 2; }
+  .decision-key:nth-child(5) { grid-column: 4 / span 2; }
+  .decision-key:nth-child(3), .decision-key:nth-child(5) { border-right: 0; }
+
+  .mobile-war-room-presence { height: 92px; overflow: hidden; border: 1px solid var(--ot-line-strong); border-radius: var(--ot-radius-sm); }
+  .mobile-war-room-presence .wrr { height: 100%; border: 0; }
+  .mobile-war-room-presence .wrr-head { min-height: 44px; height: 44px; padding: 2px 6px; }
+  .mobile-war-room-presence .wrr-drawer-chevron,
+  .mobile-war-room-presence .wrr-event-cta,
+  .mobile-war-room-presence .wrr-seat-line,
+  .mobile-war-room-presence .wrr-role-footer,
+  .mobile-war-room-presence .ot-role-title,
+  .mobile-war-room-presence .ot-badge { display: none; }
+  .mobile-war-room-presence .wrr-drawer-body { display: block; height: 47px; padding: 3px 4px; overflow: hidden; }
+  .mobile-war-room-presence .wrr-seats { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px !important; }
+  .mobile-war-room-presence .wrr-seat-card { display: grid; grid-template-columns: 28px minmax(0, 1fr); height: 40px; padding: 1px; overflow: hidden; }
+  .mobile-war-room-presence .wrr-avatar-wrap { width: 28px; height: 38px; }
+  .mobile-war-room-presence .wrr-avatar-img { width: 28px; height: 38px; object-fit: cover; }
+  .mobile-war-room-presence .wrr-avatar-badge { display: none; }
+  .mobile-war-room-presence .ot-role-header { display: block; padding: 2px; }
+  .mobile-war-room-presence .ot-role-name { display: block; overflow: hidden; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+
+  .mobile-position-instrument {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 8px;
+    align-items: center;
+    min-height: 52px;
+    margin-top: 8px;
+    padding: 7px 9px;
+    border: 1px solid var(--ot-line);
+    border-radius: var(--ot-radius-sm);
+    background: var(--ot-bg-1);
+  }
+  .mobile-position-instrument strong { overflow: hidden; font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+  .mobile-position-instrument > :last-child { font-size: 12px; }
+
+  .app-shell-mobile .market-command-shell .trading-options-order {
+    grid-row: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin-top: 8px;
+    overflow: visible;
+  }
+  .app-shell-mobile .market-command-shell .trading-chain-slot,
+  .app-shell-mobile .market-command-shell .trading-chain-slot > .options-chain-panel {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+  .app-shell-mobile .market-command-shell .options-chain-panel { display: grid; height: auto; }
+  .app-shell-mobile .market-command-shell .options-chain-panel .chain { height: 320px; min-height: 320px; overflow: auto; }
+  .app-shell-mobile .market-command-shell .trading-order-slot { display: block; height: auto; min-height: 0; overflow: visible; }
+
+  .mobile-machine-base {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(150px, 44%);
+    gap: 8px;
+    align-items: center;
+    min-height: 82px;
+    margin: 10px 0 4px;
+    padding: 8px;
+    border: 1px solid var(--ot-line-strong);
+    border-radius: var(--ot-radius-sm);
+    background: var(--ot-surface-raised);
+  }
+  .mobile-machine-status { display: grid; gap: 4px; min-width: 0; }
+  .mobile-machine-status strong { font-size: 12px; }
+  .mobile-advance-market { display: grid; place-content: center; min-height: 58px; padding: 6px 8px; }
+  .mobile-advance-market span { font: 9px "IBM Plex Mono", monospace; }
+
+  .mobile-command-alerts { margin-top: 8px; min-height: 48px; padding: 8px; border: 1px solid var(--ot-line); border-radius: var(--ot-radius-sm); background: var(--ot-bg-1); }
+
+  /* The compact empty-portfolio table remains a full command surface instead
+     of collapsing into a short card above a large inert backplane. */
+  .app-shell-mobile .portfolio-workspace-layout {
+    min-height: calc(100dvh - 330px);
+  }
+
+  .app-shell-mobile .portfolio-workspace-main > [data-coach="positions-panel"] > .positions-attribution-viz {
+    height: calc(100dvh - 482px);
+    min-height: calc(100dvh - 482px);
+  }
+
+  /* Intel archives belong to the one command scroller. The legacy shell gave
+     this panel a fixed second grid row, which clipped resolved story history. */
+  .app-shell-mobile .intel-workspace-layout {
+    grid-template-rows: 118px auto;
+  }
+
+  .app-shell-mobile .intel-workspace-main,
+  .app-shell-mobile .intel-workspace-main > .panel,
+  .app-shell-mobile .intel-workspace-main > .panel > .panel,
+  .app-shell-mobile .intel-workspace-main .story-inbox,
+  .app-shell-mobile .intel-workspace-main .story-inbox-list {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .app-shell-mobile .intel-workspace-main > .panel > .story-inbox-enforced {
+    flex: 0 0 auto;
+    min-height: calc(100dvh - 548px);
+  }
+
+  .app-shell-mobile details.story-archive:not([open]) > .story-archive-list,
+  .app-shell-mobile details.story-archive-entry:not([open]) > .story-archive-body {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .app-shell-mobile .market-hero-stage .pcp-chart-stage { flex-basis: 224px; height: 224px; min-height: 224px; max-height: 224px; }
+  .pcp-volume-band { height: 38px; }
+  .pcp-network-band { min-height: 48px; height: 48px; }
+  .mobile-war-room-presence { height: 88px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto; transition-duration: 0.01ms; animation-duration: 0.01ms; animation-iteration-count: 1; }
+}
+
+/* --------------------------------------------------------------------------
+ * R6.6.2 mobile final: Market -> Decision -> Execution, one real page scroller
+ * -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  /* Objective and fund pulse belong to the command stream, not permanent chrome. */
+  .app-shell-mobile .mobile-command-scroll > .mission-header.current-objective-banner.mission-tracker {
+    grid-template-columns: minmax(0, 1fr) 104px;
+    gap: 5px;
+    min-height: 48px;
+    max-height: 52px;
+    margin: 6px 8px 0;
+    padding: 3px 5px;
+  }
+  .app-shell-mobile .mission-header .objective-badge-row { display: none; }
+  .app-shell-mobile .mission-header .objective-title {
+    align-self: center;
+    font-size: 10px;
+    line-height: 1.2;
+    -webkit-line-clamp: 2;
+  }
+  .app-shell-mobile .mission-header .btn-objective-primary {
+    min-height: 44px;
+    height: 44px;
+    padding: 3px 5px;
+    font-size: 9px;
+  }
+
+  .mobile-fund-pulse {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    min-height: 50px;
+    height: 50px;
+    margin: 6px 8px 0;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 1px;
+    background: var(--ot-bg-1);
+  }
+  .mobile-fund-pulse-item,
+  .mobile-fund-pulse-risk {
+    min-height: 48px;
+    height: 48px;
+    padding: 4px 3px;
+    border-right: 1px solid var(--ot-line);
+  }
+  .mobile-fund-pulse > :last-child { border-right: 0; }
+  .mobile-fund-pulse-label { overflow: hidden; font-size: 7px; text-overflow: ellipsis; white-space: nowrap; }
+  .mobile-fund-pulse strong { font-size: 9px; text-align: left; }
+
+  /* The hero is one continuous instrument, not a stack of cards. */
+  .market-command-shell { margin-top: 6px; }
+  .market-command-shell .trading-floor-workspace { padding: 0 8px 10px; }
+  .market-hero-stage,
+  .decision-deck,
+  .mobile-war-room-presence,
+  .mobile-position-instrument,
+  .mobile-machine-base,
+  .mobile-command-alerts { border-radius: 1px; }
+
+  .pcp-header {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 58px 44px;
+    gap: 0;
+    min-height: 102px;
+    height: 102px;
+    padding: 0;
+    overflow: hidden;
+  }
+  .app-shell-mobile .pcp-header-left,
+  .pcp-header-left {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: center;
+    gap: 3px;
+    min-width: 0;
+    height: 58px;
+    padding: 5px 8px;
+  }
+  .pcp-hero-identity { gap: 6px; padding-right: 128px; }
+  .pcp-symbol { font-size: 18px; }
+  .pcp-company-name { font-size: 7px; }
+  .pcp-price-row { gap: 7px; }
+  .pcp-hero-price { font-size: 21px; }
+  .pcp-hero-change { font-size: 9px; }
+  .app-shell-mobile .pcp-ohlc, .pcp-ohlc { display: none; }
+  .pcp-truth-badge {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    z-index: 3;
+    max-width: 122px;
+    margin: 0;
+    overflow: hidden;
+    font-size: 5.8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .pcp-controls {
+    display: block;
+    min-width: 0;
+    height: 44px;
+    overflow: hidden;
+    border-top: 1px solid var(--ot-line);
+  }
+  .pcp-range-strip { width: 100%; height: 44px; min-height: 44px; }
+  .pcp-range-group { height: 44px; }
+  .pcp-range-label-full { display: none; }
+  .pcp-range-label-short { display: inline; }
+
+  .pcp-volume-band {
+    grid-template-columns: 48px minmax(0, 1fr);
+    padding: 4px 6px;
+  }
+  .pcp-volume-band.is-intraday .pcp-volume-bars { gap: 0; }
+  .pcp-volume-band.is-intraday .pcp-volume-bars i { min-width: 1px; }
+
+  .pcp-network-band {
+    grid-template-columns: 54px minmax(0, 1fr) 46px;
+    gap: 2px;
+    padding: 3px 5px;
+  }
+  .pcp-network-label .command-kicker { font-size: 7px; }
+  .pcp-network-label small { display: none; }
+  .pcp-network-readouts { font-size: 6px; gap: 2px; }
+  .pcp-network-node { width: 5px; height: 5px; margin: -2.5px; }
+
+  .pcp-secondary-controls { height: 44px; min-height: 44px; padding-inline: 4px; }
+  .pcp-display-group { flex: 0 0 auto; }
+
+  /* Decision view: five intents always visible; preview owns execution. */
+  .decision-deck { margin-top: 8px; }
+  .decision-deck-thesis {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    min-height: 78px;
+    padding: 8px;
+    gap: 4px 8px;
+  }
+  .decision-deck-thesis .command-kicker { grid-column: 1 / -1; }
+  .decision-deck-thesis strong {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 11px;
+    line-height: 1.35;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  .decision-key-console-head {
+    min-height: 28px;
+    height: 28px;
+    padding: 4px 7px;
+    font-size: 8px;
+  }
+  .decision-key-console-head > span:last-child { font-size: 6px; }
+  .decision-key-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; padding: 6px 0 0; }
+  .decision-key {
+    grid-column: span 2;
+    min-height: 66px;
+    height: 66px;
+    padding: 6px 7px;
+    border: 1px solid var(--ot-line);
+  }
+  .decision-key-signal { right:5px; bottom:7px; width:22px; height:10px; }
+  .decision-key:nth-child(4) { grid-column: 2 / span 2; }
+  .decision-key:nth-child(5) { grid-column: 4 / span 2; }
+  .decision-key-label { font-size: 10px; }
+  .decision-key-en { font-size: 7px; }
+  .decision-key-index { font-size: 8px; }
+  .decision-key-armed { top: 3px; right: 4px; font-size: 6px; }
+
+  .decision-action-preview {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+    min-height: 0;
+    padding: 8px;
+  }
+  .decision-preview-heading { display: grid; gap: 2px; }
+  .decision-preview-heading strong { font-size: 11px; }
+  .decision-preview-detail { font-size: 10px; }
+  .decision-preview-risk { font-size: 9px; }
+  .decision-preview-actions { grid-template-columns: 96px minmax(0, 1fr); grid-template-rows: 1fr; }
+  .decision-preview-cancel { min-height: 58px; height: 58px; }
+  .decision-confirm-actuator { min-height: 58px; height: 58px; }
+  .decision-confirm-copy strong { font-size: 10px; }
+
+  /* Four people remain simultaneously present on the phone. */
+  .mobile-war-room-presence {
+    height: 92px;
+    margin-top: 8px;
+  }
+  .mobile-war-room-presence .wrr { height: 90px; }
+  .mobile-war-room-presence .wrr-head {
+    min-height: 18px;
+    height: 18px;
+    padding: 1px 4px;
+  }
+  .mobile-war-room-presence .wrr-title { font-size: 8px; }
+  .mobile-war-room-presence .wrr-head-right,
+  .mobile-war-room-presence .wrr-avatar-mini-dots { display: none; }
+  .mobile-war-room-presence .wrr-drawer-body {
+    height: 71px;
+    padding: 2px 3px;
+  }
+  .mobile-war-room-presence .wrr-event-cta { display: none; }
+  .mobile-war-room-presence .wrr-seats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px !important;
+    height: 66px;
+  }
+  .mobile-war-room-presence .wrr-seat-card {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    grid-template-rows: 1fr;
+    min-width: 0;
+    height: 66px;
+    padding: 2px;
+  }
+  .mobile-war-room-presence .wrr-avatar-wrap,
+  .mobile-war-room-presence .wrr-avatar-img {
+    width: 40px;
+    height: 60px;
+    object-fit: cover;
+  }
+  .mobile-war-room-presence .ot-role-header {
+    display: grid;
+    align-content: center;
+    min-width: 0;
+    padding: 2px;
+  }
+  .mobile-war-room-presence .ot-role-name { font-size: 8px; line-height: 1.05; white-space: normal; }
+  .mobile-war-room-presence .wrr-seat-line,
+  .mobile-war-room-presence .ot-role-title,
+  .mobile-war-room-presence .wrr-role-footer,
+  .mobile-war-room-presence .wrr-avatar-badge,
+  .mobile-war-room-presence .ot-badge,
+  .mobile-war-room-presence .seat-trace { display: none !important; }
+
+  .mobile-position-instrument { margin-top: 8px; }
+
+  /* Execution surfaces follow Decision; they never float over it. The desktop
+     foldable bay becomes a plain in-flow stack on phones. */
+  .app-shell-mobile .market-command-shell .trading-options-order {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin-top: 8px;
+    overflow: visible;
+    border: 0;
+    background: transparent;
+  }
+  .app-shell-mobile .execution-bay-summary { display: none; }
+  .app-shell-mobile .execution-bay-grid {
+    display: block;
+    width: 100%;
+    min-height: 0;
+    max-height: none;
+    padding: 0;
+    overflow: visible;
+  }
+  .app-shell-mobile .trading-chain-slot,
+  .app-shell-mobile .trading-order-slot { display:block; width:100%; height:auto; min-height:0; overflow:visible; }
+  .app-shell-mobile .market-command-shell .options-chain-panel .chain {
+    height: 320px;
+    max-height: 320px;
+    overscroll-behavior: contain;
+  }
+
+  .mobile-order-action-preview { margin: 6px 0; }
+  .mobile-bottom-sheet .decision-confirm-actuator {
+    width: 100%;
+    min-height: 58px;
+    height: auto;
+    grid-column: 1 / -1;
+  }
+
+  /* Machine base is contextual hardware; the fixed dock below it is navigation only. */
+  .mobile-command-alerts {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 8px;
+    align-items: center;
+    min-height: 48px;
+    margin-top: 8px;
+    padding: 7px 8px;
+  }
+  .mobile-machine-base {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    min-height: 98px;
+    margin: 8px 0 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .mobile-machine-status {
+    min-height: 36px;
+    padding: 5px 8px;
+    border-bottom: 1px solid var(--ot-line);
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 8px;
+  }
+  .mobile-machine-status strong {
+    overflow: hidden;
+    color: var(--ot-text-soft);
+    font-size: 9px;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .mobile-advance-market {
+    width: 100%;
+    min-height: 60px;
+    height: 60px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: inset 0 1px 0 rgba(var(--ot-accent-rgb), .3);
+  }
+
+  /* Last in-flow actuator must finish above the fixed command dock. */
+  .mobile-command-scroll { padding-bottom: 8px; scroll-padding-bottom: 74px; }
+}
+
+@media (max-width: 380px) {
+  .app-shell-mobile .mobile-command-scroll > .mission-header.current-objective-banner.mission-tracker {
+    min-height: 46px;
+    max-height: 50px;
+  }
+  .mobile-fund-pulse { min-height: 48px; height: 48px; }
+  .pcp-header { grid-template-rows: 56px 44px; min-height: 100px; height: 100px; }
+  .pcp-header-left { height:56px; }
+  .pcp-hero-price { font-size:20px; }
+  .mobile-war-room-presence { height: 88px; }
+  .mobile-war-room-presence .wrr { height: 86px; }
+  .mobile-war-room-presence .wrr-drawer-body { height: 67px; }
+  .mobile-war-room-presence .wrr-seats { height: 62px; }
+  .mobile-war-room-presence .wrr-seat-card { height: 62px; grid-template-columns: 36px minmax(0, 1fr); }
+  .mobile-war-room-presence .wrr-avatar-wrap,
+  .mobile-war-room-presence .wrr-avatar-img { width: 36px; height: 56px; }
+}
+
+/* R6.6.2 P0 mobile closure: the legacy desktop market-status panel must not sit
+   above the phone hero. System cap + objective + fund pulse already carry the
+   admitted context; leaving this panel in flow steals ~250px and recreates the
+   old stacked-dashboard failure. */
+@media (max-width: 480px) {
+  .app-shell-mobile .market-command-main > .panel:first-child { display: none; }
+  .app-shell-mobile .market-hero-stage { margin-top: 0; }
+
+  .mobile-machine-status {
+    display: grid;
+    grid-template-columns: .9fr .65fr .55fr 1.55fr;
+    gap: 0;
+    min-height: 36px;
+    height: 36px;
+    padding: 0;
+    align-items: stretch;
+  }
+  .mobile-machine-readout {
+    display: grid;
+    min-width: 0;
+    align-content: center;
+    gap: 1px;
+    padding: 3px 5px;
+    border-right: 1px solid var(--ot-line);
+  }
+  .mobile-machine-readout:last-child { border-right: 0; }
+  .mobile-machine-readout small {
+    color: var(--ot-text-dim);
+    font: 700 6px/1 "IBM Plex Sans Condensed", sans-serif;
+    letter-spacing: .08em;
+  }
+  .mobile-machine-readout strong {
+    overflow: hidden;
+    color: var(--ot-text-soft);
+    font: 700 8px/1.05 "IBM Plex Sans Condensed", sans-serif;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+  }
+  .mobile-machine-readout strong.is-hot { color: var(--ot-negative); }
+  .mobile-machine-next strong { color: var(--ot-accent); }
+
+  .mobile-advance-market {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    align-items: center;
+    padding: 7px 10px;
+    text-align: left;
+  }
+  .mobile-advance-copy { display: grid; min-width: 0; gap: 2px; }
+  .mobile-advance-copy strong { font: 800 12px/1 "IBM Plex Sans Condensed", sans-serif; }
+  .mobile-advance-copy small { overflow: hidden; color: var(--ot-text-dim); font: 8px/1 "IBM Plex Mono", monospace; text-overflow: ellipsis; white-space: nowrap; }
+  .mobile-advance-en { font: 800 9px/1 "IBM Plex Sans Condensed", sans-serif; letter-spacing: .05em; }
+
+  .order-ticket-action-preview { margin: 6px 0; }
+  .order-ticket-panel .decision-confirm-actuator { min-height: 58px; }
+}
+
+/* Mobile novice coaching: visible but collapsed by default. The old collapse
+   lived in visual-enforcement.css, which is no longer imported by the R6.6
+   single visual system; keep the behavior here so it cannot regress. */
+.ntg-mobile-toggle,
+.ntg-mobile-summary { display:none; }
+
+@media (max-width:480px) {
+  .app-shell-mobile .novice-trend-guide {
+    position:relative;
+    z-index:2;
+    left:auto;
+    right:auto;
+    bottom:auto;
+    box-sizing:border-box;
+    width:100%;
+    height:52px;
+    min-height:52px;
+    max-height:52px;
+    margin:6px 0 0;
+    padding:0;
+    overflow:hidden;
+    border-radius:1px;
+    overscroll-behavior:contain;
+    box-shadow:none;
+  }
+  .app-shell-mobile .ntg-mobile-toggle {
+    position:absolute;
+    display:block;
+    inline-size:1px;
+    block-size:1px;
+    margin:0;
+    opacity:0;
+    pointer-events:none;
+  }
+  .app-shell-mobile .ntg-mobile-summary {
+    display:flex;
+    height:50px;
+    min-height:50px;
+    max-height:50px;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:0 10px;
+    cursor:pointer;
+    user-select:none;
+  }
+  .app-shell-mobile .ntg-mobile-summary .ntg-speaker {
+    min-width:0;
+    margin:0;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .app-shell-mobile .ntg-expand-closed,
+  .app-shell-mobile .ntg-expand-open {
+    flex:0 0 auto;
+    color:var(--ot-accent);
+    font:800 9px/1 "IBM Plex Sans Condensed",sans-serif;
+    letter-spacing:.05em;
+  }
+  .app-shell-mobile .ntg-expand-open { display:none; }
+  .app-shell-mobile .ntg-mobile-toggle:checked + .ntg-mobile-summary .ntg-expand-closed { display:none; }
+  .app-shell-mobile .ntg-mobile-toggle:checked + .ntg-mobile-summary .ntg-expand-open { display:inline; }
+  .app-shell-mobile .ntg-mobile-toggle:not(:checked) ~ .ntg-bubble,
+  .app-shell-mobile .ntg-mobile-toggle:not(:checked) ~ .ntg-actions,
+  .app-shell-mobile .ntg-mobile-toggle:not(:checked) ~ .ntg-hint { display:none; }
+  .app-shell-mobile .ntg-mobile-toggle:checked ~ .ntg-bubble > .ntg-speaker { display:none; }
+  .app-shell-mobile .novice-trend-guide:has(.ntg-mobile-toggle:checked) {
+    height:auto;
+    min-height:0;
+    max-height:min(44dvh,360px);
+    overflow:auto;
+  }
+  .app-shell-mobile .ntg-mobile-toggle:checked ~ .ntg-bubble { padding:7px 12px 0; }
+  .app-shell-mobile .ntg-mobile-toggle:checked ~ .ntg-actions { margin:8px 12px 0; }
+  .app-shell-mobile .ntg-mobile-toggle:checked ~ .ntg-hint { margin:6px 12px 10px; }
+  .app-shell-mobile .ntg-actions { grid-template-columns:1fr 1fr; gap:6px; }
+  .app-shell-mobile .ntg-btn,
+  .app-shell-mobile .ntg-dismiss { min-height:44px; }
+  .app-shell-mobile .ntg-dismiss { grid-column:1 / -1; }
+  html[data-guided-stage="active"] .app-shell-mobile .novice-trend-guide { display:none; }
+}

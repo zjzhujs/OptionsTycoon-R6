@@ -1,0 +1,40 @@
+{
+ "session_id": "c8_atvi_2022-10-17_1d",
+ "ticker": "ATVI",
+ "date": "2022-10-17",
+ "timezone": "America/New_York",
+ "source_timestamp_timezone": "DATE_NORMALIZED",
+ "interval_label": "1d real HFDL bar",
+ "source_type": "REAL_VENDOR",
+ "source_name": "HF Data Library ATVI raw daily OHLCV",
+ "source_url_or_identifier": "https://hfdatalibrary.com/pages/download",
+ "source_price_basis": "provider raw daily OHLCV; no local adjustment",
+ "runtime_network_required": false,
+ "captured_at": "2026-08-21",
+ "captured_by": "tools/build_c8_daily_content_pack.py",
+ "truth_label": "REAL_DAILY",
+ "bars": [
+  {
+   "ts": "2022-10-17T00:00:00Z",
+   "label_et": "daily date-normalized bar",
+   "open": 71.950581,
+   "high": 72.153398,
+   "low": 70.951336,
+   "close": 70.995857,
+   "volume": 267920
+  }
+ ],
+ "material_windows": [],
+ "daily_cross_check": {
+  "ts": "2022-10-17T00:00:00Z",
+  "label_et": "daily date-normalized bar",
+  "open": 71.950581,
+  "high": 72.153398,
+  "low": 70.951336,
+  "close": 70.995857,
+  "volume": 267920
+ },
+ "usage": "DATA_ONLY",
+ "integrity_note": "The daily date is source-normalized. ATVI has no source row on 2023-10-13; no carry-forward row is created.",
+ "previous_close": 71.400959
+}

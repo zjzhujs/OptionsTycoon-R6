@@ -1,0 +1,323 @@
+.market-command-shell {
+  position: relative;
+  width: min(100%, 1720px);
+  margin: 0 auto;
+  border-top: 1px solid var(--ot-line-strong);
+  background-color: var(--ot-bg-1);
+  background-image:
+    var(--cmd-ambient-bloom),
+    var(--cmd-backplane-image),
+    var(--cmd-surface-grid),
+    var(--cmd-surface-base);
+  background-position: center, center, center, center;
+  background-size: cover, cover, 720px auto, 640px auto;
+  background-blend-mode: screen, screen, soft-light, overlay;
+}
+
+.market-command-shell::before { opacity: 0.72; }
+
+.market-command-shell .trading-floor-workspace {
+  display: grid;
+  grid-template-columns: var(--cmd-left-w) minmax(0, 1fr) var(--cmd-right-w);
+  gap: var(--cmd-gap);
+  align-items: start;
+  padding: var(--cmd-stage-pad-top) var(--cmd-stage-pad) 0;
+}
+
+.app-shell-desktop .market-command-shell .trading-floor-workspace {
+  grid-template-columns: var(--cmd-left-w) minmax(0, 1fr) var(--cmd-right-w);
+  gap: var(--cmd-gap);
+}
+
+.fund-risk-rail,
+.war-room-command-rail,
+.market-command-main {
+  min-width: 0;
+}
+
+.fund-risk-rail,
+.war-room-command-rail,
+.market-hero-stage,
+.decision-deck {
+  background-image: var(--cmd-surface-microdetail), var(--cmd-surface-base);
+  background-size: 420px auto, 560px auto;
+  background-blend-mode: soft-light, overlay;
+}
+
+.command-right-content {
+  display: flex;
+  min-width: 0;
+  overflow-x: clip;
+  flex-direction: column;
+  gap: var(--cmd-panel-gap);
+}
+.command-right-content > .wrr { order: -1; }
+.command-right-content .btnrow { flex-wrap: wrap; }
+.command-right-content .btnrow > button { width: 100%; min-width: 0; max-width: 100%; }
+.command-right-content .kpi,
+.command-right-content .ot-metric { min-width: 0; max-width: 100%; }
+
+.fund-risk-rail,
+.war-room-command-rail {
+  position: sticky;
+  top: 8px;
+  max-height: calc(100dvh - 100px);
+  overflow: auto;
+  scrollbar-width: thin;
+}
+
+.market-command-shell .trading-floor-workspace > .fund-risk-rail,
+.market-command-shell .trading-floor-workspace > .war-room-command-rail { position: sticky; top: 8px; }
+.app-shell-desktop .market-command-shell .trading-floor-workspace > .fund-risk-rail,
+.app-shell-desktop .market-command-shell .trading-floor-workspace > .war-room-command-rail { position: sticky; top: 8px; overflow-x: clip; }
+
+.app-shell-desktop .market-command-shell .trading-floor-workspace > .fund-risk-rail {
+  width: var(--cmd-left-w);
+  min-width: var(--cmd-left-w);
+  max-width: var(--cmd-left-w);
+}
+
+.app-shell-desktop .market-command-shell .trading-floor-workspace > .war-room-command-rail {
+  width: var(--cmd-right-w);
+  min-width: var(--cmd-right-w);
+  max-width: var(--cmd-right-w);
+}
+
+.command-bottom-rail {
+  position: sticky;
+  z-index: 25;
+  bottom: 0;
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 24%);
+  gap: 0;
+  align-items: center;
+  min-height: var(--cmd-bottom-h);
+  padding: 8px 12px;
+  border: 1px solid var(--ot-line-strong);
+  background: color-mix(in srgb, var(--ot-bg-0) 94%, transparent);
+  backdrop-filter: blur(14px);
+}
+
+.ot-command-dock.command-bottom-rail {
+  left: auto;
+  right: auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  height: var(--cmd-bottom-h);
+  min-height: var(--cmd-bottom-h);
+  max-height: var(--cmd-bottom-h);
+}
+
+.ot-command-dock.command-bottom-rail .ot-dock-cta {
+  grid-column: 2;
+  width: 100%;
+  min-width: 224px;
+  min-height: 52px;
+  margin: 0;
+  justify-self: end;
+}
+
+@media (min-width: 1280px) {
+  .app-shell-desktop.app {
+    padding-top: 0;
+    padding-left: 12px;
+  }
+
+  .app-shell-desktop .app-rail {
+    width: 64px;
+    translate: -58px 0;
+    opacity: 0.16;
+    transition: translate 140ms ease, opacity 140ms ease;
+  }
+
+  .app-shell-desktop .app-rail:hover,
+  .app-shell-desktop .app-rail:focus-within {
+    translate: 0 0;
+    opacity: 1;
+  }
+
+  .app-shell-desktop > .app-status-bar {
+    height: var(--cmd-top-h);
+    min-height: var(--cmd-top-h);
+    max-height: var(--cmd-top-h);
+  }
+
+  .app-shell-desktop > .app-workspace-flow > .mission-header.current-objective-banner.mission-tracker {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    min-height: 30px;
+    max-height: 32px;
+    padding: 1px 10px;
+    overflow: hidden;
+  }
+
+  .app-shell-desktop > .app-workspace-flow > .mission-header .objective-title {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 1.25;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .app-shell-desktop > .app-workspace-flow > .mission-header .objective-subtext,
+  .app-shell-desktop > .app-workspace-flow > .mission-header .mission-header-details { display: none; }
+
+  .app-shell-desktop > .app-workspace-flow > .mission-header .btn-objective-primary {
+    min-height: 30px;
+    padding: 3px 12px;
+  }
+
+  .app-shell-desktop [data-testid="advance-market-shortcut"] {
+    min-height: 32px;
+    padding: 4px 10px;
+    border-color: var(--ot-line);
+    background: transparent;
+    box-shadow: none;
+    color: var(--ot-text-soft);
+    font-size: 11px;
+  }
+
+  .app-shell-desktop .command-topbar-action {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 6px 9px;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: 1px solid var(--ot-line);
+    border-radius: var(--ot-radius-xs);
+    background: transparent;
+    color: var(--ot-text-soft);
+    font: 700 10px/1 "IBM Plex Sans Condensed", sans-serif;
+    letter-spacing: 0.08em;
+  }
+
+  .app-shell-desktop .app-status-mission {
+    position: absolute;
+    left: 14px;
+    bottom: 2px;
+    display: block;
+    max-width: min(740px, 54vw);
+    overflow: hidden;
+    color: var(--ot-text-dim);
+    font-size: 9px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .app-shell-desktop:has(.market-command-shell) > .app-workspace-flow > .mission-header,
+  .app-shell-desktop > .app-workspace-flow[data-active-workspace="MARKET"] > .mission-header { display: none; }
+
+  .app-shell-desktop > .app-workspace-flow > .workspace-return-hq { display: none; }
+
+  .market-command-main > .panel:first-child {
+    display: none;
+  }
+
+  html[data-theme="neon"] .market-command-main > .panel:first-child {
+    display: block;
+    min-height: 24px;
+    max-height: 24px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    background: transparent;
+  }
+
+  html[data-theme="neon"] .market-command-main > .panel:first-child .timeline {
+    min-height: 24px;
+    height: 24px;
+  }
+
+  html[data-theme="calm"] .market-command-shell { width: calc(100% - 44px); }
+
+  .market-command-main > .panel:first-child > :not(.timeline) { display: none; }
+
+  .market-command-main > .panel:first-child > .src,
+  .market-command-main > .panel:first-child > .warn {
+    max-height: 24px;
+    margin: 3px 0;
+    overflow: hidden;
+    line-height: 1.25;
+  }
+
+  .market-command-main > .panel:first-child > .src > div,
+  .market-command-main > .panel:first-child > .warn > div { display: none; }
+
+  .market-command-main .market-capital-scope { margin: 2px 0; }
+  .market-command-main .market-capital-scope { display: none; }
+  .market-command-main .market-capital-strip { min-height: 28px; gap: 10px; }
+  .market-command-main .market-capital-strip .kpi { min-height: 0; padding: 2px 0; border: 0; background: transparent; }
+  .market-command-main .market-capital-strip .k { display: inline; margin-right: 4px; font-size: 9px; }
+  .market-command-main .market-capital-strip .v { display: inline; font-size: 11px; }
+  .market-command-main .market-ratio-line,
+  .market-command-main .market-pnl-axis,
+  .market-command-main .market-viz-na { display: none; }
+  .market-command-main .timeline { min-height: 34px; margin: 0; padding: 4px 8px; }
+  .market-command-main .market-hero-stage .pcp-panel,
+  .market-command-main .market-hero-stage .pcp-panel[data-density] { height: auto; min-height: 0; }
+  .market-command-main .pcp-chart-stage {
+    flex: 0 0 var(--cmd-chart-min-h);
+    min-height: var(--cmd-chart-min-h);
+    height: var(--cmd-chart-min-h);
+    max-height: var(--cmd-chart-min-h);
+  }
+  .market-command-main .pcp-chart-stage .pcp-chart { min-height: 0; height: 100%; }
+}
+
+.app-status-bar {
+  min-height: 42px;
+  border-bottom: 1px solid var(--ot-line);
+  background: var(--ot-bg-0);
+}
+
+/* Market topbar uses market/system readouts rather than duplicating fund NAV cards. */
+.app-status-bar .command-market-readout strong { color: var(--ot-accent-2); }
+.app-status-bar .app-status-market-state strong { color: var(--ot-warning); }
+html[data-theme="neon"] .app-status-bar .command-market-readout strong { text-shadow: 0 0 10px rgba(var(--ot-accent-rgb), .22); }
+
+/* Bottom chassis: one continuous status machine + the single primary actuator. */
+.command-bottom-status-grid {
+  display:grid;
+  grid-template-columns:1.05fr 1.15fr .72fr .8fr 1.28fr;
+  align-self:stretch;
+  min-width:0;
+  min-height:0;
+  border-right:1px solid var(--ot-line-strong);
+}
+.command-bottom-readout {
+  display:grid;
+  min-width:0;
+  align-content:center;
+  gap:4px;
+  padding:7px 12px;
+  border-right:1px solid var(--ot-line);
+  background:linear-gradient(180deg,rgba(var(--ot-accent-rgb),.025),transparent);
+}
+.command-bottom-readout:last-child { border-right:0; }
+.command-bottom-readout small { color:var(--ot-text-dim); font:700 7px/1 "IBM Plex Sans Condensed",sans-serif; letter-spacing:.1em; }
+.command-bottom-readout strong { overflow:hidden; color:var(--ot-text-soft); font:800 11px/1.1 "IBM Plex Sans Condensed",sans-serif; text-overflow:ellipsis; white-space:nowrap; }
+.command-bottom-readout strong.is-hot { color:var(--ot-negative); }
+.ot-command-dock.command-bottom-rail .ot-dock-cta {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  min-width:300px;
+  min-height:100%;
+  padding:9px 16px;
+  border:0;
+  border-left:1px solid var(--ot-line-strong);
+  border-radius:0;
+  background:linear-gradient(100deg,rgba(var(--ot-accent-rgb),.13),rgba(var(--ot-accent-rgb),.04));
+  color:var(--ot-text);
+  text-align:left;
+}
+.ot-dock-cta-copy { display:grid; gap:3px; min-width:0; }
+.ot-dock-cta-copy strong { color:var(--ot-accent); font:800 16px/1 "IBM Plex Sans Condensed",sans-serif; letter-spacing:.04em; }
+.ot-dock-cta-copy small { overflow:hidden; color:var(--ot-text-dim); font:8px/1 "IBM Plex Mono",monospace; text-overflow:ellipsis; white-space:nowrap; }
+.ot-dock-cta-chevron { color:var(--ot-accent); font:900 24px/1 "IBM Plex Sans Condensed",sans-serif; letter-spacing:-.12em; }
+

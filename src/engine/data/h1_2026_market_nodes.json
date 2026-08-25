@@ -1,0 +1,312 @@
+[
+  {
+    "date": "2026-01-20",
+    "underlying_bar": {
+      "date": "2026-01-20",
+      "open": 679.637265,
+      "high": 682.853356,
+      "low": 674.710912,
+      "close": 675.787929,
+      "volume": 1117852.0
+    },
+    "secondary_close": 607.174054,
+    "vix": {
+      "date": "2026-01-20",
+      "open": 28.755,
+      "high": 29.87,
+      "low": 27.7,
+      "close": 29.46,
+      "volume": 886610.0
+    },
+    "label": "PROXY CONTEXT · SPY / QQQ / VXX",
+    "move_summary": null,
+    "severity": null,
+    "point_only": true,
+    "truth_label": "PROXY",
+    "provenance": {
+      "source_type": "REAL_VENDOR",
+      "source_name": "HF Data Library Part47/Part48 ETF proxy slices",
+      "source_url_or_identifier": "https://hfdatalibrary.com/pages/download",
+      "confidence": "PROXY: SPY→cash SPX context, QQQ→cash IXIC context, VXX→volatility context; VXX is not Cboe VIX. No interpolation or relabeling."
+    }
+  },
+  {
+    "date": "2026-02-23",
+    "underlying_bar": {
+      "date": "2026-02-23",
+      "open": 685.906033,
+      "high": 688.094972,
+      "low": 678.506519,
+      "close": 680.505983,
+      "volume": 1547527.0
+    },
+    "secondary_close": 600.689363,
+    "vix": {
+      "date": "2026-02-23",
+      "open": 28.44,
+      "high": 29.63,
+      "low": 28.05,
+      "close": 29.445,
+      "volume": 230544.0
+    },
+    "label": "PROXY CONTEXT · SPY / QQQ / VXX",
+    "move_summary": null,
+    "severity": null,
+    "point_only": true,
+    "truth_label": "PROXY",
+    "provenance": {
+      "source_type": "REAL_VENDOR",
+      "source_name": "HF Data Library Part47/Part48 ETF proxy slices",
+      "source_url_or_identifier": "https://hfdatalibrary.com/pages/download",
+      "confidence": "PROXY: SPY→cash SPX context, QQQ→cash IXIC context, VXX→volatility context; VXX is not Cboe VIX. No interpolation or relabeling."
+    }
+  },
+  {
+    "date": "2026-03-26",
+    "underlying_bar": {
+      "date": "2026-03-26",
+      "open": 652.05,
+      "high": 654.82,
+      "low": 644.83,
+      "close": 645.11,
+      "volume": 889533.0
+    },
+    "secondary_close": 573.68,
+    "vix": {
+      "date": "2026-03-26",
+      "open": 35.015,
+      "high": 36.8,
+      "low": 34.535,
+      "close": 36.71,
+      "volume": 600528.0
+    },
+    "label": "PROXY CONTEXT · SPY / QQQ / VXX",
+    "move_summary": null,
+    "severity": null,
+    "point_only": true,
+    "truth_label": "PROXY",
+    "provenance": {
+      "source_type": "REAL_VENDOR",
+      "source_name": "HF Data Library Part47/Part48 ETF proxy slices",
+      "source_url_or_identifier": "https://hfdatalibrary.com/pages/download",
+      "confidence": "PROXY: SPY→cash SPX context, QQQ→cash IXIC context, VXX→volatility context; VXX is not Cboe VIX. No interpolation or relabeling."
+    }
+  },
+  {
+    "date": "2026-04-08",
+    "underlying_bar": {
+      "date": "2026-04-08",
+      "open": 676.4,
+      "high": 677.06,
+      "low": 671.55,
+      "close": 676.0,
+      "volume": 2140314.0
+    },
+    "secondary_close": 605.96,
+    "vix": {
+      "date": "2026-04-08",
+      "open": 31.51,
+      "high": 32.82,
+      "low": 31.06,
+      "close": 31.61,
+      "volume": 248391.0
+    },
+    "label": "PROXY CONTEXT · SPY / QQQ / VXX",
+    "move_summary": null,
+    "severity": null,
+    "point_only": true,
+    "truth_label": "PROXY",
+    "provenance": {
+      "source_type": "REAL_VENDOR",
+      "source_name": "HF Data Library Part47/Part48 ETF proxy slices",
+      "source_url_or_identifier": "https://hfdatalibrary.com/pages/download",
+      "confidence": "PROXY: SPY→cash SPX context, QQQ→cash IXIC context, VXX→volatility context; VXX is not Cboe VIX. No interpolation or relabeling."
+    }
+  },
+  {
+    "date": "2026-05-08",
+    "underlying_bar": {
+      "date": "2026-05-08",
+      "open": 734.945,
+      "high": 737.97,
+      "low": 734.6,
+      "close": 737.54,
+      "volume": 1424208.0
+    },
+    "secondary_close": 711.12,
+    "vix": {
+      "date": "2026-05-08",
+      "open": 27.73,
+      "high": 28.14,
+      "low": 27.56,
+      "close": 28.04,
+      "volume": 266104.0
+    },
+    "label": "PROXY CONTEXT · SPY / QQQ / VXX",
+    "move_summary": null,
+    "severity": null,
+    "point_only": true,
+    "truth_label": "PROXY",
+    "provenance": {
+      "source_type": "REAL_VENDOR",
+      "source_name": "HF Data Library Part47/Part48 ETF proxy slices",
+      "source_url_or_identifier": "https://hfdatalibrary.com/pages/download",
+      "confidence": "PROXY: SPY→cash SPX context, QQQ→cash IXIC context, VXX→volatility context; VXX is not Cboe VIX. No interpolation or relabeling."
+    }
+  },
+  {
+    "date": "2026-05-20",
+    "underlying_bar": {
+      "date": "2026-05-20",
+      "open": 735.65,
+      "high": 741.8,
+      "low": 733.9,
+      "close": 741.31,
+      "volume": 1249111.0
+    },
+    "secondary_close": 713.07,
+    "vix": {
+      "date": "2026-05-20",
+      "open": 27.36,
+      "high": 27.54,
+      "low": 26.96,
+      "close": 26.99,
+      "volume": 211994.0
+    },
+    "label": "PROXY CONTEXT · SPY / QQQ / VXX",
+    "move_summary": null,
+    "severity": null,
+    "point_only": true,
+    "truth_label": "PROXY",
+    "provenance": {
+      "source_type": "REAL_VENDOR",
+      "source_name": "HF Data Library Part47/Part48 ETF proxy slices",
+      "source_url_or_identifier": "https://hfdatalibrary.com/pages/download",
+      "confidence": "PROXY: SPY→cash SPX context, QQQ→cash IXIC context, VXX→volatility context; VXX is not Cboe VIX. No interpolation or relabeling."
+    }
+  },
+  {
+    "date": "2026-05-21",
+    "underlying_bar": {
+      "date": "2026-05-21",
+      "open": 738.67,
+      "high": 744.84,
+      "low": 737.2,
+      "close": 742.71,
+      "volume": 1342628.0
+    },
+    "secondary_close": 714.41,
+    "vix": {
+      "date": "2026-05-21",
+      "open": 27.23,
+      "high": 27.31,
+      "low": 26.055,
+      "close": 26.19,
+      "volume": 298218.0
+    },
+    "label": "PROXY CONTEXT · SPY / QQQ / VXX",
+    "move_summary": null,
+    "severity": null,
+    "point_only": true,
+    "truth_label": "PROXY",
+    "provenance": {
+      "source_type": "REAL_VENDOR",
+      "source_name": "HF Data Library Part47/Part48 ETF proxy slices",
+      "source_url_or_identifier": "https://hfdatalibrary.com/pages/download",
+      "confidence": "PROXY: SPY→cash SPX context, QQQ→cash IXIC context, VXX→volatility context; VXX is not Cboe VIX. No interpolation or relabeling."
+    }
+  },
+  {
+    "date": "2026-06-05",
+    "underlying_bar": {
+      "date": "2026-06-05",
+      "open": 752.29,
+      "high": 752.81,
+      "low": 735.59,
+      "close": 737.45,
+      "volume": 2825290.0
+    },
+    "secondary_close": 705.375,
+    "vix": {
+      "date": "2026-06-05",
+      "open": 23.8,
+      "high": 25.675,
+      "low": 23.71,
+      "close": 25.22,
+      "volume": 942691.0
+    },
+    "label": "PROXY CONTEXT · SPY / QQQ / VXX",
+    "move_summary": null,
+    "severity": null,
+    "point_only": true,
+    "truth_label": "PROXY",
+    "provenance": {
+      "source_type": "REAL_VENDOR",
+      "source_name": "HF Data Library Part47/Part48 ETF proxy slices",
+      "source_url_or_identifier": "https://hfdatalibrary.com/pages/download",
+      "confidence": "PROXY: SPY→cash SPX context, QQQ→cash IXIC context, VXX→volatility context; VXX is not Cboe VIX. No interpolation or relabeling."
+    }
+  },
+  {
+    "date": "2026-06-11",
+    "underlying_bar": {
+      "date": "2026-06-11",
+      "open": 728.8,
+      "high": 740.0,
+      "low": 724.46,
+      "close": 737.67,
+      "volume": 3108555.0
+    },
+    "secondary_close": 716.525,
+    "vix": {
+      "date": "2026-06-11",
+      "open": 26.495,
+      "high": 27.12,
+      "low": 25.16,
+      "close": 25.31,
+      "volume": 638340.0
+    },
+    "label": "PROXY CONTEXT · SPY / QQQ / VXX",
+    "move_summary": null,
+    "severity": null,
+    "point_only": true,
+    "truth_label": "PROXY",
+    "provenance": {
+      "source_type": "REAL_VENDOR",
+      "source_name": "HF Data Library Part47/Part48 ETF proxy slices",
+      "source_url_or_identifier": "https://hfdatalibrary.com/pages/download",
+      "confidence": "PROXY: SPY→cash SPX context, QQQ→cash IXIC context, VXX→volatility context; VXX is not Cboe VIX. No interpolation or relabeling."
+    }
+  },
+  {
+    "date": "2026-06-30",
+    "underlying_bar": {
+      "date": "2026-06-30",
+      "open": 741.3,
+      "high": 748.01,
+      "low": 740.89,
+      "close": 746.65,
+      "volume": 1508822.0
+    },
+    "secondary_close": 736.07,
+    "vix": {
+      "date": "2026-06-30",
+      "open": 22.6,
+      "high": 22.7,
+      "low": 21.96,
+      "close": 22.08,
+      "volume": 212281.0
+    },
+    "label": "PROXY CONTEXT · SPY / QQQ / VXX",
+    "move_summary": null,
+    "severity": null,
+    "point_only": true,
+    "truth_label": "PROXY",
+    "provenance": {
+      "source_type": "REAL_VENDOR",
+      "source_name": "HF Data Library Part47/Part48 ETF proxy slices",
+      "source_url_or_identifier": "https://hfdatalibrary.com/pages/download",
+      "confidence": "PROXY: SPY→cash SPX context, QQQ→cash IXIC context, VXX→volatility context; VXX is not Cboe VIX. No interpolation or relabeling."
+    }
+  }
+]

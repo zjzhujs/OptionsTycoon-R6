@@ -1,0 +1,36 @@
+{
+  "session_id": "c7_vix_2025-04-07_1d",
+  "ticker": "VIX",
+  "date": "2025-04-07",
+  "timezone": "America/New_York",
+  "source_timestamp_timezone": "America/New_York session date",
+  "interval_label": "1d real Part6 daily row",
+  "source_type": "REAL_VENDOR",
+  "source_name": "Part6 real VIX daily OHLCV",
+  "source_url_or_identifier": "https://uk.finance.yahoo.com/quote/%5EVIX/history/",
+  "runtime_network_required": false,
+  "source_price_basis": "raw Close/OHLC; Adj Close retained only in checkpoint, not used for replay",
+  "previous_close": 45.31,
+  "daily_cross_check": {
+    "open": 60.13,
+    "high": 60.13,
+    "low": 38.58,
+    "close": 46.98,
+    "volume": null
+  },
+  "bars": [
+    {
+      "ts": "2025-04-07T16:00:00-04:00",
+      "label_et": "16:00 ET",
+      "open": 60.13,
+      "high": 60.13,
+      "low": 38.58,
+      "close": 46.98,
+      "volume": null
+    }
+  ],
+  "material_windows": [],
+  "integrity_note": "Real daily context row. The policy timeline, not a fabricated price reaction, is the C7 authoritative event layer.",
+  "truth_label": "REAL_DAILY",
+  "usage": "DATA_ONLY_CONTEXT"
+}

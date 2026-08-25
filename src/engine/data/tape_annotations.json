@@ -1,0 +1,72 @@
+[
+  {
+    "field": "delta",
+    "label": "Delta · 方向暴露与名义股数",
+    "leo_annotation": "Delta 就是你对正股方向的实际敞口。Delta 0.50 意味着股价涨 1 块你赚 50 块；要是 Delta 到了 0.90 还敢重仓，跟不带止损的单边投机没有区别。",
+    "victor_annotation": "Delta 是直接暴露在单边风险下的敞口。每一分净 Delta 都在消耗风险准备金，单日敞口绝对不能超过总 NAV 的 15%。",
+    "character_id": "leo_park"
+  },
+  {
+    "field": "gamma",
+    "label": "Gamma · 凸性加速度与做市商对冲墙",
+    "leo_annotation": "Gamma 是 Delta 的加速度。在平值附近变动极快，股价稍有异动做市商就得追买或追卖对冲，逆风时仓位亏损会急剧加速。",
+    "victor_annotation": "Gamma 是尾部风险加速器。做市商的 Gamma 翻转点是关键的分水岭，一旦跌破，流动性可能在极短时间内枯竭。",
+    "character_id": "victor_hale"
+  },
+  {
+    "field": "theta",
+    "label": "Theta · 时间价值衰减日租金",
+    "leo_annotation": "Theta 是你持仓每天交的时间租金。买方每天都在承受价值衰减，没有明确的催化剂，时间就会把利润吃光。",
+    "victor_annotation": "Theta 是持续的持有成本。缺乏明确事件催化剂的长线持仓，会被时间价值无情磨损。算不清持有成本不要建仓。",
+    "character_id": "leo_park"
+  },
+  {
+    "field": "vega",
+    "label": "Vega · 波动率敏感度与恐慌定价",
+    "leo_annotation": "Vega 衡量期权对波动率的敏感度。财报前隐含波动率通常被推到极高，开盘即使方向猜对，波动率一旦回落（IV Crush），买方头寸依然会大幅亏损。",
+    "victor_annotation": "Vega 暴露是对宏观不确定性的单边下注。不要为过度膨胀的波动率溢价买单，那是在透支风险预算。",
+    "character_id": "victor_hale"
+  },
+  {
+    "field": "iv",
+    "label": "IV · 隐含波动率与期权贵贱",
+    "leo_annotation": "IV 反映了市场对未来波动的预期定价。IV 处于历史高位说明期权费极其昂贵，此时追买 Call，性价比极低。",
+    "victor_annotation": "隐含波动率背离了历史波动率就是典型的风险信号。在 IV 极度高企时建立买方头寸，属于违反基本风控纪律。",
+    "character_id": "leo_park"
+  },
+  {
+    "field": "open_interest",
+    "label": "OI · 未平仓量与主力阵地",
+    "leo_annotation": "OI 是市场上尚未平仓的合约沉淀。大额 OI 堆积的行权价通常是做市商对冲盘最集中的防线，构成了关键的阻力或支撑。",
+    "victor_annotation": "高 OI 行权价形成了隐性的流动性壁垒。突破需要庞大的真实资金驱动，不要在缺乏量能配合时盲目押注密集区的单边击穿。",
+    "character_id": "leo_park"
+  },
+  {
+    "field": "bid_ask_spread",
+    "label": "Bid-Ask Spread · 买卖价差与流动性摩擦",
+    "leo_annotation": "买卖价差是进出场的即时摩擦成本。价差大幅拉宽说明流动性骤降，此时盲目下市价单会直接产生巨大滑点。",
+    "victor_annotation": "价差是衡量微观流动性健康的红绿灯。一旦发现价差异常拉宽，必须立即停止大额调仓，严防滑点直接吞噬策略收益。",
+    "character_id": "victor_hale"
+  },
+  {
+    "field": "gex_zero",
+    "label": "GEX 零轴 · 做市商对冲极性翻转点",
+    "leo_annotation": "GEX 零轴上方做市商呈逆周期操作，抑制市场波动；一旦跌入负 GEX 区，做市商为了对冲会顺势追涨杀跌，放大单边踩踏。",
+    "victor_annotation": "负 GEX 区间是系统性踩踏的高危地带。此时任何微小的负面冲击都会被做市商的顺周期对冲无限放大，必须提前锁死下行保护。",
+    "character_id": "victor_hale"
+  },
+  {
+    "field": "max_pain",
+    "label": "Max Pain · 最大痛点与期权收敛引力",
+    "leo_annotation": "最大痛点是使未平仓期权总持仓到期价值最小的行权价。临近结算日，做市商的对冲资金流往往会促使现货价格向痛点收敛。",
+    "victor_annotation": "期权结算的引力效应是微观结构的真实体现。在临近到期日时，持仓必须考虑最大痛点的收敛拉力，防范结算日价格操控风险。",
+    "character_id": "leo_park"
+  },
+  {
+    "field": "skew",
+    "label": "Skew · 波动率偏度与多空情绪倾斜",
+    "leo_annotation": "Skew 反映了同一期限下不同行权价期权的隐含波动率差异。曲线向 Put 端大幅翘起，表明机构正在大规模买入下行对冲保护。",
+    "victor_annotation": "Put/Call Skew 是尾部风险预警的最前哨指标。当偏度出现极端结构性倾斜时，必须将宏观对冲级别立刻提升至应急状态。",
+    "character_id": "victor_hale"
+  }
+]

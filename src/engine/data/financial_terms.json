@@ -1,0 +1,2368 @@
+{
+  "terms": [
+    {
+      "id": "call_option",
+      "term_cn": "看涨期权 / Call Option",
+      "term_en": "Call Option",
+      "abbreviation": "Call",
+      "category": "Options Mechanics",
+      "short_def": "赋予买方在指定到期日前按约定行权价买入标的资产权利的合约。",
+      "detailed_explanation": "看涨期权买方支付权利金，获得杠杆做多的权利，最大亏损仅限于权利金。卖方收取权利金，则需承担无限的做空现货交付义务。",
+      "example": "买入 NVDA 140 Call，当现货涨至 160 时，行权获利 $20 减去权利金。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "put_option",
+        "strike_price",
+        "premium",
+        "delta"
+      ],
+      "analyst_tip": "买 Call 是同时押注方向和波动率。标的要是横盘不动，Theta 每天都会吞噬你的权利金。方向看对了钱却没了，这是新手最常见的死法。"
+    },
+    {
+      "id": "put_option",
+      "term_cn": "看跌期权 / Put Option",
+      "term_en": "Put Option",
+      "abbreviation": "Put",
+      "category": "Options Mechanics",
+      "short_def": "赋予买方在指定到期日前按约定行权价卖出标的资产权利的合约。",
+      "detailed_explanation": "看跌期权是天然的下行保险工具。买 Put 可以用来对冲持股暴跌的风险，或者在熊市中利用非对称风险博取暴利。",
+      "example": "持有 100 股 SPY 时买入 580 Put 对冲大盘黑天鹅风险。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "call_option",
+        "cash_secured_put",
+        "strike_price",
+        "protective_put"
+      ],
+      "analyst_tip": "在恐慌性抛售浪潮里，Put 的收益会被正股暴跌（Delta）与波动率飙升（Vega）双重放大。这时候做空，暴利往往来得很凶猛。"
+    },
+    {
+      "id": "strike_price",
+      "term_cn": "行权价 / Strike Price",
+      "term_en": "Strike Price",
+      "abbreviation": "Strike / K",
+      "category": "Options Mechanics",
+      "short_def": "期权合约中约定的买入或卖出标的资产的价格基准。",
+      "detailed_explanation": "行权价决定了期权是处于价内（ITM）、平值（ATM）还是价外（OTM）状态。它是所有期权定价模型中最核心的几何坐标。",
+      "example": "NVDA 现价 $140，Strike $150 的 Call 属于价外 (OTM)。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "call_option",
+        "put_option",
+        "itm",
+        "otm"
+      ],
+      "analyst_tip": "挑选行权价，本质上就是在权衡行权概率与杠杆倍数。选得太远，归零的风险极大。"
+    },
+    {
+      "id": "expiration_date",
+      "term_cn": "到期日 / Expiration Date",
+      "term_en": "Expiration Date",
+      "abbreviation": "Expiry / DTE",
+      "category": "Options Mechanics",
+      "short_def": "期权合约有效性的最后交易与结算截止日期。",
+      "detailed_explanation": "美式期权可以在到期日前任何一个交易日行权；欧式期权（如 SPX）只能在到期日当天进行现金结算。到期未行权的虚值期权，其价值将直接归零。",
+      "example": "DTE 为 7 天的合约 Theta 衰减极为剧烈。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "theta",
+        "dte",
+        "0dte",
+        "leaps"
+      ],
+      "analyst_tip": "末日期权的 Gamma 极高，像是一把双刃剑；如果打算做波段，建议老老实实选择 30 到 60 天到期的合约。"
+    },
+    {
+      "id": "itm",
+      "term_cn": "实值期权 / In-the-Money (ITM)",
+      "term_en": "In-the-Money",
+      "abbreviation": "ITM",
+      "category": "Options Mechanics",
+      "short_def": "具备内在价值（Intrinsic Value）的期权。",
+      "detailed_explanation": "对 Call 而言，意味着标的市价高于行权价；对 Put 而言，则是标的市价低于行权价。ITM 期权的 Delta 绝对值通常大于 0.5。",
+      "example": "NVDA 现价 $150，Strike $130 的 Call 内在价值为 $20。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "otm",
+        "atm",
+        "intrinsic_value",
+        "delta"
+      ],
+      "analyst_tip": "深度实值期权（Delta > 0.85）走势和正股极度贴合，完全可以作为高资金效率的正股替代品（Stock Replacement）来用。"
+    },
+    {
+      "id": "otm",
+      "term_cn": "虚值期权 / Out-of-the-Money (OTM)",
+      "term_en": "Out-of-the-Money",
+      "abbreviation": "OTM",
+      "category": "Options Mechanics",
+      "short_def": "不含内在价值、全部价格由时间价值构成的期权。",
+      "detailed_explanation": "对 Call 而言，标的市价低于行权价；对 Put 而言，则是标的市价高于行权价。OTM 期权虽然成本低廉，但到期归零的概率非常高。",
+      "example": "NVDA 现价 $140，买入 $170 Call，如果到期未达 $170 权利金全部归零。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "itm",
+        "atm",
+        "extrinsic_value",
+        "gamma"
+      ],
+      "analyst_tip": "虚值期权虽然提供了极高的 Gamma 凸性，但胜率极低。偶尔买彩票可以，千万别频繁全仓押注。"
+    },
+    {
+      "id": "atm",
+      "term_cn": "平值期权 / At-the-Money (ATM)",
+      "term_en": "At-the-Money",
+      "abbreviation": "ATM",
+      "category": "Options Mechanics",
+      "short_def": "行权价与当前标的现货价格最接近的期权。",
+      "detailed_explanation": "ATM 期权的时间价值通常是最高的。它的 Gamma 和 Vega 敏感度也最为集中，Delta 约为 0.50。",
+      "example": "NVDA 现价 $145.20，Strike $145 的期权即为平值期权。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "itm",
+        "otm",
+        "straddle",
+        "gamma"
+      ],
+      "analyst_tip": "ATM 期权是做市商交易最活跃、流动性最好、买卖点差最窄的地方，历来是兵家必争之地。"
+    },
+    {
+      "id": "intrinsic_value",
+      "term_cn": "内在价值 / Intrinsic Value",
+      "term_en": "Intrinsic Value",
+      "abbreviation": "IV_val",
+      "category": "Options Mechanics",
+      "short_def": "期权若立即行权所能获得的经济价值。",
+      "detailed_explanation": "Call 的内在价值 = max(0, 现价 - 行权价)；Put 的内在价值 = max(0, 行权价 - 现价)。它反映了期权最真实的“保底”价值。",
+      "example": "Strike $100 的 Call 在标的涨到 $120 时，内在价值为 $20。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "extrinsic_value",
+        "itm",
+        "strike_price"
+      ],
+      "analyst_tip": "内在价值是实打实的钱，不受时间流逝的影响，它只跟着底层标的的价格移动。"
+    },
+    {
+      "id": "extrinsic_value",
+      "term_cn": "外在价值 / 时间价值 / Extrinsic Value",
+      "term_en": "Extrinsic Value",
+      "abbreviation": "Time Value",
+      "category": "Options Mechanics",
+      "short_def": "期权总价格扣除内在价值后的溢价部分，反映剩余时间与未来波动的期望。",
+      "detailed_explanation": "外在价值 = 期权权利金 - 内在价值。随着到期日的临近，外在价值会呈现加速曲线衰减至零（即 Theta Decay）。",
+      "example": "一份 $25 的 Call 内在价值为 $20，则外在价值为 $5。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "intrinsic_value",
+        "theta",
+        "implied_volatility"
+      ],
+      "analyst_tip": "做卖方（Option Seller）最核心的利润来源，就是躺着收割外在价值这种确定性的损耗。"
+    },
+    {
+      "id": "open_interest",
+      "term_cn": "未平仓合约数 / Open Interest (OI)",
+      "term_en": "Open Interest",
+      "abbreviation": "OI",
+      "category": "Options Mechanics",
+      "short_def": "市场上尚未平仓或未行权的有效未到期期权合约总数量。",
+      "detailed_explanation": "成交量（Volume）反映的是日内换手流量，而未平仓量（OI）则是存量。巨额 OI 的聚集是识别潜在 Gamma Wall 的重要线索，但它无法区分多空归属。",
+      "example": "某个行权价积累了 100,000 张 OI，是大盘到期日值得关注的价格观察点之一。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "volume",
+        "gamma_wall",
+        "pin_risk",
+        "max_pain"
+      ],
+      "analyst_tip": "OI 突然激增伴随大宗成交，绝对是值得留意的资金异动信号。但这不一定是机构在建仓，也有可能只是对冲、套利或到期展仓。"
+    },
+    {
+      "id": "zero_dte",
+      "term_cn": "零日到期期权 / 0DTE Options",
+      "term_en": "Zero Days to Expiration Options",
+      "abbreviation": "0DTE",
+      "category": "Options Mechanics",
+      "short_def": "在交易日当天收盘即宣告到期结算的超短期期权。",
+      "detailed_explanation": "0DTE 期权拥有极高的 Gamma 杠杆，同时伴随着惊人的 Theta 衰减速度。目前它已占据美股指数期权总交易量近 50%。",
+      "example": "SPX 0DTE 期权在最后 1 小时内暴涨 10 倍或瞬间归零。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "gamma",
+        "theta",
+        "pin_risk",
+        "gamma_squeeze"
+      ],
+      "analyst_tip": "0DTE 纯粹就是日内流动性的绞肉机，玩的是心跳。严禁过夜持有，因为根本过不了夜。"
+    },
+    {
+      "id": "leaps",
+      "term_cn": "长期股票期权 / LEAPS",
+      "term_en": "Long-term Equity Anticipation Securities",
+      "abbreviation": "LEAPS",
+      "category": "Options Mechanics",
+      "short_def": "到期日在一年以上、最长可达三年的长期期权合约。",
+      "detailed_explanation": "LEAPS 允许投资者以远低于买入正股的资金，建立起跨年度的长期多头敞口。同时，它的日度 Theta 衰减速度极低。",
+      "example": "买入 2 年后到期的深度实值 NVDA Call 替代直接重仓现货。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "theta",
+        "vega",
+        "delta",
+        "stock_replacement"
+      ],
+      "analyst_tip": "做 LEAPS 需要注意的是，它对宏观利率（Rho）和长期波动率（Vega）非常敏感，别只盯着正股价格看。"
+    },
+    {
+      "id": "moneyness",
+      "term_cn": "虚实度 / Moneyness",
+      "term_en": "Moneyness",
+      "abbreviation": "Moneyness",
+      "category": "Options Mechanics",
+      "short_def": "期权行权价与标的价格之间的相对几何距离状态。",
+      "detailed_explanation": "业界常用 ln(S/K) 或 Delta 来衡量虚实度。它标准化了不同股价资产之间的距离，使其具备可比性。",
+      "example": "Delta 0.25 的虚值 Put 处于典型的 25-Delta Moneyness 锚点。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "itm",
+        "atm",
+        "otm",
+        "delta"
+      ],
+      "analyst_tip": "机构做市商一般不会看绝对价格，而是按标准的 Moneyness 档位（比如 10D, 25D, 50D）来对齐和校准波动率曲面。"
+    },
+    {
+      "id": "synthetic_long",
+      "term_cn": "合成多头 / Synthetic Long Stock",
+      "term_en": "Synthetic Long Stock",
+      "abbreviation": "Synthetic Long",
+      "category": "Options Mechanics",
+      "short_def": "同时买入 ATM Call 并卖出 ATM Put 构建等效正股的多头策略。",
+      "detailed_explanation": "这种策略能以近乎零的现金净支出，复制出 100 股正股 Delta=1.0 的损益曲线，资金使用效率极高。",
+      "example": "买入 $140 Call 并卖出 $140 Put，损益曲线与持有 100 股现货完全重合。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "put_call_parity",
+        "delta",
+        "stock_replacement"
+      ],
+      "analyst_tip": "别看它没花什么钱，这玩意儿具有无限下行风险。在 Margin 账户中会占用你大量的维持保证金 (Maintenance Margin)。"
+    },
+    {
+      "id": "assignment_risk",
+      "term_cn": "被指派行权风险 / Assignment Risk",
+      "term_en": "Assignment Risk",
+      "abbreviation": "Assignment",
+      "category": "Options Mechanics",
+      "short_def": "期权空头被清算所随机选中必须按行权价履行现货交付的风险。",
+      "detailed_explanation": "美式期权在到期前任何时间均可能被行权。尤其在除息日前夕，实值 Call 最容易被提前指派行权。",
+      "example": "卖出实值 Call 在除息日前夜被提前指派，导致现货被强制交割扣除。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "pin_risk",
+        "covered_call",
+        "american_style"
+      ],
+      "analyst_tip": "除息日前夕必须打起精神，严格核查深度实值空头 Call 的外在价值是否低于即将派发的股息金额。"
+    },
+    {
+      "id": "settlement_style",
+      "term_cn": "结算制度体系 / American vs European Settlement",
+      "term_en": "Settlement Style",
+      "abbreviation": "Settlement",
+      "category": "Options Mechanics",
+      "short_def": "美式期权支持随时行权实物交割；欧式期权仅在到期日现金结算。",
+      "detailed_explanation": "SPX 或 VIX 等指数期权属于欧式现金结算，没有实物交割与借券风险；而个股期权大多为美式实物结算。",
+      "example": "交易 SPX 期权不用担心盘后被强行指派持有一篮子 500 只股票现货。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "assignment_risk",
+        "spx",
+        "0dte"
+      ],
+      "analyst_tip": "欧式期权彻底消除了提前行权的不确定性，对量化交易员来说，它更便于进行严格的数学定价。"
+    },
+    {
+      "id": "multiplier",
+      "term_cn": "合约乘数 / Contract Multiplier",
+      "term_en": "Contract Multiplier",
+      "abbreviation": "Multiplier (100x)",
+      "category": "Options Mechanics",
+      "short_def": "标准美股期权 1 张合约对应 100 股标的现货资产的换算乘数。",
+      "detailed_explanation": "当期权权利金报价为 $3.50 时，意味着买入 1 张合约实际需要支付 $350 现金。",
+      "example": "买入 10 张期权等效于控制 1,000 股标的正股的名义杠杆规模。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "premium",
+        "notional_value",
+        "leverage"
+      ],
+      "analyst_tip": "新手最常犯的致命错误，就是把期权单价当成总支出，完全无视了 100 倍乘数带来的实际现金消耗。"
+    },
+    {
+      "id": "break_even_point",
+      "term_cn": "损益平衡点 / Break-Even Point",
+      "term_en": "Break-Even Point",
+      "abbreviation": "BEP",
+      "category": "Options Mechanics",
+      "short_def": "期权策略在到期日实现不赚不赔的标的现货价格临界点。",
+      "detailed_explanation": "对于 Long Call，平衡点是行权价加上支付的权利金；对于 Long Put，平衡点则是行权价减去权利金。",
+      "example": "买入 140 Call 支付 $6 权利金，到期日 NVDA 必须涨过 $146 才能产生净收益。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "strike_price",
+        "premium",
+        "intrinsic_value"
+      ],
+      "analyst_tip": "入场前按计算器算准平衡点，看看距离当前现货价格有多远。如果远到离谱，这笔交易大概率是个坑。"
+    },
+    {
+      "id": "time_horizon",
+      "term_cn": "交易时间视界 / Time Horizon",
+      "term_en": "Time Horizon",
+      "abbreviation": "Horizon",
+      "category": "Options Mechanics",
+      "short_def": "交易假设（Thesis）预期催化剂发酵并转化为盈利的目标时间窗口。",
+      "detailed_explanation": "期权买方必须严格保证到期时间（DTE）比交易催化剂的发酵时间更宽裕，防止出现“方向看对但时间耗尽”的惨剧。",
+      "example": "预期 2 周后有政策听证会，应至少选择 45 天到期的期权而非 7 天合约。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "dte",
+        "trade_thesis",
+        "theta"
+      ],
+      "analyst_tip": "宁可多花点钱买多余的时间当保险，也绝对不可因贪图便宜买入时间不足的末日合约。"
+    },
+    {
+      "id": "max_pain_theory",
+      "term_cn": "最大痛点理论 / Max Pain Theory",
+      "term_en": "Max Pain Theory",
+      "abbreviation": "Max Pain",
+      "category": "Options Mechanics",
+      "short_def": "使市场上全部未平仓期权总内在价值最低、买方损失最大的行权价位。",
+      "detailed_explanation": "该理论认为，做市商和机构会通过现货干预，在交割日将价格拉扯向“痛点”，以此来最大化减少自身的赔付支出。",
+      "example": "大盘在周五收盘前被精准拉锯至 Max Pain 行权价 $585 附近收盘。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "open_interest",
+        "pin_risk",
+        "gamma_wall"
+      ],
+      "analyst_tip": "Max Pain 说白了只是个统计上的吸附参考。一旦有强劲的宏观单边驱动，痛点会被主力轻易碾压击穿。"
+    },
+    {
+      "id": "delta",
+      "term_cn": "德尔塔 / Delta (Δ)",
+      "term_en": "Delta",
+      "abbreviation": "Δ",
+      "category": "The Greeks & Risk Metrics",
+      "short_def": "标的资产价格每变动 $1 时，期权价格的理论变动幅度。",
+      "detailed_explanation": "Call 的 Delta 范围是从 0 到 1.0；Put 的 Delta 则是从 -1.0 到 0。此外，Delta 也可以粗略地视为期权到期进入价内的概率。",
+      "example": "Delta 为 0.60 的 Call，标的上涨 $2 时该期权上涨约 $1.20。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "gamma",
+        "greeks",
+        "directional_risk"
+      ],
+      "analyst_tip": "别光看胜率，对冲基金风控台每天盯着的核心指标就是净 Delta（Net Delta Exposure），方向敞口一目了然。"
+    },
+    {
+      "id": "gamma",
+      "term_cn": "伽马 / Gamma (Γ)",
+      "term_en": "Gamma",
+      "abbreviation": "Γ",
+      "category": "The Greeks & Risk Metrics",
+      "short_def": "标的资产价格每变动 $1 时，Delta 的变动速率（Delta 的导数）。",
+      "detailed_explanation": "Gamma 衡量的是期权损益的凸性（Convexity）。买入期权永远拥有正 Gamma（越涨赚得越快），而卖出期权则承担负 Gamma。",
+      "example": "平值期权临近到期时 Gamma 暴增，标的小幅波动就会导致 Delta 剧烈跳变。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "delta",
+        "convexity",
+        "gamma_squeeze",
+        "gex"
+      ],
+      "analyst_tip": "正 Gamma 是做多波动率的超级发动机，而负 Gamma 则是无数爆仓惨案的幕后元凶。"
+    },
+    {
+      "id": "theta",
+      "term_cn": "西塔 / Theta (Θ)",
+      "term_en": "Theta",
+      "abbreviation": "Θ",
+      "category": "The Greeks & Risk Metrics",
+      "short_def": "每过去一个自然日，期权时间价值的衰减速度。",
+      "detailed_explanation": "买入期权 Theta 为负值（每天都在流血），卖出期权 Theta 为正值（每天都在收租）。在到期日前最后 30 天，衰减曲线会呈现非线性陡峭化。",
+      "example": "Theta 为 -0.15 的期权，在标的价格不变的情况下，持有一夜价值减少 $0.15。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "extrinsic_value",
+        "time_decay",
+        "iron_condor"
+      ],
+      "analyst_tip": "如果你的交易缺乏明确的短期方向催化剂，Theta 就会像沙漏一样，一点点抽干你的资本。"
+    },
+    {
+      "id": "vega",
+      "term_cn": "维加 / Vega (ν)",
+      "term_en": "Vega",
+      "abbreviation": "ν / Vega",
+      "category": "The Greeks & Risk Metrics",
+      "short_def": "隐含波动率（IV）每变动 1% 时，期权价格的理论变动金额。",
+      "detailed_explanation": "买方期权享有正 Vega（波动率上升则升值）。远期平值期权的 Vega 通常最大。财报发布前 IV 上涨会推高期权价格，而发布后的 IV Crush 会导致 Vega 暴跌。",
+      "example": "Vega 为 0.30 的期权，若 IV 从 40% 暴涨至 50%，期权理论增值 $3.00。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "implied_volatility",
+        "iv_crush",
+        "volatility_smile"
+      ],
+      "analyst_tip": "方向明明看对了，却因为 IV 暴跌而亏钱，这是散户财报季最常踩的坑。因为 Vega 的损耗远超 Delta 带来的收益。"
+    },
+    {
+      "id": "rho",
+      "term_cn": "柔 / Rho (ρ)",
+      "term_en": "Rho",
+      "abbreviation": "ρ / Rho",
+      "category": "The Greeks & Risk Metrics",
+      "short_def": "无风险无收益基准利率每变动 1% 时，期权价格的变动敏感度。",
+      "detailed_explanation": "利率上升会增加资金的持有成本，通常对 Call 的价格有微弱的正向提振，对 Put 则有负向压制。LEAPS 这类长期期权受 Rho 的影响更为显著。",
+      "example": "美联储加息 50bps，1 年期深度实值 Call 价格小幅微调。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "macro_rates",
+        "yield_curve",
+        "leaps"
+      ],
+      "analyst_tip": "散户做短线交易基本可以无视 Rho；但如果是投行构建 2 年期的大宗衍生品，就必须严谨考量贴现率了。"
+    },
+    {
+      "id": "charm",
+      "term_cn": "查姆 / Charm (dDelta/dTime)",
+      "term_en": "Charm",
+      "abbreviation": "Charm",
+      "category": "The Greeks & Risk Metrics",
+      "short_def": "时间每流逝一天时 Delta 的变动速率（Delta 的时间衰减 (Theta Decay)）。",
+      "detailed_explanation": "随着到期日临近，OTM 期权的 Delta 会逐渐滑向 0，而 ITM 会逐渐滑向 1。做市商在周末收盘前，必须根据 Charm 来提前调整对冲现货。",
+      "example": "虚值 Call 的 Delta 随着时间推移自然流失，做市商据此抛售现货对冲盘。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "delta",
+        "theta",
+        "dealer_hedging"
+      ],
+      "analyst_tip": "期权到期日前的周五下午，盘面经常出现顺周期的单边流动性滑落，Charm 效应就是背后的重要诱因。"
+    },
+    {
+      "id": "vanna",
+      "term_cn": "万娜 / Vanna (dDelta/dVol)",
+      "term_en": "Vanna",
+      "abbreviation": "Vanna",
+      "category": "The Greeks & Risk Metrics",
+      "short_def": "二阶希腊字母：波动率变动 1% 时 Delta 的变动幅度。",
+      "detailed_explanation": "做市商在动态对冲时高度关注 Vanna。当市场大跌伴随着 IV 飙升时，Vanna 会驱动做市商调整现货 Delta，从而向市场倾泻额外的顺周期抛压。",
+      "example": "恐慌指数飙升导致虚值 Put 的 Delta 迅速膨胀。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "volga",
+        "charm",
+        "dealer_hedging"
+      ],
+      "analyst_tip": "要想看懂美股月度期权交割日那种匪夷所思的报复性反弹（Vanna Rally），Vanna 的传导机制是唯一的密码。"
+    },
+    {
+      "id": "volga",
+      "term_cn": "沃尔加 / Volga (Vomma)",
+      "term_en": "Volga / Vomma",
+      "abbreviation": "Volga",
+      "category": "The Greeks & Risk Metrics",
+      "short_def": "二阶希腊字母：波动率变动 1% 时 Vega 的变动速率（Vega 的凸性）。",
+      "detailed_explanation": "深度价外期权具有极高的 Volga。当尾部极端风险发生时，IV 暴增不仅带来线性的 Vega 收益，更会产生平方级的加速暴利。",
+      "example": "黑天鹅事件中买入虚值 Put 获得数百倍收益主要来自 Volga 爆发。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "vanna",
+        "tail_risk",
+        "vega"
+      ],
+      "analyst_tip": "塔勒布式的黑天鹅尾部基金，其核心数学引擎就是靠狂堆正 Volga 来构建极致的非对称凸性。"
+    },
+    {
+      "id": "speed",
+      "term_cn": "速度 / Speed (dGamma/dSpot)",
+      "term_en": "Speed",
+      "abbreviation": "Speed",
+      "category": "The Greeks & Risk Metrics",
+      "short_def": "现货价格变动时 Gamma 的变动速率（Gamma 的三阶导数）。",
+      "detailed_explanation": "用于衡量 Gamma 曲面的陡峭程度。在 0DTE 等超高频做市对冲中，常被用于修正跳跃扩散模型。",
+      "example": "当价格逼近平值时 Speed 极值化，Delta 调整出现跳跃性突变。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "gamma",
+        "zomma",
+        "microstructure"
+      ],
+      "analyst_tip": "在极高 Speed 状态下，算法必须大幅拉宽挂单的保护带宽，以防备对冲时遭遇滑点穿仓。"
+    },
+    {
+      "id": "zomma",
+      "term_cn": "佐玛 / Zomma (dGamma/dVol)",
+      "term_en": "Zomma",
+      "abbreviation": "Zomma",
+      "category": "The Greeks & Risk Metrics",
+      "short_def": "波动率变动 1% 时 Gamma 的变动幅度。",
+      "detailed_explanation": "用于评估做市商在 IV 突发剧烈脉冲冲击下，其 Gamma 对冲模型可能发生的失真度。",
+      "example": "低 IV 突然跳涨使价外期权的 Gamma 迅速扩散蔓延。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "gamma",
+        "volga",
+        "gex"
+      ],
+      "analyst_tip": "做市商防范闪崩（Flash Crash）的核心风控边界，其实就是由 Zomma 阈值死死锁定的。"
+    },
+    {
+      "id": "color",
+      "term_cn": "色彩 / Color (dGamma/dTime)",
+      "term_en": "Color",
+      "abbreviation": "Color",
+      "category": "The Greeks & Risk Metrics",
+      "short_def": "时间每流逝一天时 Gamma 的变动速率。",
+      "detailed_explanation": "用来衡量随着到期日临近，Gamma 向平值收敛的速度。平值期权的 Color 在最后几小时内会呈超几何级数膨胀。",
+      "example": "0DTE 到期日下午 3 点，平值期权 Gamma 呈针状集中，Color 达到物理极限。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "gamma",
+        "theta",
+        "0dte"
+      ],
+      "analyst_tip": "Color 完美解释了为什么末日期权在临近收盘时，会对极其微小的标的波动表现得如此神经质。"
+    },
+    {
+      "id": "ultima",
+      "term_cn": "乌尔蒂玛 / Ultima (dVolga/dVol)",
+      "term_en": "Ultima",
+      "abbreviation": "Ultima",
+      "category": "The Greeks & Risk Metrics",
+      "short_def": "三阶希腊字母：波动率变动时 Volga 的变动敏感度。",
+      "detailed_explanation": "主要用于评估当波动率发生巨幅非正态跳跃时，整个波动率曲面高阶凸性的形变极限。",
+      "example": "量化对冲基金在定价复合奇异期权与极值方差互换时使用 Ultima 定量防爆。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "volga",
+        "vanna",
+        "tail_risk"
+      ],
+      "analyst_tip": "这玩意儿平时根本用不上，它是顶级外汇与利率衍生品交易员压箱底的风控终极防护网。"
+    },
+    {
+      "id": "mfe",
+      "term_cn": "最大有利波动 / Maximum Favorable Excursion (MFE)",
+      "term_en": "Maximum Favorable Excursion",
+      "abbreviation": "MFE",
+      "category": "The Greeks & Risk Metrics",
+      "short_def": "一笔交易在持仓存续期内曾出现过的最高账面浮盈峰值。",
+      "detailed_explanation": "它是复盘交易者止盈与持仓管理能力的照妖镜。如果 MFE 很高但最终出场亏损，说明交易者未能执行移动止盈，或者被心理贪婪反噬。",
+      "example": "买入 Call 曾浮盈 +150% (MFE)，最终因未平仓被 Theta 耗尽出场亏损 -20%。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "mae",
+        "trade_review",
+        "process_score"
+      ],
+      "analyst_tip": "盯住 MFE 与你最终平仓利润之间的差额，它毫不留情地反映了你落袋为安的执行效率。"
+    },
+    {
+      "id": "mae",
+      "term_cn": "最大不利波动 / Maximum Adverse Excursion (MAE)",
+      "term_en": "Maximum Adverse Excursion",
+      "abbreviation": "MAE",
+      "category": "The Greeks & Risk Metrics",
+      "short_def": "一笔交易在持仓存续期内曾遭受过的最大账面浮亏谷底。",
+      "detailed_explanation": "用于衡量入场时机选择（Timing）与风险承受度。如果一笔盈利交易的 MAE 极大，说明入场过于左侧，承受了过高的破产风险。",
+      "example": "做多期权持仓中途浮亏一度达到 -80% (MAE)，虽侥幸回本，但过程评分严重不及格。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "mfe",
+        "trade_review",
+        "risk_discipline"
+      ],
+      "analyst_tip": "真正优秀的 PM 要求的是高胜率与低 MAE 并存，严禁靠死抗浮亏来赌运气解套。"
+    },
+    {
+      "id": "sharpe_ratio",
+      "term_cn": "夏普比率 / Sharpe Ratio",
+      "term_en": "Sharpe Ratio",
+      "abbreviation": "Sharpe",
+      "category": "The Greeks & Risk Metrics",
+      "short_def": "投资组合每承受一单位总风险所能获得的超额收益回报率。",
+      "detailed_explanation": "公式为：(组合年化回报率 - 无风险利率) / 组合收益率标准差。通常认为 Sharpe > 2.0 代表了顶级基金的表现。",
+      "example": "基金年化收益 28%，波动率 12%，无风险利率 4%，夏普比率达 2.0。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "sortino_ratio",
+        "calmar_ratio",
+        "fund_stats"
+      ],
+      "analyst_tip": "夏普比率把向上大涨也计入波动惩罚，因此对凸性收益策略存在一定失真。"
+    },
+    {
+      "id": "sortino_ratio",
+      "term_cn": "索提诺比率 / Sortino Ratio",
+      "term_en": "Sortino Ratio",
+      "abbreviation": "Sortino",
+      "category": "The Greeks & Risk Metrics",
+      "short_def": "仅考虑下行有害波动率（Downside Deviation）的修正风险收益比。",
+      "detailed_explanation": "相比夏普比率，索提诺比率不惩罚带来盈利的上行有利波动，因此它是评估期权多头策略的一项绝佳指标。",
+      "example": "买入虚值期权经常带来单边暴涨，其索提诺比率显著优于传统夏普比率。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "sharpe_ratio",
+        "calmar_ratio",
+        "risk_adjusted_return"
+      ],
+      "analyst_tip": "机构 LP 在审查那些主打非对称收益的衍生品基金时，首选的指标永远是索提诺比率。"
+    },
+    {
+      "id": "calmar_ratio",
+      "term_cn": "卡尔玛比率 / Calmar Ratio",
+      "term_en": "Calmar Ratio",
+      "abbreviation": "Calmar",
+      "category": "The Greeks & Risk Metrics",
+      "short_def": "年化复合收益率与历史最大回撤（Max Drawdown）的比值。",
+      "detailed_explanation": "主要衡量基金经理用多大的破产回撤代价换取了当前的净值增长，它对极端尾部风险极其敏感。",
+      "example": "年化收益 30%，历史最大回撤 10%，Calmar 达到极其优秀的 3.0。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "drawdown",
+        "sharpe_ratio",
+        "survival_crisis"
+      ],
+      "analyst_tip": "Calmar < 1.0 的对冲基金，在熊市中很容易遭到机构 LP 无情的大规模赎回。"
+    },
+    {
+      "id": "var_value_at_risk",
+      "term_cn": "在险价值 / Value at Risk (VaR)",
+      "term_en": "Value at Risk",
+      "abbreviation": "VaR",
+      "category": "The Greeks & Risk Metrics",
+      "short_def": "在特定置信水平（如 99%）和时间窗口下，组合可能遭受的最大预期损失。",
+      "detailed_explanation": "这是华尔街银行风控的法定红线。如果日常持仓 VaR 严重超标，风控官会直接拔网线强制要求平仓降杠杆。",
+      "example": "99% 单日 VaR 为 $250,000，表示有 99% 的概率单日亏损不会击穿 25 万美元。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "expected_shortfall",
+        "risk_budget",
+        "compliance"
+      ],
+      "analyst_tip": "VaR 的致命盲区在于，它完全无法预测极端黑天鹅事件中超越阈值后的实际亏损会有多深。"
+    },
+    {
+      "id": "expected_shortfall",
+      "term_cn": "条件在险价值 / Expected Shortfall (CVaR)",
+      "term_en": "Expected Shortfall",
+      "abbreviation": "CVaR / ES",
+      "category": "The Greeks & Risk Metrics",
+      "short_def": "在超越 VaR 极端阈值的尾部灾难发生时，预期的平均实际损失金额。",
+      "detailed_explanation": "巴塞尔协议 III 核心风控指标。它完美满足一致性风险度量公理，能够深刻刻画肥尾穿仓的真实破坏力。",
+      "example": "当单日亏损突破 99% VaR 时，平均损失预期达到 $1.2M。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "var_value_at_risk",
+        "tail_risk",
+        "stress_testing"
+      ],
+      "analyst_tip": "CVaR 是顶级基金构建保护性期权 Collar 与 Put 尾部对冲策略最坚实的数学基石。"
+    },
+    {
+      "id": "tail_risk",
+      "term_cn": "尾部风险 / 极端黑天鹅事件 / Tail Risk",
+      "term_en": "Tail Risk",
+      "abbreviation": "Tail Risk",
+      "category": "The Greeks & Risk Metrics",
+      "short_def": "在正态分布 3 个标准差之外、发生概率低于 0.3% 但破坏力毁灭性的极端事件。",
+      "detailed_explanation": "真实金融市场的收益率分布具有明显的厚尾（Fat Tail）与尖峰特征。期权做市商正是据此在尾部处收取极高的风险溢价。",
+      "example": "DeepSeek R1 发布引发半导体单日跳空暴跌 19%，即为典型的 5-Sigma 尾部事件。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "volga",
+        "black_swan",
+        "skew",
+        "crisis_management"
+      ],
+      "analyst_tip": "毁灭大多数交易员的从来不是日常震荡，而是他们在缺乏尾部保险时遭遇的单次致命黑天鹅。"
+    },
+    {
+      "id": "implied_volatility",
+      "term_cn": "隐含波动率 / Implied Volatility (IV)",
+      "term_en": "Implied Volatility",
+      "abbreviation": "IV",
+      "category": "Volatility & Pricing Models",
+      "short_def": "将期权市场实际交易价格反推代入定价公式得出的年化波动率预期。",
+      "detailed_explanation": "IV 反映了市场对标的未来价格波动剧烈程度的共识。IV 越高，期权的权利金自然就越昂贵。",
+      "example": "财报前一天 NVDA 的平值期权 IV 从 35% 飙升至 75%。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "realized_volatility",
+        "iv_rank",
+        "vega",
+        "iv_crush"
+      ],
+      "analyst_tip": "期权交易本质上根本不是在交易方向，而是在交易隐含波动率的定价偏误。"
+    },
+    {
+      "id": "realized_volatility",
+      "term_cn": "已实现历史波动率 / Realized Volatility (RV)",
+      "term_en": "Realized Volatility",
+      "abbreviation": "RV / HV",
+      "category": "Volatility & Pricing Models",
+      "short_def": "标的资产在过去特定周期内实际日收益率的标准差年化数值。",
+      "detailed_explanation": "对比 IV 与 RV 之间的利差（Volatility Risk Premium / VRP），正是做空波动率基金最核心的超额收益来源。",
+      "example": "过去 30 天 NVDA 真实年化波动率 RV 为 42%，而当前期权定价 IV 达到 65%。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "implied_volatility",
+        "volatility_risk_premium"
+      ],
+      "analyst_tip": "当 IV 显著高于 RV 时，闭着眼睛卖出期权收取波动率溢价，在数学上具有绝对的正期望值。"
+    },
+    {
+      "id": "iv_rank",
+      "term_cn": "隐含波动率百分位分级 / IV Rank",
+      "term_en": "IV Rank",
+      "abbreviation": "IVR",
+      "category": "Volatility & Pricing Models",
+      "short_def": "当前 IV 在过去 1 年历史最高和最低 IV 区间内所处的位置百分比。",
+      "detailed_explanation": "计算公式：IV Rank = (当前 IV - 52周最低 IV) / (52周最高 IV - 52周最低 IV) * 100。",
+      "example": "IV Rank 为 90% 表示当前期权处于历史极度昂贵状态，适宜做卖方策略。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "iv_percentile",
+        "implied_volatility",
+        "iron_condor"
+      ],
+      "analyst_tip": "IV Rank > 50 时多采用卖方收租策略；而当 IV Rank < 20 时，则是买方大举做多波动率的黄金坑。"
+    },
+    {
+      "id": "iv_percentile",
+      "term_cn": "隐含波动率历史分位数 / IV Percentile",
+      "term_en": "IV Percentile",
+      "abbreviation": "IVP",
+      "category": "Volatility & Pricing Models",
+      "short_def": "在过去 1 年的所有交易日中，IV 低于当前 IV 水平的交易日所占的百分比。",
+      "detailed_explanation": "相比容易受单日极端离群值扭曲的 IV Rank，IV Percentile 更能真实反映当前波动率在时间分布上的拥挤度。",
+      "example": "IV Percentile 为 95% 表示过去 252 个交易日中只有 5% 的日子波动率比今天更高。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "iv_rank",
+        "implied_volatility"
+      ],
+      "analyst_tip": "单纯看价格没用，IV Percentile 配合基本面催化剂，才是判定期权贵贱的终极黄金锚点。"
+    },
+    {
+      "id": "iv_crush",
+      "term_cn": "波动率粉碎 / IV Crush",
+      "term_en": "IV Crush",
+      "abbreviation": "IV Crush",
+      "category": "Volatility & Pricing Models",
+      "short_def": "重大不确定性事件（如财报、FDA 审批、大选）公布后，IV 瞬间断崖式暴跌的现象。",
+      "detailed_explanation": "事件尘埃落定后风险溢价随之消散。哪怕标的方向判断正确，IV 崩塌带来的 Vega 损失也足以导致买方期权出现大幅亏损。",
+      "example": "财报公布后正股上涨 3%，但由于 IV 从 90% 跌至 40%，Call 价值下跌 50%。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "implied_volatility",
+        "vega",
+        "straddle",
+        "earnings"
+      ],
+      "analyst_tip": "跨财报交易切忌盲目裸买单边期权，老老实实构建价差策略，才能有效抵御 IV Crush 带来的无差别杀伤。"
+    },
+    {
+      "id": "volatility_smile",
+      "term_cn": "波动率微笑与偏斜 / Volatility Smile & Skew",
+      "term_en": "Volatility Smile / Skew",
+      "abbreviation": "IV Skew",
+      "category": "Volatility & Pricing Models",
+      "short_def": "同到期日不同行权价期权的 IV 呈现不对称 U 型或斜向分布的现象。",
+      "detailed_explanation": "股票市场上对下行暴跌的恐慌，使得虚值 Put 的需求远高于虚值 Call，这直接导致低行权价的 IV 显著高于高行权价。",
+      "example": "NVDA 90 Delta Put 的 IV 为 55%，而 10 Delta Call 的 IV 仅为 38%。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "implied_volatility",
+        "black_scholes",
+        "risk_reversal"
+      ],
+      "analyst_tip": "紧盯 Skew 的陡峭程度，它能让你精准窥测到华尔街机构大单对尾部暴跌真实的对冲恐慌度。"
+    },
+    {
+      "id": "black_scholes",
+      "term_cn": "布莱克-斯科尔斯期权定价模型 / Black-Scholes Model",
+      "term_en": "Black-Scholes Model",
+      "abbreviation": "BSM",
+      "category": "Volatility & Pricing Models",
+      "short_def": "现代金融学基石模型，利用无套利原理通过 5 个参数计算欧式期权理论价格。",
+      "detailed_explanation": "核心输入参数包括：标的现价、行权价、到期时间、无风险利率以及波动率。它假定资产价格完全服从几何布朗运动。",
+      "example": "期权交易终端实时基于 BSM 算法计算每秒的理论公允价与 Greeks。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "greeks",
+        "implied_volatility",
+        "delta",
+        "gamma"
+      ],
+      "analyst_tip": "BSM 假设波动率是个常数且收益率呈正态分布，它完全无法解释肥尾与微笑，因此实战中必须引入微观 Skew 来进行修正。"
+    },
+    {
+      "id": "vix_index",
+      "term_cn": "芝加哥期权交易所恐慌指数 / Cboe Volatility Index (VIX)",
+      "term_en": "Cboe Volatility Index",
+      "abbreviation": "VIX",
+      "category": "Volatility & Pricing Models",
+      "short_def": "基于 S&P 500 指数期权 30 天平值与虚值报价加权计算出的年化隐含波动率期望。",
+      "detailed_explanation": "被誉为华尔街第一情绪晴雨表。VIX > 30 属于危机恐慌区；VIX < 13 则是沉睡自满区。它与标普 500 呈现出极强的负相关性。",
+      "example": "DeepSeek 冲击当天，VIX 指数单日跳涨 +35% 突破 24 点。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "vvix",
+        "macro_volatility",
+        "spx"
+      ],
+      "analyst_tip": "在 VIX 极值高位做空波动率（例如卖出深度虚值 Put），虽然权利金丰厚，但也必须预留出极其充裕的追加保证金。"
+    },
+    {
+      "id": "vvix",
+      "term_cn": "波动率的波动率指数 / VVIX Index",
+      "term_en": "VVIX Index",
+      "abbreviation": "VVIX",
+      "category": "Volatility & Pricing Models",
+      "short_def": "衡量 VIX 指数期权自身隐含波动率变化的二阶情绪指标。",
+      "detailed_explanation": "VVIX 反映了机构对于 VIX 未来发生突发跳跃的恐慌买盘程度。VVIX 往往领先于 VIX 本身见顶或见底。",
+      "example": "VVIX 突破 130 表明大资金正在不计成本抢购 VIX 看涨期权作为宏观对冲。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "vix_index",
+        "vol_of_vol",
+        "tail_risk"
+      ],
+      "analyst_tip": "VVIX 出现顶背离，通常是宏观恐慌情绪已经释放完毕、市场即将迎来强力反弹的极佳前瞻信号。"
+    },
+    {
+      "id": "term_structure_of_vol",
+      "term_cn": "波动率期限结构 / Term Structure of Volatility",
+      "term_en": "Term Structure of Volatility",
+      "abbreviation": "Vol Term Structure",
+      "category": "Volatility & Pricing Models",
+      "short_def": "不同到期日（近月 vs 远月）期权隐含波动率构成的连续曲线拓扑。",
+      "detailed_explanation": "常态下呈现远高近低的升水（Contango）；而在黑天鹅突发时，会呈现出近月 IV 极度暴涨的贴水倒挂（Backwardation）。",
+      "example": "近月 7D IV 暴涨至 80%，而 6M IV 仅为 40%，曲线发生剧烈倒挂。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "calendar_spread",
+        "implied_volatility",
+        "vix"
+      ],
+      "analyst_tip": "期限结构倒挂是危机发生的最明确物理证据。这时候不要慌，适宜果断构建卖近买远的日历套利。"
+    },
+    {
+      "id": "volatility_surface",
+      "term_cn": "波动率三维曲面 / Volatility Surface",
+      "term_en": "Volatility Surface",
+      "abbreviation": "Vol Surface",
+      "category": "Volatility & Pricing Models",
+      "short_def": "将行权价偏斜（Skew）与到期日期限结构结合构成的三维曲面模型。",
+      "detailed_explanation": "这是顶级量化交易台的核心资产。做市商正是依据局部偏离公允曲面的微小空洞，来进行统计上的无风险套利。",
+      "example": "在三维曲面上识别出 30D 130 Put 存在 4 个 Vol 点的定价高估并进行做空。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "iv_skew",
+        "term_structure_of_vol",
+        "black_scholes"
+      ],
+      "analyst_tip": "顶级高频做市商之间的刺刀见红，核心就是比拼谁的波动率曲面微秒级拟合速度更快、平滑精度更高。"
+    },
+    {
+      "id": "binomial_tree",
+      "term_cn": "二叉树期权定价模型 / Binomial Option Pricing Model",
+      "term_en": "Binomial Option Pricing Model",
+      "abbreviation": "Binomial Tree",
+      "category": "Volatility & Pricing Models",
+      "short_def": "通过离散网格步进模拟标的资产上下跳跃路径的数值期权定价方法。",
+      "detailed_explanation": "由于能够精细处理离散节点，它特别适用于处理美式期权的提前行权（Early Exercise）与美股离散分红调整。",
+      "example": "使用 100 步二叉树计算附带提前行权条款的美式 Put 期权公允价值。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "black_scholes",
+        "american_style",
+        "greeks"
+      ],
+      "analyst_tip": "在离散股息派发日前夕，二叉树模型远比连续的 BSM 模型更能精准预测和计算提前行权概率。"
+    },
+    {
+      "id": "volatility_risk_premium",
+      "term_cn": "波动率风险溢价 / Volatility Risk Premium (VRP)",
+      "term_en": "Volatility Risk Premium",
+      "abbreviation": "VRP (IV - RV)",
+      "category": "Volatility & Pricing Models",
+      "short_def": "期权隐含波动率（IV）长期系统性高于标的未来实际实现波动率（RV）的超额溢价。",
+      "detailed_explanation": "这种溢价源于买方为防范未知恐慌而自愿支付的保险费。做空波动率基金就是通过持续卖出期权，系统性地收割 VRP 利润。",
+      "example": "标普 500 指数期权历史上 IV 平均比 RV 高出 3.5 个点。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "implied_volatility",
+        "realized_volatility",
+        "iron_condor"
+      ],
+      "analyst_tip": "VRP 毫无疑问是卖方策略的基石，但千万别飘。在极端黑天鹅之夜，它可能一次性赔光你数年积累的全部溢价。"
+    },
+    {
+      "id": "sticky_strike_vs_delta",
+      "term_cn": "粘性行权价与粘性德尔塔 / Sticky Strike vs Sticky Delta",
+      "term_en": "Sticky Strike vs Sticky Delta",
+      "abbreviation": "Sticky Rule",
+      "category": "Volatility & Pricing Models",
+      "short_def": "标的价格变动时，波动率曲面如何移动的两种经典量化微观假设。",
+      "detailed_explanation": "Sticky Strike 假设各绝对行权价的 IV 保持不变；而 Sticky Delta 假设相对虚实度的 IV 保持不变。这直接影响做市商 Greeks 矩阵的计算。",
+      "example": "当股票暴跌 $10 时，量化模型按 Sticky Delta 自动平移整条波动率偏斜曲线。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "volatility_smile",
+        "dealer_hedging",
+        "delta"
+      ],
+      "analyst_tip": "做市商采用不同的 Sticky 假设，会导致其对冲出来的净 Delta 产生显著且致命的偏差。"
+    },
+    {
+      "id": "variance_swap",
+      "term_cn": "方差互换合约 / Variance Swap",
+      "term_en": "Variance Swap",
+      "abbreviation": "Var Swap",
+      "category": "Volatility & Pricing Models",
+      "short_def": "纯粹交易标的资产已实现方差（Realized Variance）与约定行权方差差额的场外无方向衍生品。",
+      "detailed_explanation": "完全不受标的价格一阶 Delta 的干扰，纯粹表达对未来波动率水平的下注。它是华尔街大投行自营台最常用的宏观做空/做多波动率核武器。",
+      "example": "机构买入 $100,000 Vega 名义本金的 3 个月 SPX 方差互换押注宏观大动荡。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "volatility_surface",
+        "implied_volatility",
+        "tail_risk"
+      ],
+      "analyst_tip": "方差互换的损益呈现严格的方差线性。在极端暴跌行情下，它具有巨大且极其变态的不对称凸性。"
+    },
+    {
+      "id": "covered_call",
+      "term_cn": "备兑看涨期权 / Covered Call",
+      "term_en": "Covered Call",
+      "abbreviation": "CC",
+      "category": "Options Strategies",
+      "short_def": "持有 100 股标的正股的同时，卖出 1 张虚值看涨期权收取权利金。",
+      "detailed_explanation": "以让渡股价未来大幅上涨的潜在超额收益为代价，换取稳定的现金流增强收益，并提供有限的下行缓冲垫。",
+      "example": "持有 100 股 NVDA @ $140，卖出 1 个月后到期的 $155 Call 收取 $400 权利金。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "cash_secured_put",
+        "theta",
+        "yield_enhancement"
+      ],
+      "analyst_tip": "在温和上涨或震荡市中收租极为有效，但记住了：当正股遭遇真正崩盘时，这点权利金根本抵消不了本金的巨幅亏损。"
+    },
+    {
+      "id": "cash_secured_put",
+      "term_cn": "现金担保看跌期权 / Cash-Secured Put",
+      "term_en": "Cash-Secured Put",
+      "abbreviation": "CSP",
+      "category": "Options Strategies",
+      "short_def": "账户准备好足额行权现金的同时，卖出看跌期权收取权利金。",
+      "detailed_explanation": "若标的未跌破行权价，净赚全部权利金；若跌破行权价，则等于以约定的折扣价买入心仪已久的优质股票。",
+      "example": "备好 $13,000 现金，卖出 NVDA $130 Put 收取 $350。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "covered_call",
+        "wheel_strategy",
+        "collateral"
+      ],
+      "analyst_tip": "绝对是价值投资者的折价买股利器。它与 Covered Call 组合在一起，构成了著名的无情轮动收租策略 (The Wheel)。"
+    },
+    {
+      "id": "bull_call_spread",
+      "term_cn": "牛市看涨期权价差 / Bull Call Spread",
+      "term_en": "Bull Call Spread",
+      "abbreviation": "Debit Call Spread",
+      "category": "Options Strategies",
+      "short_def": "买入较低行权价 Call 的同时卖出较高行权价 Call（同到期日）。",
+      "detailed_explanation": "通过卖出高行权价期权，大幅降低了开仓净成本与 Theta 损耗。它完美锁定了最大亏损（净权利金）与最大收益（行权价差 - 净权利金）。",
+      "example": "买入 $140 Call ($8)，卖出 $150 Call ($3)，净支出 $5，最大盈利 $5。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "bear_put_spread",
+        "vertical_spread",
+        "defined_risk"
+      ],
+      "analyst_tip": "温和看多时的经典有限风险策略。它能大幅降低单边买入 Long Call 极高的资金门槛与 Vega 暴露风险。"
+    },
+    {
+      "id": "bear_put_spread",
+      "term_cn": "熊市看跌期权价差 / Bear Put Spread",
+      "term_en": "Bear Put Spread",
+      "abbreviation": "Debit Put Spread",
+      "category": "Options Strategies",
+      "short_def": "买入较高行权价 Put 的同时卖出较低行权价 Put 构建的有限风险看跌策略。",
+      "detailed_explanation": "强制锁定最大亏损与收益，有效避免了因事件落地后 IV 暴跌（IV Crush）导致的单边 Long Put 惨烈损耗。",
+      "example": "买入 $140 Put ($7)，卖出 $125 Put ($2)，净支出 $5，最大潜在收益 $10。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "bull_call_spread",
+        "vertical_spread"
+      ],
+      "analyst_tip": "当你预期科技股杀估值，但同时又想严密防范波动率回落时，这套策略最为有效。"
+    },
+    {
+      "id": "iron_condor",
+      "term_cn": "铁鹰式价差策略 / Iron Condor",
+      "term_en": "Iron Condor",
+      "abbreviation": "IC",
+      "category": "Options Strategies",
+      "short_def": "同时卖出一个虚值 Call 价差和一个虚值 Put 价差组成的四腿中性策略。",
+      "detailed_explanation": "完全纯粹做空波动率与收割时间的策略。只要标的价格在到期时维持在两条卖出期权行权价形成的区间内，即可安稳获得最大净利润。",
+      "example": "卖出 130/125 Put Spread 并卖出 160/165 Call Spread，赌 NVDA 在 130~160 震荡。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "short_straddle",
+        "theta",
+        "neutral_strategy"
+      ],
+      "analyst_tip": "在低波动震荡市或财报前高 IV 标的上，铁鹰胜率极高。但必须时刻警惕单向单边突破造成的尾部止损溃败。"
+    },
+    {
+      "id": "straddle",
+      "term_cn": "跨式期权策略 / Straddle",
+      "term_en": "Straddle",
+      "abbreviation": "Straddle",
+      "category": "Options Strategies",
+      "short_def": "同时买入（或卖出）相同行权价、相同到期日的 1 张 Call 和 1 张 Put。",
+      "detailed_explanation": "Long Straddle 完全不赌方向，只赌价格是否会发生远超市场预期的剧烈暴走；Short Straddle 则反其道而行之，做空大幅波动。",
+      "example": "在重大催化剂前买入 $145 ATM Call + $145 ATM Put。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "strangle",
+        "implied_volatility",
+        "gamma"
+      ],
+      "analyst_tip": "要想玩转 Long Straddle，标的的实际波动幅度必须大于你买入两张期权支付的总权利金之和，否则照样亏钱。"
+    },
+    {
+      "id": "strangle",
+      "term_cn": "勒式期权策略 / Strangle",
+      "term_en": "Strangle",
+      "abbreviation": "Strangle",
+      "category": "Options Strategies",
+      "short_def": "同时买入（或卖出）虚值 Call 和虚值 Put 的大波动博弈策略。",
+      "detailed_explanation": "相比 Straddle，它开仓的绝对成本更低，但也需要底层标的走出更为夸张的单边突破方能实现盈利。",
+      "example": "买入 $130 OTM Put + $160 OTM Call 赌重磅事件引发暴走行情。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "straddle",
+        "gamma",
+        "vega"
+      ],
+      "analyst_tip": "Long Strangle 的真实胜率相对较低。它必须配合极具爆发力的宏观或产业黑天鹅催化剂才能发挥威力。"
+    },
+    {
+      "id": "collar",
+      "term_cn": "领式期权对冲策略 / Collar Strategy",
+      "term_en": "Collar Strategy",
+      "abbreviation": "Collar",
+      "category": "Options Strategies",
+      "short_def": "持有正股的同时，买入虚值 Put 兜底，并卖出虚值 Call 提供资金的零成本对冲。",
+      "detailed_explanation": "卖出 Call 收取的权利金，刚好抵消买入 Put 保险的支出。它完美锁定了资产价值的波动区间：既封死了亏损底线，也让渡了暴涨上限。",
+      "example": "持股 NVDA @ $140，买入 $130 Put 保底，卖出 $155 Call，实现净成本为 0 的全面避险。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "protective_put",
+        "covered_call",
+        "institutional_hedging"
+      ],
+      "analyst_tip": "大型家族办公室和对冲基金在预期宏观黑天鹅频发时，最常采用的零现金支出终极防御武器。"
+    },
+    {
+      "id": "calendar_spread",
+      "term_cn": "日历时间价差 / Calendar Spread",
+      "term_en": "Calendar Spread",
+      "abbreviation": "Time Spread",
+      "category": "Options Strategies",
+      "short_def": "卖出近月期权同时买入相同行权价的远月期权。",
+      "detailed_explanation": "精妙地利用近月 Theta 衰减远快于远月的特性，赚取纯粹的时间差收益。同时还能享有远月正 Vega 带来的波动率膨胀红利。",
+      "example": "卖出 14 天后到期 $145 Call，买入 60 天后到期 $145 Call。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "diagonal_spread",
+        "theta",
+        "term_structure_of_vol"
+      ],
+      "analyst_tip": "当你预期标的短期内会在平值附近小幅窄幅震荡、随后长期将走出慢牛上涨行情时，日历价差 (Calendar Spread)的效果最佳。"
+    },
+    {
+      "id": "diagonal_spread",
+      "term_cn": "对角价差策略 / Diagonal Spread",
+      "term_en": "Diagonal Spread",
+      "abbreviation": "Diagonal",
+      "category": "Options Strategies",
+      "short_def": "行权价与到期日均不相同的跨期价差组合（如穷人备兑 Poor Mans Covered Call）。",
+      "detailed_explanation": "买入远期深度实值 Call 代替现货股票，然后连续不断卖出近月虚值 Call 收租。仅用 1/3 的本金，就能实现与 Covered Call 相同的现金流回报。",
+      "example": "买入 180 天到期 $120 Call (Delta 0.85)，卖出 14 天到期 $155 Call。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "calendar_spread",
+        "covered_call",
+        "leaps"
+      ],
+      "analyst_tip": "构建 PMCC 时眼睛擦亮，必须确保远期深度实值 Call 的内在价值，能够完全覆盖近月空头被暴打时的可能亏损。"
+    },
+    {
+      "id": "iron_butterfly",
+      "term_cn": "铁蝴蝶式策略 / Iron Butterfly",
+      "term_en": "Iron Butterfly",
+      "abbreviation": "Iron Fly",
+      "category": "Options Strategies",
+      "short_def": "在平值处卖出 ATM Straddle 并买入外围价外翅膀保护的对称中性策略。",
+      "detailed_explanation": "能在极度狭窄的价格区间内捕获最高的权利金回报，且风险完全锁定。相比 Iron Condor，它的权利金更丰厚，但盈利区间也更窄。",
+      "example": "卖出 145 Call + 145 Put，买入 155 Call + 135 Put 进行对称保护。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "iron_condor",
+        "short_straddle",
+        "pin_risk"
+      ],
+      "analyst_tip": "在财报前 IV 极高，且你预期实际业绩完全符合共识、不会出现暴走时，铁蝴蝶的盈亏比极佳。"
+    },
+    {
+      "id": "ratio_spread",
+      "term_cn": "比例价差策略 / Ratio Spread",
+      "term_en": "Ratio Spread",
+      "abbreviation": "Ratio Spread",
+      "category": "Options Strategies",
+      "short_def": "买入 1 张期权的同时卖出 2 张或多张更虚值期权的非对称结构。",
+      "detailed_explanation": "能够以零成本甚至收权利金建立起敞口。只要价格温和运动即可获得峰值利润；但在极端暴走单边突破时，需要承担裸空负 Gamma 的穿仓风险。",
+      "example": "买入 1 张 140 Call，卖出 2 张 155 Call 收取 $1.00 净信用额。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "front_spread",
+        "gamma",
+        "naked_option"
+      ],
+      "analyst_tip": "严禁在缺乏硬性风控止损的情况下裸跑 Ratio Spread！必须严格限定单边防穿仓的兜底保护。"
+    },
+    {
+      "id": "risk_reversal",
+      "term_cn": "风险逆转策略 / Risk Reversal",
+      "term_en": "Risk Reversal",
+      "abbreviation": "Risk Reversal",
+      "category": "Options Strategies",
+      "short_def": "买入 OTM Call 并卖出 OTM Put（或反之）建立无现金支出的方向博弈。",
+      "detailed_explanation": "卖 Put 收取的权利金刚好能支付买 Call 的成本。这是华尔街机构最常用的低成本宏观方向表达工具。",
+      "example": "买入 160 Call 并卖出 130 Put，实现零现金流净支出的多头攻击。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "synthetic_long",
+        "collar",
+        "skew"
+      ],
+      "analyst_tip": "由于股票期权天然存在看跌偏斜（Put 贵 Call 便宜），做多 Risk Reversal 往往能以极其划算的比价来构建敞口。"
+    },
+    {
+      "id": "jade_lizard",
+      "term_cn": "翡翠蜥蜴策略 / Jade Lizard",
+      "term_en": "Jade Lizard",
+      "abbreviation": "Jade Lizard",
+      "category": "Options Strategies",
+      "short_def": "卖出一个 OTM Put 同时卖出一个 Bear Call Spread 的混合无上行风险策略。",
+      "detailed_explanation": "收取的总权利金大于 Call 价差宽度，彻底消除了上方单边大涨的亏损风险，只承担下方跌破 Put 的买股义务。",
+      "example": "卖出 $130 Put 并卖出 150/155 Call Spread，净收 $5.50 权利金（大于 $5 价差）。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "iron_condor",
+        "cash_secured_put",
+        "credit_spread"
+      ],
+      "analyst_tip": "这是高 IV 环境下消除单边上行风险的顶级卖方收租武器，懂行的都在用。"
+    },
+    {
+      "id": "box_spread",
+      "term_cn": "箱式套利策略 / Box Spread",
+      "term_en": "Box Spread",
+      "abbreviation": "Box Spread",
+      "category": "Options Strategies",
+      "short_def": "由 Bull Call Spread 和 Bear Put Spread 组成的理论上无方向风险的合成借贷套利。",
+      "detailed_explanation": "在成熟的欧式市场上，常被用于做市商进行低成本的资金拆借。但在美式期权上，若被提前行权，可能导致灾难性的爆仓。",
+      "example": "买入 100/120 Call Spread 同时买入 120/100 Put Spread 锁定固定到期无风险价值 $20。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "arbitrage",
+        "synthetic_long",
+        "sofr"
+      ],
+      "analyst_tip": "严禁在个股美式期权上构建 Box Spread，提前指派风险会打破无套利定价链条。"
+    },
+    {
+      "id": "zebra_spread",
+      "term_cn": "斑马价差策略 / ZEBRA (Zero Extrinsic Back Ratio)",
+      "term_en": "Zero Extrinsic Back Ratio",
+      "abbreviation": "ZEBRA",
+      "category": "Options Strategies",
+      "short_def": "买入 2 张 70 Delta 实值 Call 同时卖出 1 张 50 Delta 平值 Call 的正股替代策略。",
+      "detailed_explanation": "它精确抵消了全部时间价值（即外在价值为 0），拥有约 90 Delta。即便标的暴跌，其最大亏损也仅限于开仓时的净权利金。",
+      "example": "以买正股 1/4 的资金构建 ZEBRA，享受与现货完全相同的 1:1 上涨，但彻底消除下行无限穿仓风险。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "stock_replacement",
+        "delta",
+        "extrinsic_value"
+      ],
+      "analyst_tip": "这是量化对冲基金最优雅的正股替代器，完全没有 Theta 损耗，纯粹靠杠杆吃 Delta 的红利。"
+    },
+    {
+      "id": "christmas_tree_spread",
+      "term_cn": "圣诞树价差策略 / Christmas Tree Spread",
+      "term_en": "Christmas Tree Spread",
+      "abbreviation": "Tree Spread",
+      "category": "Options Strategies",
+      "short_def": "买入 1 张 ATM 期权，跳过一个行权价，卖出 3 张 OTM 期权，并在更远端买入 2 张期权保护的梯形结构。",
+      "detailed_explanation": "能在目标价位附近形成极其陡峭的收益尖峰，非常适合对目标价位有高确信度精准预测的事件驱动交易。",
+      "example": "买入 140 Call，卖出 3 张 150 Call，买入 2 张 155 Call。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "ratio_spread",
+        "butterfly_spread"
+      ],
+      "analyst_tip": "这套策略的资金使用效率极高，但对标的最终结算落点的精度要求极为苛刻，偏离一点就没戏。"
+    },
+    {
+      "id": "bid_ask_spread",
+      "term_cn": "买卖价差 / Bid-Ask Spread",
+      "term_en": "Bid-Ask Spread",
+      "abbreviation": "Spread",
+      "category": "Market Microstructure & Trading Mechanics",
+      "short_def": "买方最高愿意支付的价格 (Bid) 与卖方最低愿意接受的价格 (Ask) 之间的差额。",
+      "detailed_explanation": "买卖价差 (Bid-Ask Spread)是衡量市场流动性好坏的第一指标。点差越窄，流动性越好，交易摩擦成本自然越低。做市商依靠点差寻求利润，但也必须承担库存风险与逆向选择风险，绝非纯粹的无风险套利。",
+      "example": "活跃合约 Bid $3.40 / Ask $3.45（点差 $0.05）；冷门合约 Bid $1.20 / Ask $2.80。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "market_maker",
+        "slippage",
+        "liquidity",
+        "mid_price"
+      ],
+      "analyst_tip": "严禁在宽点差冷门合约上直接下市价单（Market Order），否则你会被做市商瞬间吞噬高额滑点，底裤都不剩。"
+    },
+    {
+      "id": "market_maker",
+      "term_cn": "期权做市商 / Market Maker (MM)",
+      "term_en": "Market Maker",
+      "abbreviation": "MM",
+      "category": "Market Microstructure & Trading Mechanics",
+      "short_def": "在市场上持续双向提供买入和卖出报价、为市场注入流动性的专业金融机构。",
+      "detailed_explanation": "做市商（如 Citadel、Susquehanna）力求不承担单边方向风险。他们通过算法在正股和期权之间进行动态 Delta 对冲，赚取点差和做市返佣，但同时仍面临着库存与逆向选择风险。",
+      "example": "买入 100 张 Call 时，订单可能由某家做市商在另一端接下并进行动态对冲，但具体是哪家机构、如何对冲无法从公开数据确认。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "bid_ask_spread",
+        "delta_hedging",
+        "gex",
+        "gamma_flip"
+      ],
+      "analyst_tip": "做市商的整体头寸暴露（Long/Short Gamma）方向，直接决定了整个市场的短期波动是被阻尼平抑还是被暴力放大。"
+    },
+    {
+      "id": "sweep_order",
+      "term_cn": "扫单异动大单 / Sweep Order",
+      "term_en": "Option Sweep Order",
+      "abbreviation": "Sweep",
+      "category": "Market Microstructure & Trading Mechanics",
+      "short_def": "机构为迅速吃光市场上所有流动性而在多个交易所同时按市价横扫触发的攻击型大单。",
+      "detailed_explanation": "普通限价单只会挂在一个交易所，而 Sweep 订单为了抢筹，不计点差摩擦跨交易所拆单瞬间成交。这可能反映下单方对某个催化剂有极高确信度，但也可能仅仅是出于对冲、套利需要，不能直接等同于内幕信息。",
+      "example": "毫秒内跨 8 家交易所吃下 $15M 深度虚值 Call，打爆盘口引发异动警报。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "block_trade",
+        "unusual_options_activity",
+        "flow"
+      ],
+      "analyst_tip": "紧盯大宗 Option Sweeps 异动，这是专业量化交易员捕捉机构抢筹信号最敏锐的雷达。"
+    },
+    {
+      "id": "dark_pool",
+      "term_cn": "暗池交易 / Dark Pool",
+      "term_en": "Dark Pool",
+      "abbreviation": "Dark Pool",
+      "category": "Market Microstructure & Trading Mechanics",
+      "short_def": "不向公众实时展示挂单委托簿的场外撮合私人电子交易平台。",
+      "detailed_explanation": "专供机构大资金使用，以便在不引发公开市场价格剧烈波动的情况下大宗交换筹码。暗池交易数据只有在成交后，才会通过打印记录延时披露。",
+      "example": "主权财富基金在高盛暗池秘密分批接下 $500M 科技巨头大宗老股。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "block_trade",
+        "market_microstructure",
+        "institutional_flow"
+      ],
+      "analyst_tip": "暗池大单的密集打印点值得留意，但它们在历史上并不必然形成未来的支撑或阻力，切忌将其作为确定性交易信号。"
+    },
+    {
+      "id": "pin_risk",
+      "term_cn": "行权价钉住风险 / Pin Risk",
+      "term_en": "Pin Risk",
+      "abbreviation": "Pin Risk",
+      "category": "Market Microstructure & Trading Mechanics",
+      "short_def": "在期权到期当天，标的股票价格在收盘时恰好精准停留在行权价附近的风险。",
+      "detailed_explanation": "由于做市商的大规模 Delta 对冲以及大量平值合约行权的不确定性，标的价格容易被磁吸在最大未平仓 Strike 处。这会让卖方面临到底会不会被指派行权的未知敞口。",
+      "example": "周五 16:00 NVDA 精准收在 $140.01，导致卖出 $140 Call 的交易员面临是否交付股票的不确定性。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "max_pain",
+        "0dte",
+        "assignment",
+        "gamma"
+      ],
+      "analyst_tip": "职业交易员为了不被这种事折磨，通常在到期日 15:30 前，就会提前主动平仓掉所有临近平值的仓位以规避 Pin Risk。"
+    },
+    {
+      "id": "level_2_depth",
+      "term_cn": "Level 2 深度盘口 / Level 2 Market Depth",
+      "term_en": "Level 2 Market Depth",
+      "abbreviation": "L2 Depth",
+      "category": "Market Microstructure & Trading Mechanics",
+      "short_def": "展示买一到买五、卖一到卖五各档位的实时挂单数量与做市商挂单意愿。",
+      "detailed_explanation": "通过观察大单挂单与撤单（Spoofing）的博弈，以及真实吃单速度，可以洞察主力意图。厚盘口抗冲击能力强，薄盘口则极易遭滑点瞬间打穿。",
+      "example": "盘口在 $140 处挂有 50,000 股大买单，构成盘中即时买盘托底屏障。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "bid_ask_spread",
+        "market_maker",
+        "slippage"
+      ],
+      "analyst_tip": "别太把挂单当回事，那可能随时撤销（虚单）。唯有 Time & Sales 里的逐笔成交记录，才是真刀真枪的资金交换。"
+    },
+    {
+      "id": "order_flow_pfof",
+      "term_cn": "订单流订单付费 / Payment for Order Flow (PFOF)",
+      "term_en": "Payment for Order Flow",
+      "abbreviation": "PFOF",
+      "category": "Market Microstructure & Trading Mechanics",
+      "short_def": "做市商向散户券商支付回扣以获取散户非知情订单流（Uninformed Flow）的撮合机制。",
+      "detailed_explanation": "这是散户能够享受零佣金交易的商业底盘。做市商依靠内部化吃下这些散户无毒单，轻松赚取确定性的点差利润。",
+      "example": "Citadel Securities 每年向 Robinhood 支付数亿美元购买散户期权订单流。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "market_maker",
+        "bid_ask_spread",
+        "retail_sentiment"
+      ],
+      "analyst_tip": "搞懂了 PFOF，你就明白为什么散户的小单通常在最优买卖价之间被迅速内部撮合成交了，因为做市商早就把差价吃干抹净了。"
+    },
+    {
+      "id": "price_slippage",
+      "term_cn": "价格滑点摩擦 / Price Slippage",
+      "term_en": "Price Slippage",
+      "abbreviation": "Slippage",
+      "category": "Market Microstructure & Trading Mechanics",
+      "short_def": "订单预期执行价格与实际最终撮合成交价格之间的偏差与磨损。",
+      "detailed_explanation": "在高波动跳空、突发新闻公布或者大额市价单直接冲击浅盘口时，往往会产生极其严重的隐形亏损。",
+      "example": "市价单下单时显示 $4.20，最终成交在 $4.45，单张合约产生 $25 滑点损失。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "bid_ask_spread",
+        "limit_order",
+        "market_order"
+      ],
+      "analyst_tip": "在大单或者冷门期权交易中，永远要坚持使用限价单（Limit Order），彻底封死滑点敞口，绝不能抱有侥幸心理。"
+    },
+    {
+      "id": "stop_hunting",
+      "term_cn": "猎杀止损盘 / Stop Hunting",
+      "term_en": "Stop Hunting",
+      "abbreviation": "Stop Run",
+      "category": "Market Microstructure & Trading Mechanics",
+      "short_def": "算法或主力资金在关键整数关口短暂打穿价格以触发集中止损单的微观现象。",
+      "detailed_explanation": "被触发的止损盘会释放出大量的被动流动性，事后往往能观察到价格快速反转。但这更接近一种市场行为模式的描述，而非确定存在的主力恶意操纵机制。",
+      "example": "跌破 $140 整数心理关口 2 秒后迅速回升，扫清了所有紧密止损单。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "support_resistance",
+        "liquidity",
+        "microstructure"
+      ],
+      "analyst_tip": "止损点最好设置在结构性支撑的下方，留出一定的缓冲地带，千万别傻傻地设在散户扎堆的整数关口上当炮灰。"
+    },
+    {
+      "id": "block_trade",
+      "term_cn": "大宗协议交易 / Block Trade",
+      "term_en": "Block Trade",
+      "abbreviation": "Block Trade",
+      "category": "Market Microstructure & Trading Mechanics",
+      "short_def": "单笔规模极大（通常超 10,000 股或 500 张期权）的机构级协议撮合交易。",
+      "detailed_explanation": "这类交易通过场外大宗通道或跨商协议秘密执行，目的是最小化对公开现货市场的瞬时冲击与价格扭曲。",
+      "example": "主权基金通过大宗通道单笔买入 2,000 张 6 个月到期 LEAPS Call。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "dark_pool",
+        "sweep_order",
+        "institutional_flow"
+      ],
+      "analyst_tip": "异动雷达如果监测到大量平价的大宗成交，那往往是大型对冲基金在进行季度换仓的重要信号。"
+    },
+    {
+      "id": "mid_price",
+      "term_cn": "中间公允价 / Mid-Price",
+      "term_en": "Mid-Price",
+      "abbreviation": "Mid-Price",
+      "category": "Market Microstructure & Trading Mechanics",
+      "short_def": "当前最优买价（Bid）与最优卖价（Ask）的算术平均基准价格。",
+      "detailed_explanation": "它是期权理论估值以及基金持仓浮盈盯市计算的标准参考价。把挂单设在 Mid-Price 附近，通常能获得更优的成交体验。",
+      "example": "Bid $2.00 / Ask $2.20，中间价为 $2.10。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "bid_ask_spread",
+        "mark_to_market"
+      ],
+      "analyst_tip": "开仓时千万别心急，尝试从 Mid-Price 开始挂单，慢慢向做市商试探逼近，争取捞到最佳的成交价格。"
+    },
+    {
+      "id": "fill_or_kill",
+      "term_cn": "全额即时成交或取消订单 / Fill or Kill (FOK)",
+      "term_en": "Fill or Kill Order",
+      "abbreviation": "FOK",
+      "category": "Market Microstructure & Trading Mechanics",
+      "short_def": "要求订单必须立即全额成交，若无法瞬间完全满足则整单立即取消的委托类型。",
+      "detailed_explanation": "这是防止大宗复杂组合（比如四腿铁鹰）发生部分成交（Legging Risk）必备的高阶订单类型。",
+      "example": "下达 50 手铁鹰 FOK 限价单，若盘口流动性不足以同时成交全部 4 腿则自动撤销。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "limit_order",
+        "iron_condor",
+        "execution_discipline"
+      ],
+      "analyst_tip": "交易多腿复杂策略时，绝不能单腿分批手工下单。必须使用 FOK 组合单，彻底杜绝单腿裸露在外的灾难性风险。"
+    },
+    {
+      "id": "trailing_stop",
+      "term_cn": "移动追踪止损 / Trailing Stop",
+      "term_en": "Trailing Stop",
+      "abbreviation": "Trailing Stop",
+      "category": "Market Microstructure & Trading Mechanics",
+      "short_def": "止损价格随着标的价格朝有利方向上涨而自动同向抬升的动态止盈止损机制。",
+      "detailed_explanation": "它在锁定持仓累积浮盈的同时，给予趋势继续运行的充分空间，是解决 MFE 浮盈回撤过大问题的终极利器。",
+      "example": "设置 15% 移动止盈，当期权浮盈翻倍后若从最高点回撤 15% 自动平仓离场。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "mfe",
+        "mae",
+        "process_score",
+        "risk_discipline"
+      ],
+      "analyst_tip": "移动止损是克服人类恐高提前卖飞，以及贪婪导致浮盈变亏损最强有力的量化工具。"
+    },
+    {
+      "id": "cross_exchange_arbitrage",
+      "term_cn": "跨交易所高频套利 / Cross-Exchange Arbitrage",
+      "term_en": "Cross-Exchange Arbitrage",
+      "abbreviation": "High-Freq Arb",
+      "category": "Market Microstructure & Trading Mechanics",
+      "short_def": "高频做市商在微秒级别利用 Cboe、Nasdaq PHLX、ISE 等 16 家期权交易所之间微小定价不一致进行的无风险对冲套利。",
+      "detailed_explanation": "顶级做市商铺设微波专线与 FPGA 硬件，利用极致的纳秒级速度优势，在全美各大交易所之间瞬间熨平任何微小的价差。",
+      "example": "Cboe 报出 $3.10 买单而 ISE 挂出 $3.08 卖单，量化硬件在 800 纳秒内完成双边吃单套利。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "market_maker",
+        "sweep_order",
+        "nbbo"
+      ],
+      "analyst_tip": "正是高频做市商这种嗜血般的速度竞争，极大地提高了全美期权市场的统一流动性，疯狂压缩了全行业的买卖点差。"
+    },
+    {
+      "id": "nbbo",
+      "term_cn": "全美最优买卖报价 / National Best Bid and Offer (NBBO)",
+      "term_en": "National Best Bid and Offer",
+      "abbreviation": "NBBO",
+      "category": "Market Microstructure & Trading Mechanics",
+      "short_def": "美国证监会（SEC）监管法案要求券商向客户订单必须展示与执行的各交易所综合最高买价与最低卖价。",
+      "detailed_explanation": "这是保护投资者免受单个交易所劣质撮合伤害的法定基准线，确保任何合规的订单都必须以全美最优价格进行撮合。",
+      "example": "无论通过哪家券商下单，期权交易界面展示的 Bid/Ask 均受 NBBO 规则保护。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "bid_ask_spread",
+        "order_flow_pfof",
+        "compliance"
+      ],
+      "analyst_tip": "合规审计时，核对成交记录是否优于或等于 NBBO，是判定券商是否存在恶意违规、吃客户差价的核心依据。"
+    },
+    {
+      "id": "gex",
+      "term_cn": "做市商伽马敞口 / Gamma Exposure (GEX)",
+      "term_en": "Gamma Exposure",
+      "abbreviation": "GEX",
+      "category": "Gamma Exposure & Dealer Dynamics",
+      "short_def": "衡量标的资产价格每变动 1% 时，期权做市商为了维持 Delta 中性必须买入或卖出的股票金额（美元规模）。",
+      "detailed_explanation": "由 SpotGamma 开创的微观结构模型。正 GEX 抑制市场波动（逢跌买入、逢涨卖出）；负 GEX 则放大波动（逢跌做空、逢涨追买）。",
+      "example": "SPX 当前 GEX 为 -$5 Billion/1%，预示市场处于负伽马高烈度波动放大区。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "gamma_flip",
+        "gamma_wall",
+        "dealer_hedging",
+        "volatility"
+      ],
+      "analyst_tip": "在正 GEX 环境下，最适合做高抛低吸的价差策略；而在极度负 GEX 的疯狂环境里，切忌盲目摸底做多。"
+    },
+    {
+      "id": "gamma_flip",
+      "term_cn": "伽马翻转点 / Gamma Flip Level",
+      "term_en": "Gamma Flip Level",
+      "abbreviation": "Gamma Flip",
+      "category": "Gamma Exposure & Dealer Dynamics",
+      "short_def": "做市商整体 Gamma 敞口由正（波动抑制）转为负（波动放大）的关键价格分水岭。",
+      "detailed_explanation": "当现货价格跌穿 Gamma Flip 点位，做市商的对冲行为将从逆势提供流动性，瞬间切换为顺势追涨杀跌。此时市场日内的波幅与滑点会呈几何级数激增。",
+      "example": "标的价格跌破 Gamma Flip 临界点 $142 后，盘中抛压呈现瀑布式加速下泻。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "gex",
+        "gamma_squeeze",
+        "market_microstructure"
+      ],
+      "analyst_tip": "Gamma Flip 点是职业量化基金判定市场行情，由平稳的慢牛瞬间切换为剧烈崩跌的核心风控阈值。"
+    },
+    {
+      "id": "gamma_wall",
+      "term_cn": "伽马墙 / 极值挂单聚集带 / Gamma Wall",
+      "term_en": "Gamma Wall (Call/Put Wall)",
+      "abbreviation": "Gamma Wall",
+      "category": "Gamma Exposure & Dealer Dynamics",
+      "short_def": "全市场期权持仓中积累了最大未平仓量 (OI) 与 Gamma 密度的关键行权价，模型上可能对价格产生影响。",
+      "detailed_explanation": "Call Wall 在模型上可能充当阻力（若做市商逢高抛售现货对冲）；Put Wall 则可能充当支撑（若做市商逢低回补现货）。但这仅仅是基于 OI 集中度的启发式推断，并不能确定做市商的真实净头寸方向。",
+      "example": "当前 NVDA 的 Call Wall 在 $160，Put Wall 在 $135。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "gex",
+        "open_interest",
+        "support_resistance",
+        "pin_risk"
+      ],
+      "analyst_tip": "价格一旦以强势实体突破 Call Wall，极可能引发空头的踩踏与做市商的追单，诱发一场狂暴无匹的 Gamma Squeeze。"
+    },
+    {
+      "id": "gamma_squeeze",
+      "term_cn": "伽马挤压 / Gamma Squeeze",
+      "term_en": "Gamma Squeeze",
+      "abbreviation": "Gamma Squeeze",
+      "category": "Gamma Exposure & Dealer Dynamics",
+      "short_def": "大量投资者集中疯狂买入短期虚值 Call，迫使做市商不得不大举被动买入正股进行 Delta 对冲，从而推升股价并触发自我强化的螺旋暴涨。",
+      "detailed_explanation": "这种极端逼空行为的经典案例，是 2021 年 GME 的散户暴动，以及 2023-2024 年科技龙头股的狂暴拉升。",
+      "example": "散户在 Reddit 呼吁狂扫 0DTE $160 Call，做市商被迫在盘中买入数千万股正股对冲推高股价。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "gex",
+        "short_squeeze",
+        "0dte",
+        "dealer_hedging"
+      ],
+      "analyst_tip": "Gamma Squeeze 爆发时虽然极度凶猛，但绝对不可持续。一旦买 Call 的势头放缓，做市商开始卸载对冲盘，价格必然迎来剧烈的均值回归。"
+    },
+    {
+      "id": "delta_hedging",
+      "term_cn": "动态德尔塔对冲 / Dynamic Delta Hedging",
+      "term_en": "Dynamic Delta Hedging",
+      "abbreviation": "Delta Hedge",
+      "category": "Gamma Exposure & Dealer Dynamics",
+      "short_def": "做市商为消除期权空头方向风险，按照 Delta 比例在现货市场买卖股票的算法行为。",
+      "detailed_explanation": "Delta 随着股价每变动一次，做市商就必须在现货市场进行一次买卖操作。在 Gamma 极高的区域，这种对冲的频率和体量都会呈几何级数上升。",
+      "example": "卖出 Delta 0.40 的 Call 后，做市商立即在现货买入 40 股股票锁定 Delta 中性。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "delta",
+        "gamma",
+        "market_maker"
+      ],
+      "analyst_tip": "别小看对冲，做市商这种极其密集的动态对冲行为，其实构成了美股盘中主要的大宗程序化交易量。"
+    },
+    {
+      "id": "net_gex",
+      "term_cn": "全市场净伽马绝对值 / Net GEX",
+      "term_en": "Net GEX",
+      "abbreviation": "Net GEX",
+      "category": "Gamma Exposure & Dealer Dynamics",
+      "short_def": "全市场所有未平仓 Call 和 Put 的做市商 Gamma 经金额加权后的代数和。",
+      "detailed_explanation": "正 Net GEX 在模型上倾向于抑制市场波动；负 Net GEX 则倾向于放大波动。但这仅仅是基于估算模型得出的启发式推断，绝非做市商已确认的真实净持仓数据。",
+      "example": "标普估算净 GEX 为 +$8B 时，历史上盘中回调有时会更快被买盘承接，但并非每次都如此。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "gex",
+        "gamma_flip",
+        "dealer_hedging"
+      ],
+      "analyst_tip": "你可以把 Net GEX 的绝对规模，当作判断未来 1 到 3 个交易日波动率环境的背景板，但绝不能用它来精确预测日内的波幅上限。"
+    },
+    {
+      "id": "call_wall",
+      "term_cn": "看涨期权墙 / Call Wall",
+      "term_en": "Call Wall",
+      "abbreviation": "Call Wall",
+      "category": "Gamma Exposure & Dealer Dynamics",
+      "short_def": "全市场最大看涨期权未平仓集中行权价，模型上可能对波段反弹形成阻力。",
+      "detailed_explanation": "价格触及 Call Wall 时有时会伴随阻滞。如果模型假说成立，这可能与做市商对冲 (Market Maker Hedging)盘的获利回吐行为有关。但这只是一种可能，而非必然存在的机制。",
+      "example": "NVDA 数次冲高至估算 Call Wall $155 附近后出现回落，也有部分情况直接突破。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "gamma_wall",
+        "put_wall",
+        "open_interest"
+      ],
+      "analyst_tip": "越是临近月度交割日，Call Wall 就越值得作为潜在阻力位纳入止盈计划。但要记住，它绝对不是牢不可破的铁板。"
+    },
+    {
+      "id": "put_wall",
+      "term_cn": "看跌期权墙 / Put Wall",
+      "term_en": "Put Wall",
+      "abbreviation": "Put Wall",
+      "category": "Gamma Exposure & Dealer Dynamics",
+      "short_def": "全市场最大看跌期权未平仓集中行权价，模型上可能对下方提供支撑参考。",
+      "detailed_explanation": "若模型成立，做市商在此处的对冲买盘可能提供支撑力；若 Put Wall 被强势实体跌破，做市商可能转为顺势抛售。但这依然是对估算敞口的推断，不可盲信。",
+      "example": "部分暴跌日 NVDA 探底至估算 Put Wall $130 附近后止跌反弹，但也存在直接跌穿的情形。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "gamma_wall",
+        "call_wall",
+        "support_resistance"
+      ],
+      "analyst_tip": "在宏观恐慌抛售中，Put Wall 可以作为一个支撑参考坐标。但它没法给你打包票，仓位管理与硬止损纪律永远是第一位的。"
+    },
+    {
+      "id": "vanna_volga_hedging",
+      "term_cn": "万娜-沃尔加高阶做市对冲 / Vanna-Volga Hedging",
+      "term_en": "Vanna-Volga Hedging",
+      "abbreviation": "Vanna-Volga",
+      "category": "Gamma Exposure & Dealer Dynamics",
+      "short_def": "顶级投行在管理外汇与个股奇异期权账目时，利用三个基准平值与虚值期权同时消除 Vega、Vanna、Volga 风险的精确对冲算法。",
+      "detailed_explanation": "它使得投行哪怕在面临极端波动率飙升与偏斜扭曲的恶劣环境下，也能稳稳维持无风险做市的账面平衡。",
+      "example": "高盛衍生品交易台利用 Vanna-Volga 组合对冲百亿美元级科技股结构化票据。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "vanna",
+        "volga",
+        "market_maker"
+      ],
+      "analyst_tip": "如果连 Vanna-Volga 的底层逻辑都参不透，那就别想跨入顶级华尔街量化衍生品交易台的大门了。"
+    },
+    {
+      "id": "gamma_trap",
+      "term_cn": "负伽马流动性陷阱 / Negative Gamma Trap",
+      "term_en": "Negative Gamma Trap",
+      "abbreviation": "Gamma Trap",
+      "category": "Gamma Exposure & Dealer Dynamics",
+      "short_def": "当现货价格跌入深度负 GEX 区域时，做市商因对冲模型限制被迫不计代价机械抛售，抽干买盘流动性引发流动性黑洞 (Liquidity Black Hole)。",
+      "detailed_explanation": "这会导致市场在完全没有任何新基本面利空消息的情况下，发生匪夷所思的自我吞噬式下跌，一口气跌掉好几个点。",
+      "example": "午后无利空情况下指数突然跳水 1.5%，源于做市商触发了负伽马流动性陷阱。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "gex",
+        "gamma_flip",
+        "flash_crash"
+      ],
+      "analyst_tip": "当负伽马陷阱被触发时，千万不可逞英雄盲目接飞刀。必须耐心等待，直到 GEX 指标重新翻正才能入场。"
+    },
+    {
+      "id": "yield_curve_inversion",
+      "term_cn": "美债收益率曲线倒挂 / 2s10s Yield Curve Inversion",
+      "term_en": "Yield Curve Inversion",
+      "abbreviation": "2s10s Inversion",
+      "category": "Macroeconomics & Rates",
+      "short_def": "2 年期短期美债收益率高于 10 年期长期美债收益率的反常宏观经济信号。",
+      "detailed_explanation": "这是历史上最可靠的宏观衰退先行指标之一。它反映了市场预期央行短期会强力紧缩抗通胀，同时对长期的经济增长前景又极度悲观。",
+      "example": "2Y 收益率 4.85% vs 10Y 收益率 4.30%，利差倒挂 -55 bps。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "macro_rates",
+        "ust_10y",
+        "fed_funds_rate"
+      ],
+      "analyst_tip": "别怕倒挂，当收益率曲线从深度倒挂突然快速变陡（Steepening）解除倒挂的那一刻，往往才是真正衰退爆发与资产暴跌的开始。"
+    },
+    {
+      "id": "cpi",
+      "term_cn": "消费者物价指数 / Consumer Price Index (CPI)",
+      "term_en": "Consumer Price Index",
+      "abbreviation": "CPI",
+      "category": "Macroeconomics & Rates",
+      "short_def": "衡量美国居民家庭日常消费品和服务项目价格变动情况的宏观通胀核心指标。",
+      "detailed_explanation": "这是美联储制定利率政策的核心锚点。一旦 CPI 高于预期，通常会猛烈推高美债收益率，并狠狠压制高估值科技股的估值倍数。",
+      "example": "每月第二周公布的 CPI 数据发布瞬间，美股指数期货出现 50 点剧烈跳空。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "macro_event",
+        "fed_funds_rate",
+        "yield_curve"
+      ],
+      "analyst_tip": "CPI 发布日早晨 08:30 ET，绝对是全月宏观波动率最狂暴、跨式期权 (Straddle)溢价最疯狂的集中爆发点。"
+    },
+    {
+      "id": "sofr",
+      "term_cn": "担保隔夜融资利率 / SOFR",
+      "term_en": "Secured Overnight Financing Rate",
+      "abbreviation": "SOFR",
+      "category": "Macroeconomics & Rates",
+      "short_def": "基于美国国债抵押回购市场的隔夜无风险基准利率，全面替代了传统 LIBOR。",
+      "detailed_explanation": "对冲基金从摩根大通等主经纪商那里，借入保证金并开启杠杆融资时的基准计息成本（例如计价为 SOFR + 150 bps）。",
+      "example": "SOFR 维持在 5.15%，意味着基金借贷 $10,000,000 保证金年化利息超 $650,000。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "margin_debt",
+        "prime_brokerage",
+        "fed_funds_rate"
+      ],
+      "analyst_tip": "身处高 SOFR 时代，高昂的资金成本不仅抬高了持仓门槛，更在无形中日夜侵蚀着高杠杆衍生品多头的安全边际。"
+    },
+    {
+      "id": "quantitative_tightening",
+      "term_cn": "量化紧缩 / Quantitative Tightening (QT)",
+      "term_en": "Quantitative Tightening",
+      "abbreviation": "QT",
+      "category": "Macroeconomics & Rates",
+      "short_def": "美联储通过停止到期再投资主动缩减资产负债表规模以回收流动性的操作。",
+      "detailed_explanation": "QT 就像一台抽水机，持续抽离银行体系的超额准备金。这会极大地加剧金融市场回购市场的短端流动性紧张。",
+      "example": "每月缩表 $600 亿美债使市场整体金融流动性条件收紧。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "quantitative_easing",
+        "fed_balance_sheet",
+        "sofr"
+      ],
+      "analyst_tip": "在 QT 的末期，往往会伴随着隔夜回购利率的突发性飙升。这个时候，必须高度警惕流动性闪崩带来的连锁反应。"
+    },
+    {
+      "id": "quantitative_easing",
+      "term_cn": "量化宽松 / Quantitative Easing (QE)",
+      "term_en": "Quantitative Easing",
+      "abbreviation": "QE",
+      "category": "Macroeconomics & Rates",
+      "short_def": "央行直接在公开市场购买中长期国债注入海量基础流动性的超级宽松政策。",
+      "detailed_explanation": "在 QE 放水期间，各类风险资产的估值倍数会迅速膨胀，而衍生品的隐含波动率则会被长期的流动性泛滥死死压制。",
+      "example": "危机期间启动无限量 QE 迅速扭转了市场的流动性踩踏。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "quantitative_tightening",
+        "macro_liquidity",
+        "inflation"
+      ],
+      "analyst_tip": "在 QE 疯狂放水的时代，闭眼做空波动率和无脑买入科技成长股，绝对是市场阻力最小的致富方向。"
+    },
+    {
+      "id": "fed_funds_rate",
+      "term_cn": "联邦基金有效利率 / Fed Funds Effective Rate",
+      "term_en": "Fed Funds Effective Rate",
+      "abbreviation": "FFR",
+      "category": "Macroeconomics & Rates",
+      "short_def": "美国商业银行之间隔夜拆借准备金的基准目标政策利率。",
+      "detailed_explanation": "这是美联储调控全美国社会信贷成本与通胀预期最根本的第一总闸门。",
+      "example": "美联储在 FOMC 会议宣布将联邦基金利率维持在 5.25%-5.50% 区间。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "fomc",
+        "sofr",
+        "yield_curve"
+      ],
+      "analyst_tip": "这不仅是个数字。利率点阵图（Dot Plot）的每一次微调，都直接宣判了华尔街未来 1 年资产折现率的生死走向。"
+    },
+    {
+      "id": "fomc_statement",
+      "term_cn": "美联储联邦公开市场委员会决议 / FOMC Statement",
+      "term_en": "FOMC Statement",
+      "abbreviation": "FOMC",
+      "category": "Macroeconomics & Rates",
+      "short_def": "美联储每年召开 8 次的最高货币政策决策会议，公布基准利率决议与宏观经济展望。",
+      "detailed_explanation": "全美金融市场流动性的最高“立法机关”。鲍威尔在决议后的新闻发布会，常常引发跨资产类别的剧烈洗盘和双向收割。",
+      "example": "周三 14:00 FOMC 发布声明后，标普指数 15 分钟内走出上下 80 点过山车。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "fed_funds_rate",
+        "macro_event",
+        "vix"
+      ],
+      "analyst_tip": "在 FOMC 决议前 1 小时，最好乖乖平仓掉手里所有的短线 0DTE。只有这样，才能有效规避鲍威尔讲话时那无序的双向打脸。"
+    },
+    {
+      "id": "non_farm_payrolls",
+      "term_cn": "非农就业数据 / Non-Farm Payrolls (NFP)",
+      "term_en": "Non-Farm Payrolls",
+      "abbreviation": "NFP",
+      "category": "Macroeconomics & Rates",
+      "short_def": "美国劳工部每月第一个周五公布的非农业人口新增就业与失业率报告。",
+      "detailed_explanation": "反映美国劳动力市场健康度与实体经济景气度的第一晴雨表。它的好坏，直接决定了美联储降息的紧迫性与节奏。",
+      "example": "NFP 大超预期增加 25 万人，市场迅速推迟降息预期推高美元。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "cpi",
+        "macro_event",
+        "ust_10y"
+      ],
+      "analyst_tip": "盯非农不仅仅是看新增人数。如果其中的薪资增速（Average Hourly Earnings）出现超预期的反弹，极易引发市场对通胀二次抬头更深层的恐慌。"
+    },
+    {
+      "id": "pce_price_index",
+      "term_cn": "个人消费支出物价指数 / Core PCE Price Index",
+      "term_en": "Core PCE Price Index",
+      "abbreviation": "Core PCE",
+      "category": "Macroeconomics & Rates",
+      "short_def": "美联储官方通胀目标（2.0%）最看重、经过消费替代行为修正的通胀指标。",
+      "detailed_explanation": "剔除了食品与能源等高波动项，更能反映中长期底层粘性通胀趋势。",
+      "example": "Core PCE 年率降至 2.6%，为美联储开启降息周期扫清了数据障碍。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "cpi",
+        "fed_funds_rate",
+        "inflation"
+      ],
+      "analyst_tip": "相比 CPI，PCE 中住房租金权重较低而医疗权重较高，对宏观政策指引更权威。"
+    },
+    {
+      "id": "ust_10y",
+      "term_cn": "10年期美国国债收益率 / 10-Year US Treasury Yield",
+      "term_en": "10-Year US Treasury Yield",
+      "abbreviation": "10Y UST",
+      "category": "Macroeconomics & Rates",
+      "short_def": "全球无风险资产定价的锚（The Anchor of Global Finance）。",
+      "detailed_explanation": "10Y 美债收益率构成了几乎所有风险资产折现模型（DCF）的分母。10Y 飙升直接杀成长股估值。",
+      "example": "10Y 收益率突破 4.60%，重创半导体与 AI 科技巨头估值倍数。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "yield_curve_inversion",
+        "term_premium",
+        "macro_rates"
+      ],
+      "analyst_tip": "交易科技巨头期权时，屏幕右侧必须始终悬挂 10Y 美债收益率分时图。"
+    },
+    {
+      "id": "term_premium",
+      "term_cn": "期限溢价 / Term Premium",
+      "term_en": "Term Premium",
+      "abbreviation": "Term Premium",
+      "category": "Macroeconomics & Rates",
+      "short_def": "投资者因承担长期持有债券面临的未知通胀与供给风险而要求获得的额外收益补偿。",
+      "detailed_explanation": "当美国财政部天量发债导致供给泛滥时，期限溢价飙升会推高长端利率即使美联储在降息。",
+      "example": "ACM 期限溢价从负值转正至 +40 bps，推高长端美债发债成本。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "ust_10y",
+        "yield_curve",
+        "macro_rates"
+      ],
+      "analyst_tip": "期限溢价的失控上行是对冲基金在宏观战役中最警惕的长端流动性灰犀牛。"
+    },
+    {
+      "id": "dxy_dollar_index",
+      "term_cn": "美元指数 / US Dollar Index (DXY)",
+      "term_en": "US Dollar Index",
+      "abbreviation": "DXY",
+      "category": "Macroeconomics & Rates",
+      "short_def": "衡量美元对一篮子主要国际货币（欧元、日元、英镑等）汇率强弱变化的综合指数。",
+      "detailed_explanation": "强势美元抽离全球风险资产流动性，并直接削弱标普 500 跨国科技巨头的海外利润换汇表现。",
+      "example": "DXY 突破 106 关口引发全球大宗商品与非美股市全面承压。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "macro_rates",
+        "fed_funds_rate",
+        "spx"
+      ],
+      "analyst_tip": "DXY 走强往往对应避险情绪升温，顺势做空风险资产与做多波动率胜率提升。"
+    },
+    {
+      "id": "breakeven_inflation",
+      "term_cn": "通胀保值债券盈亏平衡通胀率 / 10Y Breakeven Inflation Rate",
+      "term_en": "10-Year Breakeven Inflation Rate",
+      "abbreviation": "10Y Breakeven",
+      "category": "Macroeconomics & Rates",
+      "short_def": "10 年期名义美债收益率与 10 年期 TIPS（通胀保值国债）收益率之间的利差。",
+      "detailed_explanation": "真实反映华尔街债券交易员对未来 10 年平均年化通胀水平的无套利预期。",
+      "example": "10Y Breakeven 稳定在 2.30%，表明长期通胀预期牢牢锚定。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "cpi",
+        "ust_10y",
+        "tips"
+      ],
+      "analyst_tip": "当 Breakeven 突破 2.7% 时表明市场对央行通胀信誉产生动摇，金价与大宗商品将大涨。"
+    },
+    {
+      "id": "real_interest_rate",
+      "term_cn": "实际利率 / Real Interest Rate (TIPS Yield)",
+      "term_en": "Real Interest Rate",
+      "abbreviation": "Real Rate",
+      "category": "Macroeconomics & Rates",
+      "short_def": "名义利率扣除预期通胀率后的真实资本成本（即 TIPS 收益率）。",
+      "detailed_explanation": "压制无息资产（黄金、比特币）与无现金流高估值科技股最关键的物理重力。",
+      "example": "10 年期美债实际利率上升至 +2.1%，创下近 15 年来最紧缩资本环境。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "ust_10y",
+        "breakeven_inflation",
+        "macro_rates"
+      ],
+      "analyst_tip": "实际利率是宏观对冲基金判断估值顶与底的核心引力方程。"
+    },
+    {
+      "id": "repo_market_stress",
+      "term_cn": "隔夜回购流动性紧缩 / Repo Market Stress",
+      "term_en": "Repo Market Stress",
+      "abbreviation": "Repo Spikes",
+      "category": "Macroeconomics & Rates",
+      "short_def": "银行与对冲基金在隔夜回购抵押市场上出现借贷现金短缺、利率意外飙涨的流动性危机。",
+      "detailed_explanation": "如 2019 年 9 月回购利率一度飙升至 10%，迫使美联储紧急开启常备回购便利（SRF）救市。",
+      "example": "月末季末回购利率跳涨触发主经纪商对高杠杆基金收紧日内透支买力。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "sofr",
+        "prime_brokerage",
+        "quantitative_tightening"
+      ],
+      "analyst_tip": "回购异动是底层金融水管阻塞的直接信号，随后必定传导至期权做市商点差放大。"
+    },
+    {
+      "id": "aum_and_nav",
+      "term_cn": "管理资产规模与资产净值 / AUM & NAV",
+      "term_en": "Assets Under Management & Net Asset Value",
+      "abbreviation": "AUM / NAV",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "AUM 为基金受托管理的总资金规模；NAV 为扣除所有负债和借贷后的每份纯净值。",
+      "detailed_explanation": "AUM 决定了基金的管理费收取基数；NAV 决定了投资业绩与业绩报酬（Carried Interest / Performance Fee）的分成基准。",
+      "example": "基金总管理资产 AUM $100M，本季度 NAV 增长 22%，收取 20% 业绩提成。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "high_water_mark",
+        "two_and_twenty",
+        "drawdown"
+      ],
+      "analyst_tip": "优秀的对冲基金追求高质量有粘性的 AUM，而非盲目扩张导致单笔期权头寸冲击盘口。"
+    },
+    {
+      "id": "mnpi",
+      "term_cn": "重大非公开内幕信息 / Material Non-Public Information (MNPI)",
+      "term_en": "Material Non-Public Information",
+      "abbreviation": "MNPI",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "一旦公开极可能对证券价格产生重大实质影响、但尚未面向公众充分披露的机密信息。",
+      "detailed_explanation": "基于 MNPI 进行证券或期权交易直接构成 SEC 规则下的刑事内幕交易罪（Insider Trading），面临巨额罚款、禁业与牢狱之灾。",
+      "example": "提前获取未公布的科技巨头财报数据或未宣布的收购并购条款。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "compliance",
+        "sec_investigation",
+        "chinese_wall"
+      ],
+      "analyst_tip": "在游戏中接到带有 POSSIBLE_MNPI 标签的私密情报时，必须严格衡量合规风险与惩戒代价。"
+    },
+    {
+      "id": "prime_brokerage",
+      "term_cn": "主经纪商业务 / Prime Brokerage (PB)",
+      "term_en": "Prime Brokerage",
+      "abbreviation": "PB",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "顶级投行（如摩根大通、高盛）向对冲基金提供的一站式综合清算、集中托管、杠杆融资、融券做空与资本引介服务。",
+      "detailed_explanation": "PB 是对冲基金的命脉。PB 决定的保证金折算率（Haircut）与借贷点差直接制约了基金的最大可用杠杆倍数。",
+      "example": "JPMorgan Prime Brokerage 为 Dante Capital 批复 $50M 隔夜杠杆买力与难借标的券源。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "margin_debt",
+        "haircut",
+        "securities_lending",
+        "street_rating"
+      ],
+      "analyst_tip": "保持高 Street Rating 和低合规风险是与 PB 谈判获取最优融资利差的前提。"
+    },
+    {
+      "id": "high_water_mark",
+      "term_cn": "高水位线法则 / High-Water Mark (HWM)",
+      "term_en": "High-Water Mark",
+      "abbreviation": "HWM",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "基金只有在净值超过历史最高历史峰值（高水位线）后，才允许向 LP 计提业绩报酬的契约机制。",
+      "detailed_explanation": "保护投资者利益免受重复扣费的行业铁律。若基金发生回撤，必须先完全填平亏损坑并创出历史新高方可重新分红。",
+      "example": "净值从 1.50 回撤至 1.20，在重新涨回 1.50 之前，基金经理拿不到一分钱业绩提成。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "two_and_twenty",
+        "aum_and_nav",
+        "lp_confidence"
+      ],
+      "analyst_tip": "深陷高水位线下方的基金经理容易产生过度冒险心理，是引发二次爆仓的高危诱因。"
+    },
+    {
+      "id": "drawdown_and_recovery",
+      "term_cn": "最大回撤与非对称回本定律 / Maximum Drawdown (MDD)",
+      "term_en": "Maximum Drawdown",
+      "abbreviation": "MDD",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "从历史净值最高点到随后最低谷之间的最大百分比跌幅。",
+      "detailed_explanation": "数学上的残酷法则：亏损 10% 需涨 11.1% 回本；亏损 50% 需翻倍涨 100% 才能回本；亏损 90% 需暴涨 900% 才能脱困。",
+      "example": "基金在某交易日回撤达到 18%，触发了安大略教师退休基金的赎回质询线。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "risk_management",
+        "lp_relations",
+        "survival_crisis"
+      ],
+      "analyst_tip": "严格止损不是为了预测未来，而是为了防止本金跌入非对称回本的死亡数学深渊。"
+    },
+    {
+      "id": "two_and_twenty",
+      "term_cn": "二八分成管理模式 / Two and Twenty (2/20)",
+      "term_en": "Two and Twenty",
+      "abbreviation": "2/20 Fee",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "对冲基金行业经典收费结构：每年收取 2% 管理费 + 超过基准利润的 20% 业绩分成。",
+      "detailed_explanation": "保证了基金日常投研团队与合规系统开销，同时提供追求极致超额 Alpha 的强烈激励。",
+      "example": "管理 $100M 资产每年产生 $2M 稳定管理费，为聘请顶级量化人才提供现金流。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "aum_and_nav",
+        "high_water_mark"
+      ],
+      "analyst_tip": "当代机构 LP 越来越倾向于要求阶梯费率（如 1.5/15）并附加严苛的高水位线条款。"
+    },
+    {
+      "id": "portfolio_margin",
+      "term_cn": "投资组合保证金制度 / Portfolio Margin (PM)",
+      "term_en": "Portfolio Margin",
+      "abbreviation": "PM System",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "基于整个持仓组合的真实综合净风险（通过 TIMS 风险模型测算）计算保证金的先进制度。",
+      "detailed_explanation": "相比传统 Reg T 粗暴规则，允许对冲策略（如铁鹰、领式、跨式）享受高达 6~10 倍的可用买力释放。",
+      "example": "拥有 100 股现货并买入实值 Put 保护后，保证金占用从 $14,000 锐减至 $1,500。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "margin_debt",
+        "reg_t",
+        "risk_model"
+      ],
+      "analyst_tip": "获得 Portfolio Margin 资格通常要求账户资产净值达到 $110,000 以上。"
+    },
+    {
+      "id": "haircut",
+      "term_cn": "抵押折算率 / 资产扣减率 / Haircut",
+      "term_en": "Haircut",
+      "abbreviation": "Haircut",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "主经纪商在接受股票或债券作为借贷抵押品时，对其公允市值按风险扣减的折扣比率。",
+      "detailed_explanation": "高波动小盘股 Haircut 达 50%（只能借 50% 现金）；短期美国国债 Haircut 仅 1%~2%。",
+      "example": "质押价值 $1,000,000 的科技股，若 PB 给予 30% Haircut，则实际可折现 $700,000 抵押借贷买力。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "prime_brokerage",
+        "margin_debt",
+        "sofr"
+      ],
+      "analyst_tip": "在突发黑天鹅暴跌夜，PB 往往单方面上调特定标的的 Haircut，诱发强制追加保证金。"
+    },
+    {
+      "id": "securities_lending",
+      "term_cn": "融券借贷市场 / Securities Lending & Borrow Fee",
+      "term_en": "Securities Lending & Borrow Fee",
+      "abbreviation": "Borrow Fee",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "对冲基金向托管行或券商借入股票进行做空并按日支付借券利息费率的机制。",
+      "detailed_explanation": "通用流通券（General Collateral）费率极低（0.3%~0.5%）；而高度拥挤难借标的（Hard-to-Borrow）年化借券利息可高达 50%~100%。",
+      "example": "做空流通盘稀缺的科技新股，每日被 PB 扣除年化 45% 的高昂借券利息。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "short_selling",
+        "prime_brokerage",
+        "hard_to_borrow"
+      ],
+      "analyst_tip": "借券成本过高会迅速侵蚀做空收益，此时通过买入 Put 或构建 Synthetic Short 更具成本优势。"
+    },
+    {
+      "id": "chinese_wall",
+      "term_cn": "信息隔离墙 / Chinese Wall",
+      "term_en": "Chinese Wall",
+      "abbreviation": "Ethical Wall",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "金融机构内部在投行部门（掌握重组内幕）与二级交易部门之间设立的强制合规物理与信息阻隔。",
+      "detailed_explanation": "严防投行业务获取的企业兼并重组机密情报泄漏给自营或代客交易员，违者将面临 SEC 刑事立案。",
+      "example": "合规官 Victor 强制切断投研团队与华盛顿游说团队之间的私密通信管道。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "mnpi",
+        "compliance",
+        "sec_investigation"
+      ],
+      "analyst_tip": "严谨的信息隔离墙记录是证明基金交易独立性、打赢 SEC 调查诉讼的唯一免责盾牌。"
+    },
+    {
+      "id": "side_pocket",
+      "term_cn": "侧袋隔离账户 / Side Pocket Account",
+      "term_en": "Side Pocket Account",
+      "abbreviation": "Side Pocket",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "当基金持有的某项资产遭遇停牌、破产重组或丧失流动性时，将其剥离出的独立临时托管账户。",
+      "detailed_explanation": "防止新加入的 LP 摊薄停牌资产，也防止老 LP 赎回挤兑摧毁整个主基金的日常流动性。",
+      "example": "将遭遇制裁无法交易的境外资产装入侧袋账户，主基金恢复正常申购赎回。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "lp_redemption",
+        "nav",
+        "liquidity_crisis"
+      ],
+      "analyst_tip": "开启侧袋账户必须获得 LP 咨询委员会（LPAC）三分之二以上投票同意。"
+    },
+    {
+      "id": "soft_dollars",
+      "term_cn": "软佣金安排 / Soft Dollars",
+      "term_en": "Soft Dollars",
+      "abbreviation": "Soft Dollars",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "对冲基金通过向券商指定佣金交易量以换取投行免费提供研究报告、数据终端和专业软件的合规商业安排。",
+      "detailed_explanation": "合规使用客户付出的交易佣金间接冲抵基金自身的投研采购预算（受 SEC Section 28(e) 安全港条款保护）。",
+      "example": "向高盛输送 $500,000 交易佣金，换取价值 $100,000 的彭博终端与宏观数据库订阅。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "prime_brokerage",
+        "compliance",
+        "aum"
+      ],
+      "analyst_tip": "软佣金只能用于纯研究与经纪服务，严禁用于支付基金办公室租金或行政开销。"
+    },
+    {
+      "id": "capital_introduction",
+      "term_cn": "资本引介大会 / Capital Introduction (Cap Intro)",
+      "term_en": "Capital Introduction",
+      "abbreviation": "Cap Intro",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "主经纪商为旗下对冲基金客户引荐主权财富基金、大学捐赠基金与顶尖家族办公室的专属闭门路演撮合平台。",
+      "detailed_explanation": "新锐基金经理获取亿级 LP 首期基石资本的最关键华尔街跳板。",
+      "example": "在摩根大通佛罗里达 Cap Intro 年会上向加拿大养老金展示期权量化 Alpha 模型并赢得 $30M 投资意向。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "lp_relations",
+        "prime_brokerage",
+        "street_rating"
+      ],
+      "analyst_tip": "高 Street Rating 与干净的合规记录是受邀进入 Tier-1 投行 Cap Intro 核心名单的门票。"
+    },
+    {
+      "id": "clawback_clause",
+      "term_cn": "业绩报酬追索回拨条款 / Clawback Clause",
+      "term_en": "Clawback Clause",
+      "abbreviation": "Clawback",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "如果基金在前期计提了高额业绩提成，但随后在特定存续期内发生重大回撤，LP 有权追回已分配利润的法律契约。",
+      "detailed_explanation": "防止基金经理在牛市透支冒险分红、熊市甩手留给 LP 一地鸡毛的对冲基金合规护栏。",
+      "example": "因年末业绩大幅倒退，基金经理被迫返还此前预支的 $1,200,000 绩效奖金。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "high_water_mark",
+        "two_and_twenty",
+        "lp_relations"
+      ],
+      "analyst_tip": "机构级 LP 在签署投资协议时普遍要求附带严格的 3 年期滚动 Clawback 保护。"
+    },
+    {
+      "id": "lp_redemption_gate",
+      "term_cn": "LP 赎回闸门与流动性门禁 / Redemption Gate",
+      "term_en": "Redemption Gate",
+      "abbreviation": "Gate (5-10% Limit)",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "对冲基金合同中约定的在单一季度内允许所有 LP 赎回资金上限比例（通常为总 AUM 的 5%~10%）的熔断条款。",
+      "detailed_explanation": "在遭遇流动性恐慌与挤兑时启动闸门，防止被迫在盘口低位抛售优质资产引发恶性死亡螺旋。",
+      "example": "在市场黑天鹅爆发季度，基金宣布启动 8% 赎回闸门，按比例平摊满足投资者的提款申请。",
+      "difficulty": "INSTITUTIONAL",
+      "related_terms": [
+        "side_pocket",
+        "drawdown_and_recovery",
+        "survival_crisis"
+      ],
+      "analyst_tip": "启动赎回闸门虽能保全短期流动性，但会极大伤害基金在华尔街机构圈的信誉评级。"
+    },
+    {
+      "id": "carry_trade",
+      "term_cn": "套息交易 / Carry Trade",
+      "term_en": "Carry Trade",
+      "abbreviation": "Carry",
+      "category": "Macroeconomics & Rates",
+      "short_def": "借入低利率货币（如日元）并投资于高收益资产（如美债或美股科技股）以赚取息差的宏观杠杆策略。",
+      "detailed_explanation": "当低息货币突发加息或汇率暴涨时，套息交易会发生剧烈的去杠杆平仓踩踏（Yen Carry Unwind）。",
+      "example": "2024 年 8 月日元套息交易逆转引发全球风险资产闪崩。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "macro_rates",
+        "fed_funds_rate",
+        "liquidity"
+      ],
+      "analyst_tip": "监控日元汇率波动率是捕捉全球宏观套息去杠杆风险的关键晴雨表。"
+    },
+    {
+      "id": "margin",
+      "term_cn": "保证金制度与借贷买力 / Margin Account & Leverage",
+      "term_en": "Margin",
+      "abbreviation": "Margin",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "投资者以账户内资产作为抵押从券商借入资金或证券进行杠杆交易的金融安排。",
+      "detailed_explanation": "包含初始保证金（Initial Margin）与维持保证金 (Maintenance Margin)（Maintenance Margin）。当权益低于维持线时触发 Margin Call。",
+      "example": "使用 Margin 账户可以以 $50,000 本金撬动 $100,000 的股票购买力。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "margin_debt",
+        "portfolio_margin",
+        "margin_call"
+      ],
+      "analyst_tip": "Margin 放大了上涨收益，同时也加速了下行爆仓速度，必须严格控制杠杆倍数。"
+    },
+    {
+      "id": "drawdown",
+      "term_cn": "账户回撤 / Drawdown",
+      "term_en": "Drawdown",
+      "abbreviation": "DD",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "投资组合净值从前期峰值下跌到当前低谷的百分比幅度。",
+      "detailed_explanation": "衡量基金经理下行风险控制能力的核心指标，直接决定 LP 的信任度与赎回意愿。",
+      "example": "当前基金回撤达 12%，触发了核心养老金 LP 的赎回预警公函。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "drawdown_and_recovery",
+        "high_water_mark",
+        "lp_relations"
+      ],
+      "analyst_tip": "控制单次回撤深度比追求单月暴利更能决定对冲基金的长期生存。"
+    },
+    {
+      "id": "aum",
+      "term_cn": "管理资产总规模 / Assets Under Management (AUM)",
+      "term_en": "Assets Under Management",
+      "abbreviation": "AUM",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "基金接受外部投资者委托投资的总资产总额。",
+      "detailed_explanation": "AUM 规模决定了基金在华尔街投行眼中的地位级别与收取的管理费基数。",
+      "example": "Dante Capital 的目标是在 Season 1 结束前将 AUM 扩张突破 1 亿美元。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "aum_and_nav",
+        "two_and_twenty",
+        "prime_brokerage"
+      ],
+      "analyst_tip": "规模是收益率的敌人，随着 AUM 膨胀，期权单笔头寸的盘口冲击成本会急剧攀升。"
+    },
+    {
+      "id": "forced_liquidation",
+      "term_cn": "强平 / 强制平仓 (Forced Liquidation)",
+      "term_en": "Forced Liquidation",
+      "abbreviation": "Forced Liquidation",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "当投资者账户保证金不足且未能及时追加时，券商风控系统自动执行的强制平仓操作。",
+      "detailed_explanation": "强制平仓 (Forced Liquidation) 是券商防范穿仓风险的最终防御手段。当账户权益跌破维持保证金 (Maintenance Margin) 底线且在规定时限内未补充现金时，风控系统将不计滑点以市价强行平掉持仓。",
+      "example": "由于正股单日暴跌 30%，Margin 账户触及清算线，触发券商盘前系统强平。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "margin",
+        "margin_wipeout",
+        "maintenance_margin"
+      ],
+      "analyst_tip": "永远不要让风控系统替你做平仓决策。强平往往发生在流动性最枯竭的极端时刻，市价平仓的滑点会让你遭受二次重创。"
+    },
+    {
+      "id": "margin_wipeout",
+      "term_cn": "爆仓 / 穿仓 (Margin Wipeout / Blow Up)",
+      "term_en": "Margin Wipeout / Blow Up",
+      "abbreviation": "Margin Wipeout",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "因杠杆交易发生极端亏损，导致账户本金全额归零甚至倒欠券商债务的灾难性状态。",
+      "detailed_explanation": "爆仓 (Margin Wipeout) 常见于高杠杆做空或裸卖期权 (Naked Selling) 的极端行情。当标的发生跳空缺口 (Gap) 穿透行权价时，亏损速度超出止损机制响应能力，直接摧毁账户全部净值。",
+      "example": "Archegos 资本因高杠杆掉期爆仓，引发华尔街多家投行数十亿美元清算亏损。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "forced_liquidation",
+        "margin",
+        "leverage"
+      ],
+      "analyst_tip": "期权买方最多权利金归零，绝不可能爆仓穿仓；只有卖方与加杠杆的借贷账户才会面临被清算的毁灭性风险。"
+    },
+    {
+      "id": "discount_rate",
+      "term_cn": "贴现率 (Discount Rate)",
+      "term_en": "Discount Rate",
+      "abbreviation": "Discount Rate",
+      "category": "Macroeconomics & Rates",
+      "short_def": "用于将未来现金流折算为当前现值的利率，也是美联储贴现窗口对商行贷款的基础利率。",
+      "detailed_explanation": "贴现率 (Discount Rate) 是宏观估值模型与期权无风险利率参数的核心基石。当贴现率上升时，远期成长股的未来现金流现值大幅缩水，导致科技股估值中枢承压。",
+      "example": "美联储加息带动无风险贴现率从 1% 飙升至 5%，长久期成长股估值遭遇残酷压缩。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "duration",
+        "risk_free_rate",
+        "macro_regime"
+      ],
+      "analyst_tip": "在 DCF 估值与期权定价中，贴现率每提升 50bps，久期越长的资产受到的估值重击越剧烈。"
+    },
+    {
+      "id": "open_position",
+      "term_cn": "建仓 / 开仓 (Open Position)",
+      "term_en": "Open Position",
+      "abbreviation": "Open Position",
+      "category": "Options Mechanics",
+      "short_def": "在市场上通过买入或卖出期权/股票合约，首次建立特定方向与风险敞口的行为。",
+      "detailed_explanation": "建仓 (Open Position) 分为买入开仓 (Buy to Open) 和卖出开仓 (Sell to Open)。建仓时必须明确定义投资逻辑 (Thesis)、止损红线与预期持有周期。",
+      "example": "在英伟达财报前以 $5.20 买入开仓 10 张看涨期权。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "close_position",
+        "buy_to_open",
+        "sell_to_open"
+      ],
+      "analyst_tip": "职业交易员在建仓前就已经写好了出场剧本。没有撤退路线的建仓，纯属赌博。"
+    },
+    {
+      "id": "duration",
+      "term_cn": "久期 / 麦考利久期 (Duration)",
+      "term_en": "Duration",
+      "abbreviation": "Duration",
+      "category": "Macroeconomics & Rates",
+      "short_def": "衡量固定收益资产或股票现金流对利率变动敏感度的指标，单位通常为年。",
+      "detailed_explanation": "久期 (Duration) 刻画了资产价格对利率曲线变动的弹性。久期越长，当市场基准收益率上升时，资产价格跌幅越大。高估值无盈利的科技股具有极长久期属性。",
+      "example": "持有 10 年期美债，久期约为 8.5 年；当利率上升 100bps，债券价格下跌约 8.5%。",
+      "difficulty": "ADVANCED",
+      "related_terms": [
+        "discount_rate",
+        "macro_regime",
+        "bond_yield"
+      ],
+      "analyst_tip": "在紧缩周期中，长久期资产是空头的首选靶子；缩短组合久期、持有高现金流资产是防守铁律。"
+    },
+    {
+      "id": "short_squeeze",
+      "term_cn": "逼空 / 轧空 (Short Squeeze)",
+      "term_en": "Short Squeeze",
+      "abbreviation": "Short Squeeze",
+      "category": "Market Microstructure & Trading Mechanics",
+      "short_def": "股价暴涨迫使空头集中平仓买入回补，导致买盘自激放大、价格指数级飙升的极端现象。",
+      "detailed_explanation": "逼空 (Short Squeeze) 往往叠加期权 Gamma Squeeze。做空机构因保证金不足触发强制平仓 (Forced Liquidation)，做市商因动态对冲必须在现货市场抢筹 (Forced Flow)，形成致命的正反馈买盘回路。",
+      "example": "2021 年 1 月 GME 散户大战华尔街，空头借券费率飙破 100%，引发历史级逼空潮。",
+      "difficulty": "INTERMEDIATE",
+      "related_terms": [
+        "gamma_squeeze",
+        "forced_liquidation",
+        "short_covering"
+      ],
+      "analyst_tip": "逼空行情的顶点往往伴随做空机构认输斩仓与交易限制。一旦反馈链条断裂，价格崩塌速度远快于上涨。"
+    },
+    {
+      "id": "cut_loss",
+      "term_cn": "斩仓 / 止损 (Cut Loss)",
+      "term_en": "Cut Loss",
+      "abbreviation": "Cut Loss",
+      "category": "Hedge Fund Operations, Compliance & Structure",
+      "short_def": "当交易逻辑失效或亏损达到预设红线时，主动平仓离场以阻止亏损进一步扩大的纪律操作。",
+      "detailed_explanation": "斩仓 (Cut Loss) 是控制下行风险的第一铁律。它要求交易员克服沉没成本心理偏差，在投资逻辑 (Thesis) 被证伪的第一时间果断截断亏损。",
+      "example": "标的跌破 200 日均线且财报预期下修，交易员执行纪律斩仓，锁定 15% 亏损出场。",
+      "difficulty": "BEGINNER",
+      "related_terms": [
+        "risk_budget",
+        "close_position",
+        "thesis_invalidation"
+      ],
+      "analyst_tip": "优秀的交易员比拼的不是谁赚得多，而是谁能以最小的代价砍掉错误的仓位。会止损才能在市场长期生存。"
+    }
+  ]
+}

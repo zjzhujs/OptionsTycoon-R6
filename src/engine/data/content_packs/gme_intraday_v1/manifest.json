@@ -1,0 +1,597 @@
+{
+  "pack_id": "gme_intraday_v1",
+  "scenario_id": "gme",
+  "version": 1,
+  "generated_at": "2026-08-21T08:24:30.648538+00:00",
+  "runtime_network_required": false,
+  "truth_label": "REAL_INTRADAY",
+  "data_mode": "INTRADAY_PLUS_AGGREGATE_EVIDENCE",
+  "included_sessions": [
+    {
+      "session_id": "gme_2021-01-11_1m",
+      "ticker": "GME",
+      "date": "2021-01-11",
+      "granularity": "1m_real_hfdl",
+      "file": "gme_2021-01-11.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "gme_2021-01-12_1m",
+      "ticker": "GME",
+      "date": "2021-01-12",
+      "granularity": "1m_real_hfdl",
+      "file": "gme_2021-01-12.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "gme_2021-01-13_1m",
+      "ticker": "GME",
+      "date": "2021-01-13",
+      "granularity": "1m_real_hfdl",
+      "file": "gme_2021-01-13.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "gme_2021-01-14_1m",
+      "ticker": "GME",
+      "date": "2021-01-14",
+      "granularity": "1m_real_hfdl",
+      "file": "gme_2021-01-14.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "gme_2021-01-15_1m",
+      "ticker": "GME",
+      "date": "2021-01-15",
+      "granularity": "1m_real_hfdl",
+      "file": "gme_2021-01-15.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "gme_2021-01-19_1m",
+      "ticker": "GME",
+      "date": "2021-01-19",
+      "granularity": "1m_real_hfdl",
+      "file": "gme_2021-01-19.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "gme_2021-01-20_1m",
+      "ticker": "GME",
+      "date": "2021-01-20",
+      "granularity": "1m_real_hfdl",
+      "file": "gme_2021-01-20.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "gme_2021-01-21_1m",
+      "ticker": "GME",
+      "date": "2021-01-21",
+      "granularity": "1m_real_hfdl",
+      "file": "gme_2021-01-21.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "gme_2021-01-22_1m",
+      "ticker": "GME",
+      "date": "2021-01-22",
+      "granularity": "1m_real_hfdl",
+      "file": "gme_2021-01-22.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 378
+    },
+    {
+      "session_id": "gme_2021-01-25_1m",
+      "ticker": "GME",
+      "date": "2021-01-25",
+      "granularity": "1m_real_hfdl",
+      "file": "gme_2021-01-25.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 348
+    },
+    {
+      "session_id": "gme_2021-01-26_1m",
+      "ticker": "GME",
+      "date": "2021-01-26",
+      "granularity": "1m_real_hfdl",
+      "file": "gme_2021-01-26.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 369
+    },
+    {
+      "session_id": "gme_2021-01-27_1m",
+      "ticker": "GME",
+      "date": "2021-01-27",
+      "granularity": "1m_real_hfdl",
+      "file": "gme_2021-01-27.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 378
+    },
+    {
+      "session_id": "gme_2021-01-28_1m",
+      "ticker": "GME",
+      "date": "2021-01-28",
+      "granularity": "1m_real_hfdl",
+      "file": "gme_2021-01-28.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 314
+    },
+    {
+      "session_id": "gme_2021-01-29_1m",
+      "ticker": "GME",
+      "date": "2021-01-29",
+      "granularity": "1m_real_hfdl",
+      "file": "gme_2021-01-29.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 386
+    },
+    {
+      "session_id": "gme_2021-02-01_1m",
+      "ticker": "GME",
+      "date": "2021-02-01",
+      "granularity": "1m_real_hfdl",
+      "file": "gme_2021-02-01.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 386
+    },
+    {
+      "session_id": "gme_2021-02-02_1m",
+      "ticker": "GME",
+      "date": "2021-02-02",
+      "granularity": "1m_real_hfdl",
+      "file": "gme_2021-02-02.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 368
+    },
+    {
+      "session_id": "gme_2021-02-03_1m",
+      "ticker": "GME",
+      "date": "2021-02-03",
+      "granularity": "1m_real_hfdl",
+      "file": "gme_2021-02-03.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "gme_2021-02-04_1m",
+      "ticker": "GME",
+      "date": "2021-02-04",
+      "granularity": "1m_real_hfdl",
+      "file": "gme_2021-02-04.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "gme_2021-02-05_1m",
+      "ticker": "GME",
+      "date": "2021-02-05",
+      "granularity": "1m_real_hfdl",
+      "file": "gme_2021-02-05.json",
+      "usage": "DATA_ONLY_PLUS_AGGREGATE_EVIDENCE",
+      "material_windows": 0,
+      "bar_count": 378
+    }
+  ],
+  "carry_data_coverage": [
+    {
+      "symbol": "GME",
+      "from_at": "2021-01-11",
+      "to_at": "2021-02-05",
+      "required_fields": [
+        "intraday_ohlcv"
+      ],
+      "status": "VERIFIED",
+      "available_dates": [
+        "2021-01-11",
+        "2021-01-12",
+        "2021-01-13",
+        "2021-01-14",
+        "2021-01-15",
+        "2021-01-19",
+        "2021-01-20",
+        "2021-01-21",
+        "2021-01-22",
+        "2021-01-25",
+        "2021-01-26",
+        "2021-01-27",
+        "2021-01-28",
+        "2021-01-29",
+        "2021-02-01",
+        "2021-02-02",
+        "2021-02-03",
+        "2021-02-04",
+        "2021-02-05"
+      ],
+      "missing_dates": [],
+      "coverage_ratio": 1.0,
+      "source_refs": [
+        "Part38"
+      ],
+      "note": "19/19 requested trading dates; 7205 real regular-session 1m rows."
+    },
+    {
+      "symbol": "GME",
+      "from_at": "2021-01-11",
+      "to_at": "2021-02-05",
+      "required_fields": [
+        "daily_ohlcv"
+      ],
+      "status": "VERIFIED",
+      "available_dates": [
+        "2021-01-11",
+        "2021-01-12",
+        "2021-01-13",
+        "2021-01-14",
+        "2021-01-15",
+        "2021-01-19",
+        "2021-01-20",
+        "2021-01-21",
+        "2021-01-22",
+        "2021-01-25",
+        "2021-01-26",
+        "2021-01-27",
+        "2021-01-28",
+        "2021-01-29",
+        "2021-02-01",
+        "2021-02-02",
+        "2021-02-03",
+        "2021-02-04",
+        "2021-02-05"
+      ],
+      "missing_dates": [],
+      "coverage_ratio": 1.0,
+      "source_refs": [
+        "Part38"
+      ],
+      "note": "Daily OHLCV is a deterministic aggregation of the same real 1m bars."
+    },
+    {
+      "symbol": "GME",
+      "from_at": "2021-01-11",
+      "to_at": "2021-02-05",
+      "required_fields": [
+        "short_sale_volume"
+      ],
+      "status": "VERIFIED",
+      "available_dates": [
+        "2021-01-11",
+        "2021-01-12",
+        "2021-01-13",
+        "2021-01-14",
+        "2021-01-15",
+        "2021-01-19",
+        "2021-01-20",
+        "2021-01-21",
+        "2021-01-22",
+        "2021-01-25",
+        "2021-01-26",
+        "2021-01-27",
+        "2021-01-28",
+        "2021-01-29",
+        "2021-02-01",
+        "2021-02-02",
+        "2021-02-03",
+        "2021-02-04",
+        "2021-02-05"
+      ],
+      "missing_dates": [],
+      "coverage_ratio": 1.0,
+      "source_refs": [
+        "Part10"
+      ],
+      "note": "FINRA short-sale volume; this is not short interest."
+    },
+    {
+      "symbol": "GME",
+      "from_at": "2021-01-11",
+      "to_at": "2021-02-05",
+      "required_fields": [
+        "ftd"
+      ],
+      "status": "VERIFIED",
+      "available_dates": [
+        "2021-01-11",
+        "2021-01-12",
+        "2021-01-13",
+        "2021-01-14",
+        "2021-01-15",
+        "2021-01-19",
+        "2021-01-20",
+        "2021-01-21",
+        "2021-01-22",
+        "2021-01-25",
+        "2021-01-26",
+        "2021-01-27",
+        "2021-01-28",
+        "2021-01-29",
+        "2021-02-01",
+        "2021-02-02",
+        "2021-02-03",
+        "2021-02-04",
+        "2021-02-05"
+      ],
+      "missing_dates": [],
+      "coverage_ratio": 1.0,
+      "source_refs": [
+        "Part10"
+      ],
+      "note": "SEC FTD settlement quantity; no interpolation."
+    },
+    {
+      "symbol": "GME",
+      "from_at": "2021-01-11",
+      "to_at": "2021-02-05",
+      "required_fields": [
+        "borrow_fee"
+      ],
+      "status": "PARTIAL",
+      "available_dates": [
+        "2021-01-12",
+        "2021-01-13",
+        "2021-01-14",
+        "2021-01-15",
+        "2021-01-19",
+        "2021-01-20",
+        "2021-01-21",
+        "2021-01-22",
+        "2021-01-25",
+        "2021-01-26",
+        "2021-01-27",
+        "2021-02-03",
+        "2021-02-04",
+        "2021-02-05"
+      ],
+      "missing_dates": [
+        "2021-01-11",
+        "2021-01-28",
+        "2021-01-29",
+        "2021-02-01",
+        "2021-02-02"
+      ],
+      "coverage_ratio": 0.736842,
+      "source_refs": [
+        "Part27"
+      ],
+      "note": "iborrowdesk reported daily/intraday fee observations; 14/19 dates."
+    },
+    {
+      "symbol": "GME",
+      "from_at": "2021-01-11",
+      "to_at": "2021-02-05",
+      "required_fields": [
+        "loan_balance"
+      ],
+      "status": "VERIFIED",
+      "available_dates": [
+        "2021-01-11",
+        "2021-01-12",
+        "2021-01-13",
+        "2021-01-14",
+        "2021-01-15",
+        "2021-01-19",
+        "2021-01-20",
+        "2021-01-21",
+        "2021-01-22",
+        "2021-01-25",
+        "2021-01-26",
+        "2021-01-27",
+        "2021-01-28",
+        "2021-01-29",
+        "2021-02-01",
+        "2021-02-02",
+        "2021-02-03",
+        "2021-02-04",
+        "2021-02-05"
+      ],
+      "missing_dates": [],
+      "coverage_ratio": 1.0,
+      "source_refs": [
+        "Part44"
+      ],
+      "note": "Market/hedge loan balances present on 19/19 dates."
+    },
+    {
+      "symbol": "GME",
+      "from_at": "2021-01-11",
+      "to_at": "2021-02-05",
+      "required_fields": [
+        "options_aggregate"
+      ],
+      "status": "PARTIAL",
+      "available_dates": [
+        "2021-01-25",
+        "2021-01-26",
+        "2021-01-27",
+        "2021-01-28"
+      ],
+      "missing_dates": [
+        "2021-01-11",
+        "2021-01-12",
+        "2021-01-13",
+        "2021-01-14",
+        "2021-01-15",
+        "2021-01-19",
+        "2021-01-20",
+        "2021-01-21",
+        "2021-01-22",
+        "2021-01-29",
+        "2021-02-01",
+        "2021-02-02",
+        "2021-02-03",
+        "2021-02-04",
+        "2021-02-05"
+      ],
+      "coverage_ratio": 0.210526,
+      "source_refs": [
+        "Part11",
+        "Part50"
+      ],
+      "note": "Strasmore/aggregate options tape present on 4/19 dates."
+    },
+    {
+      "symbol": "GME",
+      "from_at": "2021-01-11",
+      "to_at": "2021-02-05",
+      "required_fields": [
+        "contract_iv_greeks_utilization"
+      ],
+      "status": "MISSING",
+      "available_dates": [],
+      "missing_dates": [
+        "2021-01-11",
+        "2021-01-12",
+        "2021-01-13",
+        "2021-01-14",
+        "2021-01-15",
+        "2021-01-19",
+        "2021-01-20",
+        "2021-01-21",
+        "2021-01-22",
+        "2021-01-25",
+        "2021-01-26",
+        "2021-01-27",
+        "2021-01-28",
+        "2021-01-29",
+        "2021-02-01",
+        "2021-02-02",
+        "2021-02-03",
+        "2021-02-04",
+        "2021-02-05"
+      ],
+      "coverage_ratio": 0.0,
+      "source_refs": [
+        "Part11",
+        "Part13",
+        "Part50"
+      ],
+      "note": "Missing provider fields; aggregate/evidence mode only, no contract Greeks synthesized."
+    }
+  ],
+  "evidence_policy": {
+    "mode": "AGGREGATE_EVIDENCE",
+    "forbidden_inference_fields": [
+      "contract_iv",
+      "contract_greeks",
+      "contract_utilization",
+      "complete_option_chain"
+    ],
+    "notice": "GME期权盘面只显示聚合/证据数据；覆盖不到的逐合约字段拒绝承诺。"
+  },
+  "provenance": [
+    {
+      "source_name": "Part38 HFDL GME regular-session 1m bars",
+      "source_url_or_identifier": "https://api.hfdatalibrary.com/",
+      "source_type": "REAL_VENDOR",
+      "sha256": "29f471566a52d546b588303feca0e7a994bde03662e03a396d3cccb8eef48b44",
+      "note": "19/19 requested dates, 7205 rows; dates and missing intraday rows are preserved as observed."
+    },
+    {
+      "source_name": "Part10 FINRA short-sale volume and SEC FTD",
+      "source_url_or_identifier": "https://www.finra.org/finra-data/browse-catalog/short-sale-volume-data",
+      "source_type": "REAL_PRIMARY",
+      "sha256": "24ce9df11b8438d6b355ad8f4709ff64816d14580477b783cac9af9dc38a5c32",
+      "note": "Short-sale volume is explicitly not short interest; SEC FTD is settlement quantity."
+    },
+    {
+      "source_name": "Part27 iborrowdesk historical borrow observations",
+      "source_url_or_identifier": "https://iborrowdesk.com/report/GME",
+      "source_type": "REAL_VENDOR",
+      "sha256": "563fc454cf6c19eea3fc276f7c39d869dbf863f14e0fb8bdc6ebe578f6ae0993",
+      "note": "Borrow fee/availability coverage is 14/19; missing dates remain missing."
+    },
+    {
+      "source_name": "Part44 GME market/hedge loan balances",
+      "source_url_or_identifier": "github_gist_mikolalysenko_gme-loan",
+      "source_type": "REAL_VENDOR",
+      "sha256": "db9bf8455b758ba83cdaf4731bb545c1689ab4b75b4b933c5757efa832b7413e",
+      "note": "19/19 campaign dates present; does not fill borrow fee or utilization."
+    },
+    {
+      "source_name": "Part11 and Part50 aggregate GME options tape",
+      "source_url_or_identifier": "public aggregate options evidence",
+      "source_type": "REAL_VENDOR",
+      "sha256": "79dcfbfbecde786f3339aa103aa96d5228dd406be3777a61fdfd7bc22628dc8c",
+      "note": "Aggregate call/put/premium/prints fields only, 4/19 dates; no contract Greeks inferred."
+    },
+    {
+      "source_name": "Part13 GME microstructure evidence",
+      "source_url_or_identifier": "https://github.com/TheGameStopsNow/power-tracks-research",
+      "source_type": "DERIVED_REAL_INPUTS",
+      "sha256": "4c1287fe1c07239d1f6fea1617daa8192a301fb39bc6ccd7bf62af9efdcd6b25",
+      "note": "Evidence metrics are labeled confidence/source; not a substitute for a complete option chain."
+    },
+    {
+      "source_name": "strasmore GME master greeks Part57",
+      "source_type": "REAL_VENDOR",
+      "sha256": "6469be20f0afcf68ecbe2281e90c7954d839dd0906a7acc4b031897b60cee198",
+      "rows": 32859
+    }
+  ],
+  "files_sha256": {
+    "gme_2021-01-11.json": "ec3b905799eaddc623b69c3b35e6e02029c6751d8e55a03d9835644314015156",
+    "gme_2021-01-12.json": "188d0da968ff72f0792cbf734d27fc275828c5d487ba131e4300e10938ba63f9",
+    "gme_2021-01-13.json": "83740d6f630ec92d086279e895cfb1c2af9ffa8f6afc38a931e90664a8e79dea",
+    "gme_2021-01-14.json": "749a3aae299e46ccade5bebcfd874c51e9a9844c50281645a44a3ac052e01aa7",
+    "gme_2021-01-15.json": "d1b1b2fb51bb2c4643b64b2a365d7e688c6f67acc2aad49c5a388ade360c761b",
+    "gme_2021-01-19.json": "5a1a37bfeb5f7c8804aa8d528972bda8acd8655f6be59a5ae5a4871e9a17b322",
+    "gme_2021-01-20.json": "67472723b752c73d0f5a2955fdd92c98e579dfafd4ff16c1ea005b4ebc47ce1b",
+    "gme_2021-01-21.json": "abb470b221a3d1110f6c78cacd5605a712b9838df6e75329d0e91e60c4e8dbfd",
+    "gme_2021-01-22.json": "9ef6b3fd66b8707b7c4095ff5b351fda6118a0884072fd1cee004eb72e2a9a20",
+    "gme_2021-01-25.json": "db8418cace504ff8e7536631249ebf25f37f3ef95adc5192a157c2903972fb35",
+    "gme_2021-01-26.json": "749bb744035fe2cb62504bbce869c17b8be3c0569c682939be42e54f75f41065",
+    "gme_2021-01-27.json": "f78973d6f95b6ab260f291f5fd58e21507ae83bd96b4ffc0d7e3831c8dcfaaad",
+    "gme_2021-01-28.json": "ba67bd139341d68224296eb802b7638858a85ff5d9c1147f76da3a7f5c548f6f",
+    "gme_2021-01-29.json": "a0ee788822ccef9cd01918b2aa6bc03c3c65ac7607483814523954b0f5ea02d7",
+    "gme_2021-02-01.json": "7f218afe6548674e9699b8e33a73c3c6bd1c9d1a7d0faa4f2f22ea45ca951382",
+    "gme_2021-02-02.json": "8d34afba7442ad4df9943d6ddfc1458c8d34ad5ca274faa9bc9e215ce7bfcf9b",
+    "gme_2021-02-03.json": "645a9dad483ae8a715865bdb697ca1db3da8abe92f004b23412ee5c773949147",
+    "gme_2021-02-04.json": "f77bb711f86cdad653dba2bfc47166526f5ed8a43c54b9d523b2892d4e033141",
+    "gme_2021-02-05.json": "57302e7d55712fe99ce2737749ab8fa0f74385e5aba04db2156e949a43e3add1",
+    "gme_options_2021-01-11.json": "fe7f96b723a3c18f55e64b12022622596c5c22534dde9c121b38fb2c844f72b6",
+    "gme_options_2021-01-12.json": "b156e8721fc6203d9853cff674cd5b225a5448124f4a32fb9ef55b4c93e23c5a",
+    "gme_options_2021-01-13.json": "8837ff11794addbf1e412d9fe5f6b553eef9e4dfb073a45dfe4797561384d816",
+    "gme_options_2021-01-14.json": "dce6b4a83c2f78ce8e118f27f8690db308c03a5e9e2377fd55e3766036eba5ee",
+    "gme_options_2021-01-15.json": "e11ccb23676c627c91e231217cc617705507a555b47494ff34f44ce5ccda7751",
+    "gme_options_2021-01-19.json": "5b877dfd2a7feb19c53a25656f7df67d933b1ba70034d7606c8e6a9478fed221",
+    "gme_options_2021-01-20.json": "8517c36c05b94a49dafbfb5941899cca48e6678e0641094ef5b73f61c29af334",
+    "gme_options_2021-01-21.json": "34650862e958e4c723b82af482ddb3493b8b40ffdd892889e126f017076b9cd2",
+    "gme_options_2021-01-22.json": "c29c21fb214ba72eb095627b0064d83e6b7964a7a99638725882ddc615df25b3",
+    "gme_options_2021-01-25.json": "aef05ed6e48a6e8c6b5ad473f1765cb5f001ca2e9ea78c8d92491896c08f23c0",
+    "gme_options_2021-01-26.json": "7fe5d76cbee800f34b41e05d7e4d828efe6f65608f169ed8bc3148d9bedfc413",
+    "gme_options_2021-01-27.json": "d1253a9cc3c82a0b86a4b42c5bfd45f08c7990ae1b5558192f60e35d5efc16ff",
+    "gme_options_2021-01-28.json": "c0e1b15cf83a74540263224c00abc1523d8477d7fdeaa22db2e57ee48d1d8bb0",
+    "gme_options_2021-01-29.json": "f038562e60856cc6cf1c788f724ec30f7de3883c93a4a4ac0ebfc7c2415d4f83",
+    "gme_options_2021-02-01.json": "ef641f0ccfc4f008df300ee6ccb599739d26eae191d6bd1921e8d3f2fe896696",
+    "gme_options_2021-02-02.json": "24a17eb2a300ef84e2eb1c73e4c05ff17feb8e5fd9d85276375d6ecfe155a1cb",
+    "gme_options_2021-02-03.json": "f1a2ea93684c60010daeb9a953427cf6fc452d13f46f54ea9d4849835a8cc150",
+    "gme_options_2021-02-04.json": "6bb426bff90856770310ba35db66536cb9560576421aa0d9f59a4613dfa3cbc0",
+    "gme_options_2021-02-05.json": "7a04386704e33c7b868b1935ebf13918110e856e38d923183973a36a23f778fb"
+  },
+  "integrity_note_update": "2026-08-21: option coverage upgraded from aggregate-evidence-only(4/19 days) to real per-contract EOD chains 19/19 via Part57."
+}

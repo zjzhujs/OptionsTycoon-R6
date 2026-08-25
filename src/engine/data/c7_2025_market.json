@@ -1,0 +1,250 @@
+[
+  {
+    "date": "2025-04-02",
+    "underlying_bar": {
+      "date": "2025-04-02",
+      "open": 555.05,
+      "high": 567.42,
+      "low": 554.81,
+      "close": 564.52,
+      "volume": 76014500.0
+    },
+    "secondary_close": 476.15,
+    "vix": {
+      "date": "2025-04-02",
+      "open": 22.3,
+      "high": 23.66,
+      "low": 20.68,
+      "close": 21.51,
+      "volume": null
+    },
+    "label": "OFFICIAL POLICY EVENT · SPY/QQQ/VIX CONTEXT",
+    "move_summary": null,
+    "severity": null,
+    "point_only": false,
+    "truth_label": "PROXY",
+    "provenance": {
+      "source_type": "REAL_VENDOR",
+      "source_name": "Part6 real SPY/QQQ/VIX daily context",
+      "source_url_or_identifier": "OT_DATA_CKPT_part6_c7_daily",
+      "confidence": "PROXY context only: SPY/QQQ are not cash SPX/IXIC. C7 story events come from Part2 White House text."
+    }
+  },
+  {
+    "date": "2025-04-03",
+    "underlying_bar": {
+      "date": "2025-04-03",
+      "open": 545.11,
+      "high": 547.97,
+      "low": 536.7,
+      "close": 536.7,
+      "volume": 125986000.0
+    },
+    "secondary_close": 450.66,
+    "vix": {
+      "date": "2025-04-03",
+      "open": 26.38,
+      "high": 30.02,
+      "low": 24.93,
+      "close": 30.02,
+      "volume": null
+    },
+    "label": "OFFICIAL POLICY EVENT · SPY/QQQ/VIX CONTEXT",
+    "move_summary": null,
+    "severity": null,
+    "point_only": false,
+    "truth_label": "PROXY",
+    "provenance": {
+      "source_type": "REAL_VENDOR",
+      "source_name": "Part6 real SPY/QQQ/VIX daily context",
+      "source_url_or_identifier": "OT_DATA_CKPT_part6_c7_daily",
+      "confidence": "PROXY context only: SPY/QQQ are not cash SPX/IXIC. C7 story events come from Part2 White House text."
+    }
+  },
+  {
+    "date": "2025-04-04",
+    "underlying_bar": {
+      "date": "2025-04-04",
+      "open": 523.67,
+      "high": 525.87,
+      "low": 505.06,
+      "close": 505.28,
+      "volume": 217965100.0
+    },
+    "secondary_close": 422.67,
+    "vix": {
+      "date": "2025-04-04",
+      "open": 30.12,
+      "high": 45.61,
+      "low": 29.99,
+      "close": 45.31,
+      "volume": null
+    },
+    "label": "OFFICIAL POLICY EVENT · SPY/QQQ/VIX CONTEXT",
+    "move_summary": null,
+    "severity": null,
+    "point_only": false,
+    "truth_label": "PROXY",
+    "provenance": {
+      "source_type": "REAL_VENDOR",
+      "source_name": "Part6 real SPY/QQQ/VIX daily context",
+      "source_url_or_identifier": "OT_DATA_CKPT_part6_c7_daily",
+      "confidence": "PROXY context only: SPY/QQQ are not cash SPX/IXIC. C7 story events come from Part2 White House text."
+    }
+  },
+  {
+    "date": "2025-04-07",
+    "underlying_bar": {
+      "date": "2025-04-07",
+      "open": 489.19,
+      "high": 523.17,
+      "low": 481.8,
+      "close": 504.38,
+      "volume": 256611400.0
+    },
+    "secondary_close": 423.69,
+    "vix": {
+      "date": "2025-04-07",
+      "open": 60.13,
+      "high": 60.13,
+      "low": 38.58,
+      "close": 46.98,
+      "volume": null
+    },
+    "label": "OFFICIAL POLICY EVENT · SPY/QQQ/VIX CONTEXT",
+    "move_summary": null,
+    "severity": null,
+    "point_only": false,
+    "truth_label": "PROXY",
+    "provenance": {
+      "source_type": "REAL_VENDOR",
+      "source_name": "Part6 real SPY/QQQ/VIX daily context",
+      "source_url_or_identifier": "OT_DATA_CKPT_part6_c7_daily",
+      "confidence": "PROXY context only: SPY/QQQ are not cash SPX/IXIC. C7 story events come from Part2 White House text."
+    }
+  },
+  {
+    "date": "2025-04-08",
+    "underlying_bar": {
+      "date": "2025-04-08",
+      "open": 521.86,
+      "high": 524.98,
+      "low": 489.16,
+      "close": 496.48,
+      "volume": 165816600.0
+    },
+    "secondary_close": 416.06,
+    "vix": {
+      "date": "2025-04-08",
+      "open": 44.04,
+      "high": 57.52,
+      "low": 36.48,
+      "close": 52.33,
+      "volume": null
+    },
+    "label": "OFFICIAL POLICY EVENT · SPY/QQQ/VIX CONTEXT",
+    "move_summary": null,
+    "severity": null,
+    "point_only": false,
+    "truth_label": "PROXY",
+    "provenance": {
+      "source_type": "REAL_VENDOR",
+      "source_name": "Part6 real SPY/QQQ/VIX daily context",
+      "source_url_or_identifier": "OT_DATA_CKPT_part6_c7_daily",
+      "confidence": "PROXY context only: SPY/QQQ are not cash SPX/IXIC. C7 story events come from Part2 White House text."
+    }
+  },
+  {
+    "date": "2025-04-09",
+    "underlying_bar": {
+      "date": "2025-04-09",
+      "open": 493.44,
+      "high": 548.62,
+      "low": 493.05,
+      "close": 548.62,
+      "volume": 241867300.0
+    },
+    "secondary_close": 466.0,
+    "vix": {
+      "date": "2025-04-09",
+      "open": 50.98,
+      "high": 57.96,
+      "low": 31.9,
+      "close": 33.62,
+      "volume": null
+    },
+    "label": "OFFICIAL POLICY EVENT · SPY/QQQ/VIX CONTEXT",
+    "move_summary": null,
+    "severity": null,
+    "point_only": false,
+    "truth_label": "PROXY",
+    "provenance": {
+      "source_type": "REAL_VENDOR",
+      "source_name": "Part6 real SPY/QQQ/VIX daily context",
+      "source_url_or_identifier": "OT_DATA_CKPT_part6_c7_daily",
+      "confidence": "PROXY context only: SPY/QQQ are not cash SPX/IXIC. C7 story events come from Part2 White House text."
+    }
+  },
+  {
+    "date": "2025-04-10",
+    "underlying_bar": {
+      "date": "2025-04-10",
+      "open": 532.17,
+      "high": 533.5,
+      "low": 509.32,
+      "close": 524.58,
+      "volume": 162331200.0
+    },
+    "secondary_close": 446.18,
+    "vix": {
+      "date": "2025-04-10",
+      "open": 34.44,
+      "high": 54.87,
+      "low": 34.44,
+      "close": 40.72,
+      "volume": null
+    },
+    "label": "OFFICIAL POLICY EVENT · SPY/QQQ/VIX CONTEXT",
+    "move_summary": null,
+    "severity": null,
+    "point_only": false,
+    "truth_label": "PROXY",
+    "provenance": {
+      "source_type": "REAL_VENDOR",
+      "source_name": "Part6 real SPY/QQQ/VIX daily context",
+      "source_url_or_identifier": "OT_DATA_CKPT_part6_c7_daily",
+      "confidence": "PROXY context only: SPY/QQQ are not cash SPX/IXIC. C7 story events come from Part2 White House text."
+    }
+  },
+  {
+    "date": "2025-04-11",
+    "underlying_bar": {
+      "date": "2025-04-11",
+      "open": 523.01,
+      "high": 536.43,
+      "low": 520.07,
+      "close": 533.94,
+      "volume": 97866300.0
+    },
+    "secondary_close": 454.4,
+    "vix": {
+      "date": "2025-04-11",
+      "open": 40.8,
+      "high": 46.12,
+      "low": 36.85,
+      "close": 37.56,
+      "volume": null
+    },
+    "label": "OFFICIAL POLICY EVENT · SPY/QQQ/VIX CONTEXT",
+    "move_summary": null,
+    "severity": null,
+    "point_only": false,
+    "truth_label": "PROXY",
+    "provenance": {
+      "source_type": "REAL_VENDOR",
+      "source_name": "Part6 real SPY/QQQ/VIX daily context",
+      "source_url_or_identifier": "OT_DATA_CKPT_part6_c7_daily",
+      "confidence": "PROXY context only: SPY/QQQ are not cash SPX/IXIC. C7 story events come from Part2 White House text."
+    }
+  }
+]

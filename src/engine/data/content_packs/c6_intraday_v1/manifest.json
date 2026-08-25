@@ -1,0 +1,182 @@
+{
+  "pack_id": "c6_intraday_v1",
+  "scenario_id": "c6",
+  "version": 1,
+  "generated_at": "2026-08-21T08:16:26.819778+00:00",
+  "runtime_network_required": false,
+  "truth_label": "REAL_INTRADAY",
+  "included_sessions": [
+    {
+      "session_id": "c6_qqq_2022-06-09_1m",
+      "ticker": "QQQ",
+      "date": "2022-06-09",
+      "granularity": "1m_real_dukascopy",
+      "file": "qqq_2022-06-09.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c6_tlt_2022-06-09_1m",
+      "ticker": "TLT",
+      "date": "2022-06-09",
+      "granularity": "1m_real_dukascopy",
+      "file": "tlt_2022-06-09.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c6_qqq_2022-06-10_1m",
+      "ticker": "QQQ",
+      "date": "2022-06-10",
+      "granularity": "1m_real_dukascopy",
+      "file": "qqq_2022-06-10.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c6_tlt_2022-06-10_1m",
+      "ticker": "TLT",
+      "date": "2022-06-10",
+      "granularity": "1m_real_dukascopy",
+      "file": "tlt_2022-06-10.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c6_qqq_2022-06-13_1m",
+      "ticker": "QQQ",
+      "date": "2022-06-13",
+      "granularity": "1m_real_dukascopy",
+      "file": "qqq_2022-06-13.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c6_tlt_2022-06-13_1m",
+      "ticker": "TLT",
+      "date": "2022-06-13",
+      "granularity": "1m_real_dukascopy",
+      "file": "tlt_2022-06-13.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c6_qqq_2022-06-14_1m",
+      "ticker": "QQQ",
+      "date": "2022-06-14",
+      "granularity": "1m_real_dukascopy",
+      "file": "qqq_2022-06-14.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c6_tlt_2022-06-14_1m",
+      "ticker": "TLT",
+      "date": "2022-06-14",
+      "granularity": "1m_real_dukascopy",
+      "file": "tlt_2022-06-14.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c6_qqq_2022-06-15_1m",
+      "ticker": "QQQ",
+      "date": "2022-06-15",
+      "granularity": "1m_real_dukascopy",
+      "file": "qqq_2022-06-15.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c6_tlt_2022-06-15_1m",
+      "ticker": "TLT",
+      "date": "2022-06-15",
+      "granularity": "1m_real_dukascopy",
+      "file": "tlt_2022-06-15.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c6_qqq_2022-06-16_1m",
+      "ticker": "QQQ",
+      "date": "2022-06-16",
+      "granularity": "1m_real_dukascopy",
+      "file": "qqq_2022-06-16.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c6_tlt_2022-06-16_1m",
+      "ticker": "TLT",
+      "date": "2022-06-16",
+      "granularity": "1m_real_dukascopy",
+      "file": "tlt_2022-06-16.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c6_qqq_2022-06-17_1m",
+      "ticker": "QQQ",
+      "date": "2022-06-17",
+      "granularity": "1m_real_dukascopy",
+      "file": "qqq_2022-06-17.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    },
+    {
+      "session_id": "c6_tlt_2022-06-17_1m",
+      "ticker": "TLT",
+      "date": "2022-06-17",
+      "granularity": "1m_real_dukascopy",
+      "file": "tlt_2022-06-17.json",
+      "usage": "DATA_ONLY",
+      "material_windows": 0
+    }
+  ],
+  "provenance": [
+    {
+      "source_name": "Part5 C6 daily market data (EarningsAhead / MarketXLS VIX)",
+      "source_url_or_identifier": "https://etfs.earningsahead.com/etfs/qqq/historical-data/",
+      "source_type": "REAL_VENDOR",
+      "sha256": "a127f2882d7f3b904e8b2fe77283a4a3d2323a56f4b82dd037487e677c50da6e",
+      "note": "7/7 trading days (2022-06-09 through 2022-06-17) daily OHLCV."
+    },
+    {
+      "source_name": "Part26 C4/C6 ETF contract-level options",
+      "source_url_or_identifier": "https://github.com/anahatsingh-ui/options-dataset-hist",
+      "source_type": "REAL_VENDOR",
+      "sha256": "5b2efe00e76dfda3a70fcc6b9cb9587639d83751a3e0eb6ab62951153c62a74e",
+      "note": "Complete QQQ/SPY/IWM EOD options chain with Greeks and zero null values."
+    },
+    {
+      "source_name": "Part33 Dukascopy 1m tick archive",
+      "source_url_or_identifier": "https://datafeed.dukascopy.com/datafeed/",
+      "source_type": "REAL_VENDOR",
+      "sha256": "9554d6e8cf2185f862261b48b24d0e003f44a18cdb2e1c484eea55f26f6babf5",
+      "note": "1-minute regular session mid quotes."
+    },
+    {
+      "source_name": "Part42 HFDL ETF 1m benchmark",
+      "source_url_or_identifier": "https://api.hfdatalibrary.com/",
+      "source_type": "REAL_VENDOR",
+      "sha256": "4a21d437eee4a15aebea6717a9d68fbd6e2be9b22bf66efcb3129bcbabad57d2",
+      "note": "Independent cross-check 1-minute dataset."
+    }
+  ],
+  "files_sha256": {
+    "qqq_2022-06-09.json": "db72ed7ab1d514c863c52d9faa7ac58131635d1fb9679aca9a062bcbca62df71",
+    "tlt_2022-06-09.json": "a3de3d5af562ccceaf3681769df58ef93a465d29cc249a73c9fd2c520987efb4",
+    "qqq_2022-06-10.json": "c2961c02b2a3bca12f1121740347b88ec02382f2b505259d9dcf9a31bc50f99f",
+    "tlt_2022-06-10.json": "df5495109972221b0731a7ecf76ebd18a5e825155c1f074bd82d78137633beb6",
+    "qqq_2022-06-13.json": "066bb085cac6c26ad91cadd749cc37975fb46c12ad02d7b214df3894beea84a9",
+    "tlt_2022-06-13.json": "65e04d7a389410a180b88668204ef5700c477c42c4a873c3d5874337dc6dd193",
+    "qqq_2022-06-14.json": "d6efc7c968f5af707ece3127a8aeb019ef904a041ce8da79c5f7981297012756",
+    "tlt_2022-06-14.json": "a428951934f869e1877d1e473ea48961ee88c1311db6f9f4861647460da65488",
+    "qqq_2022-06-15.json": "e8e119d088b3c74045b5fc90d02d1545ca14dfc289d070658b482e11a2899ee4",
+    "tlt_2022-06-15.json": "123949b754e6398508aa09cb31614c3e094edc69ad5c1a6722412bc66a619a52",
+    "qqq_2022-06-16.json": "d441d6b2d984282718fb7538d4a05a5110fcc67ea615f3557346190548533630",
+    "tlt_2022-06-16.json": "dbc39f3cb9d7248d9dd6f9d5f7a703595cc60c92724b6830a47cf2a5ee06ff3e",
+    "qqq_2022-06-17.json": "50174e6bde61652a230b78a8b7bfc8a06f675472620f9c6f98b60b0a16a52bd8",
+    "tlt_2022-06-17.json": "599ac70bec82468c42a9b717133672e078c8fa1449208422982299af13c74e27"
+  }
+}

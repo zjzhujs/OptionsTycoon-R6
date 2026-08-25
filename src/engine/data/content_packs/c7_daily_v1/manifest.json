@@ -1,0 +1,359 @@
+{
+  "pack_id": "c7_daily_v1",
+  "scenario_id": "c7",
+  "version": 1,
+  "generated_at": "2026-08-21T00:00:00Z",
+  "runtime_network_required": false,
+  "truth_label": "REAL_DAILY",
+  "data_mode": "DAILY",
+  "included_sessions": [
+    {
+      "session_id": "c7_spy_2025-04-02_1d",
+      "ticker": "SPY",
+      "date": "2025-04-02",
+      "granularity": "1d_real_part6",
+      "file": "spy_2025-04-02.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_qqq_2025-04-02_1d",
+      "ticker": "QQQ",
+      "date": "2025-04-02",
+      "granularity": "1d_real_part6",
+      "file": "qqq_2025-04-02.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_vix_2025-04-02_1d",
+      "ticker": "VIX",
+      "date": "2025-04-02",
+      "granularity": "1d_real_part6",
+      "file": "vix_2025-04-02.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_spy_2025-04-03_1d",
+      "ticker": "SPY",
+      "date": "2025-04-03",
+      "granularity": "1d_real_part6",
+      "file": "spy_2025-04-03.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_qqq_2025-04-03_1d",
+      "ticker": "QQQ",
+      "date": "2025-04-03",
+      "granularity": "1d_real_part6",
+      "file": "qqq_2025-04-03.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_vix_2025-04-03_1d",
+      "ticker": "VIX",
+      "date": "2025-04-03",
+      "granularity": "1d_real_part6",
+      "file": "vix_2025-04-03.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_spy_2025-04-04_1d",
+      "ticker": "SPY",
+      "date": "2025-04-04",
+      "granularity": "1d_real_part6",
+      "file": "spy_2025-04-04.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_qqq_2025-04-04_1d",
+      "ticker": "QQQ",
+      "date": "2025-04-04",
+      "granularity": "1d_real_part6",
+      "file": "qqq_2025-04-04.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_vix_2025-04-04_1d",
+      "ticker": "VIX",
+      "date": "2025-04-04",
+      "granularity": "1d_real_part6",
+      "file": "vix_2025-04-04.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_spy_2025-04-07_1d",
+      "ticker": "SPY",
+      "date": "2025-04-07",
+      "granularity": "1d_real_part6",
+      "file": "spy_2025-04-07.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_qqq_2025-04-07_1d",
+      "ticker": "QQQ",
+      "date": "2025-04-07",
+      "granularity": "1d_real_part6",
+      "file": "qqq_2025-04-07.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_vix_2025-04-07_1d",
+      "ticker": "VIX",
+      "date": "2025-04-07",
+      "granularity": "1d_real_part6",
+      "file": "vix_2025-04-07.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_spy_2025-04-08_1d",
+      "ticker": "SPY",
+      "date": "2025-04-08",
+      "granularity": "1d_real_part6",
+      "file": "spy_2025-04-08.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_qqq_2025-04-08_1d",
+      "ticker": "QQQ",
+      "date": "2025-04-08",
+      "granularity": "1d_real_part6",
+      "file": "qqq_2025-04-08.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_vix_2025-04-08_1d",
+      "ticker": "VIX",
+      "date": "2025-04-08",
+      "granularity": "1d_real_part6",
+      "file": "vix_2025-04-08.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_spy_2025-04-09_1d",
+      "ticker": "SPY",
+      "date": "2025-04-09",
+      "granularity": "1d_real_part6",
+      "file": "spy_2025-04-09.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_qqq_2025-04-09_1d",
+      "ticker": "QQQ",
+      "date": "2025-04-09",
+      "granularity": "1d_real_part6",
+      "file": "qqq_2025-04-09.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_vix_2025-04-09_1d",
+      "ticker": "VIX",
+      "date": "2025-04-09",
+      "granularity": "1d_real_part6",
+      "file": "vix_2025-04-09.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_spy_2025-04-10_1d",
+      "ticker": "SPY",
+      "date": "2025-04-10",
+      "granularity": "1d_real_part6",
+      "file": "spy_2025-04-10.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_qqq_2025-04-10_1d",
+      "ticker": "QQQ",
+      "date": "2025-04-10",
+      "granularity": "1d_real_part6",
+      "file": "qqq_2025-04-10.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_vix_2025-04-10_1d",
+      "ticker": "VIX",
+      "date": "2025-04-10",
+      "granularity": "1d_real_part6",
+      "file": "vix_2025-04-10.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_spy_2025-04-11_1d",
+      "ticker": "SPY",
+      "date": "2025-04-11",
+      "granularity": "1d_real_part6",
+      "file": "spy_2025-04-11.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_qqq_2025-04-11_1d",
+      "ticker": "QQQ",
+      "date": "2025-04-11",
+      "granularity": "1d_real_part6",
+      "file": "qqq_2025-04-11.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    },
+    {
+      "session_id": "c7_vix_2025-04-11_1d",
+      "ticker": "VIX",
+      "date": "2025-04-11",
+      "granularity": "1d_real_part6",
+      "file": "vix_2025-04-11.json",
+      "usage": "DATA_ONLY_CONTEXT",
+      "material_windows": 0,
+      "bar_count": 1
+    }
+  ],
+  "provenance": [
+    {
+      "source_name": "Part2 c7_official_policy_timeline.json",
+      "source_url_or_identifier": "OT_DATA_CKPT_part2_official_events_20260820/c7_official_policy_timeline.json",
+      "source_type": "REAL_PRIMARY",
+      "note": "Authoritative C7 story layer: four White House policy text/timestamp nodes; no market reaction is inferred from them.",
+      "sha256": "cb17c5b5b54a8838d0c82ba4180a3e42e0c986d12ce5b2a53a374f25276c3b95"
+    },
+    {
+      "source_name": "Part6 C7 SPY daily context rows",
+      "source_url_or_identifier": "OT_DATA_CKPT_part6_c7_daily_20260820.tar.gz/c7_spy_raw_daily.csv",
+      "source_type": "REAL_VENDOR",
+      "note": "Real SPY daily context only; SPY is not relabelled as cash SPX.",
+      "sha256": "88850e8b5384d7943a290cbf8b63c1c2f3c5709f0ff22a18be19102bb5e2f80e"
+    },
+    {
+      "source_name": "Part6 C7 QQQ daily context rows",
+      "source_url_or_identifier": "OT_DATA_CKPT_part6_c7_daily_20260820.tar.gz/c7_qqq_raw_daily.csv",
+      "source_type": "REAL_VENDOR",
+      "note": "Real QQQ daily context only; QQQ is not relabelled as cash IXIC.",
+      "sha256": "f260f98e5f5fab6d7c19e87c70fa65cd76adb05d74c5e8cdd61964e7d65f3412"
+    },
+    {
+      "source_name": "Part6 C7 VIX daily context rows",
+      "source_url_or_identifier": "OT_DATA_CKPT_part6_c7_daily_20260820.tar.gz/c7_vix_raw_daily.csv",
+      "source_type": "REAL_VENDOR",
+      "note": "Real VIX daily context row; it is not a substitute for missing intraday index data.",
+      "sha256": "feef4f28cb2ee890bb5ed37f497650b1f312227513235c654675b93f927bd7ca"
+    }
+  ],
+  "files_sha256": {
+    "qqq_2025-04-02.json": "1e751007512a98c4b6e9b6d2c2293c3e4da5db1480cd3393c2df6eecde4f847c",
+    "qqq_2025-04-03.json": "6a63c6f4b705acb87c55a48b573ea22a5f170f10fce23e32731757d84c0c175f",
+    "qqq_2025-04-04.json": "ccc316e16b7c68fc93254530a759e09bba5207d5b4426900e32f8a8ae0e74e04",
+    "qqq_2025-04-07.json": "38f3f25e239e66f708e5a992fa3c3ac8dbb1ece3fe6eaecbf772ff1e280f3511",
+    "qqq_2025-04-08.json": "43054c1da2ab39603c642a4327d981895eb691a1210b402256888d4eaee85b0c",
+    "qqq_2025-04-09.json": "394ffa9ef8892133e5a3785d435589eb4d3ed850d0f2c9b96394b2781606e846",
+    "qqq_2025-04-10.json": "3021d7d7a8c663aa50386302653bd3fc0d8c42c204d3daa0556b66c6a34a1157",
+    "qqq_2025-04-11.json": "d59d52961ed1923fadb12d5d6814cbff98793453a21b5a3b6923a0a47de8907a",
+    "spy_2025-04-02.json": "7724e720b14b0f8f9debdf3872f1a512b8f959dc4560fa14a23f075e8de7d3b4",
+    "spy_2025-04-03.json": "27253817ffe1fff4462df3a6837ca01349ed21d80cdb00b245a31a53b3f9eb0a",
+    "spy_2025-04-04.json": "c7ae44762ddaca30f4a8076161827d617f992ade134028402f10e7309c2fe53c",
+    "spy_2025-04-07.json": "b2101285006089b499fc5763229672246e86bfbf120a076a0a52b8511d0081c1",
+    "spy_2025-04-08.json": "bd9e4568e39a377f4f1518dc7ac62bee07db58f102828d31ace81c37a68a7909",
+    "spy_2025-04-09.json": "f4a4f088de69d744a1aa060a08b025050e7127955ef6a71b611307440c0f26ba",
+    "spy_2025-04-10.json": "3313cb766c8c75bdf2d9d367d76d6120cd86084b188b1966ae33ab4e0e848dcc",
+    "spy_2025-04-11.json": "910e09058a257b86e977d14c1b65d456f69eed2d57ce56886a6dfc8436f70ff2",
+    "vix_2025-04-02.json": "e279e97b222f33c890f00794b41a8c8ef5aefb960efee9b447c717be030037c2",
+    "vix_2025-04-03.json": "81ebb593a33f0b8b33a6c4d20041959d8c1080ee5a3a06584eb2d92fcc9370f8",
+    "vix_2025-04-04.json": "4296095db3defa1e57bcc7f66d561ea977c53d52f839937d72a78b9bde8cd8f1",
+    "vix_2025-04-07.json": "844506a5173929cce5e7b5680c8e3fa64b5a633b5808c1143d5368ce0f91b29e",
+    "vix_2025-04-08.json": "9b275b7c16d11d139d6f02bee0206610065b3e65304454c06238beeecb976c61",
+    "vix_2025-04-09.json": "32f1f1d367533ce5751b3fc0e4f8209d7974c805f65edb364039c45ab1627a51",
+    "vix_2025-04-10.json": "bdfe1de5f340e4adbe8ce65477a09760fd72fc879cf2185f61e749742825492e",
+    "vix_2025-04-11.json": "a0909f74a8d5816ff727fdaa30c067ca521d3d6913c887713c010f3203f79ba0"
+  },
+  "distribution_note": "C7 is driven by primary-source policy text. SPY/QQQ/VIX rows are context; no cash-SPX relabel, no reaction interpolation, and no carry promise for the missing cash index.",
+  "carry_data_coverage": [
+    {
+      "symbol": "SPX",
+      "from_at": "2025-04-02",
+      "to_at": "2025-04-11",
+      "required_fields": [
+        "daily_ohlcv"
+      ],
+      "status": "MISSING",
+      "missing_dates": [
+        "2025-04-02",
+        "2025-04-03",
+        "2025-04-04",
+        "2025-04-07",
+        "2025-04-08",
+        "2025-04-09",
+        "2025-04-10",
+        "2025-04-11"
+      ],
+      "coverage_ratio": 0,
+      "source_refs": [
+        "Part2",
+        "Part6"
+      ],
+      "note": "Cash SPX historical rows are absent; ETF context is not admissible as SPX carry data."
+    },
+    {
+      "symbol": "SPY/QQQ/VIX",
+      "from_at": "2025-04-02",
+      "to_at": "2025-04-11",
+      "required_fields": [
+        "proxy_daily_ohlcv"
+      ],
+      "status": "VERIFIED",
+      "available_dates": [
+        "2025-04-02",
+        "2025-04-03",
+        "2025-04-04",
+        "2025-04-07",
+        "2025-04-08",
+        "2025-04-09",
+        "2025-04-10",
+        "2025-04-11"
+      ],
+      "coverage_ratio": 1,
+      "source_refs": [
+        "Part6"
+      ],
+      "note": "Context layer only; does not unlock cash-index carry."
+    }
+  ]
+}

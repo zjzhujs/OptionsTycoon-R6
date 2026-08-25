@@ -1,0 +1,170 @@
+{
+  "_schema_note": "量化桌与数据基础设施全量文案包。包含T0-T4五级架构定义、每档功能拆解、3大模型与基础设施事故事件（正文/选项/反馈）、以及断供挂起与人才瓶颈提示。",
+  "tiers": [
+    {
+      "tier_id": "T0",
+      "name_cn": "手动交易台 (T0 MANUAL)",
+      "name_en": "Manual Trading Terminal",
+      "deployment_cost": 0,
+      "monthly_burn": 0,
+      "summary_pitch": "最基础的券商原始报价终端，纯手动计算与单点观测，无任何算法或多维情景辅助。",
+      "scanner_desc": "基础股票列表：仅支持单代码查询、涨跌幅与成交量排序。",
+      "greeks_desc": "单点静态希腊字母：仅显示当前市价下的 Delta/Theta/Vega 静态数值。",
+      "gex_desc": "基础只读 GEX：显示全市场总伽马暴露的正负方向示意图。",
+      "stress_desc": "单轴压力测试：仅支持正股现价单一维度的涨跌冲击模拟。",
+      "execution_desc": "原始订单票据：仅支持市价单（Market）与限价单（Limit）手动输入。",
+      "hard_rule_note": "完全依靠交易员心算与直觉，无法预警非线性波动与做市商挤压风险。"
+    },
+    {
+      "tier_id": "T1",
+      "name_cn": "初级量化工作站 (T1 DESK LITE)",
+      "name_en": "Quant Desk Lite",
+      "deployment_cost": 2500,
+      "monthly_burn": 500,
+      "summary_pitch": "搭建初级本地数据库与多因子筛选器，消除基础数据摩擦，适合小型对冲基金起步阶段。",
+      "scanner_desc": "组合选股器：支持 3 条件逻辑组合筛选（如 IVR + 换手率 + 市值），可保存 1 套预设模板。",
+      "greeks_desc": "三点敏感度轴：解锁正股现价 Spot ±5% 的三点静态情景曲线。",
+      "gex_desc": "行权价集中度剖析：直观展示特定行权价的 Gamma 集中度与零伽马轴（Zero Gamma Axis）位置。",
+      "stress_desc": "单因子价格冲击：模拟标的发生 ±10%、±20% 跳空缺口时的组合净值损益。",
+      "execution_desc": "盘口微观提示：在订单票据中实时显示买卖中价（Mid）、当前点差宽度与预估滑点。",
+      "hard_rule_note": "工具提供清晰的数据视野，但不提供任何预测买卖点或提高交易胜率的能力。"
+    },
+    {
+      "tier_id": "T2",
+      "name_cn": "专业多因子量化台 (T2 PRO DESK)",
+      "name_en": "Professional Quant Desk",
+      "deployment_cost": 7500,
+      "monthly_burn": 1500,
+      "summary_pitch": "部署专业级 Greeks 网格与多期限 GEX 切片，支持多因子动态监控，需要至少 1 名专职量化师维护。",
+      "scanner_desc": "多因子矩阵筛选：支持 6 条件跨维度筛选、3 套预设模板保存与自选池动态加权排序。",
+      "greeks_desc": "二维情景网格：生成 Spot 价格 × IV 隐波变动的 3×3 组合净值敏感度热力图。",
+      "gex_desc": "到期日切片剖析：按到期周/月拆解 Call-Put Gamma 分布，识别潜在做市商对冲强平点。",
+      "stress_desc": "三因子动态压力测试：支持现价（Spot）、波动率（IV）与时间衰减（Time）三维度联动冲击。",
+      "execution_desc": "限价成交区间辅助：显示盘口深度排队预估、有效成交概率区间与下单前总成本透明预览。",
+      "hard_rule_note": "大幅提升风险测算效率；若专职量化师离职，将触发 2 节点宽限期后自动降级。"
+    },
+    {
+      "tier_id": "T3",
+      "name_cn": "系统化算法引擎 (T3 SYSTEMATIC)",
+      "name_en": "Systematic Algorithmic Engine",
+      "deployment_cost": 18000,
+      "monthly_burn": 4000,
+      "summary_pitch": "全自动组合 Greeks 聚合矩阵与多到期 GEX 动态叠加，需资深量化主管或双量化师团队支撑。",
+      "scanner_desc": "高级交叉评分器：支持 10 条件复合筛选、自定义量化评分规则展示与宏观指标交叉比对。",
+      "greeks_desc": "5×5 全景敏感度曲面：生成高分辨率组合 Greeks 聚合矩阵与非线性极端尾部形变图。",
+      "gex_desc": "多期限 Gamma Overlay：实时追踪做市商对冲墙位（Gamma Wall）的日内迁移与阻力位演变。",
+      "stress_desc": "自定义宏观情景库：支持保存 3 套历史极端崩盘情景，并生成清晰的组合 P&L 归因瀑布流。",
+      "execution_desc": "智能分批拆单建议：提供冰山订单拆解建议，并在成交后生成执行短缺（Implementation Shortfall）分析报告。",
+      "hard_rule_note": "高级数据算法不等于印钞机；过度依赖特定打分模型极易诱发样本内过拟合事故。"
+    },
+    {
+      "tier_id": "T4",
+      "name_cn": "机构级全景量化中台 (T4 INSTITUTIONAL)",
+      "name_en": "Institutional Quant Infrastructure",
+      "deployment_cost": 40000,
+      "monthly_burn": 9000,
+      "summary_pitch": "华尔街顶级对冲基金配置：全资产组合冲击曲面、TWAP/VWAP 算法执行计划模板与跨标的相关性联动。",
+      "scanner_desc": "全市场自适应扫描器：无限自定义预设、跨资产 Universe 相对估值排名与异动雷达。",
+      "greeks_desc": "全组合高维冲击曲面：支持跨资产组合的非线性多阶希腊字母（Vanna/Volga/Charm）全景测算。",
+      "gex_desc": "历史微观结构对比：比对历史类似挤压行情的 Gamma 演变轨迹（仅在底层拥有真实历史数据时启用）。",
+      "stress_desc": "多持仓相关性破裂模拟：模拟极端恐慌下『所有资产相关性趋向于 1』的系统性踩踏情景。",
+      "execution_desc": "机构级算法执行模板：支持 TWAP/VWAP 算法执行计划制定与事后执行微观归因复盘。",
+      "hard_rule_note": "底层无真实市场深度数据时，高级模块将严格显示 DATA_UNAVAILABLE，坚决拒绝伪造回测数据。"
+    }
+  ],
+  "incidents": [
+    {
+      "incident_id": "INC_QUANT_OVERFIT_MODEL",
+      "title": "模型样本内过拟合危机 (Model Incident: Overfitted Backtest)",
+      "description": "量化团队在审查近期频繁使用的自定义打分模型时发现：该模型在历史回测中收益极其完美，但在近期真实盘面中的表现出现严重脱节——模型将市场噪音误当成了确定性信号，存在严重的样本内过拟合（Overfit）！",
+      "trigger_conditions": "Tier >= T3 + 连续 >= 3 节点使用同一定制打分模型下单",
+      "choices": [
+        {
+          "choice_id": "A_DECOMMISSION",
+          "label": "果断下线该打分模型并向投委会坦诚漏洞",
+          "action_cost_desc": "管理公司现金 $0 · 本月量化设施维护费正常扣除",
+          "feedback_text": "你果断剔除了过拟合模型。虽然承认模型缺陷让基金经理声誉受到轻微折损，但量化团队的严谨求实让系统可靠性得到实质性净化。",
+          "risk_impact_summary": "量化可靠性 (Quant Reliability) +8 · 基金声誉 (Reputation) -1 · 杜绝虚假自信"
+        },
+        {
+          "choice_id": "B_KEEP_RUNNING",
+          "label": "心存侥幸，让模型继续在后台挂载并据此指导下单",
+          "action_cost_desc": "0 显式现金 · 承担隐藏流程风险",
+          "feedback_text": "你选择了假装一切正常。系统被打上了『虚假自信（False-Confidence）』的暗标。下一次复盘时，你的流程打分将被无情扣分，且面临潜在风控审计追责！",
+          "risk_impact_summary": "50% 概率触发虚假自信标记 · 下次复盘流程分 (Process Score) -6 · 合规风险 +2"
+        },
+        {
+          "choice_id": "C_REVALIDATE",
+          "label": "紧急拨付外包清洗资金，重新进行跨周期样本外交叉验证",
+          "action_cost_desc": "管理公司现金 -$1,500 · 模型进入 2 节点回溯校验期",
+          "feedback_text": "你投入资金进行严谨的样本外回测重构。在 2 个节点的重构期内相关打分模块暂停，但重新交付的模型消除了伪相关性，系统底座坚如磐石。",
+          "risk_impact_summary": "量化可靠性 +12 · 模块冷却 2 节点 · 彻底消除过拟合隐患"
+        }
+      ]
+    },
+    {
+      "incident_id": "INC_QUANT_KEY_PERSON",
+      "title": "核心量化师个人依赖警报 (Key-Person Dependency Bottleneck)",
+      "description": "风控审查报告显示：基金超过 65% 的量化因子库与自动化脚本全部由核心量化师一人独立编写与维护，且代码缺乏标准文档注释。一旦该成员被竞对挖角或出现变故，整个量化中台将面临断崖式瘫痪！",
+      "trigger_conditions": "Tier >= T2 + 关键量化师依赖度 (Dependency Score) >= 70",
+      "choices": [
+        {
+          "choice_id": "A_CROSS_TRAIN",
+          "label": "拨付专项预算推行代码规范重构与团队交叉培训",
+          "action_cost_desc": "管理公司现金 -$2,000 · 2 节点后见效",
+          "feedback_text": "你建立了完善的文档体系与备份交接制度。核心算法不再依赖个人大脑，团队的关键人物依赖度大幅下降，抗风险能力显著提升。",
+          "risk_impact_summary": "关键人依赖度 (Dependency) -25 · 团队协同成熟度大幅提升"
+        },
+        {
+          "choice_id": "B_IGNORE",
+          "label": "为了节省管理开支，暂时搁置文档整理与备份要求",
+          "action_cost_desc": "0 成本 · 维持现状",
+          "feedback_text": "你省下了眼前的开支，但核心量化师对代码的私有化掌控进一步加深。一旦外部出现丰厚挖角报价，基金将毫无还手之力。",
+          "risk_impact_summary": "关键人依赖度 +10 · 离职瘫痪风险进一步恶化"
+        },
+        {
+          "choice_id": "C_OUTSOURCE_BACKUP",
+          "label": "聘请外部第三方量化运维机构作为常驻影子备份",
+          "action_cost_desc": "管理公司月度持续开支 (Burn) +$750/月",
+          "feedback_text": "你引入了外部顾问兜底，有效分散了个人离职风险；但第三方团队的介入让基金核心交易算法的数据安全与泄密风险有所上升。",
+          "risk_impact_summary": "关键人依赖度 -15 · 数据安全风险 (Info Security) +5 · 每月固定成本增加"
+        }
+      ]
+    },
+    {
+      "incident_id": "INC_QUANT_DATA_DRIFT",
+      "title": "高频数据管道漂移与字段滞后 (Data Pipeline Drift & Stale Fields)",
+      "description": "在连续多节点的高负荷运算中，上游第三方行情与做市商期权链数据推送管道发生了未被捕获的字段漂移。部分高级扫描器与执行分析面板引用的数据出现了 15-30 分钟的隐藏延迟！",
+      "trigger_conditions": "Tier >= T3 + 连续高负荷运行 >= 5 节点",
+      "choices": [
+        {
+          "choice_id": "A_FREEZE_MODULE",
+          "label": "主动冻结受影响的执行分析模块，退回上一级稳定版本",
+          "action_cost_desc": "0 显式现金 · 模块降级 1 个节点",
+          "feedback_text": "你没有容忍脏数据进入决策流程。受影响的高级分析面板暂停 1 个节点，保护了交易团队免受滞后行情的误导。",
+          "risk_impact_summary": "量化基础设施降级 1 节点 · 确保底层决策数据绝对纯净"
+        },
+        {
+          "choice_id": "B_HOTFIX",
+          "label": "紧急调用外部数据工程团队进行盘中热修与通道重连",
+          "action_cost_desc": "管理公司现金 -$1,000 · 立即修复",
+          "feedback_text": "数据工程师在盘中完成了数据管道重构与清洗校验。数据流恢复毫秒级实时刷新，保障了复杂策略的平稳运转。",
+          "risk_impact_summary": "数据流即刻恢复正常 · 消除数据滞后隐患 · 无功能降级"
+        },
+        {
+          "choice_id": "C_IGNORE_DRIFT",
+          "label": "假装问题不存在，任由部分字段标注为 STALE 继续使用",
+          "action_cost_desc": "0 成本 · 拒绝停机",
+          "feedback_text": "你拒绝停机检修，但系统决不伪造虚假数据——受影响字段被强制打上 STALE 滞后警告。在复盘评估中，你的专业执行纪律将受到严厉扣分！",
+          "risk_impact_summary": "受影响面板标记 STALE · 交易复盘流程分 -4 · 绝不生成假数据补数"
+        }
+      ]
+    }
+  ],
+  "status_notices": {
+    "suspended_notice": "【量化基础设施挂起警报 (SUSPENDED)】管理公司现金不足，无法支付本月量化中台维护费！高级扫描器与 Greeks 敏感度矩阵已被锁定为只读状态。历史预设与压力测试模板完整保留，重新注资后将于次节点恢复全部功能，无需二次支付部署费。",
+    "grace_period_notice": "【量化师离职宽限期 (GRACE)】专职量化师已离开团队，当前基础设施进入 2 节点维护宽限期！若 2 节点内未补充合格量化人才，生效架构将自动降级至当前人手所能支撑的最高等级。",
+    "staff_bottleneck_notice": "【量化团队人手瓶颈】已购买的量化设施等级 (Purchased Tier) 超出当前团队人手支撑上限！实际生效等级 (Effective Tier) 受限于现有人才编制。请招聘专职量化师以完全释放顶级基础设施的算力潜能。",
+    "no_edge_guarantee_notice": "【免责声明 · 工具不预测未来】量化中台的所有升级仅提供更广维度的多因子筛选、情景压力测试与执行摩擦提示，绝不篡改真实市场价格路径、事件概率或提供确定性买卖信号。"
+  }
+}

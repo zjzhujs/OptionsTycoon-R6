@@ -1,0 +1,109 @@
+html[data-theme="neon"] {
+  --ot-bg-0: #02070d;
+  --ot-bg-1: #04101e;
+  --ot-bg-2: #07182b;
+  --ot-surface: rgba(5, 19, 33, 0.93);
+  --ot-surface-raised: rgba(7, 27, 44, 0.96);
+  --ot-line: rgba(29, 83, 109, 0.72);
+  --ot-line-strong: rgba(25, 216, 255, 0.88);
+  --ot-text: #e7f1f6;
+  --ot-text-soft: #a7bdd0;
+  --ot-text-dim: #667f94;
+  --ot-accent: #19d8ff;
+  --ot-accent-rgb: 25, 216, 255;
+  --ot-accent-2: #885cff;
+  --ot-positive: #36e17c;
+  --ot-negative: #ff5548;
+  --ot-warning: #f0c03a;
+  --ot-info: #42c6ff;
+  --cmd-top-h: 76px;
+  --cmd-bottom-h: 78px;
+  --cmd-left-w: 286px;
+  --cmd-right-w: 300px;
+  --cmd-panel-gap: 6px;
+  --cmd-stage-pad-top: 14px;
+  --cmd-stage-pad: 4px;
+  --cmd-seat-height: 136px;
+  --cmd-seat-gap: 11px;
+  --cmd-ornament-opacity: 0.78;
+  --cmd-texture-opacity: 0.24;
+  --cmd-network-opacity: 0.76;
+  --cmd-network-density: 24px;
+  --cmd-network-violet-mix: 36%;
+  --cmd-glow-strength: 0.32;
+  --cmd-border-contrast: 0.62;
+  --cmd-chart-min-h: 318px;
+  --cmd-volume-h: 58px;
+  --cmd-network-h: 94px;
+  --cmd-surface-base: url('/visual_assets/03_textures/neon/surface_base.webp');
+  --cmd-surface-grid: url('/visual_assets/03_textures/neon/surface_grid.webp');
+  --cmd-surface-microdetail: url('/visual_assets/03_textures/neon/surface_microdetail.webp');
+  --cmd-backplane-image: url('/visual_assets/05_backplanes/neon/backplane_01.webp');
+  --cmd-ambient-bloom: url('/visual_assets/06_glows/neon/soft_ambient_bloom.webp');
+}
+
+/* Theme-owned network density: same decision graph, different spatial energy. */
+html[data-theme="neon"] .pcp-network-node:nth-child(n+21) { display:none; }
+
+@media (max-width:480px) {
+  html[data-theme="neon"] .pcp-network-node:nth-child(n+17) { display:none; }
+}
+
+/* Neon = cyan structural energy with violet reserved for spatial depth only. */
+html[data-theme="neon"] .market-hero-stage {
+  box-shadow:inset 0 1px 0 rgba(25,216,255,.3),0 0 24px rgba(25,216,255,.055);
+}
+html[data-theme="neon"] .pcp-network-band {
+  background-color:rgba(4,12,24,.96);
+  box-shadow:inset 0 0 34px rgba(136,92,255,.075),inset 0 1px 0 rgba(25,216,255,.16);
+}
+html[data-theme="neon"] .decision-key-console-head { background:linear-gradient(90deg,rgba(25,216,255,.07),rgba(136,92,255,.045)); }
+html[data-theme="neon"] .command-bottom-rail { box-shadow:inset 0 1px 0 rgba(25,216,255,.22),0 -10px 26px rgba(25,216,255,.035); }
+
+
+/* R6.6.3 final desktop visual convergence — neon war room */
+@media (min-width:1280px) {
+  html[data-theme="neon"] {
+    --cmd-top-h:112px; --cmd-bottom-h:78px; --cmd-left-w:286px; --cmd-right-w:304px; --cmd-panel-gap:8px;
+    --cmd-seat-height:138px; --cmd-seat-gap:9px; --cmd-chart-min-h:312px; --cmd-volume-h:60px; --cmd-network-h:104px; --cmd-decision-h:156px;
+    --cmd-ornament-opacity:.88; --cmd-texture-opacity:.28; --cmd-network-opacity:.88; --cmd-glow-strength:.42; --cmd-border-contrast:.74;
+  }
+  html[data-theme="neon"] .market-command-shell {
+    background:
+      radial-gradient(circle at 48% 18%,rgba(136,92,255,.09),transparent 28%),
+      radial-gradient(circle at 78% 32%,rgba(25,216,255,.06),transparent 24%),
+      linear-gradient(180deg,#02070d,#03101c 58%,#02070d);
+  }
+  html[data-theme="neon"] .market-hero-stage {
+    background:
+      radial-gradient(circle at 76% 18%,rgba(136,92,255,.115),transparent 30%),
+      radial-gradient(circle at 24% 24%,rgba(25,216,255,.075),transparent 28%),
+      linear-gradient(180deg,rgba(4,16,30,.97),rgba(2,8,16,.99));
+    box-shadow:inset 0 1px 0 rgba(25,216,255,.38),inset 0 -1px 0 rgba(136,92,255,.18),0 0 34px rgba(25,216,255,.075);
+  }
+  html[data-theme="neon"] .reference-rail-stack { gap:7px; }
+  html[data-theme="neon"] .reference-rail-instrument {
+    background:linear-gradient(180deg,rgba(7,27,44,.96),rgba(3,13,24,.98));
+    box-shadow:inset 0 1px 0 rgba(25,216,255,.15),0 0 16px rgba(25,216,255,.025);
+  }
+  html[data-theme="neon"] .reference-fund-instrument { min-height:114px; }
+  html[data-theme="neon"] .reference-risk-instrument { min-height:112px; }
+  html[data-theme="neon"] .reference-thesis-instrument { min-height:72px; }
+  html[data-theme="neon"] .reference-event-instrument { min-height:70px; }
+  html[data-theme="neon"] .reference-greeks-instrument { min-height:78px; }
+  html[data-theme="neon"] .reference-margin-instrument { min-height:78px; }
+  html[data-theme="neon"] .decision-tone-bull { border-top:1px solid rgba(54,225,124,.34); background:linear-gradient(180deg,rgba(54,225,124,.075),transparent 62%); }
+  html[data-theme="neon"] .decision-tone-bear { border-top:1px solid rgba(255,85,72,.40); background:linear-gradient(180deg,rgba(255,85,72,.075),transparent 62%); }
+  html[data-theme="neon"] .decision-tone-income { border-top:1px solid rgba(240,192,58,.38); background:linear-gradient(180deg,rgba(240,192,58,.065),transparent 62%); }
+  html[data-theme="neon"] .decision-tone-neutral { border-top:1px solid rgba(136,92,255,.34); background:linear-gradient(180deg,rgba(136,92,255,.065),transparent 62%); }
+  html[data-theme="neon"] .reference-system-alerts {
+    border-color:rgba(25,216,255,.48);
+    box-shadow:inset 0 0 24px rgba(136,92,255,.045),0 0 16px rgba(25,216,255,.035);
+  }
+  html[data-theme="neon"] .decision-confirm-actuator,
+  html[data-theme="neon"] .btn-primary {
+    clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+    border-color:rgba(25,216,255,.92);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 0 20px rgba(25,216,255,.13),0 0 28px rgba(136,92,255,.07);
+  }
+}

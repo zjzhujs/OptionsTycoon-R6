@@ -1,0 +1,60 @@
+{
+  "player": {
+    "id": "player",
+    "name": "梁慧",
+    "role": "基金创始人 / Portfolio Manager",
+    "portrait": null,
+    "portrait_note": "DATA UNAVAILABLE — UI 用文字姓名徽标代替。"
+  },
+  "npcs": [
+    {
+      "id": "maya_chen",
+      "name": "Maya Chen",
+      "role": "AI / 半导体行业分析师",
+      "portrait": "/art/characters/maya_chen.jpg",
+      "specialty": "AI产业链基本面 / 算力供需调研"
+    },
+    {
+      "id": "victor_hale",
+      "name": "Victor Hale",
+      "role": "宏观基金经理",
+      "portrait": "/art/characters/victor_hale.jpg",
+      "specialty": "美债收益率曲线 / 全球外汇与利率对冲"
+    },
+    {
+      "id": "evelyn_shaw",
+      "name": "Evelyn Shaw",
+      "role": "财经记者 / WSJ Senior Reporter",
+      "portrait": "/art/characters/evelyn_shaw.jpg",
+      "specialty": "市场独家内参 / 机构舆论与媒体报道"
+    },
+    {
+      "id": "daniel_ross",
+      "name": "Daniel Ross",
+      "role": "Prime Broker 董事总经理",
+      "portrait": "/art/characters/daniel_ross.jpg",
+      "specialty": "融资杠杆 / 维持保证金与清算风控"
+    },
+    {
+      "id": "marcus_reed",
+      "name": "Marcus Reed",
+      "role": "SEC 执法部调查主管",
+      "portrait": "/art/characters/marcus_reed.jpg",
+      "specialty": "MNPI内幕交易质询 / 异常仓位司法审计"
+    },
+    {
+      "id": "adrian_cross",
+      "name": "Adrian Cross",
+      "role": "Northstar Capital 创始人 / 竞争对手",
+      "portrait": "/art/characters/adrian_cross.jpg",
+      "specialty": "激进掠夺策略 / 资金博弈与人才挖角"
+    },
+    {
+      "id": "leo_park",
+      "name": "Leo Park",
+      "role": "高级期权做市商 / Senior Market Maker",
+      "portrait": "/art/characters/leo_park.jpg",
+      "specialty": "行权价Gamma墙 / 订单簿微观结构与流动性宽化"
+    }
+  ]
+}

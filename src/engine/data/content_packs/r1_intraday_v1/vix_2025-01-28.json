@@ -1,0 +1,82 @@
+{
+ "session_id": "r1_vix_2025-01-28_hourly",
+ "ticker": "VIX",
+ "date": "2025-01-28",
+ "timezone": "America/New_York",
+ "source_timestamp_timezone": "UTC",
+ "interval_label": "60m regular-session bars",
+ "source_type": "REAL_VENDOR",
+ "source_name": "Yahoo Finance chart v8 (60m)",
+ "source_url_or_identifier": "https://query1.finance.yahoo.com/v8/finance/chart/%5EVIX?period1=1737417600&period2=1738454400&interval=60m&includePrePost=false",
+ "runtime_network_required": false,
+ "captured_at": "2026-08-19",
+ "captured_by": "tools (claude)",
+ "bars": [
+  {
+   "ts": "2025-01-28T15:00:00Z",
+   "label_et": "第1小时 15:00 UTC",
+   "open": 17.61,
+   "high": 18.39,
+   "low": 16.86,
+   "close": 16.9,
+   "volume": 0
+  },
+  {
+   "ts": "2025-01-28T16:00:00Z",
+   "label_et": "第2小时 16:00 UTC",
+   "open": 16.93,
+   "high": 17.33,
+   "low": 16.83,
+   "close": 16.95,
+   "volume": 0
+  },
+  {
+   "ts": "2025-01-28T17:00:00Z",
+   "label_et": "第3小时 17:00 UTC",
+   "open": 17.26,
+   "high": 17.31,
+   "low": 16.54,
+   "close": 16.6,
+   "volume": 0
+  },
+  {
+   "ts": "2025-01-28T18:00:00Z",
+   "label_et": "第4小时 18:00 UTC",
+   "open": 16.6,
+   "high": 16.72,
+   "low": 16.39,
+   "close": 16.68,
+   "volume": 0
+  },
+  {
+   "ts": "2025-01-28T19:00:00Z",
+   "label_et": "第5小时 19:00 UTC",
+   "open": 16.43,
+   "high": 16.85,
+   "low": 16.4,
+   "close": 16.51,
+   "volume": 0
+  },
+  {
+   "ts": "2025-01-28T20:00:00Z",
+   "label_et": "第6小时 20:00 UTC",
+   "open": 16.68,
+   "high": 16.68,
+   "low": 16.25,
+   "close": 16.33,
+   "volume": 0
+  },
+  {
+   "ts": "2025-01-28T21:00:00Z",
+   "label_et": "第7小时 21:00 UTC",
+   "open": 16.35,
+   "high": 16.47,
+   "low": 16.35,
+   "close": 16.41,
+   "volume": 0
+  }
+ ],
+ "material_windows": [],
+ "usage": "DATA_ONLY",
+ "integrity_note": "真实小时 bar，未插值、未缩放。本标的是指数而非可交易品种：成交量恒为 0 是事实而非缺失；Yahoo 对指数使用整点网格，与股票的 14:30 起步网格不同——按其原生网格保存，未做对齐，硬对齐会改变真实时间戳。"
+}

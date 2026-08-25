@@ -1,0 +1,69 @@
+[data-visual-key] { position: relative; }
+
+[data-visual-key]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, var(--ot-accent), transparent 34%) top left / 44% 1px no-repeat,
+    linear-gradient(180deg, var(--ot-accent), transparent 48%) top left / 1px 54% no-repeat;
+  opacity: var(--cmd-ornament-opacity);
+}
+
+[data-visual-key] > * { position: relative; z-index: 1; }
+
+.command-grid-texture {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.market-command-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  color: var(--ot-accent);
+  background:
+    url('/visual_assets/04_ui_frames/corners/double_line_corner.svg') left top / 44px 44px no-repeat,
+    url('/visual_assets/04_ui_frames/rails/top_rail.svg') center top / min(640px, 48vw) 32px no-repeat,
+    url('/visual_assets/04_ui_frames/ticks/timeline_ticks.svg') center bottom / min(760px, 54vw) 26px no-repeat;
+  opacity: var(--cmd-ornament-opacity);
+}
+
+.market-command-shell > * { position: relative; z-index: 1; }
+
+.pcp-network-band::after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 38px;
+  aspect-ratio: 1;
+  translate: 0 -50%;
+  color: var(--ot-accent);
+  background: url('/visual_assets/04_ui_frames/reticles/target_crosshair.svg') center / contain no-repeat;
+  opacity: calc(var(--cmd-ornament-opacity) * 0.72);
+  pointer-events: none;
+}
+
+.decision-deck::after {
+  content: "";
+  position: absolute;
+  inset: auto 10px 4px;
+  height: 12px;
+  color: var(--ot-accent);
+  background: url('/visual_assets/04_ui_frames/separators/segmented_divider.svg') center / 100% 12px repeat-x;
+  opacity: calc(var(--cmd-ornament-opacity) * 0.42);
+  pointer-events: none;
+}
+
+.command-rule {
+  height: 1px;
+  background: linear-gradient(90deg, var(--ot-accent), var(--ot-line) 34%, transparent);
+}

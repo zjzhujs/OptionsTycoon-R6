@@ -1,0 +1,36 @@
+{
+  "session_id": "c7_spy_2025-04-09_1d",
+  "ticker": "SPY",
+  "date": "2025-04-09",
+  "timezone": "America/New_York",
+  "source_timestamp_timezone": "America/New_York session date",
+  "interval_label": "1d real Part6 daily row",
+  "source_type": "REAL_VENDOR",
+  "source_name": "Part6 real SPY daily OHLCV",
+  "source_url_or_identifier": "https://uk.finance.yahoo.com/quote/SPY/history/",
+  "runtime_network_required": false,
+  "source_price_basis": "raw Close/OHLC; Adj Close retained only in checkpoint, not used for replay",
+  "previous_close": 496.48,
+  "daily_cross_check": {
+    "open": 493.44,
+    "high": 548.62,
+    "low": 493.05,
+    "close": 548.62,
+    "volume": 241867300.0
+  },
+  "bars": [
+    {
+      "ts": "2025-04-09T16:00:00-04:00",
+      "label_et": "16:00 ET",
+      "open": 493.44,
+      "high": 548.62,
+      "low": 493.05,
+      "close": 548.62,
+      "volume": 241867300.0
+    }
+  ],
+  "material_windows": [],
+  "integrity_note": "Real daily context row. The policy timeline, not a fabricated price reaction, is the C7 authoritative event layer.",
+  "truth_label": "REAL_DAILY",
+  "usage": "DATA_ONLY_CONTEXT"
+}

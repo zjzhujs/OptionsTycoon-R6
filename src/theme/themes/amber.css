@@ -1,0 +1,105 @@
+html[data-theme="amber"] {
+  --ot-bg-0: #04090b;
+  --ot-bg-1: #071014;
+  --ot-bg-2: #0b171a;
+  --ot-surface: rgba(9, 19, 22, 0.94);
+  --ot-surface-raised: rgba(13, 26, 29, 0.96);
+  --ot-line: rgba(51, 73, 74, 0.76);
+  --ot-line-strong: rgba(193, 138, 43, 0.86);
+  --ot-text: #dde8e8;
+  --ot-text-soft: #9db1b2;
+  --ot-text-dim: #637b7d;
+  --ot-accent: #d8a52f;
+  --ot-accent-rgb: 216, 165, 47;
+  --ot-accent-2: #55c4e3;
+  --ot-positive: #46d38a;
+  --ot-negative: #f05a49;
+  --ot-warning: #e3b642;
+  --ot-info: #55c4e3;
+  --cmd-top-h: 63px;
+  --cmd-bottom-h: 90px;
+  --cmd-left-w: 296px;
+  --cmd-right-w: 312px;
+  --cmd-panel-gap: 8px;
+  --cmd-stage-pad-top: 0px;
+  --cmd-stage-pad: 2px;
+  --cmd-seat-height: 110px;
+  --cmd-seat-gap: 8px;
+  --cmd-ornament-opacity: 0.62;
+  --cmd-texture-opacity: 0.18;
+  --cmd-network-opacity: 0.54;
+  --cmd-glow-strength: 0.22;
+  --cmd-border-contrast: 0.48;
+  --cmd-chart-min-h: 215px;
+  --cmd-volume-h: 56px;
+  --cmd-network-h: 88px;
+  --cmd-surface-base: url('/visual_assets/03_textures/amber/surface_base.webp');
+  --cmd-surface-grid: url('/visual_assets/03_textures/amber/surface_grid.webp');
+  --cmd-surface-microdetail: url('/visual_assets/03_textures/amber/surface_microdetail.webp');
+  --cmd-backplane-image: url('/visual_assets/05_backplanes/amber/backplane_01.webp');
+  --cmd-ambient-bloom: url('/visual_assets/06_glows/amber/soft_ambient_bloom.webp');
+}
+
+/* Theme-owned network density: same decision graph, different spatial energy. */
+html[data-theme="amber"] .pcp-network-node:nth-child(n+17) { display:none; }
+
+@media (max-width:480px) {
+  html[data-theme="amber"] .pcp-network-node:nth-child(n+13) { display:none; }
+}
+
+/* Amber = gunmetal command hardware with warm structural edges and cool data. */
+html[data-theme="amber"] .market-command-shell,
+html[data-theme="amber"] .fund-hq-container,
+html[data-theme="amber"] .portfolio-workspace-layout,
+html[data-theme="amber"] .intel-workspace-layout,
+html[data-theme="amber"] .review-workspace-layout {
+  box-shadow:inset 0 1px 0 rgba(216,165,47,.18),inset 0 -1px 0 rgba(85,196,227,.05);
+}
+html[data-theme="amber"] .market-hero-stage { box-shadow:inset 0 1px 0 rgba(85,196,227,.15); }
+html[data-theme="amber"] .decision-key-console-head { background:linear-gradient(90deg,rgba(216,165,47,.09),rgba(85,196,227,.025)); }
+html[data-theme="amber"] .command-bottom-rail { background:linear-gradient(90deg,#050b0d,rgba(27,22,12,.92),#050b0d); }
+
+
+/* R6.6.3 final desktop visual convergence — amber command hardware */
+@media (min-width:1280px) {
+  html[data-theme="amber"] {
+    --cmd-top-h:68px; --cmd-bottom-h:88px; --cmd-panel-gap:8px; --cmd-seat-height:116px; --cmd-seat-gap:7px;
+    --cmd-chart-min-h:254px; --cmd-volume-h:58px; --cmd-network-h:96px; --cmd-decision-h:150px;
+    --cmd-ornament-opacity:.72; --cmd-texture-opacity:.22; --cmd-network-opacity:.62; --cmd-glow-strength:.28; --cmd-border-contrast:.58;
+  }
+  html[data-theme="amber"] .market-command-shell {
+    background:
+      linear-gradient(rgba(4,9,11,.90),rgba(4,9,11,.94)),
+      var(--cmd-backplane-image) center/cover fixed;
+  }
+  html[data-theme="amber"] .market-hero-stage {
+    background:
+      radial-gradient(circle at 36% 12%,rgba(216,165,47,.095),transparent 34%),
+      linear-gradient(180deg,rgba(8,18,20,.97),rgba(4,9,11,.99));
+    box-shadow:inset 0 1px 0 rgba(216,165,47,.30),inset 0 -1px 0 rgba(85,196,227,.08),0 0 24px rgba(216,165,47,.035);
+  }
+  html[data-theme="amber"] .reference-rail-stack { gap:7px; }
+  html[data-theme="amber"] .reference-rail-instrument {
+    background:
+      linear-gradient(90deg,rgba(216,165,47,.075),transparent 34%),
+      linear-gradient(180deg,rgba(18,27,28,.97),rgba(7,14,16,.98));
+    box-shadow:inset 0 1px 0 rgba(216,165,47,.12),inset 0 -1px 0 rgba(0,0,0,.42);
+  }
+  html[data-theme="amber"] .reference-fund-instrument { min-height:126px; }
+  html[data-theme="amber"] .reference-risk-instrument { min-height:122px; }
+  html[data-theme="amber"] .reference-thesis-instrument { min-height:80px; }
+  html[data-theme="amber"] .reference-event-instrument { min-height:72px; }
+  html[data-theme="amber"] .reference-greeks-instrument { min-height:84px; }
+  html[data-theme="amber"] .reference-margin-instrument { min-height:82px; }
+  html[data-theme="amber"] .decision-key { box-shadow:inset 0 1px 0 rgba(216,165,47,.06); }
+  html[data-theme="amber"] .decision-tone-bull { background:linear-gradient(180deg,rgba(70,211,138,.055),transparent 58%); }
+  html[data-theme="amber"] .decision-tone-bear { background:linear-gradient(180deg,rgba(240,90,73,.06),transparent 58%); }
+  html[data-theme="amber"] .decision-tone-income { background:linear-gradient(180deg,rgba(227,182,66,.055),transparent 58%); }
+  html[data-theme="amber"] .decision-tone-neutral { background:linear-gradient(180deg,rgba(99,123,125,.045),transparent 58%); }
+  html[data-theme="amber"] .decision-confirm-actuator,
+  html[data-theme="amber"] .btn-primary {
+    border-color:rgba(216,165,47,.88);
+    clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
+    box-shadow:inset 0 1px 0 rgba(255,224,145,.22),0 0 14px rgba(216,165,47,.08);
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "scenario_id": "r1",
+  "version": 1,
+  "as_of": "2026-08-17",
+  "runtime_network_required": false,
+  "policy": {
+    "daily_settlement": "CANONICAL_LOCAL_REAL",
+    "intraday_rule": "BUNDLE_ONLY_COMPLETE_TRACEABLE_SOURCE_ROWS",
+    "daily_ohlc_intraday_inference": "FORBIDDEN",
+    "data_presence_creates_decision_windows": false
+  },
+  "sessions": [
+    {
+      "date": "2025-01-23",
+      "ticker": "NVDA",
+      "daily": {
+        "status": "REAL",
+        "source": "LOCAL:r1_2025_market.json#2025-01-23"
+      },
+      "intraday": {
+        "status": "DATA_UNAVAILABLE",
+        "executable": false,
+        "note": "No complete independently retrievable session-row source admitted in V27. Daily node remains the only executable market truth."
+      }
+    },
+    {
+      "date": "2025-01-24",
+      "ticker": "NVDA",
+      "daily": {
+        "status": "REAL",
+        "source": "LOCAL:r1_2025_market.json#2025-01-24"
+      },
+      "intraday": {
+        "status": "REAL_INTRADAY",
+        "executable": true,
+        "usage": "DATA_ONLY",
+        "file": "nvda_2025-01-24.json",
+        "source": "StatMuse Money",
+        "source_url_or_identifier": "https://www.statmuse.com/money/ask?q=nvda+jan+24%2C+2025+stock+price",
+        "material_window_count": 0
+      }
+    },
+    {
+      "date": "2025-01-27",
+      "ticker": "NVDA",
+      "daily": {
+        "status": "REAL",
+        "source": "LOCAL:r1_2025_market.json#2025-01-27"
+      },
+      "intraday": {
+        "status": "REAL_INTRADAY",
+        "executable": true,
+        "usage": "GOLDEN_TRADING_DAY",
+        "file": "nvda_2025-01-27.json",
+        "source": "StatMuse Money",
+        "material_window_count": 4
+      }
+    },
+    {
+      "date": "2025-01-28",
+      "ticker": "NVDA",
+      "daily": {
+        "status": "REAL",
+        "source": "LOCAL:r1_2025_market.json#2025-01-28"
+      },
+      "intraday": {
+        "status": "DATA_UNAVAILABLE",
+        "executable": false,
+        "note": "Daily rebound is real, but no complete intraday row set was admitted; do not reconstruct the path from O/H/L/C."
+      }
+    },
+    {
+      "date": "2025-01-29",
+      "ticker": "NVDA",
+      "daily": {
+        "status": "REAL",
+        "source": "LOCAL:r1_2025_market.json#2025-01-29"
+      },
+      "intraday": {
+        "status": "DATA_UNAVAILABLE",
+        "executable": false,
+        "note": "FOMC event timing may be used as EVENT_ONLY; no complete NVDA intraday row set admitted."
+      }
+    },
+    {
+      "date": "2025-01-30",
+      "ticker": "NVDA",
+      "daily": {
+        "status": "REAL",
+        "source": "LOCAL:r1_2025_market.json#2025-01-30"
+      },
+      "intraday": {
+        "status": "DATA_UNAVAILABLE",
+        "executable": false,
+        "note": "No complete independently retrievable session-row source admitted in V27."
+      }
+    },
+    {
+      "date": "2025-01-31",
+      "ticker": "NVDA",
+      "daily": {
+        "status": "REAL",
+        "source": "LOCAL:r1_2025_market.json#2025-01-31"
+      },
+      "intraday": {
+        "status": "REAL_INTRADAY",
+        "executable": true,
+        "usage": "GOLDEN_TRADING_DAY",
+        "file": "nvda_2025-01-31.json",
+        "source": "StatMuse Money",
+        "material_window_count": 4
+      }
+    }
+  ],
+  "coverage_summary": {
+    "daily_sessions": 7,
+    "daily_complete": 7,
+    "real_intraday_sessions": 3,
+    "golden_intraday_sessions": 2,
+    "data_only_intraday_sessions": 1,
+    "intraday_unavailable_sessions": 4
+  }
+}

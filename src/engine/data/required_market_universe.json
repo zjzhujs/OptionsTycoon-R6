@@ -1,0 +1,422 @@
+[
+  {
+    "ticker": "SPY",
+    "name": "SPDR S&P 500 ETF Trust",
+    "asset_type": "ETF",
+    "game_role": "Core benchmark"
+  },
+  {
+    "ticker": "QQQ",
+    "name": "Invesco QQQ Trust",
+    "asset_type": "ETF",
+    "game_role": "Nasdaq-100 benchmark"
+  },
+  {
+    "ticker": "IWM",
+    "name": "iShares Russell 2000 ETF",
+    "asset_type": "ETF",
+    "game_role": "Small caps"
+  },
+  {
+    "ticker": "DIA",
+    "name": "SPDR Dow Jones Industrial Average ETF",
+    "asset_type": "ETF",
+    "game_role": "Dow benchmark"
+  },
+  {
+    "ticker": "SMH",
+    "name": "VanEck Semiconductor ETF",
+    "asset_type": "ETF",
+    "game_role": "Semiconductor benchmark"
+  },
+  {
+    "ticker": "XLE",
+    "name": "Energy Select Sector SPDR",
+    "asset_type": "ETF",
+    "game_role": "Energy"
+  },
+  {
+    "ticker": "XLF",
+    "name": "Financial Select Sector SPDR",
+    "asset_type": "ETF",
+    "game_role": "Financials"
+  },
+  {
+    "ticker": "XLK",
+    "name": "Technology Select Sector SPDR",
+    "asset_type": "ETF",
+    "game_role": "Technology"
+  },
+  {
+    "ticker": "NVDA",
+    "name": "NVIDIA",
+    "asset_type": "Equity",
+    "game_role": "AI/Semiconductors"
+  },
+  {
+    "ticker": "AAPL",
+    "name": "Apple",
+    "asset_type": "Equity",
+    "game_role": "Mega-cap tech"
+  },
+  {
+    "ticker": "MSFT",
+    "name": "Microsoft",
+    "asset_type": "Equity",
+    "game_role": "Software/AI"
+  },
+  {
+    "ticker": "META",
+    "name": "Meta Platforms",
+    "asset_type": "Equity",
+    "game_role": "Internet/AI"
+  },
+  {
+    "ticker": "GOOGL",
+    "name": "Alphabet",
+    "asset_type": "Equity",
+    "game_role": "Internet/AI"
+  },
+  {
+    "ticker": "AMZN",
+    "name": "Amazon",
+    "asset_type": "Equity",
+    "game_role": "Consumer/Cloud"
+  },
+  {
+    "ticker": "TSLA",
+    "name": "Tesla",
+    "asset_type": "Equity",
+    "game_role": "High beta"
+  },
+  {
+    "ticker": "AMD",
+    "name": "AMD",
+    "asset_type": "Equity",
+    "game_role": "Semiconductors"
+  },
+  {
+    "ticker": "AVGO",
+    "name": "Broadcom",
+    "asset_type": "Equity",
+    "game_role": "Semiconductors"
+  },
+  {
+    "ticker": "NFLX",
+    "name": "Netflix",
+    "asset_type": "Equity",
+    "game_role": "Media/earnings"
+  },
+  {
+    "ticker": "PLTR",
+    "name": "Palantir",
+    "asset_type": "Equity",
+    "game_role": "AI/high beta"
+  },
+  {
+    "ticker": "JPM",
+    "name": "JPMorgan Chase",
+    "asset_type": "Equity",
+    "game_role": "Banks"
+  },
+  {
+    "ticker": "GS",
+    "name": "Goldman Sachs",
+    "asset_type": "Equity",
+    "game_role": "Investment bank"
+  },
+  {
+    "ticker": "BAC",
+    "name": "Bank of America",
+    "asset_type": "Equity",
+    "game_role": "Banks"
+  },
+  {
+    "ticker": "XOM",
+    "name": "Exxon Mobil",
+    "asset_type": "Equity",
+    "game_role": "Oil major"
+  },
+  {
+    "ticker": "CVX",
+    "name": "Chevron",
+    "asset_type": "Equity",
+    "game_role": "Oil major"
+  },
+  {
+    "ticker": "DAL",
+    "name": "Delta Air Lines",
+    "asset_type": "Equity",
+    "game_role": "Airlines/oil sensitivity"
+  },
+  {
+    "ticker": "UAL",
+    "name": "United Airlines",
+    "asset_type": "Equity",
+    "game_role": "Airlines/oil sensitivity"
+  },
+  {
+    "ticker": "LMT",
+    "name": "Lockheed Martin",
+    "asset_type": "Equity",
+    "game_role": "Defense"
+  },
+  {
+    "ticker": "RTX",
+    "name": "RTX",
+    "asset_type": "Equity",
+    "game_role": "Defense"
+  },
+  {
+    "ticker": "BA",
+    "name": "Boeing",
+    "asset_type": "STOCK",
+    "game_role": "C4 疫情重灾·航空制造"
+  },
+  {
+    "ticker": "CCL",
+    "name": "Carnival",
+    "asset_type": "STOCK",
+    "game_role": "C4 疫情重灾·邮轮"
+  },
+  {
+    "ticker": "RCL",
+    "name": "Royal Caribbean",
+    "asset_type": "STOCK",
+    "game_role": "C4 疫情重灾·邮轮"
+  },
+  {
+    "ticker": "MAR",
+    "name": "Marriott",
+    "asset_type": "STOCK",
+    "game_role": "C4 疫情重灾·酒店"
+  },
+  {
+    "ticker": "WYNN",
+    "name": "Wynn Resorts",
+    "asset_type": "STOCK",
+    "game_role": "C4 疫情重灾·博彩"
+  },
+  {
+    "ticker": "LUV",
+    "name": "Southwest Airlines",
+    "asset_type": "STOCK",
+    "game_role": "C4 疫情重灾·航空"
+  },
+  {
+    "ticker": "AAL",
+    "name": "American Airlines",
+    "asset_type": "STOCK",
+    "game_role": "C4 疫情重灾·航空"
+  },
+  {
+    "ticker": "ZM",
+    "name": "Zoom Video",
+    "asset_type": "STOCK",
+    "game_role": "C4 疫情受益·远程办公"
+  },
+  {
+    "ticker": "PTON",
+    "name": "Peloton",
+    "asset_type": "STOCK",
+    "game_role": "C4 疫情受益·居家健身"
+  },
+  {
+    "ticker": "DOCU",
+    "name": "DocuSign",
+    "asset_type": "STOCK",
+    "game_role": "C4 疫情受益·电子签约"
+  },
+  {
+    "ticker": "AMC",
+    "name": "AMC Entertainment",
+    "asset_type": "STOCK",
+    "game_role": "GME 妖股连队·影院"
+  },
+  {
+    "ticker": "BB",
+    "name": "BlackBerry",
+    "asset_type": "STOCK",
+    "game_role": "GME 妖股连队"
+  },
+  {
+    "ticker": "KOSS",
+    "name": "Koss Corp",
+    "asset_type": "STOCK",
+    "game_role": "GME 妖股连队·耳机"
+  },
+  {
+    "ticker": "BBBY",
+    "name": "Bed Bath & Beyond",
+    "asset_type": "STOCK",
+    "game_role": "GME 妖股连队·已退市"
+  },
+  {
+    "ticker": "SPCE",
+    "name": "Virgin Galactic",
+    "asset_type": "STOCK",
+    "game_role": "GME 妖股连队·太空"
+  },
+  {
+    "ticker": "DIS",
+    "name": "Disney",
+    "asset_type": "STOCK",
+    "game_role": "C5 流媒体对照"
+  },
+  {
+    "ticker": "ROKU",
+    "name": "Roku",
+    "asset_type": "STOCK",
+    "game_role": "C5 流媒体对照"
+  },
+  {
+    "ticker": "WBD",
+    "name": "Warner Bros. Discovery",
+    "asset_type": "STOCK",
+    "game_role": "C5 流媒体对照"
+  },
+  {
+    "ticker": "SNAP",
+    "name": "Snap Inc",
+    "asset_type": "STOCK",
+    "game_role": "C5 广告科技对照"
+  },
+  {
+    "ticker": "PINS",
+    "name": "Pinterest",
+    "asset_type": "STOCK",
+    "game_role": "C5 广告科技对照"
+  },
+  {
+    "ticker": "SHOP",
+    "name": "Shopify",
+    "asset_type": "STOCK",
+    "game_role": "C6 久期受害者·成长股"
+  },
+  {
+    "ticker": "COIN",
+    "name": "Coinbase",
+    "asset_type": "STOCK",
+    "game_role": "C6 久期受害者·加密"
+  },
+  {
+    "ticker": "RIVN",
+    "name": "Rivian",
+    "asset_type": "STOCK",
+    "game_role": "C6 久期受害者·新能源车"
+  },
+  {
+    "ticker": "LCID",
+    "name": "Lucid",
+    "asset_type": "STOCK",
+    "game_role": "C6 久期受害者·新能源车"
+  },
+  {
+    "ticker": "U",
+    "name": "Unity Software",
+    "asset_type": "STOCK",
+    "game_role": "C6 久期受害者·软件"
+  },
+  {
+    "ticker": "DKNG",
+    "name": "DraftKings",
+    "asset_type": "STOCK",
+    "game_role": "C6 久期受害者·博彩科技"
+  },
+  {
+    "ticker": "CAT",
+    "name": "Caterpillar",
+    "asset_type": "STOCK",
+    "game_role": "C7 关税敏感·机械"
+  },
+  {
+    "ticker": "DE",
+    "name": "Deere",
+    "asset_type": "STOCK",
+    "game_role": "C7 关税敏感·农机"
+  },
+  {
+    "ticker": "FCX",
+    "name": "Freeport-McMoRan",
+    "asset_type": "STOCK",
+    "game_role": "C7 关税敏感·铜矿"
+  },
+  {
+    "ticker": "NUE",
+    "name": "Nucor",
+    "asset_type": "STOCK",
+    "game_role": "C7 关税敏感·钢铁"
+  },
+  {
+    "ticker": "STLD",
+    "name": "Steel Dynamics",
+    "asset_type": "STOCK",
+    "game_role": "C7 关税敏感·钢铁"
+  },
+  {
+    "ticker": "GM",
+    "name": "General Motors",
+    "asset_type": "STOCK",
+    "game_role": "C7 关税敏感·汽车"
+  },
+  {
+    "ticker": "F",
+    "name": "Ford",
+    "asset_type": "STOCK",
+    "game_role": "C7 关税敏感·汽车"
+  },
+  {
+    "ticker": "MU",
+    "name": "Micron",
+    "asset_type": "STOCK",
+    "game_role": "C7 关税敏感·存储芯片"
+  },
+  {
+    "ticker": "WMT",
+    "name": "Walmart",
+    "asset_type": "STOCK",
+    "game_role": "蓝筹·零售"
+  },
+  {
+    "ticker": "KO",
+    "name": "Coca-Cola",
+    "asset_type": "STOCK",
+    "game_role": "蓝筹·消费"
+  },
+  {
+    "ticker": "PG",
+    "name": "Procter & Gamble",
+    "asset_type": "STOCK",
+    "game_role": "蓝筹·消费"
+  },
+  {
+    "ticker": "JNJ",
+    "name": "Johnson & Johnson",
+    "asset_type": "STOCK",
+    "game_role": "蓝筹·医药"
+  },
+  {
+    "ticker": "UNH",
+    "name": "UnitedHealth",
+    "asset_type": "STOCK",
+    "game_role": "蓝筹·医保"
+  },
+  {
+    "ticker": "HD",
+    "name": "Home Depot",
+    "asset_type": "STOCK",
+    "game_role": "蓝筹·家居零售"
+  },
+  {
+    "ticker": "V",
+    "name": "Visa",
+    "asset_type": "STOCK",
+    "game_role": "蓝筹·支付"
+  },
+  {
+    "ticker": "MA",
+    "name": "Mastercard",
+    "asset_type": "STOCK",
+    "game_role": "蓝筹·支付"
+  }
+]

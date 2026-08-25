@@ -1,0 +1,77 @@
+{
+  "_schema_note": "Spend 面板通用 UI 与三钱包结算全量文案包。包含三钱包法定边界定义、Spend 卡片五要素标准规范、月结结算摘要模版、以及余额不足与跨钱包注资说明。",
+  "three_wallets": [
+    {
+      "wallet_id": "FUND_NAV",
+      "name_cn": "基金交易资产 (FUND NAV & CASH)",
+      "name_en": "Fund Trading Assets (NAV & Cash)",
+      "short_desc": "投资人（LP）托付给基金用于公开市场交易的信托资产真源，由主经纪商（Prime Broker）独立托管盯市。",
+      "allowed_expenses": "正股买卖、期权权利金支出、做空保证金占用、维持保证金以及交易交易佣金与借券利息。",
+      "forbidden_expenses": "【严禁侵占】绝不能用于支付员工薪水、量化服务器租金、情报订阅、律师费、公关费或任何 GP 个人消费！",
+      "source_of_funds": "LP 初始认购资金、追加投资及在二级市场实现的交易净利润。"
+    },
+    {
+      "wallet_id": "MANAGEMENT_CASH",
+      "name_cn": "管理公司运营资金 (MANAGEMENT CASH)",
+      "name_en": "Management Company Operating Cash",
+      "short_desc": "基金管理公司（Management Co.）的日常经营现金池，负责维持投研体系、算法算力与合规运营。",
+      "allowed_expenses": "核心分析师/量化师/律师薪资、量化中台基础设施部署与月费、情报网络订阅、外部危机公关与合规整改支出。",
+      "forbidden_expenses": "不能直接用于在二级市场开仓买卖期权，不能用于 GP 私人奢侈消费与私人赠礼。",
+      "source_of_funds": "按月计提的基础管理费（2% 年化）、突破高水位线（HWM）结晶的 20% 业绩分成、以及 GP 个人显式注资。"
+    },
+    {
+      "wallet_id": "GP_CASH",
+      "name_cn": "合伙人个人财富 (GP PERSONAL CASH)",
+      "name_en": "General Partner Personal Wealth",
+      "short_desc": "基金掌门人（GP）个人的合法私有财富资产，用于个人生活品质、上流社交圈拓展与高风险私人关系维护。",
+      "allowed_expenses": "私人主厨晚宴、顶级会所会籍、慈善舞会赞助、豪宅居所、私人飞机包机、商业赠礼与私人咨询费。",
+      "forbidden_expenses": "不能用于直接抵扣管理公司的员工欠薪（除非显式注资），不能用于为基金交易补足保证金。",
+      "source_of_funds": "管理公司经审计后显式发放的合伙人利润分红（GP Dividend）与历史个人资本积累。"
+    }
+  ],
+  "spend_card_five_elements": {
+    "section_title": "Spend 决策五要素标准 (The Five Elements of Capital Action)",
+    "elements": [
+      {
+        "key": "SOURCE",
+        "label_cn": "资金来源 (WALLET SOURCE)",
+        "desc": "明确标示扣款钱包（MANAGEMENT / GP），严格杜绝跨钱包自动透支，点击前展示扣款后预期余额。"
+      },
+      {
+        "key": "NOW_COST",
+        "label_cn": "即时支出 (NOW COST)",
+        "desc": "执行该操作时从对应钱包即刻扣除的一次性现金金额（如签约金、部署费、单次律师费）。"
+      },
+      {
+        "key": "RECURRING_BURN",
+        "label_cn": "月度持续开支 (MONTHLY BURN)",
+        "desc": "该操作为管理公司带来的永久或固定月度维护成本（如员工月薪、服务器维护费、情报订阅费）。"
+      },
+      {
+        "key": "RISK_RATING",
+        "label_cn": "风险与合规评级 (RISK & COMPLIANCE)",
+        "desc": "量化当前行动带来的合规风险指数变化（0-100），并附带 MNPI、BRIBERY、STALE 等敏感合规标签。"
+      },
+      {
+        "key": "AUDIT_TRAIL",
+        "label_cn": "法证审计留痕 (AUDIT TRAIL)",
+        "desc": "透明展示该行动将在法证审计账本中写入的确凿证据条目（Evidence），记录不可撤销的时间戳与事实标签。"
+      }
+    ]
+  },
+  "monthly_settlement_template": {
+    "title": "月度管理公司运营结算账单 (Monthly Operating Settlement)",
+    "header": "账期：第 {MONTH_INDEX} 结算周期 · 基金净值 (NAV)：${FUND_NAV}",
+    "mgmt_fee_line": "基础管理费收入 (2% 年化)：+${ACCRUED_MGMT_FEE} 计入管理现金池",
+    "perf_fee_line": "超额业绩提成 (20% · 突破高水位线)：+${ACCRUED_PERF_FEE} 结晶转入",
+    "hwm_update_line": "高水位线状态 (HWM)：历史峰值已更新至 ${HIGH_WATER_MARK}",
+    "expenses_breakdown_line": "固定运营扣款明细 (Priority Breakdown)：人才薪资 -${TALENT_BURN} · 量化中台 -${QUANT_BURN} · 情报订阅 -${INTEL_BURN}",
+    "runway_status_line": "当前现金跑道 (Runway Status)：${REMAINING_CASH} 现金储备 · 可支撑 {RUNWAY_MONTHS} 个月运转",
+    "gp_dividend_line": "GP 个人分红提取：-${GP_DIVIDEND_AMOUNT} 转入 GP 个人财富钱包"
+  },
+  "insufficient_funds_modals": {
+    "mgmt_insufficient_notice": "【管理公司现金不足】管理现金池余额不足以支付当前操作！系统严格恪守钱包隔离红线，严禁从基金交易资产 (Fund NAV) 垫付。请通过削减非核心开支或从 GP 个人财富进行注资补充。",
+    "gp_insufficient_notice": "【GP 个人财富不足】你的私人现金无法支付该奢华消费或私人赠礼！严禁将个人消费报销至管理公司或基金账目，否则将直接触发挪用公款重罪合规调查！",
+    "cross_wallet_injection_guide": "【显式资本注入操作 (GP Capital Injection)】允许将 GP 个人私有财富合法注资至管理公司运营账户，注资流水将作为正式增资证明写入转账账本 (Transfer Ledger)；但反向从管理公司向 GP 转账必须严格遵循经审计的月度分红程序，禁止任意抽逃资金。"
+  }
+}

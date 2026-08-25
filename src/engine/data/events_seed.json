@@ -1,0 +1,659 @@
+{
+  "_note": "Legacy records are migrated verbatim from prototype/options_tycoon_wall_street_replay_v2_2026H1.html EVENTS and H1EVENTS arrays. C5/C8 records are separate checkpoint-backed additions; body/url/ts remain null where the source did not provide them.",
+  "r1_2025": [
+    {
+      "id": "r1-2025-01-20-ai",
+      "ts": "2025-01-20T00:00:00-05:00",
+      "date": "2025-01-20",
+      "tag": "AI",
+      "headline": "DeepSeek-R1 惊世发布",
+      "body": "DeepSeek 官方正式发布 R1，模型权重与技术报告全面开源。",
+      "source": "DeepSeek 官方",
+      "url": "https://api-docs.deepseek.com/news/news250120"
+    },
+    {
+      "id": "r1-2025-01-27-premarket",
+      "ts": "2025-01-27T08:00:00-05:00",
+      "date": "2025-01-27",
+      "tag": "NEWS",
+      "headline": "美股盘前：DeepSeek 恐慌重击 AI/芯片板块",
+      "body": "当天盘前纳指期货遭遇重挫，NVDA 等 AI 产业链核心标的显著承压。",
+      "source": "Reuters / 当日公开新闻",
+      "url": "https://www.reuters.com/technology/chinas-deepseek-sets-off-ai-market-rout-2025-01-27/"
+    },
+    {
+      "id": "r1-2025-01-27-close",
+      "ts": "2025-01-27T16:00:00-05:00",
+      "date": "2025-01-27",
+      "tag": "CLOSE",
+      "headline": "NVDA 收盘熔断级暴跌约 17%",
+      "body": "NVDA 最终惨收于 $118.42；Reuters 报道其单日市值血亏约 $593B，Nasdaq 整体下挫约 3.1%。",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/technology/chinas-deepseek-sets-off-ai-market-rout-2025-01-27/"
+    },
+    {
+      "id": "r1-2025-01-28-rebound",
+      "ts": "2025-01-28T16:00:00-05:00",
+      "date": "2025-01-28",
+      "tag": "REBOUND",
+      "headline": "NVDA 强力反弹约 8.9%",
+      "body": "DeepSeek 冲击波后的次日，NVDA 迎来大幅反弹，但仍未能完全收复前一日的失地。",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/technology/tech-stock-selloff-deepens-deepseek-triggers-ai-rethink-2025-01-28/"
+    },
+    {
+      "id": "r1-2025-01-29-fomc",
+      "ts": "2025-01-29T14:00:00-05:00",
+      "date": "2025-01-29",
+      "tag": "FOMC",
+      "headline": "FOMC 决议按兵不动",
+      "body": "美联储维持联邦基金目标利率区间在 4.25%–4.50% 不变。",
+      "source": "Federal Reserve",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250129a.htm"
+    },
+    {
+      "id": "r1-2025-02-07-nfp",
+      "ts": "2025-02-07T08:30:00-05:00",
+      "date": "2025-02-07",
+      "tag": "NFP",
+      "headline": "美国 1 月非农新增 +143K",
+      "body": "BLS 发布 2025 年 1 月份的就业形势报告 (Employment Situation)。",
+      "source": "U.S. BLS",
+      "url": "https://www.bls.gov/news.release/archives/empsit_02072025.htm"
+    },
+    {
+      "id": "r1-2025-02-26-earnings",
+      "ts": "2025-02-26T16:20:00-05:00",
+      "date": "2025-02-26",
+      "tag": "EARNINGS",
+      "headline": "NVIDIA FY2025 Q4 财报揭榜",
+      "body": "财报战役正式打响；内置事件日期已核验，完整的分钟级/期权盘口需要挂载额外的市场数据。",
+      "source": "NVIDIA / SEC",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/nvda-20250126.htm"
+    },
+    {
+      "id": "r1-2026-04-24-v4preview",
+      "ts": "2026-04-24T00:00:00-04:00",
+      "date": "2026-04-24",
+      "tag": "AI",
+      "headline": "DeepSeek V4 Preview 突发上线",
+      "body": "DeepSeek 官方宣布 V4 Preview 版本正式上线并开源。",
+      "source": "DeepSeek 官方",
+      "url": "https://api-docs.deepseek.com/news/news260424"
+    },
+    {
+      "id": "r1-2026-08-13-v4pro",
+      "ts": "2026-08-13T00:00:00-04:00",
+      "date": "2026-08-13",
+      "tag": "AI",
+      "headline": "DeepSeek V4-Pro GA 重磅发布",
+      "body": "DeepSeek 官方宣布 V4-Pro GA (General Availability) 正式发布。",
+      "source": "DeepSeek 官方",
+      "url": "https://api-docs.deepseek.com/news/news260813/"
+    }
+  ],
+  "h1_2026": [
+    {
+      "id": "h1-2026-01-20-tariff",
+      "ts": null,
+      "date": "2026-01-20",
+      "tag": "TARIFF",
+      "headline": "格陵兰关税威胁触发全市场 Risk-Off",
+      "body": "Dow -1.76%，S&P 500 -2.06%，Nasdaq -2.39%；避险情绪升温，VIX 强力拉升收于 20.09。",
+      "source": "Reuters",
+      "url": null
+    },
+    {
+      "id": "h1-2026-02-05-aiselloff",
+      "ts": null,
+      "date": "2026-02-05",
+      "tag": "AI",
+      "headline": "\"Software-Mageddon\" 恐慌蔓延",
+      "body": "S&P 500 软件与服务指数单日再泄 4.6%，自 1 月 28 日以来该板块市值已蒸发约 1 万亿美元。",
+      "source": "Reuters",
+      "url": null
+    },
+    {
+      "id": "h1-2026-02-23-aitariff",
+      "ts": null,
+      "date": "2026-02-23",
+      "tag": "AI/TARIFF",
+      "headline": "AI 替代焦虑 叠加 关税不确定性",
+      "body": "S&P 500 -1.04%，Nasdaq -1.13%。市场仍在痛苦地重估软件、金融板块以及 AI 链上的受益与受损方。",
+      "source": "Reuters",
+      "url": null
+    },
+    {
+      "id": "h1-2026-02-26-earnings",
+      "ts": null,
+      "date": "2026-02-26",
+      "tag": "EARNINGS",
+      "headline": "NVIDIA 财报强劲，股价却遭遇 Sell the News",
+      "body": "NVDA 季度业绩和指引双双超预期，但由于投资者极度担忧 AI 投入的回报周期与白热化竞争，股价反倒一度下杀约 4% 至 $187.6。",
+      "source": "Reuters",
+      "url": null
+    },
+    {
+      "id": "h1-2026-02-28-war",
+      "ts": null,
+      "date": "2026-02-28",
+      "tag": "WAR",
+      "headline": "美以对伊实施打击，战争模式开启",
+      "body": "原油价格、通胀预期、利率曲线与风险资产在随后数周内同步经历剧烈重定价。",
+      "source": "Reuters",
+      "url": null
+    },
+    {
+      "id": "h1-2026-03-26-correction",
+      "ts": null,
+      "date": "2026-03-26",
+      "tag": "WAR",
+      "headline": "Nasdaq 正式跌入 Correction 区间",
+      "body": "Nasdaq -2.38%，S&P 500 -1.74%；半导体指数惨烈重挫 -4.8%，NVDA 暴跌超 4%。",
+      "source": "Reuters",
+      "url": null
+    },
+    {
+      "id": "h1-2026-04-08-ceasefire",
+      "ts": null,
+      "date": "2026-04-08",
+      "tag": "CEASEFIRE",
+      "headline": "美伊达成两周停火，市场暴力逼空反弹",
+      "body": "S&P 500 +2.51%，Nasdaq +2.80%，SOX 狂飙 +6.3%；WTI 和 Brent 原油分别暴泻约 16.4% 和 13.3%。",
+      "source": "Reuters",
+      "url": null
+    },
+    {
+      "id": "h1-2026-04-24-v4preview",
+      "ts": null,
+      "date": "2026-04-24",
+      "tag": "AI",
+      "headline": "DeepSeek V4 Preview 突袭发布",
+      "body": "V4 针对华为芯片技术进行了专项优化；中国芯片股全线大涨，NVDA 当日也受到 Intel 强劲指引等因素支撑录得上涨。",
+      "source": "Reuters / DeepSeek",
+      "url": null
+    },
+    {
+      "id": "h1-2026-05-08-jobsai",
+      "ts": null,
+      "date": "2026-05-08",
+      "tag": "JOBS/AI",
+      "headline": "强非农 + AI 信仰继续推爆风险资产",
+      "body": "S&P 500 +0.84%，Nasdaq +1.71%，两大指数双双创下历史收盘新高。",
+      "source": "Reuters",
+      "url": null
+    },
+    {
+      "id": "h1-2026-05-20-preearnings",
+      "ts": null,
+      "date": "2026-05-20",
+      "tag": "EARNINGS",
+      "headline": "NVDA 财报前夜芯片股狂欢",
+      "body": "S&P 500 +1.08%，Nasdaq +1.55%；期权市场定价暗示 NVDA 财报后将面临约 6.5% 的大幅波动。",
+      "source": "Reuters",
+      "url": null
+    },
+    {
+      "id": "h1-2026-05-21-earnings",
+      "ts": null,
+      "date": "2026-05-21",
+      "tag": "EARNINGS",
+      "headline": "NVDA 业绩超预期，股价依然疲软",
+      "body": "NVDA 财报 Beat 且宣布了高达 $80B 的回购计划，但当日股价依然收跌约 1.8%，上演了一出教科书级别的 \"好消息 ≠ 股价涨\"。",
+      "source": "Reuters",
+      "url": null
+    },
+    {
+      "id": "h1-2026-06-05-nfp",
+      "ts": null,
+      "date": "2026-06-05",
+      "tag": "NFP",
+      "headline": "过热非农数据引爆联储加息押注",
+      "body": "5 月新增就业高达 172K；S&P 500 -2.64%，Nasdaq -4.2%，NVDA 暴跌约 -6.2%。",
+      "source": "Reuters / AP",
+      "url": null
+    },
+    {
+      "id": "h1-2026-06-11-warrelief",
+      "ts": null,
+      "date": "2026-06-11",
+      "tag": "WAR",
+      "headline": "取消对伊朗打击计划，芯片股报复性反弹",
+      "body": "地缘阴霾散去，S&P 500 +1.75%，Nasdaq +2.54%，SOX 指数狂拉 +7.9%。",
+      "source": "Reuters",
+      "url": null
+    },
+    {
+      "id": "h1-2026-06-30-half",
+      "ts": null,
+      "date": "2026-06-30",
+      "tag": "HALF",
+      "headline": "2026 上半年收官战",
+      "body": "S&P 500 上半年累计约 +9.5%，Nasdaq 累计约 +13%；若单看 Q2 则分别大涨 +14.9% 和 +21.4%。",
+      "source": "Reuters",
+      "url": null
+    },
+    {
+      "id": "h1-2026-08-13-v4pro",
+      "ts": null,
+      "date": "2026-08-13",
+      "tag": "AI",
+      "headline": "DeepSeek V4-Pro GA 重磅发布",
+      "body": "DeepSeek 官方宣布 V4-Pro GA (General Availability) 正式发布。",
+      "source": "DeepSeek 官方",
+      "url": null
+    }
+  ],
+  "c4_2020": [
+    {
+      "id": "c4-2020-03-09-blackmonday",
+      "ts": "2020-03-09T09:30:00-04:00",
+      "date": "2020-03-09",
+      "tag": "CRISIS",
+      "headline": "美股全线熔断暴跌：沙特打响原油价格战叠加疫情全球恐慌",
+      "body": "标普500开盘暴跌7%触发一级熔断，市场进入流动性踩踏模式。",
+      "source": "Reuters / 历史公开记录",
+      "url": "https://www.federalreserve.gov/"
+    },
+    {
+      "id": "c4-2020-03-12-blackthursday",
+      "ts": "2020-03-12T09:30:00-04:00",
+      "date": "2020-03-12",
+      "tag": "CRISIS",
+      "headline": "美股史上第三次熔断：标普500单日暴跌 9.5%",
+      "body": "恐慌指数 VIX 飙升至 75 上方，各类资产遭遇无差别抛售。",
+      "source": "Reuters / 历史公开记录",
+      "url": "https://www.federalreserve.gov/"
+    },
+    {
+      "id": "c4-2020-03-15-fomc-emergency",
+      "ts": "2020-03-15T17:00:00-04:00",
+      "date": "2020-03-15",
+      "tag": "FED",
+      "headline": "美联储周日紧急降息至零利率并启动 7000 亿美元 QE",
+      "body": "FOMC 紧急降息 100 基点至 0-0.25%，并宣布至少购买 5000 亿国债和 2000 亿机构 MBS。",
+      "source": "Federal Reserve",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200315a.htm"
+    },
+    {
+      "id": "c4-2020-03-16-blackmonday2",
+      "ts": "2020-03-16T09:30:00-04:00",
+      "date": "2020-03-16",
+      "tag": "CRISIS",
+      "headline": "美股再度开盘熔断：标普500单日暴跌 12.0%",
+      "body": "VIX 飙升至 82.69 历史高位，国债与现金利差严重扭曲。",
+      "source": "Reuters",
+      "url": "https://www.federalreserve.gov/"
+    },
+    {
+      "id": "c4-2020-03-17-cpff",
+      "ts": "2020-03-17T10:45:00-04:00",
+      "date": "2020-03-17",
+      "tag": "FED/RATES",
+      "headline": "美联储重启商业票据融资便利 (CPFF)",
+      "body": "美联储宣布设立 CPFF，以支持企业短期融资和商业票据市场流动性。",
+      "source": "Federal Reserve",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200317a.htm"
+    },
+    {
+      "id": "c4-2020-03-17-pdcf",
+      "ts": "2020-03-17T18:00:00-04:00",
+      "date": "2020-03-17",
+      "tag": "FED/CRISIS",
+      "headline": "美联储重启一级交易商信贷便利 (PDCF)",
+      "body": "美联储提供长达 90 天的隔夜和定期融资，以支持一级交易商的平稳做市。",
+      "source": "Federal Reserve",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200317b.htm"
+    },
+    {
+      "id": "c4-2020-03-18-mmlf",
+      "ts": "2020-03-18T23:30:00-04:00",
+      "date": "2020-03-18",
+      "tag": "FED/CRISIS",
+      "headline": "美联储设立货币市场共同基金流动性便利 (MMLF)",
+      "body": "美联储向金融机构提供无追索权贷款，以支持货币市场基金流动性。",
+      "source": "Federal Reserve",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200318a.htm"
+    },
+    {
+      "id": "c4-2020-03-23-unlimited-qe",
+      "ts": "2020-03-23T08:00:00-04:00",
+      "date": "2020-03-23",
+      "tag": "FED/CRISIS",
+      "headline": "美联储宣布无限量 QE 并不设限购买资产",
+      "body": "FOMC 宣布按需购买国债和机构 MBS，并新设 PMCCF、SMCCF 和 TALF 等一系列直接支持实体信贷的便利工具。",
+      "source": "Federal Reserve",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200323a.htm"
+    }
+  ],
+  "c6_2022": [
+    {
+      "id": "c6-2022-06-09-cpi-eve",
+      "ts": "2022-06-09T09:30:00-04:00",
+      "date": "2022-06-09",
+      "tag": "INFLATION",
+      "headline": "5月 CPI 揭晓前夕：纳指重挫逾 2.7% 避险情绪升温",
+      "body": "市场普遍担忧通胀难以见顶，科技股与美债同遭抛售，久期资产持续承压。",
+      "source": "MarketWatch / 历史公开数据",
+      "url": "https://www.bls.gov/cpi/"
+    },
+    {
+      "id": "c6-2022-06-10-cpi-shock",
+      "ts": "2022-06-10T08:30:00-04:00",
+      "date": "2022-06-10",
+      "tag": "INFLATION",
+      "headline": "美国 5 月 CPI 创 40 年新高达到 8.6%：通胀见顶论彻底破灭",
+      "body": "BLS 披露 5 月 CPI 同比上涨 8.6%，核心 CPI 同比上涨 6.0%，美债收益率狂飙，股债双杀。",
+      "source": "U.S. Bureau of Labor Statistics",
+      "url": "https://www.bls.gov/news.release/archives/cpi_06102022.htm"
+    },
+    {
+      "id": "c6-2022-06-13-curve-inversion",
+      "ts": "2022-06-13T09:30:00-04:00",
+      "date": "2022-06-13",
+      "tag": "RATES/INFLATION",
+      "headline": "美债收益率曲线关键期限倒挂：标普500正式跌入熊市",
+      "body": "2年期美债收益率盘中超越10年期，纳斯达克单日重挫 4.7%，市场全面定价美联储 75bp 激进加息。",
+      "source": "Reuters / U.S. Treasury",
+      "url": "https://home.treasury.gov/"
+    },
+    {
+      "id": "c6-2022-06-14-fomc-eve",
+      "ts": "2022-06-14T09:30:00-04:00",
+      "date": "2022-06-14",
+      "tag": "FED/RATES",
+      "headline": "FOMC 议息会议首日：华尔街日报放风 75 基点重拳",
+      "body": "市场预期美联储将打破前瞻指引，直接加息 75 个基点。",
+      "source": "The Wall Street Journal",
+      "url": "https://www.wsj.com/"
+    },
+    {
+      "id": "c6-2022-06-15-fomc-75bp",
+      "ts": "2022-06-15T14:00:00-04:00",
+      "date": "2022-06-15",
+      "tag": "FED/RATES",
+      "headline": "美联储宣布加息 75 个基点：创 1994 年以来最大单次加息幅度",
+      "body": "FOMC 决定将联邦基金目标利率上调至 1.50%-1.75%，鲍威尔称 75bp 不会成为常态但 7 月仍可能加息 50 或 75bp。",
+      "source": "Federal Reserve",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220615a.htm"
+    },
+    {
+      "id": "c6-2022-06-16-global-tightening",
+      "ts": "2022-06-16T09:30:00-04:00",
+      "date": "2022-06-16",
+      "tag": "RATES/VOLATILITY",
+      "headline": "全球央行掀起加息潮：瑞士央行突袭加息，美股全线大跌",
+      "body": "瑞士央行 15 年来首次加息，英国央行连续加息，QQQ 收盘重挫超 4%。",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/"
+    },
+    {
+      "id": "c6-2022-06-17-quadruple-witching",
+      "ts": "2022-06-17T09:30:00-04:00",
+      "date": "2022-06-17",
+      "tag": "VOLATILITY",
+      "headline": "四巫日巨量期权到期：市场在极端超卖中震荡收官",
+      "body": "数十亿美元期权到期交割，流动性在波动率高位中承受严峻考验。",
+      "source": "Bloomberg",
+      "url": "https://www.bloomberg.com/"
+    }
+  ],
+  "gme_2021": [
+    {
+      "id": "gme-2021-01-11-setup",
+      "ts": "2021-01-11T09:30:00-05:00",
+      "date": "2021-01-11",
+      "tag": "MEME",
+      "headline": "GameStop 公布董事会变动，Ryan Cohen 进入叙事核心",
+      "body": "公开公司公告确认董事会变动，市场注意力开始集中到 GME 的治理、叙事与做空拥挤；这是起点事实，不把后续逼空结果倒灌成当日信息。",
+      "source": "GameStop public company filing",
+      "url": "https://www.sec.gov/edgar/browse/?CIK=1326380"
+    },
+    {
+      "id": "gme-2021-01-22-first-feedback",
+      "ts": "2021-01-22T16:00:00-05:00",
+      "date": "2021-01-22",
+      "tag": "MEME/VOLATILITY",
+      "headline": "GME 收于约 65 美元，注意力、价格与期权证据开始互相强化",
+      "body": "真实正股日内数据、FINRA short-sale、SEC FTD 与有限期权证据同时可见；完整逐合约 IV、Greeks、utilization 仍不可得。",
+      "source": "HFDL / FINRA / SEC FTD / Part13 evidence",
+      "url": "https://www.finra.org/finra-data/browse-catalog/short-sale-volume-data"
+    },
+    {
+      "id": "gme-2021-01-25-acceleration",
+      "ts": "2021-01-25T16:00:00-05:00",
+      "date": "2021-01-25",
+      "tag": "MEME/VOLATILITY",
+      "headline": "GME 盘中冲高并剧烈回撤，反馈回路进入加速段",
+      "body": "真实 1m 正股记录显示高低点和成交量急剧放大；期权端只展示四日聚合 tape，不将聚合量解释成逐合约 gamma 结论。",
+      "source": "Part38 HFDL / Part11 aggregate options tape",
+      "url": "https://api.hfdatalibrary.com/"
+    },
+    {
+      "id": "gme-2021-01-27-stress",
+      "ts": "2021-01-27T16:00:00-05:00",
+      "date": "2021-01-27",
+      "tag": "VOLATILITY",
+      "headline": "GME 逼近盘中极端高点，PB 维持保证金与流动性压力成为可见约束",
+      "body": "借券、贷款余额、short-sale/FTD 和正股波动证据被并列展示；PB house rule 属于模拟规则，不能冒充 2021 年市场统一保证金率。",
+      "source": "Part38 / Part10 / Part27 / Part44",
+      "url": "https://www.sec.gov/files/staff-report-equity-and-options-market-structure-conditions-early-2021.pdf"
+    },
+    {
+      "id": "gme-2021-01-28-fracture",
+      "ts": "2021-01-28T09:30:00-05:00",
+      "date": "2021-01-28",
+      "tag": "MEME/VOLATILITY",
+      "headline": "GME 触及约 483 美元盘中高点，LULD 与券商买入限制造成市场断裂",
+      "body": "公开市场结构报告记录了早期 2021 年的交易与清算压力；本节点不替历史争议指定单一因果，只把限制与价格断裂作为可验证事实。",
+      "source": "SEC Staff Report on Early-2021 Equity and Options Market Structure",
+      "url": "https://www.sec.gov/files/staff-report-equity-and-options-market-structure-conditions-early-2021.pdf"
+    },
+    {
+      "id": "gme-2021-01-29-restrictions",
+      "ts": "2021-01-29T16:00:00-05:00",
+      "date": "2021-01-29",
+      "tag": "VOLATILITY",
+      "headline": "部分交易限制调整，价格仍处于极端波动与流动性重定价中",
+      "body": "限制变化不等于原始交易 thesis 被证明；玩家只能依据截至当日公开的正股、借券和聚合期权证据更新判断。",
+      "source": "SEC Staff Report / public broker notices / Part38 HFDL",
+      "url": "https://www.dtcc.com/"
+    },
+    {
+      "id": "gme-2021-02-01-unwind",
+      "ts": "2021-02-01T16:00:00-05:00",
+      "date": "2021-02-01",
+      "tag": "VOLATILITY",
+      "headline": "高位反馈回路反向运行，GME 进入 forced-flow unwind 段",
+      "body": "价格、成交量和此前的拥挤证据出现反向压力；反转原因保持为待证伪假说，不把事后解释写成当日已知事实。",
+      "source": "Part38 HFDL / FINRA / SEC FTD",
+      "url": "https://www.sec.gov/files/staff-report-equity-and-options-market-structure-conditions-early-2021.pdf"
+    },
+    {
+      "id": "gme-2021-02-05-postmortem",
+      "ts": "2021-02-05T16:00:00-05:00",
+      "date": "2021-02-05",
+      "tag": "MEME",
+      "headline": "历史窗口收束：反馈链的证据、缺口与退出纪律进入复盘",
+      "body": "窗口以真实正股和逐日证据结束；完整逐合约期权数据仍缺，因此复盘评分依赖证据更新、风险存活和退出纪律，不奖励复述未经证实的 gamma 因果。",
+      "source": "Part38 / Part10 / Part13 / Part27 / Part44",
+      "url": "https://www.sec.gov/files/staff-report-equity-and-options-market-structure-conditions-early-2021.pdf"
+    }
+  ],
+  "c5_2022": [
+    {
+      "id": "c5-2022-04-18-earnings-window",
+      "ts": "2022-04-18T09:30:00-04:00",
+      "date": "2022-04-18",
+      "tag": "EARNINGS",
+      "headline": "NFLX 财报周开启：聚合期权证据进入事件窗口",
+      "body": "Part25 提供 NFLX 当日财报周聚合期权证据；它不是逐合约期权链，缺失字段不补造。",
+      "source": "OT_DATA_CKPT Part25 gauss314/options-IV-SP500",
+      "url": "https://huggingface.co/datasets/gauss314/options-IV-SP500"
+    },
+    {
+      "id": "c5-2022-04-19-earnings-release",
+      "ts": "2022-04-19T16:00:00-04:00",
+      "date": "2022-04-19",
+      "tag": "EARNINGS",
+      "headline": "NFLX Q1 2022 财报发布：订户净流失与下季指引成为核心风险",
+      "body": "Netflix Q1 2022 股东信披露订户净流失 20 万，并给出 Q2 净流失 200 万的指引。",
+      "source": "Netflix Q1 2022 shareholder letter",
+      "url": "https://ir.netflix.net/financials/quarterly-earnings/default.aspx"
+    },
+    {
+      "id": "c5-2022-04-20-post-earnings-crush",
+      "ts": "2022-04-20T09:30:00-04:00",
+      "date": "2022-04-20",
+      "tag": "VOLATILITY",
+      "headline": "财报后首个完整交易日：现货重定价与 IV crush 进入观察",
+      "body": "Part41 提供首个财报后交易日的 NFLX 真实 1m 行情；Part29 当日有完整目标日期链，可用于 FULL_CHAIN 评分。",
+      "source": "OT_DATA_CKPT Part41 HFDL + Part29 DoltHub",
+      "url": "https://www.dolthub.com/repositories/post-no-preference/options"
+    },
+    {
+      "id": "c5-2022-04-21-chain-gap",
+      "ts": "2022-04-21T16:00:00-04:00",
+      "date": "2022-04-21",
+      "tag": "VOLATILITY",
+      "headline": "财报后第二个交易日：完整期权链仍为源端缺口",
+      "body": "Part29 对 4/21 返回零行；Part51 只有部分 EOD Greeks，IV crush 评分必须走 DOWNGRADED_PARTIAL_CHAIN。",
+      "source": "OT_DATA_CKPT Part29 DoltHub + Part51 Strasmore",
+      "url": "https://www.dolthub.com/repositories/post-no-preference/options"
+    },
+    {
+      "id": "c5-2022-04-22-earnings-window-close",
+      "ts": "2022-04-22T16:00:00-04:00",
+      "date": "2022-04-22",
+      "tag": "EARNINGS",
+      "headline": "NFLX 财报窗口收束：现货、聚合期权与覆盖边界进入复盘",
+      "body": "Part25 覆盖当日聚合期权证据，Part29 有 158 条目标日期链记录；合约级利用率仍不承诺。",
+      "source": "OT_DATA_CKPT Part25 + Part29",
+      "url": "https://huggingface.co/datasets/gauss314/options-IV-SP500"
+    }
+  ],
+  "c7_2025": [
+    {
+      "id": "c7-2025-04-02-reciprocal-framework",
+      "ts": "2025-04-02T00:00:00-04:00",
+      "date": "2025-04-02",
+      "tag": "TARIFF",
+      "headline": "EO 14257 announced reciprocal tariff framework; baseline additional duty 10%",
+      "body": "Effective 2025-04-05 00:01 ET. This node is the official policy text and timestamp; no market reaction is inferred.",
+      "source": "The White House / Part2 official policy timeline",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/04/regulating-imports-with-a-reciprocal-tariff-to-rectify-trade-practices-that-contribute-to-large-and-persistent-annual-united-states-goods-trade-deficits/"
+    },
+    {
+      "id": "c7-2025-04-02-annex-i-effective-time",
+      "ts": "2025-04-02T00:00:00-04:00",
+      "date": "2025-04-02",
+      "tag": "TARIFF",
+      "headline": "Country-specific Annex I rates scheduled to apply",
+      "body": "Effective 2025-04-09 00:01 ET. The scheduled effective time is retained as an explicit policy field.",
+      "source": "The White House / Part2 official policy timeline",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/04/regulating-imports-with-a-reciprocal-tariff-to-rectify-trade-practices-that-contribute-to-large-and-persistent-annual-united-states-goods-trade-deficits/"
+    },
+    {
+      "id": "c7-2025-04-09-country-rate-suspension",
+      "ts": "2025-04-09T00:00:00-04:00",
+      "date": "2025-04-09",
+      "tag": "TARIFF/NEWS",
+      "headline": "Country-specific rates suspended for 90 days except PRC; PRC rate changed from 84% to 125%",
+      "body": "Effective 2025-04-10 00:01 ET. The White House text is the authoritative event node.",
+      "source": "The White House / Part2 official policy timeline",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/04/modifying-reciprocal-tariff-rates-to-reflect-trading-partner-retaliation-and-alignment/"
+    },
+    {
+      "id": "c7-2025-04-11-semiconductor-exception",
+      "ts": "2025-04-11T00:00:00-04:00",
+      "date": "2025-04-11",
+      "tag": "TARIFF/NEWS",
+      "headline": "Memorandum clarified semiconductor exception with specific HTSUS headings",
+      "body": "Effective retroactively from 2025-04-05; eligible collected duties to be refunded. This is a policy-text node, not a fabricated price move.",
+      "source": "The White House / Part2 official policy timeline",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/04/clarification-of-exceptions-under-executive-order-14257-of-april-2-2025-as-amended/"
+    }
+  ],
+  "c8_2022_2023": [
+    {
+      "id": "c8-2022-01-18-acquisition-announcement",
+      "ts": null,
+      "date": "2022-01-18",
+      "tag": "M&A",
+      "headline": "Microsoft 宣布以每股 95 美元现金收购 Activision Blizzard",
+      "body": "交易公告开启并购套利长弧线；后续结算价格使用公告 deal 条款，不把它当作 ATVI 行情。",
+      "source": "Microsoft acquisition announcement",
+      "url": "https://news.microsoft.com/source/2022/01/18/microsoft-to-acquire-activision-blizzard-to-bring-the-joy-and-community-of-gaming-to-everyone-across-every-device/"
+    },
+    {
+      "id": "c8-2022-12-08-ftc-complaint",
+      "ts": null,
+      "date": "2022-12-08",
+      "tag": "REGULATION",
+      "headline": "FTC 对 Microsoft/Activision Blizzard 交易提起行政诉讼",
+      "body": "FTC 行政投诉进入公开时间线；这是监管事实节点，不用行情反推事件。",
+      "source": "FTC Microsoft/Activision Blizzard matter timeline",
+      "url": "https://www.ftc.gov/legal-library/browse/cases-proceedings/microsoftactivision-blizzard-matter-timeline-item-2022-12-08"
+    },
+    {
+      "id": "c8-2023-04-26-cma-block",
+      "ts": null,
+      "date": "2023-04-26",
+      "tag": "REGULATION",
+      "headline": "CMA 最终报告阻止原始交易结构",
+      "body": "英国 CMA 发布阻止原始 deal 的最终报告，交易结构与成交概率需要据此更新。",
+      "source": "CMA Microsoft/Activision merger inquiry",
+      "url": "https://www.gov.uk/cma-cases/microsoft-slash-activision-blizzard-merger-inquiry"
+    },
+    {
+      "id": "c8-2023-05-15-ec-approval",
+      "ts": null,
+      "date": "2023-05-15",
+      "tag": "REGULATION",
+      "headline": "欧盟委员会有条件批准 Microsoft/Activision Blizzard 交易",
+      "body": "欧盟委员会发布有条件批准决定，成为并购概率更新的公开监管节点。",
+      "source": "European Commission press release IP/23/2705",
+      "url": "https://ec.europa.eu/commission/presscorner/api/files/document/print/en/ip_23_2705/IP_23_2705_EN.pdf"
+    },
+    {
+      "id": "c8-2023-07-10-court-denies-injunction",
+      "ts": null,
+      "date": "2023-07-10",
+      "tag": "REGULATION",
+      "headline": "美国联邦地区法院拒绝 FTC 初步禁令请求",
+      "body": "法院拒绝 FTC 的 preliminary injunction 请求，交易破裂风险重新定价；这是法院公开裁定节点。",
+      "source": "FTC court filing / US district court order",
+      "url": "https://www.ftc.gov/system/files/ftc_gov/pdf/608644.2023.09.25_d09412_-_order_returning_matter_to_adjudication.pdf"
+    },
+    {
+      "id": "c8-2023-09-22-cma-provisional-clearance",
+      "ts": null,
+      "date": "2023-09-22",
+      "tag": "REGULATION",
+      "headline": "CMA 对重组后的交易给出临时批准",
+      "body": "CMA 认为重组后的 cloud-gaming 安排回应了此前关切，交易进入最终收尾阶段。",
+      "source": "CMA new Microsoft concession announcement",
+      "url": "https://www.gov.uk/government/news/new-microsoft-activision-deal-addresses-previous-cma-concerns-in-cloud-gaming"
+    },
+    {
+      "id": "c8-2023-10-12-atvi-final-session",
+      "ts": null,
+      "date": "2023-10-12",
+      "tag": "M&A",
+      "headline": "ATVI 最后一個有源行情交易日",
+      "body": "Part46 的 ATVI 日线在 10/12 收束；Part35 明确没有 10/13 的 ATVI 行情文件，不做 carry-forward。",
+      "source": "OT_DATA_CKPT Part35 + Part46",
+      "url": "https://www.gov.uk/cma-cases/microsoft-slash-activision-blizzard-merger-inquiry"
+    },
+    {
+      "id": "c8-2023-10-13-completion",
+      "ts": null,
+      "date": "2023-10-13",
+      "tag": "M&A",
+      "headline": "CMA clearance 与 Microsoft completion：ATVI 进入 deal 结算",
+      "body": "CMA clearance 与 Microsoft completion 是公开事件节点；ATVI 无行情行，结算器只使用公告每股 95 美元现金条款。",
+      "source": "CMA clearance / Microsoft completion announcement",
+      "url": "https://www.gov.uk/government/news/microsoft-concession-a-gamechanger-that-will-promote-competition"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "id": "adrian_retaliation_web",
+      "character_id": "adrian_cross",
+      "threshold": { "trust_lte": 15, "rivalry_gte": 35 },
+      "effects": {
+        "short_seller_weight_multiplier": 1.75,
+        "compliance_risk_delta_once": 3
+      }
+    },
+    {
+      "id": "daniel_credit_committee_web",
+      "character_id": "daniel_ross",
+      "threshold": { "trust_lte": 15, "favor_lte": 5 },
+      "effects": {
+        "jpm_trust_delta_once": -2,
+        "jpm_financing_spread_bps_delta_once": 20,
+        "counterparty_trust_delta_once": -3
+      }
+    }
+  ]
+}

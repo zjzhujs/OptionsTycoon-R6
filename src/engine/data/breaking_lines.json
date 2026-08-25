@@ -1,0 +1,152 @@
+[
+  {
+    "id": "breaking_short_attack_adrian_1",
+    "event_type": "RIVAL_SHORT_ATTACK",
+    "situation": "RIVAL_SHORT_ATTACK",
+    "character_id": "adrian_cross",
+    "character_name": "Adrian Cross",
+    "headline": "Apex 做空突袭：CNBC 直播开火",
+    "line": "看彭博头条。我在 CNBC 上公开了你们那篇漏洞百出的算力估值模型，深度虚值 Put 已经在压着你们的买盘打了！",
+    "tone": "AGGRESSIVE_ATTACK"
+  },
+  {
+    "id": "breaking_short_attack_maya_2",
+    "event_type": "RIVAL_SHORT_ATTACK",
+    "situation": "RIVAL_SHORT_ATTACK",
+    "character_id": "maya_chen",
+    "character_name": "Maya Chen",
+    "headline": "紧急投研反击请求",
+    "line": "Adrian Adrian 刚才在 CNBC 上公开质疑我们的调研底稿！期权链的 IV 瞬间被恐慌盘打爆了，立刻给我开反驳简报的权限！",
+    "tone": "URGENT_COMBAT"
+  },
+  {
+    "id": "breaking_short_attack_victor_3",
+    "event_type": "RIVAL_SHORT_ATTACK",
+    "situation": "RIVAL_SHORT_ATTACK",
+    "character_id": "victor_hale",
+    "character_name": "Victor Hale",
+    "headline": "做空冲击：敞口失控警报",
+    "line": "做空报告砸穿了支撑位！开盘 Delta 敞口直接失控，立刻决定是反击还是砍仓，一秒钟都别犹豫！",
+    "tone": "CRITICAL_PRESSURE"
+  },
+  {
+    "id": "breaking_sec_subpoena_marcus_1",
+    "event_type": "SEC_SUBPOENA",
+    "situation": "SEC_SUBPOENA",
+    "character_id": "marcus_reed",
+    "character_name": "Marcus Reed",
+    "headline": "SEC 特别调查令送达",
+    "line": "梁经理，这是 SEC 执法部的特别调查令。昨晚盘前的那笔异常期权扫单，五分钟内把你们所有交易员的通讯记录和个人设备交出来。",
+    "tone": "LEGAL_INVASION"
+  },
+  {
+    "id": "breaking_sec_subpoena_marcus_2",
+    "event_type": "SEC_SUBPOENA",
+    "situation": "SEC_SUBPOENA",
+    "character_id": "marcus_reed",
+    "character_name": "Marcus Reed",
+    "headline": "交易端口紧急监管冻结",
+    "line": "不要碰键盘，站在原地。合规部门已经冻结了你们的外部端口，我们现在要逐笔核对你们跟政策智库的信息交换时间线。",
+    "tone": "COMMAND_FREEZE"
+  },
+  {
+    "id": "breaking_sec_subpoena_evelyn_3",
+    "event_type": "SEC_SUBPOENA",
+    "situation": "SEC_SUBPOENA",
+    "character_id": "evelyn_shaw",
+    "character_name": "Evelyn Shaw",
+    "headline": "《华尔街日报》独家探底",
+    "line": "Marcus 带着两个调查员刚进了你们前台大厅！这篇突发快讯我压了十分钟，你到底有没有动过未公开内幕？",
+    "tone": "SENSATIONAL_LEAK"
+  },
+  {
+    "id": "breaking_crash_victor_1",
+    "event_type": "MARKET_FLASH_CRASH_8PCT",
+    "situation": "MARKET_FLASH_CRASH_8PCT",
+    "character_id": "victor_hale",
+    "character_name": "Victor Hale",
+    "headline": "黑天鹅熔断：全资产跳水",
+    "line": "警报响了！科技股开盘跳空暴跌，美债收益率同时熔断！所有止损单全在被滑点踩踏，现在立刻给我拔电源！",
+    "tone": "EMERGENCY_SIREN"
+  },
+  {
+    "id": "breaking_crash_leo_2",
+    "event_type": "MARKET_FLASH_CRASH_8PCT",
+    "situation": "MARKET_FLASH_CRASH_8PCT",
+    "character_id": "leo_park",
+    "character_name": "Leo Park",
+    "headline": "做市商流动性全面枯竭",
+    "line": "盘口彻底断裂了！做市商直接把买单全撤了，买卖价差拉宽到了五个点，整个期权链都在尖叫，根本没人接盘！",
+    "tone": "DISASTER_CHAOS"
+  },
+  {
+    "id": "breaking_crash_maya_3",
+    "event_type": "MARKET_FLASH_CRASH_8PCT",
+    "situation": "MARKET_FLASH_CRASH_8PCT",
+    "character_id": "maya_chen",
+    "character_name": "Maya Chen",
+    "headline": "流动性踩踏对抗指令",
+    "line": "不要慌！这不是基本面崩塌，是机构在去杠杆踩踏！现在要是恐慌割肉，剩下的头寸会被流动性黑洞瞬间吞噬！",
+    "tone": "FEROCIOUS_RESISTANCE"
+  },
+  {
+    "id": "breaking_lp_redemption_daniel_1",
+    "event_type": "LP_REDEMPTION_WARNING",
+    "situation": "LP_REDEMPTION_WARNING",
+    "character_id": "daniel_ross",
+    "character_name": "Daniel Ross",
+    "headline": "机构金主紧急撤资令",
+    "line": "梁经理，顶级家族办公室刚刚启动了紧急赎回程序。由于触及回撤红线，他们要求 24 小时内全额变现本金，请准备好现金。",
+    "tone": "SILENT_GUILLOTINE"
+  },
+  {
+    "id": "breaking_lp_redemption_daniel_2",
+    "event_type": "LP_REDEMPTION_WARNING",
+    "situation": "LP_REDEMPTION_WARNING",
+    "character_id": "daniel_ross",
+    "character_name": "Daniel Ross",
+    "headline": "投资委员会最后通牒",
+    "line": "金主委员会刚刚在电话里掀了桌子。他们不打算替你的信仰继续买单了，下午三点前拿不出流动性救市方案，直接抽干你们的 AUM。",
+    "tone": "POLITE_EXTORTION"
+  },
+  {
+    "id": "breaking_lp_redemption_victor_3",
+    "event_type": "LP_REDEMPTION_WARNING",
+    "situation": "LP_REDEMPTION_WARNING",
+    "character_id": "victor_hale",
+    "character_name": "Victor Hale",
+    "headline": "基金挤兑危机降临",
+    "line": "LP 的赎回传真已经堆满了前台！我们账上的现金根本不够应付这帮吸血鬼的挤兑，要么平掉科技股，要么基金等死！",
+    "tone": "SURVIVAL_CRISIS"
+  },
+  {
+    "id": "breaking_margin_call_daniel_1",
+    "event_type": "MARGIN_CALL_BREACH",
+    "situation": "MARGIN_CALL_BREACH",
+    "character_id": "daniel_ross",
+    "character_name": "Daniel Ross",
+    "headline": "维持保证金彻底击穿",
+    "line": "维持保证金已经彻底击穿。这不是商量，这是系统通知：三十秒后若无抵押品补足，主经纪商将无差别以市价强平所有头寸。",
+    "tone": "COLD_EXECUTION"
+  },
+  {
+    "id": "breaking_margin_call_victor_2",
+    "event_type": "MARGIN_CALL_BREACH",
+    "situation": "MARGIN_CALL_BREACH",
+    "character_id": "victor_hale",
+    "character_name": "Victor Hale",
+    "headline": "风控极限熔断触发",
+    "line": "风控红线熔断了！Margin Debt 已经超过 Cash 三倍，PB 的清算程序已经挂在主服务器上，再不砍仓我们会被系统活活肢解！",
+    "tone": "DESPERATE_ALARM"
+  },
+  {
+    "id": "breaking_margin_call_leo_3",
+    "event_type": "MARGIN_CALL_BREACH",
+    "situation": "MARGIN_CALL_BREACH",
+    "character_id": "leo_park",
+    "character_name": "Leo Park",
+    "headline": "清算屠宰场启动",
+    "line": "做市商开始强平我们的期权抵押品了！盘口直接变成了屠宰场，每过一秒账户都在流血几万美金！",
+    "tone": "SLAUGHTERHOUSE_PANIC"
+  }
+]

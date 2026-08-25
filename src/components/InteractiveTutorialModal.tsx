@@ -1,0 +1,214 @@
+import React, { useState } from 'react';
+import { audioManager } from '../lib/audio';
+import { renderWithGlossary } from './GlossaryTerm';
+
+export interface InteractiveTutorialModalProps {
+  onClose: () => void;
+}
+
+interface TutorialStep {
+  stepNumber: number;
+  title: string;
+  subtitle: string;
+  content: string;
+  keyConcepts: { label: string; desc: string }[];
+  proTip: string;
+}
+
+const TUTORIAL_STEPS: TutorialStep[] = [
+  {
+    stepNumber: 1,
+    title: '1. 期权衍生品底层结构 (Options Derivatives Core)',
+    subtitle: '理解权利金 (Premium)、行权价 (Strike) 与不对称非线性收益',
+    content:
+      '听好，期权不是彩票，它是非对称杠杆。它赋予你权利，在未来按约定行权价 (Strike) 买入 (Call) 或卖出 (Put) 资产，但绝没有强制义务。作为买方，你的底线风险死死锁在你付出的权利金 (Premium) 上，而向上的空间却不封顶。',
+    keyConcepts: [
+      { label: 'Call Option (看涨期权)', desc: '押注标的价格上涨。当股价高于行权价时具有内在价值 (ITM)。' },
+      { label: 'Put Option (看跌期权)', desc: '押注标的价格下跌或作为正股下行保险。当股价低于行权价时获利。' },
+      { label: 'Strike Price (行权价)', desc: '未来行权约定的基准交割价格。' },
+      { label: 'Premium (权利金)', desc: '期权市场交易价格，由内在价值与时间外在价值共同决定。' },
+    ],
+    proTip: '在对冲基金 (Hedge Fund) 中，期权极少被持有到期。我们通过盘口平仓 (Close Position)，吃的是波动率和凸性的差价。',
+  },
+  {
+    stepNumber: 2,
+    title: '2. 希腊字母风险矩阵 (The Greeks Matrix)',
+    subtitle: '量化风险维度的四根核心支柱',
+    content:
+      '别光盯着方向看。Black-Scholes 模型把期权风险精准拆解成了几大希腊字母（Greeks）。交易期权，本质上就是在交易你对不同风险维度的暴露。',
+    keyConcepts: [
+      { label: 'Delta (Δ, 方向敏感度)', desc: '股价每动一块钱，你的期权理论上跟着动多少。买 Call 是正 Delta，买 Put 是负 Delta。' },
+      { label: 'Gamma (Γ, 曲率加速器)', desc: '股价变动时 Delta 的加速器。正 Gamma 意味着越涨你的多头越强，利润是在加速的。' },
+      { label: 'Theta (Θ, 时间衰减)', desc: '时间衰减 (Theta Decay)。期权买方每天都在向时间流血，卖方则躺着收 Theta。' },
+      { label: 'Vega (ν, 波动率敞口)', desc: '隐含波动率 (Implied Volatility, IV) 每变动 1%，期权价格跟着动多少。财报前大家抢期权，IV 暴涨，这对买方 Vega 是大利好。' },
+    ],
+    proTip: '永远刻在脑子里的恒等式：Net PnL = Delta PnL + Gamma PnL + Theta PnL + Vega PnL + Residual。',
+  },
+  {
+    stepNumber: 3,
+    title: '3. 保证金与担保机制 (Margin & Collateral Rules)',
+    subtitle: '合规做空与现金/备兑担保生命线',
+    content:
+      '做卖方就等于做保险公司，可能要承担巨大的赔付，所以你必须有抵押。现金账户只允许做安全度高的担保卖权；融资保证金 (Margin) 账户虽然给你杠杆 (Leverage)，但一旦越界，追保强平 (Margin Call) 的清算 (Liquidation) 铁面无私。',
+    keyConcepts: [
+      { label: 'Covered Call (备兑看涨)', desc: '手里有 100 股正股做抵押去卖 1 张 Call。锁定出场价，白拿一笔权利金。' },
+      { label: 'Cash-Secured Put (现金担保看跌)', desc: '按 Strike × 100 全额锁死现金做准备金，再去卖 Put。股价不跌你赚权利金，跌了你就按 Strike 折价接盘。' },
+      { label: 'Margin Call (追保清算 / 强平预警)', desc: '总资产跌破券商的维持保证金 (Maintenance Margin) 底线，系统会强制砍仓 (Forced Liquidation) 止损，没有商量余地。' },
+    ],
+    proTip: '别去试探底线，在 TFSA 账户里裸卖 (Naked Selling) Call 会直接触发合规拦截，系统不会让你乱来。',
+  },
+  {
+    stepNumber: 4,
+    title: '4. 做市商 GEX 与盘口微观结构 (Market Microstructure & Flow)',
+    subtitle: '透视做市商 (Market Maker) 对冲盘如何主导市场日内走势',
+    content:
+      '这行不是你一个人在玩。做市商 (Market Maker) 为了保命必须维持 Delta 中性，他们在底层的对冲买卖，直接主导了市场的日内微观结构。',
+    keyConcepts: [
+      { label: 'Call Wall / Put Wall', desc: '全市场未平仓合约 (Open Interest, OI) 最集中的行权价，这就是主力筑起的强力阻力位或支撑位。' },
+      { label: 'Gamma Flip', desc: '做市商从正 Gamma（平抑波动）切到负 Gamma（助涨助跌）的生死线。' },
+      { label: '0DTE Flow (零日到期期权流)', desc: '当日到期末日期权 (0DTE)，杠杆大、成交快，经常造成日内巨大的盘口冲击。' },
+    ],
+    proTip: '死盯住 Gamma Flip——价格跌破那个点位，做市商的对冲就会变成助跌，那是雪崩的前兆。',
+  },
+  {
+    stepNumber: 5,
+    title: '5. 机构生存法则与战役通关 (Campaign Survival & Wall Street Desks)',
+    subtitle: '平衡收益、LP 赎回、华尔街投行与 SEC 合规',
+    content:
+      '作为 Dante Capital 的掌门人，交易只是一半工作。你要对付 7 家华尔街投行的 PB 脸色、稳住 5 家随时想撤资的养老金 LP，还得防着 SEC 的 Marcus Reed 盯你的内幕交易。在 8 个关键事件里活下来。',
+    keyConcepts: [
+      { label: 'LP Covenants (赎回红线)', desc: '最大回撤只要碰到 15%~20%，机构 LP 的撤资信函就会淹没你。' },
+      { label: 'Street Score (华尔街信誉)', desc: '0~1000 分的声誉体系。它决定了你能不能拿到顶级 IPO 额度，以及借钱的利息高低。' },
+      { label: '10 Distinct Endings', desc: '要么登顶新王，要么带着空办公室滚蛋。游戏有 10 种截然不同的结局。' },
+    ],
+    proTip: '下单前先进 War Room。听听 Maya 和 Victor 怎么吵架，看看华尔街的一致预期再动手。',
+  },
+];
+
+export function InteractiveTutorialModal({
+  onClose,
+}: InteractiveTutorialModalProps): JSX.Element {
+  const [currentStepIdx, setCurrentStepIdx] = useState(0);
+
+  const step = TUTORIAL_STEPS[currentStepIdx];
+  const isFirst = currentStepIdx === 0;
+  const isLast = currentStepIdx === TUTORIAL_STEPS.length - 1;
+  const glossarySeen = new Set<string>();
+
+  const handleNext = () => {
+    if (isLast) {
+      audioManager.playSfx('ui_click');
+      onClose();
+    } else {
+      audioManager.playSfx('ui_click');
+      setCurrentStepIdx((prev) => prev + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (!isFirst) {
+      audioManager.playSfx('ui_click');
+      setCurrentStepIdx((prev) => prev - 1);
+    }
+  };
+
+  return (
+    <div className="modal-overlay ui-enforced" onClick={onClose}>
+      <div className="modal-content tutorial-modal-card tutorial-root ui-surface ui-l1" style={{ maxWidth: 850 }} onClick={(e) => e.stopPropagation()}>
+        {/* Header */}
+        <div className="itm-header">
+          <div className="itm-header-left">
+            <span className="itm-pulse-dot" />
+            <h2 className="itm-title ui-title" data-level="1">
+              OPTIONS TYCOON INSTITUTIONAL MASTERCLASS
+            </h2>
+            <span className="itm-step-badge">
+              STEP {step.stepNumber} OF {TUTORIAL_STEPS.length}
+            </span>
+          </div>
+
+          <button
+            onClick={() => {
+              audioManager.playSfx('ui_click');
+              onClose();
+            }}
+            className="itm-close-btn ui-btn"
+            data-variant="compact"
+          >
+            ✕
+          </button>
+        </div>
+
+        {/* Step Progress Bar */}
+        <div className="itm-progress-track">
+          {TUTORIAL_STEPS.map((_, i) => (
+            <div
+              key={i}
+              className={`itm-progress-seg ${i < currentStepIdx ? 'is-done' : i === currentStepIdx ? 'is-active' : ''}`}
+            />
+          ))}
+        </div>
+
+        {/* Content Body */}
+        <div className="itm-body tutorial-interactive ui-surface ui-l2">
+          <div>
+            <h3 className="itm-step-title ui-title" data-level="2">{renderWithGlossary(step.title, glossarySeen)}</h3>
+            <div className="itm-step-subtitle">{renderWithGlossary(step.subtitle, glossarySeen)}</div>
+          </div>
+
+          <p className="itm-step-content">{renderWithGlossary(step.content, glossarySeen)}</p>
+
+          {/* Key Concepts Grid */}
+          <div className="itm-concepts-grid">
+            {step.keyConcepts.map((kc) => (
+              <div key={kc.label} className="itm-concept-card tutorial-concept">
+                <div className="itm-concept-label">{renderWithGlossary(kc.label, glossarySeen)}</div>
+                <div className="itm-concept-desc">{renderWithGlossary(kc.desc, glossarySeen)}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Pro Tip Callout */}
+          <div className="itm-protip">
+            <span className="itm-protip-icon">💡</span>
+            <div>
+              <strong className="itm-protip-label">Institutional Pro-Tip: </strong>
+              {renderWithGlossary(step.proTip, glossarySeen)}
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Navigation */}
+        <div className="itm-footer">
+          <button
+            disabled={isFirst}
+            onClick={handlePrev}
+            className="itm-btn-prev ui-btn"
+            data-variant="row"
+          >
+            ← PREVIOUS STEP
+          </button>
+
+          <div className="itm-footer-right">
+            <button
+              onClick={() => {
+                audioManager.playSfx('ui_click');
+                onClose();
+              }}
+              className="itm-btn-skip ui-btn"
+              data-variant="row"
+            >
+              SKIP TUTORIAL
+            </button>
+            <button
+              onClick={handleNext}
+              className="itm-btn-next ui-btn ui-btn-primary"
+            >
+              {isLast ? 'START TRADING NOW 🚀' : 'NEXT STEP →'}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

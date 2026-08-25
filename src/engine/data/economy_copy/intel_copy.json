@@ -1,0 +1,160 @@
+{
+  "_schema_note": "情报网络全量文案包。包含五档订阅定义、3个高风险灰色情报事件（正文/选项/反馈）、断供衰减与冷启动提示、以及未验证情报标签文案。",
+  "subscription_tiers": [
+    {
+      "tier_id": "OFF",
+      "name_cn": "公开渠道 (OFF)",
+      "name_en": "Public Feeds Only",
+      "monthly_cost": 0,
+      "lead_time_nodes": 0,
+      "info_target": 0,
+      "summary_pitch": "仅依赖公共财经新闻、上市公司公开SEC披露与盘面公开挂单，无额外运营开支。",
+      "risk_note": "完全落后于机构知情者，在突发黑天鹅或财报前夜没有任何提前量，只能被动承受滑点与跳空冲击。",
+      "capability_unlocked": "基础新闻聚合与公开财报公告。",
+      "source_count_desc": "单源公开报道，无交叉核验能力。"
+    },
+    {
+      "tier_id": "BASIC",
+      "name_cn": "基础研报网络 (BASIC)",
+      "name_en": "Basic Research Wire",
+      "monthly_cost": 300,
+      "lead_time_nodes": 0,
+      "info_target": 20,
+      "summary_pitch": "采购主流卖方研报摘要与初级行业产业链日报，提供标准行业背景。",
+      "risk_note": "信息均来自公开合规研报，无法律合规风险；但内容大多属于华尔街共识，无法提供超额阿尔法。",
+      "capability_unlocked": "解锁标准行业研报摘要与多渠道来源计数（Source Count）。",
+      "source_count_desc": "提供2-3家卖方研报观点对比，可靠率约68%。"
+    },
+    {
+      "tier_id": "PRO",
+      "name_cn": "专业专家网络 (PRO)",
+      "name_en": "Pro Expert Network",
+      "monthly_cost": 900,
+      "lead_time_nodes": 1,
+      "info_target": 45,
+      "summary_pitch": "接入高端专家智库与买方私享会纪要，关键叙事主题与产业链异动提前1个节点浮出水面。",
+      "risk_note": "合规专家访谈，受反内幕交易协议保护；但专家观点存在主观偏见，需配合焦点栈反证进行甄别。",
+      "capability_unlocked": "提前1个节点提示宏观与行业催化剂存在，焦点栈解锁『核心证据链』与『反向矛盾点（Contradictions）』。",
+      "source_count_desc": "交叉比对专家智库与机构订单流，可靠率约78%。"
+    },
+    {
+      "tier_id": "ELITE",
+      "name_cn": "顶级机构内参 (ELITE)",
+      "name_en": "Elite Institutional Intel",
+      "monthly_cost": 2200,
+      "lead_time_nodes": 2,
+      "info_target": 70,
+      "summary_pitch": "华尔街顶级游说集团、独立法证会计调查与前瞻供应链通道，最多提前2个节点感知深层异动。",
+      "risk_note": "合法合规的深度前瞻研究；提前揭示行业大势与供应链瓶颈，但具体未公开财报数据与最终裁决结果仍处于盲区。",
+      "capability_unlocked": "最多提前2个节点捕获方向性背景、监管听证议程与供应链瓶颈，解锁完整3级来源溯源链（Source Trace）。",
+      "source_count_desc": "3家以上独立机构渠道交叉交叉验证，若双独立源验证可靠率提升至94%以上。"
+    },
+    {
+      "tier_id": "SHADOW",
+      "name_cn": "灰色暗线层 (SHADOW · 附加层)",
+      "name_en": "Shadow Network Layer",
+      "monthly_cost": 1800,
+      "lead_time_nodes": 2,
+      "info_target": 85,
+      "summary_pitch": "在 ELITE 基础上启用的高风险暗线网络，大幅提升高置信度敏感线索的触发概率。",
+      "risk_note": "严重警示：暗线网络会高频引入重大未公开信息（MNPI）与违规边缘事件，一旦涉足将生成不可磨灭的法证审计留痕（Audit Trail）。",
+      "capability_unlocked": "高频触发未公开内幕线索事件；线索自带 UNVERIFIED 风险标识，可能包含做空机构或知情者的战略性假消息。",
+      "source_count_desc": "知情人士单点爆料，可靠率约82%，极易触发监管暗中调查与合规审查。"
+    }
+  ],
+  "gray_events": [
+    {
+      "event_id": "EVT_INTEL_GRAY_SUPPLIER_CFO",
+      "title": "供应商CFO的私下晚餐 (Private Whisper: Supplier CFO)",
+      "description": "你在半导体供应链私密酒会上偶遇了核心晶圆代工厂的财务副总。几杯波本威士忌下肚后，他压低声音向你透露：某巨头下季度的先进制程追加订单出现了异常砍单，明天内部会议就将正式锁单。",
+      "trigger_conditions": "SHADOW网络激活 + info_network >= 55 + 标的财报前2-4节点",
+      "choices": [
+        {
+          "choice_id": "A_REFUSE",
+          "label": "打住话题，提醒他遵守保密协议并当场离席",
+          "action_cost_desc": "0 成本 · 管理公司现金 $0 · GP 个人现金 $0",
+          "feedback_text": "你果断掐断了对话。虽然错过了一条极具杀伤力的内幕线索，但合规官 Marcus 对你的职业操守表示认可，基金的法证合规风险得以小幅净化。",
+          "risk_impact_summary": "合规风险 (Compliance Risk) -2 · 零证据留痕 · 放弃未公开线索"
+        },
+        {
+          "choice_id": "B_LISTEN_VAGUE",
+          "label": "以私人咨询费名义买单，仅打听行业景气度的大致口风",
+          "action_cost_desc": "GP 个人现金 -$600 · 咨询公关名义",
+          "feedback_text": "你支付了一笔私人咨询费。对方没有给出具体财报数字，但明确暗示『下游某大客户砍单真实存在』。你获得了一条高置信度的未验证线索，但你的私人钱包流水已被合规监控打上灰色标记。",
+          "risk_impact_summary": "获得 UNVERIFIED 高置信线索 · 合规风险 +18 · 审计证据 (Evidence) +12"
+        },
+        {
+          "choice_id": "C_DEMAND_NUMBERS",
+          "label": "以咨询协议为幌子重金索要具体砍单比例与核心客户清单",
+          "action_cost_desc": "GP 个人现金 -$1,500 · 离岸咨询账户转账",
+          "feedback_text": "对方在洗手间将一张写有具体出货下修比例的便签塞进了你的西装口袋。这是一级重大未公开信息（MNPI）。合规系统红灯骤亮：相关标的的一切交易已被强制锁入法证监控审查池！",
+          "risk_impact_summary": "触发 MNPI 强制合规拦截门 · 合规风险 +35 · 审计证据 +28 · 关联标的交易将留下确凿证据"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT_INTEL_GRAY_ANALYST_DRAFT",
+      "title": "未发布的重磅降级报告底稿 (Pre-Release Downgrade Draft)",
+      "description": "一家头部投行的知名卖方分析师通过加密聊天软件给你发来一份尚未公开的研报PDF，标题触目惊心——《全面下调目标价：算力泡沫的终局》。该报告将于明晨8:30面向全市场公开发布。",
+      "trigger_conditions": "info_network >= 60 + 卖方评级突发事件临近",
+      "choices": [
+        {
+          "choice_id": "A_DELETE_AND_LOG",
+          "label": "立即彻底删除文件，并向合规部门主动申报收到非请求材料",
+          "action_cost_desc": "0 成本 · 合规自首留档",
+          "feedback_text": "你毫不犹豫地删除了底稿并抄送合规官留底。虽然主动申报会产生轻微程序留痕，但你的主动隔离彻底免除了抢跑交易的法律死刑，合规防线坚不可摧。",
+          "risk_impact_summary": "合规风险 -3 · 程序证据 +2 · 彻底免疫内幕抢跑嫌疑"
+        },
+        {
+          "choice_id": "B_READ_ONLY",
+          "label": "快速通读其估值模型与逻辑漏洞，但严禁交易团队在发布前动用资金",
+          "action_cost_desc": "0 成本 · 仅限阅读",
+          "feedback_text": "你掌握了卖方明日砸盘的核心逻辑，但没有抢跑下单。然而，加密通讯的接收记录已经被监管机构的抓取爬虫捕捉，合规阴影悄然笼罩。",
+          "risk_impact_summary": "掌握市场预期差 · 合规风险 +10 · 审计证据 +8 · 后续监管问询概率上升"
+        },
+        {
+          "choice_id": "C_FRONT_RUN",
+          "label": "抓住时间差！在今晚收盘前利用大宗期权大举建仓做空标的",
+          "action_cost_desc": "0 显式现金 · 动用基金交易头寸抢跑",
+          "feedback_text": "你在市场毫无防备时完成了空头重仓布局。明早研报一出你将斩获暴利，但这笔抢跑交易的时间戳与分析师底稿发送时间完美重合，SEC 法证调查的达摩克利斯之剑已悬在头顶！",
+          "risk_impact_summary": "抢跑暴利机会 · 合规风险 +28 · 审计证据 +22 · SEC 正式执法与立案权重飙升"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT_INTEL_GRAY_POLICY_TARIFF",
+      "title": "游说顾问的关税清单密件 (Lobbyist Whisper: Draft Tariff List)",
+      "description": "华盛顿资深政策游说顾问在私人会所向你透露，商务部针对先进制程出口管制的最新行政令草案已基本定稿，涉及3家关键上市公司的禁运范围远超市场预期。",
+      "trigger_conditions": "SHADOW网络激活 + 政策行政令节点前1-3节点",
+      "choices": [
+        {
+          "choice_id": "A_OFFICIAL_PROCESS",
+          "label": "仅咨询公开立法听证流程与常规发布时间表，回绝涉密细节",
+          "action_cost_desc": "0 成本 · 走常规政务咨询",
+          "feedback_text": "你恪守了法律边界，仅通过公开程序推演政策出台的大致节奏。顾问对你的谨慎报以微笑，未留下任何违规把柄。",
+          "risk_impact_summary": "合规风险 0 · 零证据留痕 · 维持合法合规边界"
+        },
+        {
+          "choice_id": "B_BUY_VAGUE_LIST",
+          "label": "支付顾问费索取模糊行业影响摘要与政策倾向备忘录",
+          "action_cost_desc": "GP 个人现金 -$900 · 政策咨询费",
+          "feedback_text": "你拿到了一份去除了具体公司抬头的行业政策意向书。你确认了关税风暴的到来，但未触碰最危险的核心红线，留下了中等合规留痕。",
+          "risk_impact_summary": "获得宏观政策先验倾向 · 合规风险 +16 · 审计证据 +10"
+        },
+        {
+          "choice_id": "C_BUY_EXACT_ENTITIES",
+          "label": "重金买断完整禁运实体清单与内部机密会议备忘录原件",
+          "action_cost_desc": "GP 个人现金 -$2,500 · 政治行动委员会通道",
+          "feedback_text": "你拿到了绝密的正式受制裁公司名单。然而，这笔巨额交易被有心人士记录在案，你不仅背负了沉重的合规包袱，还生成了可被政商对手勒索的永久把柄！",
+          "risk_impact_summary": "获得确定性政策受制裁名单 · 合规风险 +40 · 审计证据 +35 · 生成永久被勒索风险标记"
+        }
+      ]
+    }
+  ],
+  "status_notices": {
+    "delinquent_notice": "【情报网络欠费警告】管理公司资金不足，当月情报订阅已被迫中断！情报网络点数 (Info Network) 停止增长并以每节点 -4 点的速度持续衰减。历史已沉淀线索保留，但新节点将不再生成任何前瞻内参。",
+    "cold_start_notice": "【情报网络重新激活】网络因长期欠费已进入冷冻状态 (Network Cold)。重新激活需要支付 $200 重新接入费，且需要 1 个节点的冷启动缓冲期以重建专家与数据源管道。",
+    "unverified_tag_note": "【UNVERIFIED 未验证线索】本情报来自单点知情人士或灰色暗线渠道，未经多方事实交叉核验。市场中充斥着主力放料与烟雾弹，请谨防被战略性假消息诱导接盘。",
+    "cross_validation_note": "【双独立来源核验】本条情报已由两家互不关联的独立权威渠道（卖方/供应链/法证会计）交叉验证，信息误导概率显著降低 45%。"
+  }
+}

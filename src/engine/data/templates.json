@@ -1,0 +1,1351 @@
+[
+  {
+    "id": "day1_briefing_maya",
+    "title": "盘前投研简报 · NVDA",
+    "category": "briefing",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": "maya_chen",
+    "headline_template": "Maya Chen: 财报前市场多头拥挤，先准备护城河",
+    "body_template": "别睡了，{player}。北美云厂商仍在增加资本开支，但华尔街买方已经明显拥挤。做市商在 140 美元堆了成山的 Gamma 筹码，只要财报略低于预期，就可能触发快速踩踏。你今天先把保护性期权建起来，再考虑进攻。",
+    "regime_bias": [
+      "AI",
+      "GENERIC"
+    ],
+    "hidden": {
+      "reliability": 0.95,
+      "legality": 1.0,
+      "market_awareness": 0.3,
+      "timing_advantage": 0.5,
+      "importance": 0.9,
+      "source_bias": 0.1
+    },
+    "choices": [
+      {
+        "id": "bullish_bias",
+        "label": "满仓买入 Call · 捕捉高凸性反弹",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "maya_chen": {
+            "trust": 5,
+            "favor": 4
+          }
+        },
+        "fund_deltas": {
+          "information_network": 3
+        },
+        "result_text": "Maya 放下手里的笔：'如果出问题，我会第一个追问你的风险假设。'"
+      },
+      {
+        "id": "hedged_protective",
+        "label": "买入 Put 对冲 · 锁定下行风险",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "maya_chen": {
+            "trust": 6,
+            "respect": 5
+          }
+        },
+        "fund_deltas": {
+          "counterparty_trust": 2
+        },
+        "result_text": "Maya 没废话：'算你没疯，护城河我马上给你搭好。'"
+      },
+      {
+        "id": "neutral_wait",
+        "label": "维持按兵不动 · 严密盯盘观察",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "maya_chen": {
+            "trust": 3,
+            "respect": 3
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "Maya 头也没抬：'按你的判断来，但别越过这条风险线。'"
+      }
+    ],
+    "cooldown": 10,
+    "requires": [
+      "r1",
+      "c7",
+      "h1"
+    ]
+  },
+  {
+    "id": "analyst_defection",
+    "title": "分析师被挖角",
+    "category": "personnel",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": "maya_chen",
+    "headline_template": "Maya Chen: Northstar 那帮竞争对手在挖我",
+    "body_template": "Maya 关上门，把 Northstar Capital 的 offer 放在你桌上。薪水翻倍，另有一条核心策略仓位线。她只给你三天时间。你要是让她带着这两年攒下来的渠道网络离开，接下来的财报季就会失去一层重要的信息交叉验证。",
+    "regime_bias": [
+      "AI",
+      "GENERIC"
+    ],
+    "hidden": {
+      "reliability": 0.9,
+      "legality": 1.0,
+      "market_awareness": 0.1,
+      "timing_advantage": 0.3,
+      "importance": 0.5,
+      "source_bias": 0.2
+    },
+    "choices": [
+      {
+        "id": "counter_offer",
+        "label": "开出匹配薪酬 · 加配跟投资金",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "maya_chen": {
+            "trust": 10,
+            "favor": 8
+          }
+        },
+        "fund_deltas": {
+          "staff_morale": 6,
+          "information_network": 4,
+          "reputation": 2
+        },
+        "result_text": "Maya 没走，但全公司都知道你被逼着开出了天价筹码。"
+      },
+      {
+        "id": "match_partial",
+        "label": "象征性加点钱，画个明年晋升的饼",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "maya_chen": {
+            "trust": 3,
+            "respect": 2
+          }
+        },
+        "fund_deltas": {
+          "staff_morale": 2
+        },
+        "result_text": "她拿着那点钱冷笑了一下，你能看出来这事没完。"
+      },
+      {
+        "id": "let_her_go",
+        "label": "回绝挽留要求 · 启动候补交接",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "maya_chen": {
+            "trust": -8,
+            "favor": -10,
+            "rivalry": 5
+          }
+        },
+        "fund_deltas": {
+          "staff_morale": -6,
+          "information_network": -8
+        },
+        "result_text": "两周后 Maya 去了 Northstar。你那条重仓的成长科技线成了没人看得懂的黑箱。"
+      },
+      {
+        "id": "quiet_backfill",
+        "label": "表面稳住，暗中找猎头挖个平替",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "maya_chen": {
+            "trust": -4,
+            "respect": -3
+          }
+        },
+        "fund_deltas": {
+          "staff_morale": -3,
+          "information_network": -2
+        },
+        "result_text": "风声走漏了，交易台上的气氛变得像冰窖一样。"
+      }
+    ],
+    "cooldown": 10
+  },
+  {
+    "id": "lp_redemption",
+    "title": "LP要求紧急赎回",
+    "category": "client",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": null,
+    "headline_template": "LP 大佬发难：立刻把钱给我吐出来",
+    "body_template": "那个占了你大头 AUM 的 LP 突然发邮件，借口什么内部配置调整，要强行抽走一大笔钱。合同上你确实有权压着，但只要你敢锁钱，这帮混蛋绝对会把你的名声在圈子里彻底搞臭。Shit！",
+    "regime_bias": [
+      "AI",
+      "WAR"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "legality": 1.0,
+      "market_awareness": 0.05,
+      "timing_advantage": 0.1,
+      "importance": 0.7,
+      "source_bias": 0.1
+    },
+    "choices": [
+      {
+        "id": "pay_full_immediately",
+        "label": "咬牙立马打钱，装作流动性充裕",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "lp_confidence": 8,
+          "counterparty_trust": 5,
+          "reputation": 3
+        },
+        "result_text": "完成赎回资金划转，未触发二次流动性挤兑。"
+      },
+      {
+        "id": "stagger_payment",
+        "label": "商量分期付，拖延时间保底仓",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "lp_confidence": -3,
+          "counterparty_trust": 2
+        },
+        "result_text": "对方接受延期赎回方案，但下调了合作评级。"
+      },
+      {
+        "id": "gate_redemption",
+        "label": "直接祭出侧袋条款，锁死提款",
+        "compliance_delta": 5,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "lp_confidence": -12,
+          "reputation": -8,
+          "counterparty_trust": -6
+        },
+        "result_text": "赎回风波引发同行关注，主经纪商调高了警戒等级。"
+      },
+      {
+        "id": "negotiate_partial_stay",
+        "label": "私下拉下脸劝，说服他留个底仓",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "lp_confidence": 4,
+          "counterparty_trust": 3
+        },
+        "result_text": "协商达成阶段性赎回协议，保留了核心流动性。"
+      }
+    ],
+    "cooldown": 10
+  },
+  {
+    "id": "prime_broker_margin_call",
+    "title": "Prime Broker收紧融资条件",
+    "category": "operational",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": "daniel_ross",
+    "headline_template": "Daniel Ross 通知：PB 这帮混蛋在收紧杠杆",
+    "body_template": "Daniel 发来通牒，借口最近这见鬼的波动率，要把你账户的维持保证金强行拉高，连带砍掉了融资折算率。他放低声音说这是风控部门那帮饭桶的决定，但 Goddamn it，留给你的活命时间根本不够。",
+    "regime_bias": [
+      "GENERIC"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "legality": 1.0,
+      "market_awareness": 0.1,
+      "timing_advantage": 0.2,
+      "importance": 0.8,
+      "source_bias": 0.15
+    },
+    "choices": [
+      {
+        "id": "comply_deleverage",
+        "label": "主动降低杠杆 · 及时追加保证金",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "daniel_ross": {
+            "trust": 6,
+            "respect": 4
+          }
+        },
+        "fund_deltas": {
+          "counterparty_trust": 6,
+          "reputation": 2
+        },
+        "result_text": "足额补足抵押品，主经纪商维持授信评级不变。"
+      },
+      {
+        "id": "negotiate_terms",
+        "label": "约谈主经纪商 · 争取缓冲宽限期",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "daniel_ross": {
+            "trust": 2,
+            "favor": 3
+          }
+        },
+        "fund_deltas": {
+          "counterparty_trust": 2
+        },
+        "result_text": "获得两周宽限期，需在期限内完成去杠杆。"
+      },
+      {
+        "id": "switch_broker_threat",
+        "label": "严正施压质询 · 启动转托管预案",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "daniel_ross": {
+            "trust": -6,
+            "respect": -4,
+            "rivalry": 3
+          }
+        },
+        "fund_deltas": {
+          "counterparty_trust": -8
+        },
+        "result_text": "谈判破裂，主经纪商开始执行严格的按日盯市。"
+      }
+    ],
+    "cooldown": 10
+  },
+  {
+    "id": "reporter_investigation",
+    "title": "记者在调查你的基金",
+    "category": "media",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": "evelyn_shaw",
+    "headline_template": "Evelyn Shaw: 你们那点烂账要见报了",
+    "body_template": "Evelyn 这个记者发信，说她拿着匿名信源，准备把你们最近那几笔吃相难看的交易捅出去。她假惺惺地说发稿前给你个自辩机会。你最好掂量一下，是封口还是迎战。Fuck！",
+    "regime_bias": [
+      "NEWS",
+      "GENERIC"
+    ],
+    "hidden": {
+      "reliability": 0.7,
+      "legality": 0.9,
+      "market_awareness": 0.15,
+      "timing_advantage": 0.4,
+      "importance": 0.6,
+      "source_bias": 0.3
+    },
+    "choices": [
+      {
+        "id": "full_cooperation",
+        "label": "把数据砸她脸上，把故事圆回来",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "evelyn_shaw": {
+            "trust": 8,
+            "respect": 6
+          }
+        },
+        "fund_deltas": {
+          "reputation": 4,
+          "information_network": 2
+        },
+        "result_text": "媒体报道见报，包含了基金的官方澄清声明。"
+      },
+      {
+        "id": "no_comment",
+        "label": "甩一句无可奉告，让律师团队盯着",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "evelyn_shaw": {
+            "trust": -3,
+            "respect": -2
+          }
+        },
+        "fund_deltas": {
+          "reputation": -2
+        },
+        "result_text": "负面报道登顶头条，对手盘借机在盘口施压。"
+      },
+      {
+        "id": "pressure_source",
+        "label": "动用关系查内鬼，顺带施压这记者",
+        "compliance_delta": 8,
+        "relationship_deltas": {
+          "evelyn_shaw": {
+            "trust": -10,
+            "respect": -8,
+            "rivalry": 6
+          }
+        },
+        "fund_deltas": {
+          "reputation": -6,
+          "political_capital": -4
+        },
+        "result_text": "媒体追加后续调查报道，指控基金缺乏透明度。"
+      }
+    ],
+    "cooldown": 10
+  },
+  {
+    "id": "short_seller_report",
+    "title": "做空机构发布狙击报告",
+    "category": "rival",
+    "intel_class": "PUBLIC_RUMOR",
+    "character_id": null,
+    "headline_template": "做空机构发难：做空报告砸穿了你的重仓股",
+    "body_template": "一家激进做空机构突发重磅报告，公开指控你的重仓股财务造假。股价开盘直接崩了，这帮吸血鬼显然自己满仓空单。散户跟风踩踏，这盘口看着就要散架了。",
+    "regime_bias": [
+      "AI",
+      "GENERIC"
+    ],
+    "hidden": {
+      "reliability": 0.5,
+      "legality": 1.0,
+      "market_awareness": 0.8,
+      "timing_advantage": 0.2,
+      "importance": 0.7,
+      "source_bias": 0.7
+    },
+    "choices": [
+      {
+        "id": "hold_position",
+        "label": "死扛仓位，对媒体发飙骂回去",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "reputation": 2
+        },
+        "result_text": "一部分跟风盘停了，但 LP 开始打电话问你是不是疯了。"
+      },
+      {
+        "id": "trim_position",
+        "label": "趁小幅反弹赶紧割肉，止血保命",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "lp_confidence": 2,
+          "reputation": 1
+        },
+        "result_text": "执行止损平仓，回撤得到控制。"
+      },
+      {
+        "id": "independent_diligence",
+        "label": "调拨投研预算 · 深入核实基本面",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "information_network": 5
+        },
+        "result_text": "查了一圈花了一周，这中间股价继续阴跌，但好歹你弄清了底牌。"
+      }
+    ],
+    "cooldown": 10
+  },
+  {
+    "id": "anonymous_tip",
+    "title": "匿名消息来源",
+    "category": "compliance",
+    "intel_class": "POSSIBLE_MNPI",
+    "character_id": null,
+    "headline_template": "收件箱里躺着一份见鬼的内幕邮件",
+    "body_template": "你的加密邮箱收到一份匿名邮件，详细列出了重仓标的即将公布的并购要约细节与溢价区间。这是底牌、对手挖的坑、还是 SEC 在钓鱼执法，你完全没头绪。",
+    "regime_bias": [
+      "AI",
+      "EARNINGS"
+    ],
+    "hidden": {
+      "reliability": 0.35,
+      "legality": 0.2,
+      "market_awareness": 0.1,
+      "timing_advantage": 0.7,
+      "importance": 0.6,
+      "source_bias": 0.6
+    },
+    "choices": [
+      {
+        "id": "ignore_tip",
+        "label": "当没看见，这种烂事我不沾",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {},
+        "result_text": "你直接把邮件删了，交易台继续运转。"
+      },
+      {
+        "id": "ask_compliance",
+        "label": "丢给合规部擦屁股",
+        "compliance_delta": -2,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "information_network": -1,
+          "reputation": 1
+        },
+        "result_text": "合规部吓得直接给你相关仓位挂了静默锁。"
+      },
+      {
+        "id": "investigate_public",
+        "label": "交叉核验盘口 · 观察微观资金流",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "information_network": 3
+        },
+        "result_text": "你没摸出实锤，但确实看到了期权链上有不寻常的异动。"
+      },
+      {
+        "id": "trade_on_tip",
+        "label": "逆势重仓出击 · 捕捉极限赔率",
+        "compliance_delta": 18,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "information_network": 6,
+          "reputation": -4,
+          "political_capital": -6
+        },
+        "result_text": "内幕交易获利入账，但已被写入合规异常监控名单。"
+      }
+    ],
+    "cooldown": 10
+  },
+  {
+    "id": "rumor_denied",
+    "title": "市场传闻被官方否认",
+    "category": "media",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": null,
+    "headline_template": "辟谣声明：收购案是假的",
+    "body_template": "那家破公司刚才发公告，正式发布澄清公告，否认了近期的收购传闻。盘口多头瞬间瓦解，做市商开始大举抛售正股对冲。",
+    "regime_bias": [
+      "NEWS",
+      "GENERIC"
+    ],
+    "hidden": {
+      "reliability": 0.85,
+      "legality": 1.0,
+      "market_awareness": 0.9,
+      "timing_advantage": 0.05,
+      "importance": 0.4,
+      "source_bias": 0.2
+    },
+    "choices": [
+      {
+        "id": "cut_losses",
+        "label": "如果有仓位，立马砍仓认栽",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "reputation": 1
+        },
+        "result_text": "砍得快，流了点血但保住了命。"
+      },
+      {
+        "id": "fade_the_move",
+        "label": "反手做空，顺势吃一波恐慌盘",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "reputation": -1
+        },
+        "result_text": "已建立空头方向头寸，跟踪恐慌情绪扩散。"
+      },
+      {
+        "id": "stay_out",
+        "label": "关我屁事，坐着看他们死",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {},
+        "result_text": "未参与方向博弈，账户未受波动波及。"
+      }
+    ],
+    "cooldown": 10
+  },
+  {
+    "id": "rating_downgrade",
+    "title": "评级机构下调评级",
+    "category": "media",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": null,
+    "headline_template": "评级被砍，多头惨遭背刺",
+    "body_template": "Fairmont Ratings 那帮白痴分析师刚下调了你的重仓股评级，理由是什么狗屁竞争格局恶化。盘前报价直接跌穿了支撑位，这仓位现在就是个流血的窟窿。",
+    "regime_bias": [
+      "AI",
+      "EARNINGS"
+    ],
+    "hidden": {
+      "reliability": 0.95,
+      "legality": 1.0,
+      "market_awareness": 0.95,
+      "timing_advantage": 0.05,
+      "importance": 0.6,
+      "source_bias": 0.2
+    },
+    "choices": [
+      {
+        "id": "reduce_exposure",
+        "label": "认怂，直接砍仓把敞口降下来",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "lp_confidence": 2,
+          "reputation": 1
+        },
+        "result_text": "你保住了底线，看着它后面继续向深渊滑落。"
+      },
+      {
+        "id": "buy_the_dip",
+        "label": "这帮书呆子懂个屁，逢低给我加满",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "reputation": -2
+        },
+        "result_text": "你这是逆势接飞刀，能不能活全看基本面能不能翻盘。"
+      },
+      {
+        "id": "hedge_with_options",
+        "label": "买 Put 上保险，对冲风险",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "information_network": 2
+        },
+        "result_text": "保险费贵得离谱，但好歹你没在单边暴跌里直接爆仓。"
+      }
+    ],
+    "cooldown": 10
+  },
+  {
+    "id": "executive_resignation",
+    "title": "公司高管突然辞职",
+    "category": "media",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": null,
+    "headline_template": "高层地震：CFO 突然提桶跑路",
+    "body_template": "这家公司刚发公告，CFO '因个人原因' 直接离职。这种连夜跑路的戏码，只要不瞎都知道账本肯定有雷。股价在盘后已经开始跳水了。What a shit show。",
+    "regime_bias": [
+      "EARNINGS",
+      "NEWS"
+    ],
+    "hidden": {
+      "reliability": 0.9,
+      "legality": 1.0,
+      "market_awareness": 0.9,
+      "timing_advantage": 0.1,
+      "importance": 0.55,
+      "source_bias": 0.15
+    },
+    "choices": [
+      {
+        "id": "exit_position",
+        "label": "绝对有雷，一秒钟也别留，全抛了",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "lp_confidence": 1
+        },
+        "result_text": "你连夜清仓，把这烫手山芋扔给了别人。"
+      },
+      {
+        "id": "dig_deeper",
+        "label": "启动离职核查 · 摸清资金真实意图",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "information_network": 4
+        },
+        "result_text": "问了一圈都是些虚头巴脑的废话，但至少没听到最要命的破产传闻。"
+      },
+      {
+        "id": "hold_and_watch",
+        "label": "按兵不动，等下一份财报见真章",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {},
+        "result_text": "你选择硬抗，接下来一个月你每天都在盯这只破股票。"
+      }
+    ],
+    "cooldown": 10
+  },
+  {
+    "id": "compliance_review",
+    "title": "内部合规审查启动",
+    "category": "compliance",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": "marcus_reed",
+    "headline_template": "Marcus 突击检查：合规部要翻旧账",
+    "body_template": "Marcus 阴沉着脸走进办公室，要求对你上个季度的几笔精准踩点交易进行'例行审查'。他严厉警告你最好有滴水不漏的研究底稿，否则别怪他直接向监管上报，不留情面。",
+    "regime_bias": [
+      "AI",
+      "GENERIC"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "legality": 1.0,
+      "market_awareness": 0.05,
+      "timing_advantage": 0.1,
+      "importance": 0.75,
+      "source_bias": 0.1
+    },
+    "choices": [
+      {
+        "id": "full_transparency",
+        "label": "光明正大，把底稿全扔给他看",
+        "compliance_delta": -3,
+        "relationship_deltas": {
+          "marcus_reed": {
+            "trust": 8,
+            "respect": 6
+          }
+        },
+        "fund_deltas": {
+          "counterparty_trust": 3
+        },
+        "result_text": "Marcus 查不出毛病，总算不再像看贼一样盯着你。"
+      },
+      {
+        "id": "minimal_disclosure",
+        "label": "按期分批提供 · 严格限定数据权限",
+        "compliance_delta": 2,
+        "relationship_deltas": {
+          "marcus_reed": {
+            "trust": -4,
+            "respect": -3
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "Marcus 黑着脸走了，你能感觉到他已经把你列入了黑名单。"
+      },
+      {
+        "id": "lawyer_mediated",
+        "label": "委派律所对接 · 筑牢合规防火墙",
+        "compliance_delta": -1,
+        "relationship_deltas": {
+          "marcus_reed": {
+            "trust": -2,
+            "fear": 3
+          }
+        },
+        "fund_deltas": {
+          "counterparty_trust": 1
+        },
+        "result_text": "程序拖得又长又臭，但你成功给自己弄了层防火墙。"
+      }
+    ],
+    "cooldown": 10
+  },
+  {
+    "id": "sec_subpoena",
+    "title": "监管传票",
+    "category": "compliance",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": "marcus_reed",
+    "headline_template": "SEC 传票：监管的枪口怼到脑门上了",
+    "body_template": "SEC 的正式传票直接发到了前台，要求调阅通讯记录和下单时间戳。Marcus 严正要求你立刻找外部律师。一旦留下把柄，你这辈子都别想再摸交易终端，这可是要命的事。",
+    "regime_bias": [
+      "GENERIC"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "legality": 1.0,
+      "market_awareness": 0.3,
+      "timing_advantage": 0.05,
+      "importance": 0.95,
+      "source_bias": 0.05
+    },
+    "choices": [
+      {
+        "id": "cooperate_fully",
+        "label": "全面配合，敞开门给他们查",
+        "compliance_delta": -8,
+        "relationship_deltas": {
+          "marcus_reed": {
+            "trust": 10,
+            "respect": 8
+          }
+        },
+        "fund_deltas": {
+          "counterparty_trust": 6,
+          "political_capital": -3,
+          "reputation": -2
+        },
+        "result_text": "你把底牌全交了，虽然没抓到大错，但你在圈里的名声也沾了屎。"
+      },
+      {
+        "id": "lawyer_up",
+        "label": "聘请顶级法务 · 严防合规管辖权",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "marcus_reed": {
+            "respect": 2
+          }
+        },
+        "fund_deltas": {
+          "political_capital": -6,
+          "counterparty_trust": -2
+        },
+        "result_text": "律师费烧得像印钞机，但成功把 SEC 的调查范围挡在了外围。"
+      },
+      {
+        "id": "stonewall",
+        "label": "装死拖延，能拖一天是一天",
+        "compliance_delta": 15,
+        "relationship_deltas": {
+          "marcus_reed": {
+            "trust": -12,
+            "respect": -8,
+            "fear": 6
+          }
+        },
+        "fund_deltas": {
+          "political_capital": -10,
+          "reputation": -8,
+          "counterparty_trust": -6
+        },
+        "result_text": "Marcus 直接在记录里写下'极端不配合'，SEC 的后续火力全瞄准了你。"
+      }
+    ],
+    "cooldown": 10
+  },
+  {
+    "id": "employee_leak",
+    "title": "内部员工泄露信息",
+    "category": "compliance",
+    "intel_class": "POSSIBLE_MNPI",
+    "character_id": null,
+    "headline_template": "小弟泄密：一份带着血腥味的并购材料",
+    "body_template": "你手下有个不懂事的蠢货研究员，跑来说看到了没公开的并购尽调材料，直接牵扯你的重仓股。这傻逼把话倒完就跑了，现在这颗定时炸弹实实在在地揣在了你兜里。",
+    "regime_bias": [
+      "GENERIC"
+    ],
+    "hidden": {
+      "reliability": 0.6,
+      "legality": 0.15,
+      "market_awareness": 0.05,
+      "timing_advantage": 0.75,
+      "importance": 0.65,
+      "source_bias": 0.5
+    },
+    "choices": [
+      {
+        "id": "ignore_leak",
+        "label": "当场打断他，警告他管好自己的嘴",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "staff_morale": -1
+        },
+        "result_text": "你直接把这事按死了，假装这对话从来没发生过。"
+      },
+      {
+        "id": "ask_compliance",
+        "label": "立刻扔给合规部，把这蠢货隔离掉",
+        "compliance_delta": -3,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "information_network": -1,
+          "reputation": 2
+        },
+        "result_text": "合规部封了相关的权限，顺带给那个小弟记了一笔大过。"
+      },
+      {
+        "id": "investigate_source",
+        "label": "拐弯抹角去核实这份材料的真伪",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "information_network": 3
+        },
+        "result_text": "材料是真的，但你没敢动手，眼睁睁看着这波横财飞走。"
+      },
+      {
+        "id": "trade_on_leak",
+        "label": "违规抢跑建仓 · 提前锁定事件筹码",
+        "compliance_delta": 20,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "information_network": 5,
+          "reputation": -5,
+          "political_capital": -8
+        },
+        "result_text": "你吃到了最肥的一段利润，但那小弟看你的眼神已经完全变了。"
+      }
+    ],
+    "cooldown": 10
+  },
+  {
+    "id": "rival_crowded_trade",
+    "title": "对家基金曝出同仓拥挤交易",
+    "category": "rival",
+    "intel_class": "PUBLIC_RUMOR",
+    "character_id": "adrian_cross",
+    "headline_template": "头寸撞车：Adrian 那老狐狸跟你买了同一家",
+    "body_template": "圈里传闻，Adrian 那个混蛋在你的重仓股上建了一样庞大的头寸。只要这老狐狸提前抢跑砸盘，你就会被死死按在水下。Goddamn it。",
+    "regime_bias": [
+      "AI",
+      "GENERIC"
+    ],
+    "hidden": {
+      "reliability": 0.7,
+      "legality": 1.0,
+      "market_awareness": 0.6,
+      "timing_advantage": 0.3,
+      "importance": 0.6,
+      "source_bias": 0.3
+    },
+    "choices": [
+      {
+        "id": "reduce_crowding_risk",
+        "label": "他妈的，先降点仓位保平安",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "reputation": 1
+        },
+        "result_text": "你主动削减了敞口，少赚了钱但晚上好歹能睡着了。"
+      },
+      {
+        "id": "hold_firm",
+        "label": "死刚到底，看谁先怂",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {},
+        "result_text": "你把筹码全推在桌上，这场博弈变成了看谁的子弹更厚。"
+      },
+      {
+        "id": "reach_out_adrian",
+        "label": "去试探Adrian的底牌",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "adrian_cross": {
+            "trust": 2,
+            "rivalry": 3
+          }
+        },
+        "fund_deltas": {
+          "information_network": 3
+        },
+        "result_text": "Adrian 跟你打了半天太极，但你还是听出了他准备持股过冬的意思。"
+      }
+    ],
+    "cooldown": 10
+  },
+  {
+    "id": "client_threatens_redemption",
+    "title": "关键客户威胁撤资",
+    "category": "client",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": null,
+    "headline_template": "金主爸爸翻脸：威胁撤走底仓资金",
+    "body_template": "你最早的一个金主直言对你最近的回撤极其火大。话里话外都在暗示，你要是再不稳住业绩，他立马把钱全抽走，让你去喝西北风。",
+    "regime_bias": [
+      "AI",
+      "WAR"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "legality": 1.0,
+      "market_awareness": 0.1,
+      "timing_advantage": 0.1,
+      "importance": 0.65,
+      "source_bias": 0.2
+    },
+    "choices": [
+      {
+        "id": "transparent_review",
+        "label": "组织深度复盘 · 展示风控底线模型",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "lp_confidence": 8,
+          "counterparty_trust": 4
+        },
+        "result_text": "你看出了他的色厉内荏，硬是用一堆数据把他摁回了椅子上。"
+      },
+      {
+        "id": "promise_derisk",
+        "label": "认怂，承诺降低波动率和风险敞口",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "lp_confidence": 5,
+          "reputation": -2
+        },
+        "result_text": "他满意了，但你的手脚也被死死捆住了。"
+      },
+      {
+        "id": "stand_firm",
+        "label": "老子就这风格，不爱投滚蛋",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "lp_confidence": -6,
+          "reputation": 2
+        },
+        "result_text": "咖啡洒了一桌，这笔钱看来是留不到年底了。"
+      }
+    ],
+    "cooldown": 10
+  },
+  {
+    "id": "data_vendor_failure",
+    "title": "行情数据供应商中断",
+    "category": "operational",
+    "intel_class": "PUBLIC_VERIFIED",
+    "character_id": null,
+    "headline_template": "行情中断：终端机成了瞎子",
+    "body_template": "彭博机和行情源突然集体抽风。整个华尔街现在都在瞎摸黑交易。面对着没有实时报价的屏幕，你要么继续盲狙，要么直接拔网线。Fuck this shit。",
+    "regime_bias": [
+      "GENERIC"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "legality": 1.0,
+      "market_awareness": 1.0,
+      "timing_advantage": 0.0,
+      "importance": 0.4,
+      "source_bias": 0.0
+    },
+    "choices": [
+      {
+        "id": "pause_trading",
+        "label": "拔网线，停止新开仓，老子不赌命",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "reputation": 1
+        },
+        "result_text": "你躲过了几笔滑点极大的离谱成交。"
+      },
+      {
+        "id": "use_backup_feed",
+        "label": "切备用数据源，硬着头皮继续上",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "information_network": 2
+        },
+        "result_text": "延迟高得离谱，但勉强把急需的单子敲出去了。"
+      },
+      {
+        "id": "trade_through_gaps",
+        "label": "全靠盘感盲操，照常下单",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "reputation": -1
+        },
+        "result_text": "有几笔单子吃到了天价滑点，痛得你骂娘。"
+      }
+    ],
+    "cooldown": 10
+  },
+  {
+    "id": "analyst_high_conviction_call",
+    "title": "分析师高信念度调研结论",
+    "category": "research",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": "maya_chen",
+    "headline_template": "Maya Chen: 这波必赚，听我的",
+    "body_template": "Maya 把详尽的调研报告摔在你面前，眼神亮得吓人。她拍胸脯保证这公司的下季订单会把卖方的脸打肿。她要求你立刻重仓，这种满血信念度的结论在买方一年都见不到几回。",
+    "regime_bias": [
+      "AI"
+    ],
+    "hidden": {
+      "reliability": 0.75,
+      "legality": 1.0,
+      "market_awareness": 0.2,
+      "timing_advantage": 0.55,
+      "importance": 0.7,
+      "source_bias": 0.35
+    },
+    "choices": [
+      {
+        "id": "act_on_call",
+        "label": "信她，直接把子弹打满",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "maya_chen": {
+            "trust": 6,
+            "respect": 5
+          }
+        },
+        "fund_deltas": {
+          "information_network": 2
+        },
+        "result_text": "你把重注压了下去，这就是你们基金赖以生存的底气。"
+      },
+      {
+        "id": "verify_first",
+        "label": "让她再拿点交叉验证的实锤数据",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "maya_chen": {
+            "respect": 2
+          }
+        },
+        "fund_deltas": {
+          "information_network": 4
+        },
+        "result_text": "几天后她拿出了更多底牌，你才放心地扣下扳机。"
+      },
+      {
+        "id": "decline_call",
+        "label": "冷处理，这报告看着还是太玄乎",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "maya_chen": {
+            "trust": -3,
+            "respect": -2
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "Maya 铁青着脸摔门而去，你俩的信任出现了裂痕。"
+      }
+    ],
+    "cooldown": 10
+  },
+  {
+    "id": "political_contact_intel",
+    "title": "政界关系人士提供消息",
+    "category": "compliance",
+    "intel_class": "POSSIBLE_MNPI",
+    "character_id": null,
+    "headline_template": "华盛顿的局：饭局上的政策底牌",
+    "body_template": "你在华盛顿的政客线人暗示一个针对你持仓行业的致命政策正在起草。这不是新闻，但他也不是什么善茬。你得判断这是借刀杀人，还是真的在拉你一把。",
+    "regime_bias": [
+      "WAR",
+      "TARIFF",
+      "GENERIC"
+    ],
+    "hidden": {
+      "reliability": 0.5,
+      "legality": 0.25,
+      "market_awareness": 0.1,
+      "timing_advantage": 0.65,
+      "importance": 0.7,
+      "source_bias": 0.55
+    },
+    "choices": [
+      {
+        "id": "ignore_hint",
+        "label": "装傻充愣，吃完这顿饭当没听过",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "political_capital": 1
+        },
+        "result_text": "你平安地走出了餐厅，没让这趟浑水沾上自己。"
+      },
+      {
+        "id": "ask_compliance",
+        "label": "转身就把这事报给合规部撇清关系",
+        "compliance_delta": -2,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "political_capital": 2,
+          "information_network": -1
+        },
+        "result_text": "合规部直接锁了这票交易，你这辈子也别想再约他吃饭了。"
+      },
+      {
+        "id": "verify_publicly",
+        "label": "调取政策智库 · 研判监管草案动向",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "information_network": 3
+        },
+        "result_text": "查来查去没个定论，但你嗅到了空气中逐渐变浓的火药味。"
+      },
+      {
+        "id": "trade_on_hint",
+        "label": "隐蔽执行买入 · 抢先建立内幕头寸",
+        "compliance_delta": 16,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "political_capital": 4,
+          "information_network": 5,
+          "reputation": -3
+        },
+        "result_text": "你赚得盆满钵满，但你知道这把柄算是捏在那政客手里了。"
+      }
+    ],
+    "cooldown": 10
+  },
+  {
+    "id": "journalist_requests_comment",
+    "title": "记者发稿前请求置评",
+    "category": "media",
+    "intel_class": "PUBLIC_RUMOR",
+    "character_id": "evelyn_shaw",
+    "headline_template": "Evelyn Shaw: 求证市场传言",
+    "body_template": "Evelyn 发信要在 24 小时内发稿，讲的是你们基金那次暴力洗盘的市场传闻。你要是不回，她就照着这坨半真半假的狗屎发出去。",
+    "regime_bias": [
+      "NEWS",
+      "GENERIC"
+    ],
+    "hidden": {
+      "reliability": 0.8,
+      "legality": 1.0,
+      "market_awareness": 0.3,
+      "timing_advantage": 0.2,
+      "importance": 0.5,
+      "source_bias": 0.25
+    },
+    "choices": [
+      {
+        "id": "detailed_comment",
+        "label": "发布公关声明 · 统一外部披露口径",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "evelyn_shaw": {
+            "trust": 5,
+            "respect": 4
+          }
+        },
+        "fund_deltas": {
+          "reputation": 4
+        },
+        "result_text": "报道里你的声明四平八稳，虽然没完全洗白，但好歹把造谣那部分按死了。"
+      },
+      {
+        "id": "brief_no_comment",
+        "label": "甩一句'无可奉告'拉倒",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "evelyn_shaw": {
+            "trust": -2
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "她直接把脏水全泼你头上了。"
+      },
+      {
+        "id": "off_record_briefing",
+        "label": "私下沟通交流 · 不留任何录音底稿",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "evelyn_shaw": {
+            "trust": 3,
+            "favor": 3
+          }
+        },
+        "fund_deltas": {
+          "reputation": 1,
+          "information_network": 1
+        },
+        "result_text": "她的笔下留情了，但你欠了她一个巨大的人情。"
+      }
+    ],
+    "cooldown": 10
+  },
+  {
+    "id": "rival_offers_cooperation",
+    "title": "对家基金提议合作",
+    "category": "rival",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": "adrian_cross",
+    "headline_template": "Adrian Cross 的黄鼠狼拜年",
+    "body_template": "Adrian 约你喝茶，提议在暴仓风险标的建立'信息互通'。他说得冠冕堂皇，但你心里清楚，只要有风吹草动，这老狐狸绝对会第一个拿你当垫背。",
+    "regime_bias": [
+      "GENERIC"
+    ],
+    "hidden": {
+      "reliability": 0.55,
+      "legality": 0.85,
+      "market_awareness": 0.2,
+      "timing_advantage": 0.4,
+      "importance": 0.55,
+      "source_bias": 0.6
+    },
+    "choices": [
+      {
+        "id": "accept_cooperation",
+        "label": "将计就计，互换底牌稳住阵脚",
+        "compliance_delta": 3,
+        "relationship_deltas": {
+          "adrian_cross": {
+            "trust": 6,
+            "rivalry": -3,
+            "favor": 4
+          }
+        },
+        "fund_deltas": {
+          "information_network": 6,
+          "counterparty_trust": -2
+        },
+        "result_text": "你拿到了他的一部分情报，但你也知道他随时可能在背后捅你一刀。"
+      },
+      {
+        "id": "decline_politely",
+        "label": "让他滚蛋，老子自己能玩转",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "adrian_cross": {
+            "respect": 2,
+            "rivalry": 2
+          }
+        },
+        "fund_deltas": {},
+        "result_text": "Adrian 皮笑肉不笑地走了，你们算是彻底撕破了脸。"
+      },
+      {
+        "id": "counter_propose",
+        "label": "反客为主施压 · 索取核心深度筹码",
+        "compliance_delta": 0,
+        "relationship_deltas": {
+          "adrian_cross": {
+            "trust": -2,
+            "rivalry": 5,
+            "respect": 3
+          }
+        },
+        "fund_deltas": {
+          "information_network": 2
+        },
+        "result_text": "谈了半天双方都不肯吃亏，最后不欢而散。"
+      }
+    ],
+    "cooldown": 10
+  },
+  {
+    "id": "key_employee_burnout",
+    "title": "核心员工职业倦怠",
+    "category": "personnel",
+    "intel_class": "PRIVATE_INTEL",
+    "character_id": null,
+    "headline_template": "核心交易员崩溃边缘",
+    "body_template": "你手下最能打的交易员频频出错，红着眼睛诉苦说没日没夜的盯盘让他快疯了。那种随时要玉石俱焚的疲惫感做不了假，加钱已经没用了。Bullshit，这节骨眼上掉链子。",
+    "regime_bias": [
+      "GENERIC"
+    ],
+    "hidden": {
+      "reliability": 1.0,
+      "legality": 1.0,
+      "market_awareness": 0.05,
+      "timing_advantage": 0.05,
+      "importance": 0.55,
+      "source_bias": 0.1
+    },
+    "choices": [
+      {
+        "id": "mandate_leave",
+        "label": "强制他滚去休假，找人顶包",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "staff_morale": 8,
+          "reputation": 1
+        },
+        "result_text": "交易台一阵手忙脚乱，但他回来后好歹没有猝死在桌上。"
+      },
+      {
+        "id": "reduce_workload",
+        "label": "削减他的仓位，让他喘口气",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "staff_morale": 4,
+          "information_network": -1
+        },
+        "result_text": "他勉强稳住了状态，但团队的赚钱效率肉眼可见地下滑。"
+      },
+      {
+        "id": "push_through",
+        "label": "这时候给老子顶住，死在键盘上",
+        "compliance_delta": 0,
+        "relationship_deltas": {},
+        "fund_deltas": {
+          "staff_morale": -10
+        },
+        "result_text": "他撑了几周后直接把工牌摔在你脸上，你彻底失去了他。"
+      }
+    ],
+    "cooldown": 10
+  }
+]

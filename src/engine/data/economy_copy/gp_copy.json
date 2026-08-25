@@ -1,0 +1,81 @@
+{
+  "_schema_note": "GP 个人权力消费与行贿判定文案包。包含六大个人消费项目（描述/反馈/LP观感）、送礼跨线至贿赂的法证判定体系（灰区与红线警示）、以及基金回撤期奢靡消费的 LP 反噬规则。",
+  "items": [
+    {
+      "item_id": "PRIVATE_DINNER",
+      "name_cn": "曼哈顿私密主厨晚宴 (PRIVATE DINNER)",
+      "name_en": "Private Omakase & Cigar Dinner",
+      "cost_range_desc": "$750 ~ $1,500 / 次",
+      "recurring_burn_desc": "无持续月费 · 纯一次性个人支出",
+      "summary_pitch": "在米其林私密包厢或雪茄吧招待特定关键人物，在绝对私密的环境下增进私人互信与交换人脉。",
+      "gameplay_unlocked": "解锁 1 次与特定人物的深度私密会面机会，将关键对话与人脉偏好永久写入角色记忆（Character Memory）。",
+      "feedback_text": "在顶级清酒与极品雪茄的微醺氛围中，你与对方达成了某种心照不宣的默契。一段极具价值的私人人脉已牢固建立。",
+      "optics_risk_note": "低媒体曝光度，属于华尔街常规社交范畴，通常不会引起 LP 与监管机构的负面关注。"
+    },
+    {
+      "item_id": "CLUB_MEMBERSHIP",
+      "name_cn": "顶级私人俱乐部终身会籍 (CLUB MEMBERSHIP)",
+      "name_en": "Elite Private Club Membership",
+      "cost_range_desc": "$4,000 入会费 + $500 / 月",
+      "recurring_burn_desc": "GP 个人现金 -$500 / 月",
+      "summary_pitch": "跻身第五大道最隐秘的闭门俱乐部，与华尔街顶级做市商大佬、政商名流及主权财富基金买手在同一间酒廊谈笑风生。",
+      "gameplay_unlocked": "显著提升每日遭遇高净值 LP、投行董事与主流财经媒体把关人的概率，拓宽潜在商业机会池（不提供内幕线索）。",
+      "feedback_text": "你拿到了刻有你名字的专属纯金会籍卡。在这里，每一张餐桌上的闲聊都可能孕育着华尔街下一场大宗并购的雏形。",
+      "optics_risk_note": "高调标签 (Visibility) +5；若按时履约个人会费，会被同行视为资本实力与社会地位的象征。"
+    },
+    {
+      "item_id": "CHARITY_GALA",
+      "name_cn": "大都会慈善舞会主赞助席 (CHARITY GALA)",
+      "name_en": "Metropolitan Charity Gala Sponsor",
+      "cost_range_desc": "$5,000 ~ $12,000 / 次",
+      "recurring_burn_desc": "无持续月费 · 纯一次性个人支出",
+      "summary_pitch": "以对冲基金创始合伙人身份冠名大都会慈善晚宴，佩戴黑领结在聚光灯下发表致辞，将财富转化为崇高的社会声望。",
+      "gameplay_unlocked": "大幅提升基金公众声誉 (Reputation +3~8)，解锁政商两界顶层名流剧情；但若在基金严重回撤期举办，将引发 LP 强烈反感。",
+      "feedback_text": "你的慷慨捐赠登上了《纽约时报》社交版头条。政商要人纷纷向你举杯致意，你的名字成为了华尔街慈善榜上的耀眼新星。",
+      "optics_risk_note": "【致命反噬警报】若基金刚刚遭遇 >10% 的严重净值回撤，48小时内高调赞助慈善将被 LP 斥为‘拿投资人的血汗钱买个人虚名’，引发 LP 信任危机 (LP Optics -8~15)！"
+    },
+    {
+      "item_id": "LUXURY_HOME",
+      "name_cn": "中央公园顶层豪宅公馆 (LUXURY HOME)",
+      "name_en": "Central Park Penthouse Residence",
+      "cost_range_desc": "$20,000 ~ $40,000 (首付与奢华装修)",
+      "recurring_burn_desc": "GP 个人现金 -$1,500 / 月 (私人管家与维护)",
+      "summary_pitch": "俯瞰整个中央公园全景的奢华顶层复式公馆，配备私人艺术长廊与酒窖，是对冲基金掌门人绝对权力的实体王座。",
+      "gameplay_unlocked": "解锁最高规格的私人官邸招待剧情槽，允许在不引起公众注意的情况下闭门接见超高净值主权 LP 与顶尖合伙人。",
+      "feedback_text": "站在落地窗前俯瞰曼哈顿璀璨的夜景，整个世界的金融脉搏仿佛都在你的脚下跳动。你的名字已经与华尔街传奇合伙人并列。",
+      "optics_risk_note": "媒体曝光度 (Media Attention) +5；高昂的月度私人开支需要稳定的 GP 现金流支撑，严禁通过任何手段由管理公司或基金报销！"
+    },
+    {
+      "item_id": "PRIVATE_JET",
+      "name_cn": "湾流 G650 私人飞机包机 (PRIVATE JET CHARTER)",
+      "name_en": "Gulfstream Private Jet Charter",
+      "cost_range_desc": "$8,000 ~ $20,000 / 次",
+      "recurring_burn_desc": "无持续月费 · 按次结算",
+      "summary_pitch": "尊享专属停机坪与空中会议室，在几小时内跨越大陆直飞华盛顿闭门听证现场或硅谷芯片巨头总部，彻底摆脱民航延误。",
+      "gameplay_unlocked": "允许在紧急剧情中跨城市穿梭而不消耗常规行动节点，抢在竞争对手之前锁定关键盟友会面。",
+      "feedback_text": "湾流飞机的引擎在跑道上轰鸣。在三万英尺的高空，你在卫星加密电话中完成了最关键的一笔人脉斡旋。",
+      "optics_risk_note": "连续使用 2 次以上将导致媒体曝光度激增 (+10)；在业绩低迷期频繁包机将遭到财经狗仔队跟踪曝光，招致 LP 严厉质询。"
+    },
+    {
+      "item_id": "GIFT",
+      "name_cn": "定制珍藏与商务奢华赠礼 (CUSTOM LUXURY GIFT)",
+      "name_en": "High-End Corporate & Personal Gift",
+      "cost_range_desc": "$300 ~ $5,000 / 份",
+      "recurring_burn_desc": "无持续月费 · 纯个人支出",
+      "summary_pitch": "向已有合作关系的商业伙伴、银行主管或关键知情人赠送名贵腕表、绝版名酒或艺术品，巩固私人同盟关系。",
+      "gameplay_unlocked": "显著提升目标角色的个人好感度与合作意愿 (Relationship +2~8)，所有赠礼明细强制记录入法证赠礼账本 (Gift Ledger)。",
+      "feedback_text": "精美的定制礼盒送达了对方手中。对方欣然收下并致电致谢，你们之间的同盟纽带变得更加坚不可摧。",
+      "optics_risk_note": "【法律红线警告】赠礼金额过大、赠送对象涉及公职/监管/审计人员、或附带明确职务利益交换时，将直接穿透为严重违法受贿/行贿 (Bribery)！"
+    }
+  ],
+  "bribery_warning_system": {
+    "bribery_formula_explanation": "【法证反腐败判定公式】系统通过四个维度实时量化赠礼的受贿/行贿风险评级：\nbribery_score = 金额因子 (0-3) + 对象因子 (0-3) + 时机因子 (0-2) + 利益交换因子 (0-4)\n- 对象敏感度：公职人员、监管执法官员、独立审计师或媒体把关人直接触发最高对象因子 (+3)；\n- 利益交换：若赠礼同时伴随明确的职务便利索求，直接判定顶格利益交换因子 (+4)。",
+    "tier_gray_warning": "【灰区合规警报 (Bribery Score 3-5)】本次赠礼已超出正常商业社交礼节，触及合规灰色地带！合规风险 (Compliance Risk) 上升 5-12 点，法证审计账本中新增 1 条可疑交易留痕 (Evidence +1)。虽然尚未构成刑事起诉，但已进入监管异常流水监控池。",
+    "tier_bribery_flag_critical": "【严重违法确凿判定 (BRIBERY_FLAG · Score >= 6)】警告！本次行为已被正式定性为非法商业行贿/政府官员腐败交易！系统立即生成不可磨灭的 BRIBERY_FLAG 犯罪证据与 2-4 条确凿审计留痕。合规风险飙升 20-35 点，且该历史记录永久封锁入法证审计档案，绝无法通过律师或公关手段洗白！",
+    "hard_rule_no_whitewash": "【法证铁律 · 证据不可撤销】在 OptionsTycoon 中，任何金钱支出只能购买程序抗辩或降低声誉损害，绝不可能减少已记录的违法证据数量 (Evidence Count)，绝不能删除 BRIBERY_FLAG，绝不能伪造合规历史。"
+  },
+  "lp_backlash_rules": {
+    "title": "奢靡消费与 LP 观感反噬规则 (GP Splurge vs LP Backlash)",
+    "description": "GP 个人权力消费具有高度透明的‘视觉量级’：\n1. 单次消费超过 GP 可用现金的 20% 或超过基金 NAV 的 10% 时，个人高调曝光度 (GP Visibility) 激增 10-20 点；\n2. 若在基金净值回撤 >10% 或 LP 信心指数 <50 的低迷期进行豪宅首付、包机或慈善赞助，LP 观感 (LP Optics) 将遭受 -8 至 -15 点的断崖式暴跌，极大加速机构赎回潮的爆发！"
+  }
+}

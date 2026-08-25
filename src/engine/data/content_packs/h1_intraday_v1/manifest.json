@@ -1,0 +1,416 @@
+{
+  "pack_id": "h1_intraday_v3_proxy",
+  "scenario_id": "h1",
+  "version": 3,
+  "generated_at": "2026-08-21T00:00:00Z",
+  "runtime_network_required": false,
+  "truth_label": "PROXY",
+  "data_mode": "PROXY",
+  "included_sessions": [
+    {
+      "session_id": "h1_qqq_2026-01-20_1m_proxy",
+      "ticker": "QQQ",
+      "date": "2026-01-20",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "qqq_2026-01-20.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "h1_spy_2026-01-20_1m_proxy",
+      "ticker": "SPY",
+      "date": "2026-01-20",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "spy_2026-01-20.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "h1_vxx_2026-01-20_1m_proxy",
+      "ticker": "VXX",
+      "date": "2026-01-20",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "vxx_2026-01-20.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 388
+    },
+    {
+      "session_id": "h1_qqq_2026-02-23_1m_proxy",
+      "ticker": "QQQ",
+      "date": "2026-02-23",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "qqq_2026-02-23.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "h1_spy_2026-02-23_1m_proxy",
+      "ticker": "SPY",
+      "date": "2026-02-23",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "spy_2026-02-23.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "h1_vxx_2026-02-23_1m_proxy",
+      "ticker": "VXX",
+      "date": "2026-02-23",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "vxx_2026-02-23.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 329
+    },
+    {
+      "session_id": "h1_qqq_2026-03-26_1m_proxy",
+      "ticker": "QQQ",
+      "date": "2026-03-26",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "qqq_2026-03-26.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "h1_spy_2026-03-26_1m_proxy",
+      "ticker": "SPY",
+      "date": "2026-03-26",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "spy_2026-03-26.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "h1_vxx_2026-03-26_1m_proxy",
+      "ticker": "VXX",
+      "date": "2026-03-26",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "vxx_2026-03-26.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 358
+    },
+    {
+      "session_id": "h1_qqq_2026-04-08_1m_proxy",
+      "ticker": "QQQ",
+      "date": "2026-04-08",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "qqq_2026-04-08.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "h1_spy_2026-04-08_1m_proxy",
+      "ticker": "SPY",
+      "date": "2026-04-08",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "spy_2026-04-08.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "h1_vxx_2026-04-08_1m_proxy",
+      "ticker": "VXX",
+      "date": "2026-04-08",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "vxx_2026-04-08.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 325
+    },
+    {
+      "session_id": "h1_qqq_2026-05-08_1m_proxy",
+      "ticker": "QQQ",
+      "date": "2026-05-08",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "qqq_2026-05-08.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "h1_spy_2026-05-08_1m_proxy",
+      "ticker": "SPY",
+      "date": "2026-05-08",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "spy_2026-05-08.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "h1_vxx_2026-05-08_1m_proxy",
+      "ticker": "VXX",
+      "date": "2026-05-08",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "vxx_2026-05-08.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 307
+    },
+    {
+      "session_id": "h1_qqq_2026-05-20_1m_proxy",
+      "ticker": "QQQ",
+      "date": "2026-05-20",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "qqq_2026-05-20.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "h1_spy_2026-05-20_1m_proxy",
+      "ticker": "SPY",
+      "date": "2026-05-20",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "spy_2026-05-20.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "h1_vxx_2026-05-20_1m_proxy",
+      "ticker": "VXX",
+      "date": "2026-05-20",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "vxx_2026-05-20.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 317
+    },
+    {
+      "session_id": "h1_qqq_2026-05-21_1m_proxy",
+      "ticker": "QQQ",
+      "date": "2026-05-21",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "qqq_2026-05-21.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 389
+    },
+    {
+      "session_id": "h1_spy_2026-05-21_1m_proxy",
+      "ticker": "SPY",
+      "date": "2026-05-21",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "spy_2026-05-21.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "h1_vxx_2026-05-21_1m_proxy",
+      "ticker": "VXX",
+      "date": "2026-05-21",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "vxx_2026-05-21.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 352
+    },
+    {
+      "session_id": "h1_qqq_2026-06-05_1m_proxy",
+      "ticker": "QQQ",
+      "date": "2026-06-05",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "qqq_2026-06-05.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "h1_spy_2026-06-05_1m_proxy",
+      "ticker": "SPY",
+      "date": "2026-06-05",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "spy_2026-06-05.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "h1_vxx_2026-06-05_1m_proxy",
+      "ticker": "VXX",
+      "date": "2026-06-05",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "vxx_2026-06-05.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 389
+    },
+    {
+      "session_id": "h1_qqq_2026-06-11_1m_proxy",
+      "ticker": "QQQ",
+      "date": "2026-06-11",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "qqq_2026-06-11.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "h1_spy_2026-06-11_1m_proxy",
+      "ticker": "SPY",
+      "date": "2026-06-11",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "spy_2026-06-11.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "h1_vxx_2026-06-11_1m_proxy",
+      "ticker": "VXX",
+      "date": "2026-06-11",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "vxx_2026-06-11.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 386
+    },
+    {
+      "session_id": "h1_qqq_2026-06-30_1m_proxy",
+      "ticker": "QQQ",
+      "date": "2026-06-30",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "qqq_2026-06-30.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "h1_spy_2026-06-30_1m_proxy",
+      "ticker": "SPY",
+      "date": "2026-06-30",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "spy_2026-06-30.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 390
+    },
+    {
+      "session_id": "h1_vxx_2026-06-30_1m_proxy",
+      "ticker": "VXX",
+      "date": "2026-06-30",
+      "granularity": "1m_real_hfdl_proxy",
+      "file": "vxx_2026-06-30.json",
+      "usage": "DATA_ONLY_PROXY",
+      "material_windows": 0,
+      "bar_count": 278
+    }
+  ],
+  "provenance": [
+    {
+      "source_name": "HF Data Library Part47 SPY/QQQ ETF proxy slices",
+      "source_url_or_identifier": "https://hfdatalibrary.com/pages/download",
+      "source_type": "REAL_VENDOR",
+      "note": "PROXY context layer, not cash SPX or cash IXIC; exact one-minute rows, no padding.",
+      "sha256": "56ff45cf32159d6544753058dd6b52a56a313c247d50b19c84d4c0d577f739ec"
+    },
+    {
+      "source_name": "HF Data Library Part48 VXX ETF proxy slices",
+      "source_url_or_identifier": "https://hfdatalibrary.com/pages/download",
+      "source_type": "REAL_VENDOR",
+      "note": "PROXY context layer, not the Cboe VIX index; exact one-minute rows, no padding.",
+      "sha256": "5aa9506e99465e5fb7dfba065d49f8c0adc0010c83e041486b7b22965477d20f"
+    }
+  ],
+  "files_sha256": {
+    "qqq_2026-01-20.json": "e86a7864acab56def49c3d060f18d755f2d53416cea2e75b170b9cf632d95920",
+    "qqq_2026-02-23.json": "aafaa7d8589e228b4abf82c61f513aa3322e65d19f1047264a61ff2b4ea60a96",
+    "qqq_2026-03-26.json": "537c203dae7dba3c5ffb948675dcf0014c06a228048a6f9be2d38a191c4511a7",
+    "qqq_2026-04-08.json": "67149e8ec2d58b894994c711a0f4b2437d7573cbc2be2c26f2e3396cb0a2de39",
+    "qqq_2026-05-08.json": "d5b433e8c9e60da2ec71488f45a7ee04a880494c0941aa40166b1a2410e78f29",
+    "qqq_2026-05-20.json": "6a1ff8ed96712b0a0ece9803055e6d40097fa57b3f6be743a0a61d74219743b0",
+    "qqq_2026-05-21.json": "9476518e92caa618bbdcc165833bc3585b306e616673907d07e33eded5c019b6",
+    "qqq_2026-06-05.json": "e20042576d734480e7cb746692b397274d8783c82b551631118a40c6fe0235e9",
+    "qqq_2026-06-11.json": "576adf91b52cc396150d4dffb03807421227021e2508ff5ded80979df83682fd",
+    "qqq_2026-06-30.json": "010832f33887bf660bba4b30d6d9f2520dd6422c49fdcffc2dcc3b59e0937d0a",
+    "spy_2026-01-20.json": "73d87353927faf0374baa1273c5d6dbb1f625df90d3c208c2967ef0d489b6e74",
+    "spy_2026-02-23.json": "94c43b6bde5acfbbbd8b0ee242a8c02c1fc0d70ac095e3bc7308a4770597b9e4",
+    "spy_2026-03-26.json": "93cb5a85ee1328702c556841ff03e235ba512362653498b0c8a6c5201fe448d1",
+    "spy_2026-04-08.json": "9c35aae2013c152b65e5f78fc30c3f80c573352ac9eeddf2109a0aee31d4d4db",
+    "spy_2026-05-08.json": "1f8e82df744da8efae74d8f628de35776482ed3b456b77858f755b25736b5afe",
+    "spy_2026-05-20.json": "ffcdb7112ef5f3786a4f6a7431b7e6f40d4a4da6438691480e44229b2554f7a0",
+    "spy_2026-05-21.json": "44e3e456ce06d258c354c4893490ee3fe94d38f1e92f4e085dbe8e4596200d03",
+    "spy_2026-06-05.json": "283c1702145a0470dbbb8443fe5034f159cf084458890cd45ff4bdea5182f133",
+    "spy_2026-06-11.json": "670efefd0c18052d6af3c1bfd59c6863f1829746b26c4f0067a77cfa7f337fc3",
+    "spy_2026-06-30.json": "2ae42364096927beaeb26961b3a9e5a367c5c042be2b71257c29234befe58262",
+    "vxx_2026-01-20.json": "7feeef0464089ad74d0a836d009eb2aedf2dbfd2fc9b7774a37b9eb1d8a77591",
+    "vxx_2026-02-23.json": "eadbb827f2ef301c485496449c042fcac99999f88cede22d1f5435f4baea1897",
+    "vxx_2026-03-26.json": "7137a4602d0ab21afae3b3f0b454b2b1371ed357d9da3d5b292807f5284cb4cf",
+    "vxx_2026-04-08.json": "1a691358f5a1065b85cb18be39283a191ac1fca47201329372039b485bd26e08",
+    "vxx_2026-05-08.json": "49c1d5fc1a6fdb1cd024f25324b1827b50daa81acc93db00a47507603d8c601c",
+    "vxx_2026-05-20.json": "c0cbe77cd58f2a484f6a453d62b715fd564f8ae5d9926b0de9c7ec5d6c3a6d12",
+    "vxx_2026-05-21.json": "0c43ff3706e108ffb6c9426afc5cc91c1ebd43d811e90519b81e08ed8f753fda",
+    "vxx_2026-06-05.json": "26b1e4f9acc7dc4e7a7ab74db3c9a940c8e679a92607816755fef9d2d64bf5d0",
+    "vxx_2026-06-11.json": "2b5a5181a844db37d0b01d96e5e84a7930102746e3f3db4f2f4480c7506f06db",
+    "vxx_2026-06-30.json": "95e2884245f399761f4009ace263a812cd16bb8cfbba668ebeef989b7325c852"
+  },
+  "distribution_note": "PROXY means SPY/QQQ/VXX context only: not cash SPX, not cash IXIC, and VXX is not Cboe VIX. Missing rows remain missing; no carry promise for the unavailable cash indices.",
+  "carry_data_coverage": [
+    {
+      "symbol": "SPX/IXIC/VIX",
+      "from_at": "2026-01-20",
+      "to_at": "2026-06-30",
+      "required_fields": [
+        "daily_ohlcv"
+      ],
+      "status": "MISSING",
+      "missing_dates": [
+        "2026-01-20",
+        "2026-02-23",
+        "2026-03-26",
+        "2026-04-08",
+        "2026-05-08",
+        "2026-05-20",
+        "2026-05-21",
+        "2026-06-05",
+        "2026-06-11",
+        "2026-06-30"
+      ],
+      "coverage_ratio": 0,
+      "source_refs": [
+        "Part47",
+        "Part48"
+      ],
+      "note": "Cash index and official Cboe VIX data are unavailable; ETF proxies do not unlock cash-index carry."
+    },
+    {
+      "symbol": "SPY/QQQ/VXX",
+      "from_at": "2026-01-20",
+      "to_at": "2026-06-30",
+      "required_fields": [
+        "proxy_intraday_ohlcv"
+      ],
+      "status": "VERIFIED",
+      "available_dates": [
+        "2026-01-20",
+        "2026-02-23",
+        "2026-03-26",
+        "2026-04-08",
+        "2026-05-08",
+        "2026-05-20",
+        "2026-05-21",
+        "2026-06-05",
+        "2026-06-11",
+        "2026-06-30"
+      ],
+      "coverage_ratio": 1,
+      "source_refs": [
+        "Part47",
+        "Part48"
+      ],
+      "note": "Context layer only; explicit PROXY labels are required at session and manifest level."
+    }
+  ]
+}

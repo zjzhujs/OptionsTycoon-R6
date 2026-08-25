@@ -1,0 +1,89 @@
+.portfolio-workspace-layout,
+.intel-workspace-layout,
+.review-workspace-layout {
+  width: min(100%, 1680px);
+  margin-inline: auto;
+  gap: 10px;
+  padding: 10px;
+}
+
+.workspace-return-hq { margin: 8px 10px; }
+.mission-header { border-radius: 0; }
+
+
+/* R6.6.2 whole-product convergence. Secondary workspaces keep their own
+   information architecture but live on the same institutional chassis. */
+.fund-hq-container,
+.portfolio-workspace-layout,
+.intel-workspace-layout,
+.review-workspace-layout {
+  position:relative;
+  isolation:isolate;
+  background-color:var(--ot-bg-1);
+  background-image:var(--cmd-backplane-image),var(--cmd-surface-grid),var(--cmd-surface-base);
+  background-size:cover,720px auto,640px auto;
+  background-position:center;
+  background-blend-mode:screen,soft-light,overlay;
+}
+.fund-hq-container::before,
+.portfolio-workspace-layout::before,
+.intel-workspace-layout::before,
+.review-workspace-layout::before {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(var(--ot-accent-rgb),.035),transparent 24%,var(--ot-bg-0) 100%);
+}
+.hq-location-bar,
+.portfolio-hud-panel,
+.intel-hud-panel,
+.review-hud-panel {
+  border:1px solid var(--ot-line-strong);
+  border-radius:1px;
+  background:linear-gradient(90deg,rgba(var(--ot-accent-rgb),.07),transparent 44%),var(--ot-surface-raised);
+  box-shadow:inset 0 1px 0 rgba(var(--ot-accent-rgb),.12);
+}
+.hq-status-section,
+.hq-story-brief,
+.hq-action-section,
+.hq-departments-panel,
+.portfolio-workspace-layout .panel,
+.intel-workspace-layout .panel,
+.review-workspace-layout .panel,
+.review-timeline-card {
+  border-radius:1px;
+  background-image:var(--cmd-surface-microdetail),linear-gradient(145deg,rgba(255,255,255,.014),transparent 42%);
+  background-size:420px auto,auto;
+  background-blend-mode:soft-light,normal;
+}
+.hq-action-card {
+  border-radius:1px;
+  border-color:var(--ot-line-strong);
+  background:linear-gradient(110deg,rgba(var(--ot-accent-rgb),.055),transparent 58%),var(--ot-bg-1);
+  box-shadow:inset 0 -2px 0 rgba(var(--ot-accent-rgb),.08);
+}
+.hq-action-card:hover,
+.hq-action-card:focus-visible {
+  background:linear-gradient(110deg,rgba(var(--ot-accent-rgb),.11),transparent 62%),var(--ot-bg-1);
+  box-shadow:inset 0 -2px 0 var(--ot-accent);
+}
+.hq-action-icon {
+  display:grid;
+  width:30px;
+  height:30px;
+  place-items:center;
+  border:1px solid var(--ot-line);
+  color:var(--ot-accent-2);
+  background:var(--ot-bg-0);
+}
+.hq-action-arrow { color:var(--ot-accent); font-family:"IBM Plex Mono",monospace; }
+.review-timeline-card { border-left:2px solid var(--ot-accent); }
+
+@media (min-width:1280px) {
+  .fund-hq-container,
+  .portfolio-workspace-layout,
+  .intel-workspace-layout,
+  .review-workspace-layout { border-top:1px solid var(--ot-line-strong); }
+}

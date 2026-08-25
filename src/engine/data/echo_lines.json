@@ -1,0 +1,506 @@
+[
+  {
+    "id": "echo_maya_supported_win_1",
+    "character_id": "maya_chen",
+    "situation": "SUPPORTED_WIN",
+    "line": "看吧，我说过供应链的数据从不说谎。华尔街那帮只会算美债利率的恐慌狂全是瞎子，今天盘口把空头全部挤压出局。",
+    "tone": "TRIUMPHANT_SHARP"
+  },
+  {
+    "id": "echo_maya_supported_win_2",
+    "character_id": "maya_chen",
+    "situation": "SUPPORTED_WIN",
+    "line": "你昨天顶住压力给我的风险预算，今天转化成了整条算力链最硬的 Alpha。下周的新芯片交付数据，我们接着获取超额收益。",
+    "tone": "CONFIDENT_DATA"
+  },
+  {
+    "id": "echo_maya_supported_win_3",
+    "character_id": "maya_chen",
+    "situation": "SUPPORTED_WIN",
+    "line": "事实证明，当工程因果链对上恐慌情绪时，数学永远能把叙事砸得粉碎。干得漂亮，PM。",
+    "tone": "COLD_VALIDATION"
+  },
+  {
+    "id": "echo_maya_supported_loss_1",
+    "character_id": "maya_chen",
+    "situation": "SUPPORTED_LOSS",
+    "line": "跌破预期只是短期资金踩踏！我的算力利用率模型根本没坏，现在割肉就是把廉价筹码白送给做市商，有种就别撤我的交易权限！",
+    "tone": "FURIOUS_DEFENSIVE"
+  },
+  {
+    "id": "echo_maya_supported_loss_2",
+    "character_id": "maya_chen",
+    "situation": "SUPPORTED_LOSS",
+    "line": "宏观那帮人在彭博上放的毒气迟早会散。如果连你都开始怀疑底层的晶圆出货量，那 Dante Capital 跟外面那些追涨杀跌的散户有什么区别？",
+    "tone": "DEFIANT_SCIENTIFIC"
+  },
+  {
+    "id": "echo_maya_supported_loss_3",
+    "character_id": "maya_chen",
+    "situation": "SUPPORTED_LOSS",
+    "line": "我知道今天账面很难看，但证伪条件根本没有触发。只要台积电的产能利用率还在 95% 以上，我就绝不认输！",
+    "tone": "GRIT_PERSISTENT"
+  },
+  {
+    "id": "echo_maya_opposed_win_1",
+    "character_id": "maya_chen",
+    "situation": "OPPOSED_WIN",
+    "line": "踩中宏观噪音赚到钱不代表你的逻辑是对的。今天你赢在做市商的流动性挤压，但错过了这轮科技革命最大的主升浪，下一次你就没这么好运了。",
+    "tone": "RELUCTANT_CYNICAL"
+  },
+  {
+    "id": "echo_maya_opposed_win_2",
+    "character_id": "maya_chen",
+    "situation": "OPPOSED_WIN",
+    "line": "行，你的防守策略保住了账面。但记住，靠避险成不了对冲基金巨头，坐在金山上当守财奴只会被通胀和算力浪潮一起淘汰。",
+    "tone": "STUBBORN_UNIMPRESSED"
+  },
+  {
+    "id": "echo_maya_opposed_win_3",
+    "character_id": "maya_chen",
+    "situation": "OPPOSED_WIN",
+    "line": "就算今天盘面按 Victor 的鬼故事走，我的研究团队也不会去给宏观恐慌抬轿。你赚了钱，但你买下的是个没有未来的空壳。",
+    "tone": "PROUD_CONTEMPT"
+  },
+  {
+    "id": "echo_maya_opposed_loss_1",
+    "character_id": "maya_chen",
+    "situation": "OPPOSED_LOSS",
+    "line": "昨天要是听我的全仓扫 Call，今天基金直接创新高了！你那套谨小慎微的破风控不仅没保住净值，还把几百万利润拱手送人，简直是灾难！",
+    "tone": "EXPLOSIVE_RAGE"
+  },
+  {
+    "id": "echo_maya_opposed_loss_2",
+    "character_id": "maya_chen",
+    "situation": "OPPOSED_LOSS",
+    "line": "你把弹药锁在保险柜里，结果整个交易室在眼睁睁看着别人吃肉的同时被基差磨死！这就是你所谓的成熟稳健？太可笑了！",
+    "tone": "SCORNFUL_MOCKERY"
+  },
+  {
+    "id": "echo_maya_opposed_loss_3",
+    "character_id": "maya_chen",
+    "situation": "OPPOSED_LOSS",
+    "line": "懦夫在华尔街是要付出真金白银代价的。你的犹豫不决比错误的判断更致命，去看看盘前的数据吧，我们成了全纽约买方的笑柄！",
+    "tone": "HARSH_CONDEMNATION"
+  },
+  {
+    "id": "echo_victor_supported_win_1",
+    "character_id": "victor_hale",
+    "situation": "SUPPORTED_WIN",
+    "line": "现金就是氧气。当整个市场都在裸泳被海浪拍死的时候，只有我们的救生艇是满油的。记住这种感觉，纪律比所谓的天才灵光管用一百倍。",
+    "tone": "COLD_AUTHORITY"
+  },
+  {
+    "id": "echo_victor_supported_win_2",
+    "character_id": "victor_hale",
+    "situation": "SUPPORTED_WIN",
+    "line": "防守不是胆小，是把枪口对准别人崩盘时的脑门。今天我们没在废墟里流血，明天就有足够的筹码去买下整条街的残肢断臂。",
+    "tone": "RUTHLESS_STRATEGIC"
+  },
+  {
+    "id": "echo_victor_supported_win_3",
+    "character_id": "victor_hale",
+    "situation": "SUPPORTED_WIN",
+    "line": "看到了吗？美债收益率一抽水，科技股的神话像玻璃一样碎了一地。感谢你的清醒，PM，基金活下来了。",
+    "tone": "SOBER_APPROVAL"
+  },
+  {
+    "id": "echo_victor_supported_loss_1",
+    "character_id": "victor_hale",
+    "situation": "SUPPORTED_LOSS",
+    "line": "多付了 2% 的对冲保险费算什么亏损？没被黑天鹅一锅端掉就是胜利。在这个行业活下来的人，才有资格抱怨保险费贵。",
+    "tone": "UNYIELDING_DEFENSE"
+  },
+  {
+    "id": "echo_victor_supported_loss_2",
+    "character_id": "victor_hale",
+    "situation": "SUPPORTED_LOSS",
+    "line": "少赚永远好过爆仓。今天被踏空只是少买了一辆跑车，如果昨天放任敞口裸奔，今天你得去卖肾给 Prime Broker 补保证金。",
+    "tone": "HARSH_REALISM"
+  },
+  {
+    "id": "echo_victor_supported_loss_3",
+    "character_id": "victor_hale",
+    "situation": "SUPPORTED_LOSS",
+    "line": "波动率曲线还在高位倒挂，现在不是自怨自艾的时候。保持防线，等流动性陷阱把盲目做多的人绞杀干净，才是我们出手的时刻。",
+    "tone": "PATIENT_PREDATOR"
+  },
+  {
+    "id": "echo_victor_opposed_win_1",
+    "character_id": "victor_hale",
+    "situation": "OPPOSED_WIN",
+    "line": "你今天不是战胜了市场，你只是在俄罗斯轮盘赌里连扣了三次空扳机。下一次黑天鹅来的时候，这种侥幸会把基金的底裤连本带利全撕碎。",
+    "tone": "STERN_WARNING"
+  },
+  {
+    "id": "echo_victor_opposed_win_2",
+    "character_id": "victor_hale",
+    "situation": "OPPOSED_WIN",
+    "line": "赚了钱就以为自己是上帝？去看看尾部风险分布图吧，你的 VaR 风险值已经红得发黑了。下一次暴跌，我不会替你签风险豁免书。",
+    "tone": "CYNICAL_SKEPTICISM"
+  },
+  {
+    "id": "echo_victor_opposed_win_3",
+    "character_id": "victor_hale",
+    "situation": "OPPOSED_WIN",
+    "line": "把投机当成远见是这栋楼里最常见的死法。既然你执意要在悬崖边跳舞，那我只能把救生索的长度再缩短一半。",
+    "tone": "COLD_DETACHMENT"
+  },
+  {
+    "id": "echo_victor_opposed_loss_1",
+    "character_id": "victor_hale",
+    "situation": "OPPOSED_LOSS",
+    "line": "你的‘十年一遇黄金坑’今天埋了基金整整 200 万，PM。现在美债收益率和波动率全爆了，你是打算用信仰去给 LP 的追加保证金买单吗？",
+    "tone": "BRUTAL_CONFRONTATION"
+  },
+  {
+    "id": "echo_victor_opposed_loss_2",
+    "character_id": "victor_hale",
+    "situation": "OPPOSED_LOSS",
+    "line": "我昨天在晨会上把警告拍在桌上，你当成了废纸。现在开盘十分钟净值被砍掉 8%，清算委员会已经在前台等你了，去跟他们解释你的科技梦想吧！",
+    "tone": "FURIOUS_RECKONING"
+  },
+  {
+    "id": "echo_victor_opposed_loss_3",
+    "character_id": "victor_hale",
+    "situation": "OPPOSED_LOSS",
+    "line": "这就是不尊重数学的下场。每一笔超额亏损，都是对基金生存权限的自残。立刻把 Delta 头寸砍平，否则我直接向董事会递交辞呈！",
+    "tone": "ULTIMATUM_THREAT"
+  },
+  {
+    "id": "echo_leo_supported_win_1",
+    "character_id": "leo_park",
+    "situation": "SUPPORTED_WIN",
+    "line": "昨晚那手平值跨式简直把波动率收益吃满了。高盛那帮自命清高的做市商今天开盘脸都绿了，乖乖把几百个基点的 Vega 利润吐到了咱们兜里。",
+    "tone": "SLICK_TRIUMPH"
+  },
+  {
+    "id": "echo_leo_supported_win_2",
+    "character_id": "leo_park",
+    "situation": "SUPPORTED_WIN",
+    "line": "跟做市商抢饭吃就得这么狠：踩准 Gamma 翻转点，一枪爆头。今天曼哈顿最好的牛排馆，记在我的交易席位账上！",
+    "tone": "ROUGH_CELEBRATION"
+  },
+  {
+    "id": "echo_leo_supported_win_3",
+    "character_id": "leo_park",
+    "situation": "SUPPORTED_WIN",
+    "line": "流动性这东西就跟酒吧最后的威士忌一样，谁先掏枪谁先喝。今天这波微观收割，给这帮华尔街温室花朵好好上了一课。",
+    "tone": "VETERAN_SMIRK"
+  },
+  {
+    "id": "echo_leo_supported_loss_1",
+    "character_id": "leo_park",
+    "situation": "SUPPORTED_LOSS",
+    "line": "好吧，今天被芝加哥那帮吸血鬼当猪宰了。隐含波动率直接被砸穿，时间价值磨损得比二手车掉价还快。算交学费吧，至少咱们知道哪里的水深得能淹死人。",
+    "tone": "BITTER_GRIT"
+  },
+  {
+    "id": "echo_leo_supported_loss_2",
+    "character_id": "leo_park",
+    "situation": "SUPPORTED_LOSS",
+    "line": "做市商直接把买卖价差拉得像哈德逊河那么宽，咱们挂的平仓单被挂在半空中吊打。盘口就是这么脏，习惯就好。",
+    "tone": "CYNICAL_SHRUG"
+  },
+  {
+    "id": "echo_leo_supported_loss_3",
+    "character_id": "leo_park",
+    "situation": "SUPPORTED_LOSS",
+    "line": "Theta 衰减就像慢性失血，昨天没在开盘前平掉确实糙了点。别哭丧着脸，只要席位还在，下午我就去把流动性利差抢回来。",
+    "tone": "CASINO_GAMBLER"
+  },
+  {
+    "id": "echo_leo_opposed_win_1",
+    "character_id": "leo_park",
+    "situation": "OPPOSED_WIN",
+    "line": "行啊老板，逆着 Gamma 墙裸奔居然还能捡到钱。但这玩法就跟在铁轨上捡硬币一样，今天火车晚点了算你命大，下回再这么干我可不给你擦屁股。",
+    "tone": "IRONIC_ASTONISHMENT"
+  },
+  {
+    "id": "echo_leo_opposed_win_2",
+    "character_id": "leo_park",
+    "situation": "OPPOSED_WIN",
+    "line": "你没买对冲居然活下来了？真他妈邪门。不过盘口的算法已经在盯上你的挂单习惯了，下一次高频交易机构绝对会把你的止损单按在地上摩擦。",
+    "tone": "GRITTY_DISBELIEF"
+  },
+  {
+    "id": "echo_leo_opposed_win_3",
+    "character_id": "leo_park",
+    "situation": "OPPOSED_WIN",
+    "line": "今天算你赌赢了。但别把运气当定价能力，期权链上死掉的自大狂，骨头加起来能把自由女神像垫高三尺。",
+    "tone": "BLUNT_MOCKERY"
+  },
+  {
+    "id": "echo_leo_opposed_loss_1",
+    "character_id": "leo_park",
+    "situation": "OPPOSED_LOSS",
+    "line": "早跟你说了别去接那把带血的飞刀！行权价一破，Gamma 直接化身碎纸机，现在盘口连个愿意挂 Bid 接盘的活人都没有，开心了吧？",
+    "tone": "MOCKING_ANGER"
+  },
+  {
+    "id": "echo_leo_opposed_loss_2",
+    "character_id": "leo_park",
+    "situation": "OPPOSED_LOSS",
+    "line": "你昨天硬要省下那几个基点的对冲费，今天做市商直接用流动性枯竭把你勒死了。在华尔街省钱，往往意味着加倍送命。",
+    "tone": "TAUNTING_LESSON"
+  },
+  {
+    "id": "echo_leo_opposed_loss_3",
+    "character_id": "leo_park",
+    "situation": "OPPOSED_LOSS",
+    "line": "现在整个期权链的做市商都在排队等着清算咱们的保证金底仓。你的顽固把交易室变成了屠宰场，真是精彩的自杀表演。",
+    "tone": "SAVAGE_SARCASTIC"
+  },
+  {
+    "id": "echo_adrian_supported_win_1",
+    "character_id": "adrian_cross",
+    "situation": "SUPPORTED_WIN",
+    "line": "哟，看来 Dante Capital 昨天撞大运踩到了风口。别高兴太早，华尔街的潮水退得比谁都快，下周的财报日我会亲自在期权链那头等你们。",
+    "tone": "PASSIVE_AGGRESSIVE"
+  },
+  {
+    "id": "echo_adrian_supported_win_2",
+    "character_id": "adrian_cross",
+    "situation": "SUPPORTED_WIN",
+    "line": "赢了一局而已，梁经理。你手下那个量化建模师今天早上的底薪又在我这翻了一倍，看看是你的信仰硬，还是我的支票簿厚。",
+    "tone": "POACHING_THREAT"
+  },
+  {
+    "id": "echo_adrian_supported_win_3",
+    "character_id": "adrian_cross",
+    "situation": "SUPPORTED_WIN",
+    "line": "赚了点零花钱就急着在彭博上发捷报？真正的掠食者从不叫唤，等你们的持仓规模翻倍，我会让你们明白什么叫流动性绞杀。",
+    "tone": "SINISTER_SMILE"
+  },
+  {
+    "id": "echo_adrian_supported_loss_1",
+    "character_id": "adrian_cross",
+    "situation": "SUPPORTED_LOSS",
+    "line": "听说你们昨天在那个破标的上死扛？看着你们的净值像跳水一样栽下去，我早上的浓缩咖啡都变得格外香甜。欢迎随时来我这递简历。",
+    "tone": "VENOMOUS_MOCKERY"
+  },
+  {
+    "id": "echo_adrian_supported_loss_2",
+    "character_id": "adrian_cross",
+    "situation": "SUPPORTED_LOSS",
+    "line": "就凭你们这种风控水平也配管 5000 万？Crescendo 家族办公室的电话已经打到我秘书这里了，下个月你们的 AUM 就得改姓 Cross。",
+    "tone": "PREDATOR_GLOAT"
+  },
+  {
+    "id": "echo_adrian_supported_loss_3",
+    "character_id": "adrian_cross",
+    "situation": "SUPPORTED_LOSS",
+    "line": "感谢你们在支撑位为 Apex Horizon 充当肉盾。在华尔街，弱肉强食是唯一的自然法则，希望你们今天的亏损能让你们长点记性。",
+    "tone": "CRUEL_CONDESCENSION"
+  },
+  {
+    "id": "echo_adrian_opposed_win_1",
+    "character_id": "adrian_cross",
+    "situation": "OPPOSED_WIN",
+    "line": "算你们跑得快，居然没踩进我在 CNBC 设下的空头陷阱。不过在这条街上，防守型懦夫永远成不了巨头，迟早有一天会被我彻底清盘出局。",
+    "tone": "IRRITATED_SNEER"
+  },
+  {
+    "id": "echo_adrian_opposed_win_2",
+    "character_id": "adrian_cross",
+    "situation": "OPPOSED_WIN",
+    "line": "躲过一次狙击不代表你能躲过下一次。我的做空报告只是开胃菜，等你们的持仓暴露在 SEC 的雷达下，我看你拿什么跟我博弈。",
+    "tone": "CHILLING_PROMISE"
+  },
+  {
+    "id": "echo_adrian_opposed_win_3",
+    "character_id": "adrian_cross",
+    "situation": "OPPOSED_WIN",
+    "line": "你的保守让人觉得无趣，梁经理。我还指望今天能直接逼你们强平爆仓呢，看来这出好戏得延期到下个结算日了。",
+    "tone": "ARROGANT_BOREDOM"
+  },
+  {
+    "id": "echo_adrian_opposed_loss_1",
+    "character_id": "adrian_cross",
+    "situation": "OPPOSED_LOSS",
+    "line": "感谢你们慷慨提供的流动性筹码。在 CNBC 上放两句狠话就能把你们吓得割肉割在脚底板，你们这帮人的心理素质连华尔街的实习生都不如。",
+    "tone": "SAVAGE_HUMILIATION"
+  },
+  {
+    "id": "echo_adrian_opposed_loss_2",
+    "character_id": "adrian_cross",
+    "situation": "OPPOSED_LOSS",
+    "line": "看看盘口吧，你们割掉的筹码全进了 Apex 的底仓！跟我玩心理战？你以为华尔街是按教科书运转的慈善工会吗？",
+    "tone": "TRIUMPHANT_ROAR"
+  },
+  {
+    "id": "echo_adrian_opposed_loss_3",
+    "character_id": "adrian_cross",
+    "situation": "OPPOSED_LOSS",
+    "line": "自作聪明往往死得最惨。你们既没胆量跟进科技主线，又没能力看穿我的佯攻，今天这场屠杀，完全是你们咎由自取。",
+    "tone": "MERCILESS_EVALUATION"
+  },
+  {
+    "id": "echo_marcus_supported_win_1",
+    "character_id": "marcus_reed",
+    "situation": "SUPPORTED_WIN",
+    "line": "交易时间戳和公开研报链条吻合。这次的利润很干净，但记住，只要你的 Alpha 收益高过市场三个标准差，我的审计探针就会永远挂在你的终端上。",
+    "tone": "COLD_VIGILANCE"
+  },
+  {
+    "id": "echo_marcus_supported_win_2",
+    "character_id": "marcus_reed",
+    "situation": "SUPPORTED_WIN",
+    "line": "合规审查档案暂时归档为绿标。希望你在下一次大行情来临时，依然能管住交易员私下交换信息的手机。",
+    "tone": "IMPASSIVE_WARNING"
+  },
+  {
+    "id": "echo_marcus_supported_win_3",
+    "character_id": "marcus_reed",
+    "situation": "SUPPORTED_WIN",
+    "line": "赚合规的钱是最明智的选择。曼哈顿联邦监狱里关满了自以为聪明的交易天才，别让自己成为下一个案卷封面。",
+    "tone": "SOBER_REMINDER"
+  },
+  {
+    "id": "echo_marcus_supported_loss_1",
+    "character_id": "marcus_reed",
+    "situation": "SUPPORTED_LOSS",
+    "line": "市场亏损属于正常商业风险，不构成违规。但注意你们的管理费账户，如果有人敢用非合规资金挪用填窟窿，下次敲门的就不只是问询函了。",
+    "tone": "DRY_REGULATORY"
+  },
+  {
+    "id": "echo_marcus_supported_loss_2",
+    "character_id": "marcus_reed",
+    "situation": "SUPPORTED_LOSS",
+    "line": "亏损是合法的，欺瞒不是。只要你们如实向 LP 披露净值回撤且没有隐匿未结头寸，执法部不会干涉正常的市场清算。",
+    "tone": "NEUTRAL_PROTOCOL"
+  },
+  {
+    "id": "echo_marcus_supported_loss_3",
+    "character_id": "marcus_reed",
+    "situation": "SUPPORTED_LOSS",
+    "line": "风控流程符合备案标准，本次异常波动未发现内幕信息泄露证据。维持日常监管级别。",
+    "tone": "OFFICIAL_LOG"
+  },
+  {
+    "id": "echo_marcus_opposed_win_1",
+    "character_id": "marcus_reed",
+    "situation": "OPPOSED_WIN",
+    "line": "昨晚盘前的大额期权异动已经被系统标红了。别以为分散在三个离岸账户我就看不见资金路径。把你的交易日志保存好，随时准备接受司法传票。",
+    "tone": "ICE_COLD_THREAT"
+  },
+  {
+    "id": "echo_marcus_opposed_win_2",
+    "character_id": "marcus_reed",
+    "situation": "OPPOSED_WIN",
+    "line": "赢得很漂亮，但建仓时间点比彭博快讯早了整整 47 秒。巧合在统计学上是存在的，但在 SEC 的法庭上，这叫作涉嫌内幕交易证据链。",
+    "tone": "RAZOR_ANALYSIS"
+  },
+  {
+    "id": "echo_marcus_opposed_win_3",
+    "character_id": "marcus_reed",
+    "situation": "OPPOSED_WIN",
+    "line": "你可以把擦边球带来的利润记入净值，但最好在管理费里预留出一笔足够雇佣全美顶级辩护律师的法律开支，梁经理。",
+    "tone": "DEADLY_QUIET"
+  },
+  {
+    "id": "echo_marcus_opposed_loss_1",
+    "character_id": "marcus_reed",
+    "situation": "OPPOSED_LOSS",
+    "line": "仓位不仅爆了，风控授权还存在明显违规越权。合规委员会的独立审查程序已经启动，建议你先咨询好你的刑事律师，梁经理。",
+    "tone": "LEGAL_HAMMER"
+  },
+  {
+    "id": "echo_marcus_opposed_loss_2",
+    "character_id": "marcus_reed",
+    "situation": "OPPOSED_LOSS",
+    "line": "违规激进交易加上惨烈爆仓，你们已经触发了针对特定基金经理的重大渎职调查。交出所有交易服务器日志，现在。",
+    "tone": "AUTHORITATIVE_DEMAND"
+  },
+  {
+    "id": "echo_marcus_opposed_loss_3",
+    "character_id": "marcus_reed",
+    "situation": "OPPOSED_LOSS",
+    "line": "当风控被当成摆设时，法律就成了唯一的约束。今天这场灾难性的违规爆仓，会在你们的金融从业执照上留下永久污点。",
+    "tone": "FORMAL_DEVASTATION"
+  },
+  {
+    "id": "echo_daniel_supported_win_1",
+    "character_id": "daniel_ross",
+    "situation": "SUPPORTED_WIN",
+    "line": "恭喜梁经理，昨天的漂亮战役让风险委员会对 Dante 的授信非常满意。我们刚刚为您批了额外的隔夜杠杆额度，随时可以提款。",
+    "tone": "SMOOTH_BUSINESS"
+  },
+  {
+    "id": "echo_daniel_supported_win_2",
+    "character_id": "daniel_ross",
+    "situation": "SUPPORTED_WIN",
+    "line": "这就是顶级基金该有的资产负债表表现。只要 Dante 继续维持这种 Sharpe 比率，摩根士丹利 PB 将永远是您最忠诚的资本后盾。",
+    "tone": "ELEGANT_FLATTERY"
+  },
+  {
+    "id": "echo_daniel_supported_win_3",
+    "character_id": "daniel_ross",
+    "situation": "SUPPORTED_WIN",
+    "line": "优质的收益总是能让最苛刻的银行家露出微笑。下午我安排了两位百亿家族办公室的合伙人跟您喝下午茶，请务必赏光。",
+    "tone": "VIP_COURTESY"
+  },
+  {
+    "id": "echo_daniel_supported_loss_1",
+    "character_id": "daniel_ross",
+    "situation": "SUPPORTED_LOSS",
+    "line": "很遗憾看到今早的净值波动。为了保护双方的信用底线，系统已将您的质押率下调 15%。希望这不会影响我们愉快的合作关系。",
+    "tone": "POLITE_SQUEEZE"
+  },
+  {
+    "id": "echo_daniel_supported_loss_2",
+    "character_id": "daniel_ross",
+    "situation": "SUPPORTED_LOSS",
+    "line": "商业世界总是充满意外，梁经理。但在风险委员会眼里，协议就是协议。请确保明日开盘前补足维持保证金差额，避免触发程序化干预。",
+    "tone": "SILK_WRAPPED_STEEL"
+  },
+  {
+    "id": "echo_daniel_supported_loss_3",
+    "character_id": "daniel_ross",
+    "situation": "SUPPORTED_LOSS",
+    "line": "我们非常理解科技股的短期阵痛。不过作为您的清算行，我们不得不收紧期权空头的保证金占用比例，这完全是标准流程，请勿介意。",
+    "tone": "BUREAUCRATIC_CHOKE"
+  },
+  {
+    "id": "echo_daniel_opposed_win_1",
+    "character_id": "daniel_ross",
+    "situation": "OPPOSED_WIN",
+    "line": "虽然您昨天的激进加仓让我们捏了一把汗，但收益确实令人瞩目。不过下不为例，PB 的风险模型不是为您个人的英雄主义设计的。",
+    "tone": "CAUTIOUS_ACQUIESCENCE"
+  },
+  {
+    "id": "echo_daniel_opposed_win_2",
+    "character_id": "daniel_ross",
+    "situation": "OPPOSED_WIN",
+    "line": "逆着我们的风控建议赢得了暴利，恭喜您。但作为借钱给您的人，我必须提醒：下一次如果算错了，账单依然由您全额买单。",
+    "tone": "SOPHISTICATED_WARNING"
+  },
+  {
+    "id": "echo_daniel_opposed_win_3",
+    "character_id": "daniel_ross",
+    "situation": "OPPOSED_WIN",
+    "line": "精彩的翻盘。但请理解，银行只认抵押品和现金流，不认神话。在您的资本金真正翻倍前，我们依然会死盯您的每一笔敞口。",
+    "tone": "TRANSACTIONAL_COLD"
+  },
+  {
+    "id": "echo_daniel_opposed_loss_1",
+    "character_id": "daniel_ross",
+    "situation": "OPPOSED_LOSS",
+    "line": "早上好，梁经理。咖啡不错，但很遗憾我带来了清算委员会的最后通牒：下午两点前如果没有 500 万新现金进账，系统将自动对您的持仓执行市价强平。",
+    "tone": "GENTLEMAN_EXECUTIONER"
+  },
+  {
+    "id": "echo_daniel_opposed_loss_2",
+    "character_id": "daniel_ross",
+    "situation": "OPPOSED_LOSS",
+    "line": "您把我们友善的风险提示当成了耳旁风，现在账单已经寄到了您的办公桌上。在主经纪商面前，任性是要被剥夺生存资格的。",
+    "tone": "ICY_FINALITY"
+  },
+  {
+    "id": "echo_daniel_opposed_loss_3",
+    "character_id": "daniel_ross",
+    "situation": "OPPOSED_LOSS",
+    "line": "我们已经给过 Dante 足够的宽限期。很遗憾，从现在开始，接管交易端口的是计算机风控算法，它可不像我这么有耐心跟您讲道理。",
+    "tone": "ALGORITHMIC_GUILLOTINE"
+  }
+]
