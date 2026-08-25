@@ -19586,13 +19586,94 @@ tr.chain-recommended {
   0%, 100% { opacity: 0.65; r: 2.5px; }
   50% { opacity: 1; r: 3.6px; }
 }
+/* R6.6.3: live intraday beacon.
+   This layer never moves price coordinates; it only animates light around the
+   latest admitted point, so the chart reads as "live" without fabricating ticks. */
+.ot-live-price-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.ot-live-price-guide {
+  stroke: var(--thm-candle-current);
+  stroke-width: .85;
+  stroke-dasharray: 3 8;
+  opacity: .28;
+  animation: ot-live-guide 1.1s linear infinite;
+  vector-effect: non-scaling-stroke;
+}
+.ot-live-price-tail {
+  stroke: var(--thm-chart-line);
+  stroke-width: 1.6;
+  stroke-dasharray: 2 5;
+  opacity: .82;
+  filter: drop-shadow(0 0 3px var(--thm-candle-current-glow));
+  animation: ot-live-tail .72s linear infinite;
+  vector-effect: non-scaling-stroke;
+}
+.ot-live-price-core {
+  fill: var(--thm-candle-current);
+  filter: drop-shadow(0 0 4px var(--thm-candle-current-glow)) drop-shadow(0 0 9px var(--thm-candle-current-glow));
+  animation: ot-live-core .92s ease-in-out infinite;
+}
+.ot-live-price-ring {
+  fill: none;
+  stroke: var(--thm-candle-current);
+  stroke-width: 1.2;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ot-live-ring 1.46s cubic-bezier(.22,.68,.2,1) infinite;
+  vector-effect: non-scaling-stroke;
+}
+.ot-live-price-ring--b { animation-delay: .73s; }
+.ot-market-sweep {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  bottom: 0;
+  left: -18%;
+  width: 18%;
+ pointer-events: none;
+ opacity: var(--cmd-glow-strength, .24);
+ background: linear-gradient(90deg, transparent 0%, rgba(var(--ot-accent-rgb), .015) 22%, rgba(var(--ot-accent-rgb), .16) 50%, rgba(var(--ot-accent-rgb), .025) 76%, transparent 100%);
+ mix-blend-mode: screen;
+ filter: blur(1px);
+ animation: ot-market-sweep 3.6s cubic-bezier(.2,.55,.35,1) infinite;
+}
+@keyframes ot-live-guide { to { stroke-dashoffset: -22; } }
+@keyframes ot-live-tail { to { stroke-dashoffset: -21; } }
+@keyframes ot-live-core {
+  0%, 100% { opacity: .68; r: 2.5px; }
+  45% { opacity: 1; r: 3.8exx; }
+}
+@keyframes ot-live-ring {
+ 0% { opacity: .9; transform: scale(.72); }
+ 68% { opacity: .18; }
+ 100% { opacity: 0; transform: scale(3.15); }
+}
+@keyframes ot-market-sweep {
+ 0% { transform: translateX(0); opacity: 0; }
+ 10%, 72% { opacity: var(--cmd-glow-strength, .24); }
+ 100% { transform: translateX(660%); opacity: 0; }
+}
 @media (prefers-reduced-motion: reduce) {
   .ot-candle--current .ot-candle__body,
   .ot-candle--current .ot-candle__wick,
   .ot-candle--new .ot-candle__body,
   .ot-candle--new .ot-candle__wick,
   .ot-current-price-line,
-  .ot-current-price-dot { animation: none !important; }
+  .ot-current-price-dot,
+  .ot-live-price-guide,
+  .ot-live-price-tail,
+  .ot-live-price-core,
+  .ot-live-price-ring,
+  .ot-market-sweep { animation: none !important; }
+  .ot-market-sweep { display: none; }
   .ot-candle--current { filter: drop-shadow(0 0 4px var(--thm-candle-current-glow)); }
 }
 

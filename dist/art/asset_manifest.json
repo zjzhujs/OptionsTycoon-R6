@@ -1,0 +1,2176 @@
+{
+ "generated_by": "tools/build_asset_manifest.mjs",
+ "count": 217,
+ "entries": [
+  {
+   "path": "art/brands/barclays.png",
+   "bytes": 2394,
+   "hash": "2da3ad0389780635",
+   "purpose": "other",
+   "w": 256,
+   "h": 256,
+   "alpha": true,
+   "fmt": "png"
+  },
+  {
+   "path": "art/brands/bofa.png",
+   "bytes": 2323,
+   "hash": "36291ce2782070bb",
+   "purpose": "other",
+   "w": 256,
+   "h": 256,
+   "alpha": true,
+   "fmt": "png"
+  },
+  {
+   "path": "art/brands/citi.png",
+   "bytes": 2279,
+   "hash": "7bd4fa91207c0623",
+   "purpose": "other",
+   "w": 256,
+   "h": 256,
+   "alpha": true,
+   "fmt": "png"
+  },
+  {
+   "path": "art/brands/goldman_sachs.png",
+   "bytes": 2498,
+   "hash": "60428bfa159aace3",
+   "purpose": "other",
+   "w": 256,
+   "h": 256,
+   "alpha": true,
+   "fmt": "png"
+  },
+  {
+   "path": "art/brands/jpmorgan.png",
+   "bytes": 2320,
+   "hash": "7f9c2f61deaf2ee4",
+   "purpose": "other",
+   "w": 256,
+   "h": 256,
+   "alpha": true,
+   "fmt": "png"
+  },
+  {
+   "path": "art/brands/morgan_stanley.png",
+   "bytes": 2473,
+   "hash": "c610e3f5346483a4",
+   "purpose": "other",
+   "w": 256,
+   "h": 256,
+   "alpha": true,
+   "fmt": "png"
+  },
+  {
+   "path": "art/brands/ubs.png",
+   "bytes": 2086,
+   "hash": "007783c9a60bc887",
+   "purpose": "other",
+   "w": 256,
+   "h": 256,
+   "alpha": true,
+   "fmt": "png"
+  },
+  {
+   "path": "art/characters/adrian_cross.jpg",
+   "bytes": 680354,
+   "hash": "686b87e5a59232d8",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/adrian_cross.mobile.webp",
+   "bytes": 29024,
+   "hash": "53ab34bf901345e2",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/adrian_cross.webp",
+   "bytes": 49040,
+   "hash": "188e5ba02bafe087",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/adrian_cross_alert.jpg",
+   "bytes": 206936,
+   "hash": "4aff5a26efdcc70a",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/adrian_cross_alert.mobile.webp",
+   "bytes": 30328,
+   "hash": "d673fda0eeb234c3",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/adrian_cross_alert.webp",
+   "bytes": 54816,
+   "hash": "49c6f01928ba213e",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/adrian_cross_confident.jpg",
+   "bytes": 196419,
+   "hash": "9cf7bf45b5f35b93",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/adrian_cross_confident.mobile.webp",
+   "bytes": 31562,
+   "hash": "37282c06a3a9fcd3",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/adrian_cross_confident.webp",
+   "bytes": 56282,
+   "hash": "3419133005a31cab",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/adrian_cross_furious.jpg",
+   "bytes": 196283,
+   "hash": "5cbbf11d8c653306",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/adrian_cross_furious.mobile.webp",
+   "bytes": 32598,
+   "hash": "3819ee940bc447ea",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/adrian_cross_furious.webp",
+   "bytes": 58618,
+   "hash": "476336ba3280b320",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/adrian_cross_neutral.jpg",
+   "bytes": 189552,
+   "hash": "f59ef70af4831e48",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/adrian_cross_neutral.mobile.webp",
+   "bytes": 29092,
+   "hash": "e517297e1f9d5110",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/adrian_cross_neutral.webp",
+   "bytes": 50332,
+   "hash": "7b8f8c6319152acf",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/adrian_cross_questioning.jpg",
+   "bytes": 184535,
+   "hash": "4907a1d0ac63d9d1",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/adrian_cross_questioning.mobile.webp",
+   "bytes": 28404,
+   "hash": "477092f8ea463c99",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/adrian_cross_questioning.webp",
+   "bytes": 48596,
+   "hash": "047e175612484d1a",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/adrian_cross_relaxed.jpg",
+   "bytes": 192680,
+   "hash": "7fe7057e83c2658d",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/adrian_cross_relaxed.mobile.webp",
+   "bytes": 30094,
+   "hash": "b36ee5d9cb71de17",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/adrian_cross_relaxed.webp",
+   "bytes": 51398,
+   "hash": "70803d17970d8038",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/adrian_cross_stressed.jpg",
+   "bytes": 175845,
+   "hash": "49fc7555aa70608f",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/adrian_cross_stressed.mobile.webp",
+   "bytes": 25334,
+   "hash": "0390c838f2b13f1c",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/adrian_cross_stressed.webp",
+   "bytes": 44638,
+   "hash": "893efc597f299307",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/adrian_cross_triumphant.jpg",
+   "bytes": 203616,
+   "hash": "2867203d1629e1da",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/adrian_cross_triumphant.mobile.webp",
+   "bytes": 32602,
+   "hash": "58fcd7c0caca65c0",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/adrian_cross_triumphant.webp",
+   "bytes": 56110,
+   "hash": "0ce86918da8e0134",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/daniel_ross.jpg",
+   "bytes": 762311,
+   "hash": "82a39776f3f18ad0",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/daniel_ross.mobile.webp",
+   "bytes": 38510,
+   "hash": "876060a714d8c90a",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/daniel_ross.webp",
+   "bytes": 71136,
+   "hash": "88857d40c0c34a50",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/daniel_ross_alert.jpg",
+   "bytes": 264643,
+   "hash": "387a13743af93c9e",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/daniel_ross_alert.mobile.webp",
+   "bytes": 41168,
+   "hash": "dc56786149dd3fd2",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/daniel_ross_alert.webp",
+   "bytes": 87786,
+   "hash": "926c587af4329fb3",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/daniel_ross_confident.jpg",
+   "bytes": 263496,
+   "hash": "0c13fb98d3aaf7e7",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/daniel_ross_confident.mobile.webp",
+   "bytes": 44560,
+   "hash": "d0e687972f85bbe9",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/daniel_ross_confident.webp",
+   "bytes": 88190,
+   "hash": "b530da79e21160ab",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/daniel_ross_furious.jpg",
+   "bytes": 274153,
+   "hash": "5ee43464713df802",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/daniel_ross_furious.mobile.webp",
+   "bytes": 47528,
+   "hash": "848b4493be0e5b2d",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/daniel_ross_furious.webp",
+   "bytes": 96548,
+   "hash": "815bc3e97e15e096",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/daniel_ross_neutral.jpg",
+   "bytes": 239087,
+   "hash": "12d40a5e2ed72052",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/daniel_ross_neutral.mobile.webp",
+   "bytes": 38604,
+   "hash": "42e35f5860464c31",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/daniel_ross_neutral.webp",
+   "bytes": 73964,
+   "hash": "6462d22f8c553dbf",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/daniel_ross_questioning.jpg",
+   "bytes": 232286,
+   "hash": "b260b646c52002c6",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/daniel_ross_questioning.mobile.webp",
+   "bytes": 36572,
+   "hash": "005ba88989b4f9e9",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/daniel_ross_questioning.webp",
+   "bytes": 71164,
+   "hash": "4fd2a059a8674145",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/daniel_ross_relaxed.jpg",
+   "bytes": 241514,
+   "hash": "6933e863c52bc128",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/daniel_ross_relaxed.mobile.webp",
+   "bytes": 39270,
+   "hash": "07ebbc8cf2569ead",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/daniel_ross_relaxed.webp",
+   "bytes": 75734,
+   "hash": "f0d3bef593d80867",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/daniel_ross_stressed.jpg",
+   "bytes": 220783,
+   "hash": "48fcb16e2e6713c1",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/daniel_ross_stressed.mobile.webp",
+   "bytes": 33626,
+   "hash": "23a794943d945e6d",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/daniel_ross_stressed.webp",
+   "bytes": 62798,
+   "hash": "fb2fd47a70d36c23",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/daniel_ross_triumphant.jpg",
+   "bytes": 258541,
+   "hash": "8150ce469c0d1cfc",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/daniel_ross_triumphant.mobile.webp",
+   "bytes": 43298,
+   "hash": "47fa08ae0ef9e6e2",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/daniel_ross_triumphant.webp",
+   "bytes": 85132,
+   "hash": "7e6c6dff0c96ecc8",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/evelyn_shaw.jpg",
+   "bytes": 757967,
+   "hash": "1dfe0ab26085f465",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/evelyn_shaw.mobile.webp",
+   "bytes": 42952,
+   "hash": "40c0a2a98c3c936c",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/evelyn_shaw.webp",
+   "bytes": 77936,
+   "hash": "77a09dd3b14e298f",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_alert.jpg",
+   "bytes": 262148,
+   "hash": "cb901cb954f349ab",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_alert.mobile.webp",
+   "bytes": 45782,
+   "hash": "387b0ae7d94769a1",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_alert.webp",
+   "bytes": 93422,
+   "hash": "6817772b783e0f72",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_confident.jpg",
+   "bytes": 258162,
+   "hash": "878407b0a64f368a",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_confident.mobile.webp",
+   "bytes": 49284,
+   "hash": "79aaf471e9197155",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_confident.webp",
+   "bytes": 95324,
+   "hash": "75cd94e02d3290b8",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_furious.jpg",
+   "bytes": 266752,
+   "hash": "925b0fe7370839d0",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_furious.mobile.webp",
+   "bytes": 53692,
+   "hash": "10755ae2c6aa4882",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_furious.webp",
+   "bytes": 103948,
+   "hash": "3cd9728e67e82e98",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_neutral.jpg",
+   "bytes": 239561,
+   "hash": "1c90d80e2ee99868",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_neutral.mobile.webp",
+   "bytes": 42980,
+   "hash": "7addf1ca610105b0",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_neutral.webp",
+   "bytes": 80952,
+   "hash": "058a8d3b5b16d2dc",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_questioning.jpg",
+   "bytes": 232942,
+   "hash": "7cf65d3fcbef9481",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_questioning.mobile.webp",
+   "bytes": 40888,
+   "hash": "c97761e79d2319eb",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_questioning.webp",
+   "bytes": 77820,
+   "hash": "f70c1e4009cb94af",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_relaxed.jpg",
+   "bytes": 241940,
+   "hash": "70fb1d14042ad14d",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_relaxed.mobile.webp",
+   "bytes": 43628,
+   "hash": "e70287cab6d6927b",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_relaxed.webp",
+   "bytes": 81992,
+   "hash": "8aff638dc8e2051b",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_stressed.jpg",
+   "bytes": 221913,
+   "hash": "aa1822ba4df1e772",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_stressed.mobile.webp",
+   "bytes": 37148,
+   "hash": "800969f8dbcc61c5",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_stressed.webp",
+   "bytes": 69968,
+   "hash": "5166ad6b797d537e",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_triumphant.jpg",
+   "bytes": 258390,
+   "hash": "93bdb38f86c85fcc",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_triumphant.mobile.webp",
+   "bytes": 48172,
+   "hash": "b495eda84de9670f",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/evelyn_shaw_triumphant.webp",
+   "bytes": 92446,
+   "hash": "4ddbb38cde7d23c6",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/leo_park.jpg",
+   "bytes": 763544,
+   "hash": "2371c3ff6058b691",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/leo_park.mobile.webp",
+   "bytes": 51756,
+   "hash": "3bf8995dd490683d",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/leo_park.webp",
+   "bytes": 86302,
+   "hash": "e6445a395b3b325e",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/leo_park_alert.jpg",
+   "bytes": 260879,
+   "hash": "49d5a63abefe61f8",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/leo_park_alert.mobile.webp",
+   "bytes": 54928,
+   "hash": "96170620af305d04",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/leo_park_alert.webp",
+   "bytes": 95978,
+   "hash": "7c451fadc9e44799",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/leo_park_confident.jpg",
+   "bytes": 253889,
+   "hash": "c1b399a3e71fb72f",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/leo_park_confident.mobile.webp",
+   "bytes": 57324,
+   "hash": "daa1f2f609577fd0",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/leo_park_confident.webp",
+   "bytes": 97388,
+   "hash": "8362035c7251f813",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/leo_park_furious.jpg",
+   "bytes": 250371,
+   "hash": "ea0866e5aa5beb1c",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/leo_park_furious.mobile.webp",
+   "bytes": 59294,
+   "hash": "6050631816a778ba",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/leo_park_furious.webp",
+   "bytes": 101368,
+   "hash": "5c25e6c135676d0d",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/leo_park_neutral.jpg",
+   "bytes": 241227,
+   "hash": "2ce8e74e0ab76485",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/leo_park_neutral.mobile.webp",
+   "bytes": 51578,
+   "hash": "95289425588587fe",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/leo_park_neutral.webp",
+   "bytes": 87404,
+   "hash": "4f22555a279fcef4",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/leo_park_questioning.jpg",
+   "bytes": 235536,
+   "hash": "c467e26bc856ffd0",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/leo_park_questioning.mobile.webp",
+   "bytes": 49706,
+   "hash": "8d452152877d24e6",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/leo_park_questioning.webp",
+   "bytes": 84162,
+   "hash": "9be30a7d8adb82e6",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/leo_park_relaxed.jpg",
+   "bytes": 243269,
+   "hash": "9744a68425431a37",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/leo_park_relaxed.mobile.webp",
+   "bytes": 52142,
+   "hash": "ed2ade2e625a253f",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/leo_park_relaxed.webp",
+   "bytes": 88694,
+   "hash": "6d2d915d14e1d17f",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/leo_park_stressed.jpg",
+   "bytes": 225598,
+   "hash": "0523b371e9486211",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/leo_park_stressed.mobile.webp",
+   "bytes": 45742,
+   "hash": "552dd7029e10f6fb",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/leo_park_stressed.webp",
+   "bytes": 78274,
+   "hash": "c621e22003416847",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/leo_park_triumphant.jpg",
+   "bytes": 257299,
+   "hash": "8b6acab7b1f6d367",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/leo_park_triumphant.mobile.webp",
+   "bytes": 56756,
+   "hash": "8c09a86ebafbf676",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/leo_park_triumphant.webp",
+   "bytes": 96766,
+   "hash": "33632d8139d6d001",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/marcus_reed.jpg",
+   "bytes": 720895,
+   "hash": "6664f4f3eaded45e",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/marcus_reed.mobile.webp",
+   "bytes": 32750,
+   "hash": "fe77fc6de32e5ac1",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/marcus_reed.webp",
+   "bytes": 62202,
+   "hash": "059404ae8204d1a6",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/marcus_reed_alert.jpg",
+   "bytes": 238638,
+   "hash": "ebffad4a8e2cfbe4",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/marcus_reed_alert.mobile.webp",
+   "bytes": 35682,
+   "hash": "e7214b3fa018eba6",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/marcus_reed_alert.webp",
+   "bytes": 76604,
+   "hash": "a3643da770a528f8",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/marcus_reed_confident.jpg",
+   "bytes": 236972,
+   "hash": "b634cda8c2c6dbd0",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/marcus_reed_confident.mobile.webp",
+   "bytes": 38898,
+   "hash": "7e397b9bcd473e9e",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/marcus_reed_confident.webp",
+   "bytes": 78114,
+   "hash": "f16c35f0c8cb93ca",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/marcus_reed_furious.jpg",
+   "bytes": 247156,
+   "hash": "c3983c11a97d0b00",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/marcus_reed_furious.mobile.webp",
+   "bytes": 41566,
+   "hash": "77fcc98163df6071",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/marcus_reed_furious.webp",
+   "bytes": 86220,
+   "hash": "43b89d07160761e4",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/marcus_reed_neutral.jpg",
+   "bytes": 214965,
+   "hash": "c18be346079f7548",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/marcus_reed_neutral.mobile.webp",
+   "bytes": 33072,
+   "hash": "ad342e57d5c900f5",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/marcus_reed_neutral.webp",
+   "bytes": 64986,
+   "hash": "888f38f28bc0696b",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/marcus_reed_questioning.jpg",
+   "bytes": 208966,
+   "hash": "c767044a891ccc6c",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/marcus_reed_questioning.mobile.webp",
+   "bytes": 31884,
+   "hash": "b50afb1e077e9f5e",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/marcus_reed_questioning.webp",
+   "bytes": 59666,
+   "hash": "416a4b3fef1ee23c",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/marcus_reed_relaxed.jpg",
+   "bytes": 217155,
+   "hash": "d49e1123406dc8ab",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/marcus_reed_relaxed.mobile.webp",
+   "bytes": 33628,
+   "hash": "91892f4e7e212b20",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/marcus_reed_relaxed.webp",
+   "bytes": 65860,
+   "hash": "0071e10acf64f0fb",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/marcus_reed_stressed.jpg",
+   "bytes": 199046,
+   "hash": "01698eb3047cad7b",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/marcus_reed_stressed.mobile.webp",
+   "bytes": 29420,
+   "hash": "a523603ec6e06797",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/marcus_reed_stressed.webp",
+   "bytes": 54936,
+   "hash": "d87e6010ec261eaf",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/marcus_reed_triumphant.jpg",
+   "bytes": 232351,
+   "hash": "7a83bcc5a05f652d",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/marcus_reed_triumphant.mobile.webp",
+   "bytes": 37552,
+   "hash": "4e102767227b8cd2",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/marcus_reed_triumphant.webp",
+   "bytes": 73802,
+   "hash": "abfbe8a7e9888702",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/maya_chen.jpg",
+   "bytes": 738994,
+   "hash": "21fc1cccce207bd3",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/maya_chen.mobile.webp",
+   "bytes": 41436,
+   "hash": "86fdef0e7c74a100",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/maya_chen.webp",
+   "bytes": 82584,
+   "hash": "d713691d73a4a001",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/maya_chen_alert.jpg",
+   "bytes": 251401,
+   "hash": "e4db2d27be5376a7",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/maya_chen_alert.mobile.webp",
+   "bytes": 46242,
+   "hash": "e87a038f42b22348",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/maya_chen_alert.webp",
+   "bytes": 96886,
+   "hash": "1493b47f3bf7ee91",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/maya_chen_confident.jpg",
+   "bytes": 249232,
+   "hash": "58c6c03eaa0e27cc",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/maya_chen_confident.mobile.webp",
+   "bytes": 49054,
+   "hash": "8bad916624ca986f",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/maya_chen_confident.webp",
+   "bytes": 98270,
+   "hash": "0676a5428399c0b7",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/maya_chen_furious.jpg",
+   "bytes": 256711,
+   "hash": "c12d0cd63f69a037",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/maya_chen_furious.mobile.webp",
+   "bytes": 52050,
+   "hash": "811e1039207c3a8d",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/maya_chen_furious.webp",
+   "bytes": 102456,
+   "hash": "095b0fc7807397d0",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/maya_chen_neutral.jpg",
+   "bytes": 230659,
+   "hash": "8e65ec739e200f07",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/maya_chen_neutral.mobile.webp",
+   "bytes": 41568,
+   "hash": "edd326d5b370cd90",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/maya_chen_neutral.webp",
+   "bytes": 85504,
+   "hash": "dbe4489115a77b2c",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/maya_chen_questioning.jpg",
+   "bytes": 224583,
+   "hash": "d1c3143d54d6c18e",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/maya_chen_questioning.mobile.webp",
+   "bytes": 40062,
+   "hash": "e24af762d5c63ad2",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/maya_chen_questioning.webp",
+   "bytes": 81986,
+   "hash": "54b0b50216681bef",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/maya_chen_relaxed.jpg",
+   "bytes": 233837,
+   "hash": "3294942906aae1ce",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/maya_chen_relaxed.mobile.webp",
+   "bytes": 42004,
+   "hash": "3dc62bd647cfaae3",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/maya_chen_relaxed.webp",
+   "bytes": 86240,
+   "hash": "7af0b450eee3bed2",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/maya_chen_stressed.jpg",
+   "bytes": 214972,
+   "hash": "ef6bd623f0b6723c",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/maya_chen_stressed.mobile.webp",
+   "bytes": 38412,
+   "hash": "815bf0683689d536",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/maya_chen_stressed.webp",
+   "bytes": 75732,
+   "hash": "8b220ffe16ec347e",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/maya_chen_triumphant.jpg",
+   "bytes": 248823,
+   "hash": "42bdba012a683a21",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/maya_chen_triumphant.mobile.webp",
+   "bytes": 46708,
+   "hash": "6048f0a7504273a3",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/maya_chen_triumphant.webp",
+   "bytes": 95572,
+   "hash": "73bc30f3bf428343",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/victor_hale.jpg",
+   "bytes": 748223,
+   "hash": "9cde0d5e2be1c89f",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/victor_hale.mobile.webp",
+   "bytes": 43358,
+   "hash": "6a7c48f9d9477a37",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/victor_hale.webp",
+   "bytes": 78344,
+   "hash": "60746baface77152",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/victor_hale_alert.jpg",
+   "bytes": 253751,
+   "hash": "83e8fb2575161b66",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/victor_hale_alert.mobile.webp",
+   "bytes": 46250,
+   "hash": "edba0ef3897bd5f3",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/victor_hale_alert.webp",
+   "bytes": 90352,
+   "hash": "fe1d89487abc3dc8",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/victor_hale_confident.jpg",
+   "bytes": 246807,
+   "hash": "507b0c2bc5fe75c7",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/victor_hale_confident.mobile.webp",
+   "bytes": 49104,
+   "hash": "35b0659b0f1ddb85",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/victor_hale_confident.webp",
+   "bytes": 91626,
+   "hash": "ec623f555b0ae8f9",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/victor_hale_furious.jpg",
+   "bytes": 250460,
+   "hash": "dc0236f23c46facb",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/victor_hale_furious.mobile.webp",
+   "bytes": 52572,
+   "hash": "14f875957215837a",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/victor_hale_furious.webp",
+   "bytes": 97336,
+   "hash": "98675b7274ada1c2",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/victor_hale_neutral.jpg",
+   "bytes": 231482,
+   "hash": "959864902bd0a52c",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/victor_hale_neutral.mobile.webp",
+   "bytes": 43634,
+   "hash": "93d35b6c431cd186",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/victor_hale_neutral.webp",
+   "bytes": 80696,
+   "hash": "1df1409cfc7b9a65",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/victor_hale_questioning.jpg",
+   "bytes": 225092,
+   "hash": "361b6b69de6ba216",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/victor_hale_questioning.mobile.webp",
+   "bytes": 41596,
+   "hash": "a1970abe7fcecd5f",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/victor_hale_questioning.webp",
+   "bytes": 77248,
+   "hash": "b4a1f3c5eb4d0099",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/victor_hale_relaxed.jpg",
+   "bytes": 233722,
+   "hash": "bd53e795a8217717",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/victor_hale_relaxed.mobile.webp",
+   "bytes": 43950,
+   "hash": "d3f33b8c8d5a38ac",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/victor_hale_relaxed.webp",
+   "bytes": 81868,
+   "hash": "c80ecf51a0d66de6",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/victor_hale_stressed.jpg",
+   "bytes": 215281,
+   "hash": "2f066d90d4d2d9ae",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/victor_hale_stressed.mobile.webp",
+   "bytes": 38614,
+   "hash": "6241fd8f8c27c08c",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/victor_hale_stressed.webp",
+   "bytes": 71632,
+   "hash": "0c675c68f96b3595",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/victor_hale_triumphant.jpg",
+   "bytes": 248486,
+   "hash": "aa4e7b63a8095057",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/characters/victor_hale_triumphant.mobile.webp",
+   "bytes": 48352,
+   "hash": "8494b4b9c23c364f",
+   "purpose": "portrait-mobile",
+   "w": 672,
+   "h": 900,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/characters/victor_hale_triumphant.webp",
+   "bytes": 88910,
+   "hash": "a106a688f1b174b5",
+   "purpose": "portrait",
+   "w": 896,
+   "h": 1200,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/scenes/bg_compliance_room.jpg",
+   "bytes": 801375,
+   "hash": "8062249a043b07dd",
+   "purpose": "background",
+   "w": 1376,
+   "h": 768,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/scenes/bg_compliance_room.mobile.webp",
+   "bytes": 53908,
+   "hash": "1a1a8bfcd044585e",
+   "purpose": "background",
+   "w": 1000,
+   "h": 558,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/scenes/bg_compliance_room.webp",
+   "bytes": 118420,
+   "hash": "cceac1b24a7abd00",
+   "purpose": "background",
+   "w": 1376,
+   "h": 768,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/scenes/bg_crisis_night.jpg",
+   "bytes": 828868,
+   "hash": "f77a77be32c4d678",
+   "purpose": "background",
+   "w": 1376,
+   "h": 768,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/scenes/bg_crisis_night.mobile.webp",
+   "bytes": 63276,
+   "hash": "9b816ad3274a667f",
+   "purpose": "background",
+   "w": 1000,
+   "h": 558,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/scenes/bg_crisis_night.webp",
+   "bytes": 128692,
+   "hash": "173af1b14caf5853",
+   "purpose": "background",
+   "w": 1376,
+   "h": 768,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/scenes/bg_fund_hq.jpg",
+   "bytes": 819421,
+   "hash": "eec7fa5892973856",
+   "purpose": "background",
+   "w": 1376,
+   "h": 768,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/scenes/bg_fund_hq.mobile.webp",
+   "bytes": 56492,
+   "hash": "e30f8dfe0851be62",
+   "purpose": "background",
+   "w": 1000,
+   "h": 558,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/scenes/bg_fund_hq.webp",
+   "bytes": 114654,
+   "hash": "51ac3e6423181bac",
+   "purpose": "background",
+   "w": 1376,
+   "h": 768,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/scenes/bg_main_menu.jpg",
+   "bytes": 870651,
+   "hash": "cf8f3c79cc33732d",
+   "purpose": "background",
+   "w": 1376,
+   "h": 768,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/scenes/bg_main_menu.mobile.webp",
+   "bytes": 67982,
+   "hash": "e969fbaba0c4edee",
+   "purpose": "background",
+   "w": 1000,
+   "h": 558,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/scenes/bg_main_menu.webp",
+   "bytes": 135782,
+   "hash": "5dbecd33f6d2ecf4",
+   "purpose": "background",
+   "w": 1376,
+   "h": 768,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/scenes/bg_trading_floor.jpg",
+   "bytes": 864957,
+   "hash": "6c9ce1c8b04b1896",
+   "purpose": "background",
+   "w": 1376,
+   "h": 768,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/scenes/bg_trading_floor.mobile.webp",
+   "bytes": 78110,
+   "hash": "7a5f73f6d0226be4",
+   "purpose": "background",
+   "w": 1000,
+   "h": 558,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/scenes/bg_trading_floor.webp",
+   "bytes": 140212,
+   "hash": "2b53ae64281172d9",
+   "purpose": "background",
+   "w": 1376,
+   "h": 768,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/scenes/bg_war_room.jpg",
+   "bytes": 821855,
+   "hash": "ad4a1eaa622ba70c",
+   "purpose": "background",
+   "w": 1376,
+   "h": 768,
+   "alpha": false,
+   "fmt": "jpeg"
+  },
+  {
+   "path": "art/scenes/bg_war_room.mobile.webp",
+   "bytes": 65564,
+   "hash": "8c698f704d9bcaa7",
+   "purpose": "background",
+   "w": 1000,
+   "h": 558,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/scenes/bg_war_room.webp",
+   "bytes": 123998,
+   "hash": "46c06e5d13ece4c4",
+   "purpose": "background",
+   "w": 1376,
+   "h": 768,
+   "alpha": false,
+   "fmt": "webp/lossy"
+  },
+  {
+   "path": "art/ui/spatial_network_amber.webp",
+   "bytes": 53556,
+   "hash": "fc1e2e09d0ea2c59",
+   "purpose": "other",
+   "w": 1600,
+   "h": 1000,
+   "alpha": true,
+   "fmt": "webp/lossless"
+  },
+  {
+   "path": "art/ui/spatial_network_calm.webp",
+   "bytes": 33008,
+   "hash": "abbcb50c907843de",
+   "purpose": "other",
+   "w": 1600,
+   "h": 1000,
+   "alpha": true,
+   "fmt": "webp/lossless"
+  },
+  {
+   "path": "art/ui/spatial_network_neon.webp",
+   "bytes": 62714,
+   "hash": "367ce344fc7a0f66",
+   "purpose": "other",
+   "w": 1600,
+   "h": 1000,
+   "alpha": true,
+   "fmt": "webp/lossless"
+  }
+ ]
+}

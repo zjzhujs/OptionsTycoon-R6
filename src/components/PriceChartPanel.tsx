@@ -79,6 +79,13 @@ interface CurrentCandleOverlay {
   isNew: boolean;
 }
 
+interface LivePriceOverlay {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
 const animatedCandleKeys = new Set<string>();
 const CANDLE_DEPTH_OPACITY = [1, 0.92, 0.84, 0.78, 0.73, 0.68, 0.64, 0.61, 0.59, 0.57, 0.55, 0.53] as const;
 
@@ -117,6 +124,7 @@ export function PriceChartPanel({
   /** 盘中参考线句柄。重画前必须逐条 remove，否则每次刷新叠一层，几步就糊成一片 */
   const refLinesRef = useRef<any[]>([]);
   const [currentCandleOverlay, setCurrentCandleOverlay] = useState<CurrentCandleOverlay | null>(null);
+  const [livePriceOverlay, setLivePriceOverlay] = useState<LivePriceOverlay | null>(null);
   const [chartReady, setChartReady] = useState(false);
 
   const [hoveredBar, setHoveredBar] = useState<{
@@ -460,11 +468,48 @@ export function PriceChartPanel({
       chartRef.current = null;
       priceSeriesRef.current = null;
       volumeSeriesRef.current = null;
+      glowSeriesRef.current = null;
+      setLivePriceOverlay(null);
       setChartReady(false);
     };
     // themeTick：切主题时整图重建并重读配色 token。
     // 图表本来就在 displayMode 变化时重建，多这一个触发源不增加复杂度，
     // 也省得逐个 series 调 applyOptions（那样容易漏掉十字线/网格/量柱）。
+  }, [displayMode, themeTick]);
+
+  /**
+   * R6.6.3 live-market pulse.
+   *
+   * The reference screens read as "the market is still happening" even in a still frame.
+   * We do that without inventing a single price tick: only the duplicate glow series alpha
+   * breathes. The price series and all coordinates remain untouched. This is deliberately
+   * throttled to ~20fps so it does not turn the chart into a GPU fan test on mobile.
+   */
+  useEffect(() => {
+    if (!(displayMode === 'INTRADAY' || displayMode === 'AREA' || displayMode === 'LINE')) return;
+    if (!glowSeriesRef.current) return;
+    if (typeof window === 'undefined' || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+
+    const baseColor = cssStr('--thm-chart-line', '#22d3ee');
+    const themeStrengthRaw = Number.parseFloat(cssStr('--cmd-glow-strength', '0.24'));
+    const themeStrength = Number.isFinite(themeStrengthRaw) ? Math.max(0.06, Math.min(0.55, themeStrengthRaw)) : 0.24;
+    const minAlpha = 0.08 + themeStrength * 0.12;
+    const maxAlpha = Math.min(0.58, 0.18 + themeStrength * 0.86);
+    let frame = 0;
+    let lastPaint = 0;
+    const started = performance.now();
+
+    const breathe = (now: number) => {
+      if (now - lastPaint >= 50) {
+        lastPaint = now;
+        const phase = (Math.sin((now - started) / 430) + 1) / 2;
+        const alpha = minAlpha + (maxAlpha - minAlpha) * phase;
+        glowSeriesRef.current?.applyOptions?.({ color: colorWithAlpha(baseColor, alpha) });
+      }
+      frame = window.requestAnimationFrame(breathe);
+    };
+    frame = window.requestAnimationFrame(breathe);
+    return () => window.cancelAnimationFrame(frame);
   }, [displayMode, themeTick]);
 
   // Update Data and Markers
@@ -797,6 +842,31 @@ export function PriceChartPanel({
     } else {
       setCurrentCandleOverlay(null);
     }
+
+    let liveOverlayFrame = 0;
+    if (displayMode === 'INTRADAY' && intradayReady && chartRef.current && chartContainerRef.current) {
+      liveOverlayFrame = window.requestAnimationFrame(() => {
+        const latest = intradaySeries[intradaySeries.length - 1];
+        if (!latest) return;
+        const x = chartRef.current?.timeScale().timeToCoordinate(latest.time);
+        const y = priceSeriesRef.current?.priceToCoordinate?.(latest.value);
+        const width = chartContainerRef.current?.clientWidth ?? 0;
+        const height = chartContainerRef.current?.clientHeight ?? 0;
+        if ([x, y, width, height].every((value) => typeof value === 'number' && Number.isFinite(value)) && width > 0 && height > 0) {
+          const next: LivePriceOverlay = { x: x as number, y: y as number, width, height };
+          setLivePriceOverlay((previous) => previous
+            && previous.x === next.x
+            && previous.y === next.y
+            && previous.width === next.width
+            && previous.height === next.height
+              ? previous
+              : next);
+        }
+      });
+    } else {
+      setLivePriceOverlay(null);
+    }
+
     const readinessFrame = window.requestAnimationFrame(() => {
       const width = chartContainerRef.current?.clientWidth ?? 0;
       const height = chartContainerRef.current?.clientHeight ?? 0;
@@ -820,6 +890,7 @@ export function PriceChartPanel({
     });
     return () => {
       window.cancelAnimationFrame(overlayFrame);
+      window.cancelAnimationFrame(liveOverlayFrame);
       window.cancelAnimationFrame(readinessFrame);
     };
     // themeTick 必须在这里也列一份：切主题会重建图表、series ref 全部换新，
@@ -950,6 +1021,36 @@ export function PriceChartPanel({
             </g>
             <circle cx={currentCandleOverlay.x} cy={currentCandleOverlay.yClose} r="3" className="ot-current-price-dot" />
           </svg>
+        )}
+        {displayMode === 'INTRADAY' && livePriceOverlay && (
+          <>
+            <div className="ot-market-sweep" aria-hidden="true" />
+            <svg
+              className="ot-live-price-overlay"
+              viewBox={`0 0 ${livePriceOverlay.width} ${livePriceOverlay.height}`}
+              preserveAspectRatio="none"
+              aria-hidden="true"
+              data-testid="live-price-overlay"
+            >
+              <line
+                x1="6"
+                x2={Math.max(6, livePriceOverlay.width - 62)}
+                y1={livePriceOverlay.y}
+                y2={livePriceOverlay.y}
+                className="ot-live-price-guide"
+              />
+              <line
+                x1={Math.max(0, livePriceOverlay.x - 78)}
+                x2={livePriceOverlay.x}
+                y1={livePriceOverlay.y}
+                y2={livePriceOverlay.y}
+                className="ot-live-price-tail"
+              />
+              <circle cx={livePriceOverlay.x} cy={livePriceOverlay.y} r="4" className="ot-live-price-ring ot-live-price-ring--a" />
+              <circle cx={livePriceOverlay.x} cy={livePriceOverlay.y} r="4" className="ot-live-price-ring ot-live-price-ring--b" />
+              <circle cx={livePriceOverlay.x} cy={livePriceOverlay.y} r="2.8" className="ot-live-price-core" />
+            </svg>
+          </>
         )}
         {availableHistory.length === 0 && (
           <div className="pcp-empty-history" data-testid="chart-no-history">当前没有足够历史数据</div>

@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Radial Gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="35%" r="75%">
+      <stop offset="0%" stop-color="#14213d" />
+      <stop offset="55%" stop-color="#0b132b" />
+      <stop offset="100%" stop-color="#030712" />
+    </radialGradient>
+
+    <!-- Border Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#2563EB" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.5" />
+    </linearGradient>
+
+    <!-- Ambient Gold Glow Filter -->
+    <filter id="ambientGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Metallic Gold Light (Left Facet) -->
+    <linearGradient id="goldHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFBEB" />
+      <stop offset="25%" stop-color="#FDE68A" />
+      <stop offset="70%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+
+    <!-- Metallic Gold Shadow (Right / Bevel Facet) -->
+    <linearGradient id="goldShadow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D97706" />
+      <stop offset="50%" stop-color="#B45309" />
+      <stop offset="100%" stop-color="#78350F" />
+    </linearGradient>
+
+    <!-- Deep Blue Accent (Trading/Hedge Fund Depth) -->
+    <linearGradient id="blueDepth" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E3A8A" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+  </defs>
+
+  <!-- Base Icon Canvas: Dark Squircle -->
+  <rect x="20" y="20" width="472" height="472" rx="104" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="4" />
+
+  <!-- Ambient Glow Center -->
+  <circle cx="256" cy="256" r="140" fill="#F59E0B" opacity="0.12" filter="url(#ambientGlow)" />
+
+  <!-- Stylized Geometric Dollar Sign Emblem -->
+  <g id="dollar-emblem">
+    <!-- Top & Bottom Vertical Spines (Shadow & Light) -->
+    <!-- Top Spine Shadow -->
+    <path d="M 256 70 L 278 86 L 278 140 L 256 140 Z" fill="url(#goldShadow)" />
+    <!-- Top Spine Light -->
+    <path d="M 234 86 L 256 70 L 256 140 L 234 140 Z" fill="url(#goldHighlight)" />
+
+    <!-- Bottom Spine Shadow -->
+    <path d="M 256 372 L 278 372 L 278 426 L 256 442 Z" fill="url(#goldShadow)" />
+    <!-- Bottom Spine Light -->
+    <path d="M 234 372 L 256 372 L 256 442 L 234 426 Z" fill="url(#goldHighlight)" />
+
+    <!-- Central Vertical Spine Segments through loops -->
+    <path d="M 238 210 L 256 210 L 256 302 L 238 302 Z" fill="url(#goldHighlight)" opacity="0.9" />
+    <path d="M 256 210 L 274 210 L 274 302 L 256 302 Z" fill="url(#goldShadow)" opacity="0.9" />
+
+    <!-- Main Stylized S Upper Arc - Outer / Left Lit Facet -->
+    <path d="M 334 168 
+             C 334 125 298 96 248 96 
+             C 192 96 156 132 156 182 
+             C 156 246 226 264 274 278 
+             C 316 290 344 308 344 344 
+             C 344 386 308 416 254 416 
+             C 196 416 156 380 152 334 
+             L 194 326 
+             C 198 354 220 378 254 378 
+             C 284 378 304 360 304 340 
+             C 304 296 244 280 196 264 
+             C 152 248 116 224 116 180 
+             C 116 130 158 64 250 64 
+             C 310 64 366 102 374 164 
+             Z" 
+          fill="url(#blueDepth)" opacity="0.4" />
+
+    <!-- 3D Bevel Body (Gold Facet Layer) -->
+    <!-- Left Halves / Light Facets -->
+    <path d="M 256 96
+             C 200 96 160 134 160 180
+             C 160 236 218 256 256 268
+             L 256 226
+             C 224 216 198 204 198 180
+             C 198 152 222 134 256 134
+             Z"
+          fill="url(#goldHighlight)" />
+
+    <path d="M 256 284
+             C 220 274 196 260 196 260
+             L 164 286
+             C 164 286 198 308 256 324
+             Z"
+          fill="url(#blueDepth)" />
+
+    <path d="M 256 324
+             L 256 376
+             C 222 376 198 356 194 332
+             L 154 340
+             C 160 384 198 416 256 416
+             Z"
+          fill="url(#goldHighlight)" />
+
+    <!-- Right Halves / Shadow Facets -->
+    <path d="M 256 96
+             C 304 96 338 126 338 168
+             L 298 174
+             C 294 148 276 134 256 134
+             Z"
+          fill="url(#goldShadow)" />
+
+    <path d="M 256 226
+             C 290 238 316 250 316 250
+             L 348 224
+             C 348 224 314 204 256 186
+             Z"
+          fill="url(#blueDepth)" />
+
+    <path d="M 256 268
+             C 298 280 344 300 344 344
+             C 344 388 306 416 256 416
+             L 256 376
+             C 284 376 304 358 304 340
+             C 304 312 278 298 256 288
+             Z"
+          fill="url(#goldShadow)" />
+
+    <!-- Sharp Center Spine Cut Highlight -->
+    <line x1="256" y1="70" x2="256" y2="442" stroke="#FFFBEB" stroke-width="2" opacity="0.6" />
+
+    <!-- Corner Diamond Accent Details (Wall Street Security Print Feel) -->
+    <polygon points="68,68 76,80 68,92 60,80" fill="#FCD34D" opacity="0.7" />
+    <polygon points="444,68 452,80 444,92 436,80" fill="#FCD34D" opacity="0.7" />
+    <polygon points="68,444 76,432 68,420 60,432" fill="#FCD34D" opacity="0.7" />
+    <polygon points="444,444 452,432 444,420 436,432" fill="#FCD34D" opacity="0.7" />
+  </g>
+</svg>
