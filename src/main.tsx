@@ -15,6 +15,7 @@ import './theme/war-room.css'
 import './theme/workspaces.css'
 import './theme/modals.css'
 import './theme/responsive.css'
+import './theme/r663-market-energy.css'
 import { applyStoredAppearance } from './components/ThemeStudio'
 
 // 必须在 React 挂载**之前**同步套上主题。
