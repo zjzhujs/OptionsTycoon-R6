@@ -155,7 +155,37 @@ export function PriceChartPanel({
     if (dailyVisualAnchor && currentGameDate) {
       // 391 points = 390 RTH minute intervals plus both endpoints. Interior
       // points remain SIMULATED visual data; admitted real bars still own truth.
-      return buildDailyAnchoredVisualSeries(dailyVisualAnchor, currentGameDate, 391);
+      const anchored = buildDailyAnchoredVisualSeries(dailyVisualAnchor, currentGameDate, 391);
+      if (!anchored || anchored.points.length < 8) return anchored;
+
+      // This branch is the explicitly SIMULATED daily-OHLC visual fallback only.
+      // Add deterministic minute-scale texture without changing admitted truth:
+      // endpoints and exact daily extrema stay untouched, while all other points
+      // remain strictly inside the real daily range. Execution/settlement/scoring
+      // continue to use admitted bars, never these visual-only points.
+      const dayRange = dailyVisualAnchor.high - dailyVisualAnchor.low;
+      if (!(dayRange > 0.02)) return anchored;
+      const innerLow = dailyVisualAnchor.low + 0.01;
+      const innerHigh = dailyVisualAnchor.high - 0.01;
+      const points = anchored.points.map((point, index, all) => {
+        if (index === 0 || index === all.length - 1) return point;
+        if (
+          Math.abs(point.price - dailyVisualAnchor.high) < 0.005
+          || Math.abs(point.price - dailyVisualAnchor.low) < 0.005
+        ) return point;
+
+        const t = index / (all.length - 1);
+        const envelope = Math.pow(Math.sin(Math.PI * t), 0.55);
+        const wave = (
+          Math.sin(index * 2.399)
+          + 0.65 * Math.sin(index * 0.971)
+          + 0.35 * Math.sin(index * 0.417)
+        ) / 2;
+        const raw = point.price + wave * dayRange * 0.032 * envelope;
+        const price = Math.round(Math.min(innerHigh, Math.max(innerLow, raw)) * 100) / 100;
+        return { ...point, price };
+      });
+      return { ...anchored, points };
     }
     return revealed;
   }, [intradayBars, dailyVisualAnchor, currentGameDate]);
