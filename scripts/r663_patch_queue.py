@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import base64, csv, hashlib, io, os, pathlib, re, subprocess, sys, urllib.request
+import base64, csv, hashlib, io, os, pathlib, subprocess, sys, urllib.request
 
 CSV_URL = "https://docs.google.com/spreadsheets/d/1whhUZpaIw8SiG_OExJiFA6BSM4tOljfiqcntS9omR7E/gviz/tq?tqx=out:csv&sheet=queue"
 SAFE_PREFIXES = ("src/", "visual_acceptance/", "scripts/r663_", ".github/workflows/r663-")
@@ -30,7 +30,16 @@ def patch_paths(patch_text):
                 paths.add(p)
     return paths
 
-def main():
+def is_ancestor(base_sha, head_sha):
+    return sh("git", "merge-base", "--is-ancestor", base_sha, head_sha, check=False).returncode == 0
+
+def changed_files(base_sha, head_sha):
+    if base_sha == head_sha:
+        return set()
+    result = sh("git", "diff", "--name-only", base_sha, head_sha)
+    return {line.strip() for line in result.stdout.splitlines() if line.strip()}
+
+def main(peek=False):
     emit("pending", "false")
     rows = fetch_rows()
     groups = {}
@@ -46,12 +55,6 @@ def main():
             continue
 
         first = items[0]
-        base_sha = (first.get("base_sha") or "").strip()
-        current_sha = sh("git", "rev-parse", "HEAD").stdout.strip()
-        if not base_sha or base_sha != current_sha:
-            print(f"QUEUE_SKIP {gid}: base mismatch queue={base_sha} head={current_sha}")
-            continue
-
         ordered = sorted(items, key=lambda r: int(r.get("chunk_index") or "0"))
         expected_count = int(first.get("chunk_count") or "0")
         if expected_count != len(ordered):
@@ -62,7 +65,7 @@ def main():
         got_sha = hashlib.sha256(patch).hexdigest()
         want_sha = (first.get("patch_sha256") or "").strip().lower()
         if got_sha != want_sha:
-            raise RuntimeError(f"{gid}: sha256 mismatch")
+            raise RuntimeError(f"{gid}: sha256 mismatch got={got_sha} want={want_sha}")
 
         text = patch.decode("utf-8")
         paths = patch_paths(text)
@@ -72,6 +75,29 @@ def main():
         if any(not p.startswith(SAFE_PREFIXES) or ".." in pathlib.PurePosixPath(p).parts for p in paths):
             raise RuntimeError(f"{gid}: unsafe path")
 
+        base_sha = (first.get("base_sha") or "").strip()
+        current_sha = sh("git", "rev-parse", "HEAD").stdout.strip()
+        if not base_sha:
+            print(f"QUEUE_SKIP {gid}: empty base_sha")
+            continue
+        if base_sha != current_sha:
+            if not is_ancestor(base_sha, current_sha):
+                print(f"QUEUE_SKIP {gid}: base {base_sha[:12]} is not ancestor of HEAD {current_sha[:12]}")
+                continue
+            conflicts = paths & changed_files(base_sha, current_sha)
+            if conflicts:
+                print(f"QUEUE_SKIP {gid}: target files changed since base: {sorted(conflicts)}")
+                continue
+            print(f"QUEUE_REBASE {gid}: safe ancestor {base_sha[:12]} -> {current_sha[:12]}")
+
+        emit("pending", "true")
+        emit("generation_id", gid)
+        emit("commit_message", (first.get("commit_message") or f"R6.6.3 autopilot {gid}").replace("\n", " "))
+        emit("patch_sha256", got_sha)
+        if peek:
+            print(f"QUEUE_PEEK {gid} paths={sorted(paths)}")
+            return
+
         patch_file = pathlib.Path("/tmp/r663.patch")
         patch_file.write_bytes(patch)
         sh("git", "apply", "--check", str(patch_file))
@@ -79,15 +105,10 @@ def main():
 
         marker.parent.mkdir(parents=True, exist_ok=True)
         marker.write_text(got_sha + "\n", encoding="utf-8")
-
-        emit("pending", "true")
-        emit("generation_id", gid)
-        emit("commit_message", (first.get("commit_message") or f"R6.6.3 autopilot {gid}").replace("\n", " "))
-        emit("patch_sha256", got_sha)
         print(f"QUEUE_APPLIED {gid} paths={sorted(paths)}")
         return
 
     print("QUEUE_EMPTY")
 
 if __name__ == "__main__":
-    main()
+    main(peek="--peek" in sys.argv[1:])
