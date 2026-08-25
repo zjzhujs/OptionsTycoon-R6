@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import base64, csv, hashlib, io, os, pathlib, subprocess, sys, urllib.request
+import base64, csv, hashlib, io, os, pathlib, subprocess, sys, time, urllib.request
 
 CSV_URL = "https://docs.google.com/spreadsheets/d/1whhUZpaIw8SiG_OExJiFA6BSM4tOljfiqcntS9omR7E/gviz/tq?tqx=out:csv&sheet=queue"
 SAFE_PREFIXES = ("src/", "visual_acceptance/", "scripts/r663_", ".github/workflows/r663-")
@@ -14,7 +14,18 @@ def emit(name, value):
             f.write(f"{name}={value}\n")
 
 def fetch_rows():
-    req = urllib.request.Request(CSV_URL, headers={"User-Agent": "OT-R663-Autopilot/1.0"})
+    # Google gviz can briefly serve a stale public CSV after a Sheet mutation.
+    # A unique query key plus no-cache headers forces each runner to validate the
+    # current queue bytes instead of an older edge-cached snapshot.
+    url = f"{CSV_URL}&_={time.time_ns()}"
+    req = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": "OT-R663-Autopilot/1.0",
+            "Cache-Control": "no-cache, no-store, max-age=0",
+            "Pragma": "no-cache",
+        },
+    )
     with urllib.request.urlopen(req, timeout=30) as r:
         raw = r.read().decode("utf-8-sig")
     if "<html" in raw.lower():
