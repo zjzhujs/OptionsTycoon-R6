@@ -194,3 +194,27 @@
     box-shadow: inset 0 0 0 1px rgba(18,214,255,.12), 0 0 22px rgba(18,214,255,.08), 0 0 34px rgba(132,82,255,.05);
   }
 }
+
+/* 015B-2 first-viewport chassis: keep the desktop machine rail permanently in-frame. */
+@media (min-width: 1280px) {
+  .app-shell-desktop .market-command-shell { padding-bottom: 78px !important; }
+  .app-shell-desktop .command-bottom-rail {
+    position: fixed !important;
+    z-index: 90 !important;
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 8px !important;
+    width: auto !important;
+    min-height: 68px !important;
+    height: 68px !important;
+    margin: 0 !important;
+    border: 1px solid color-mix(in srgb,var(--ot-accent) 44%,var(--ot-line)) !important;
+    background: color-mix(in srgb,var(--ot-bg-0) 94%,transparent) !important;
+    box-shadow: 0 -10px 28px rgba(0,0,0,.36), inset 0 1px 0 rgba(var(--ot-accent-rgb),.16) !important;
+    backdrop-filter: blur(10px);
+  }
+  .app-shell-desktop .command-bottom-status-grid { min-width: 0; }
+  .app-shell-desktop .ot-dock-cta { min-width: clamp(270px,20vw,340px) !important; height: 54px !important; }
+  html[data-theme="calm"] .app-shell-desktop .command-bottom-rail { backdrop-filter: none; box-shadow: 0 -8px 20px rgba(0,0,0,.22), inset 0 1px 0 rgba(75,195,222,.10) !important; }
+  html[data-theme="neon"] .app-shell-desktop .command-bottom-rail { box-shadow: 0 -10px 30px rgba(0,0,0,.42), 0 0 24px rgba(25,216,255,.08), inset 0 1px 0 rgba(136,92,255,.20) !important; }
+}
