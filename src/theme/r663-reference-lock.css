@@ -157,3 +157,40 @@
 @media (min-width: 1280px) {
   .app-shell-desktop .r663-regime-strip { position:absolute; z-index:15; left:12px; right:12px; bottom:7px; display:grid; grid-template-columns:1.35fr repeat(5,minmax(0,1fr)); min-height:38px; border:1px solid color-mix(in srgb,var(--ot-accent) 34%,var(--ot-line)); background:color-mix(in srgb,var(--ot-bg-0) 91%,transparent); backdrop-filter:blur(9px); pointer-events:none; }
 }
+
+/* 015B-1 visual convergence: reference-weight rails, instrument radar, event hierarchy, theme material depth. */
+@media (min-width: 1280px) {
+  .app-shell-desktop .market-command-shell .trading-floor-workspace {
+    grid-template-columns: clamp(250px, 17vw, 286px) minmax(0, 1fr) clamp(276px, 18.5vw, 314px) !important;
+    gap: 8px !important;
+  }
+  .app-shell-desktop .reference-greeks-instrument {
+    grid-template-columns: minmax(0, 1fr) 112px;
+    min-height: 122px !important;
+  }
+  .app-shell-desktop .reference-greeks-visual {
+    min-height: 92px;
+    filter: drop-shadow(0 0 7px rgba(var(--ot-accent-rgb),.28));
+  }
+  .app-shell-desktop .reference-greeks-visual svg { width: 108px !important; height: 92px !important; }
+  .app-shell-desktop .command-right-content > .wrr .wrr-seat-card {
+    grid-template-columns: minmax(96px, 42%) minmax(0, 1fr) !important;
+    min-height: 96px !important;
+    height: 96px !important;
+  }
+  .app-shell-desktop .command-right-content > .wrr .wrr-avatar-wrap,
+  .app-shell-desktop .command-right-content > .wrr .wrr-avatar-img { height: 88px !important; }
+  .app-shell-desktop .r663-market-event:nth-child(2) i { transform:rotate(45deg) scale(.88); }
+  .app-shell-desktop .r663-market-event:nth-child(3) i { box-shadow:0 0 10px rgba(var(--ot-accent-rgb),.52); }
+  .app-shell-desktop .r663-market-event:nth-child(4) i { transform:rotate(45deg) scale(1.12); }
+  .app-shell-desktop .r663-market-event:nth-child(5) b { letter-spacing:.14em; }
+  html[data-theme="amber"] .app-shell-desktop .market-hero-stage,
+  html[data-theme="amber"] .app-shell-desktop .decision-deck {
+    box-shadow: inset 0 1px 0 rgba(255,194,86,.16), 0 0 18px rgba(255,170,42,.05);
+  }
+  html[data-theme="calm"] .app-shell-desktop .r663-market-timeline,
+  html[data-theme="calm"] .app-shell-desktop .r663-regime-strip { backdrop-filter:none; box-shadow:none; }
+  html[data-theme="neon"] .app-shell-desktop .market-hero-stage {
+    box-shadow: inset 0 0 0 1px rgba(18,214,255,.12), 0 0 22px rgba(18,214,255,.08), 0 0 34px rgba(132,82,255,.05);
+  }
+}
