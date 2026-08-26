@@ -1,0 +1,101 @@
+/* R6.6.3 reference lock 013
+   Desktop-only first-viewport composition pass.
+   Keeps gameplay and mobile geometry untouched. */
+
+@media (min-width: 1280px) {
+  .app-shell-desktop .market-command-shell .trading-floor-workspace {
+    grid-template-columns: clamp(206px, 13.2vw, 238px) minmax(0, 1fr) clamp(224px, 14.6vw, 258px) !important;
+    gap: 7px !important;
+    padding-top: 5px !important;
+  }
+  .app-shell-desktop .market-command-main > .market-hero-stage {
+    min-height: 0 !important;
+    height: clamp(472px, 54vh, 560px) !important;
+  }
+  .app-shell-desktop .market-command-main .pcp-chart-stage {
+    min-height: 286px !important;
+    height: clamp(286px, 34vh, 350px) !important;
+  }
+  .app-shell-desktop .market-command-main .pcp-volume-band { height: 48px !important; }
+  .app-shell-desktop .market-command-main .pcp-network-band {
+    min-height: 96px !important;
+    height: 96px !important;
+    background-size: auto, auto, auto, 24px 24px, 32px 24px, auto !important;
+  }
+  .app-shell-desktop .market-command-main .pcp-network-band::after {
+    content: "";
+    position: absolute;
+    inset: 8px 12px 8px 82px;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 8% 28%, rgba(var(--ot-accent-rgb),.80) 0 2px, transparent 3px),
+      radial-gradient(circle at 18% 74%, rgba(var(--ot-accent-rgb),.72) 0 2px, transparent 3px),
+      radial-gradient(circle at 31% 34%, rgba(var(--ot-accent-rgb),.90) 0 2px, transparent 3px),
+      radial-gradient(circle at 46% 69%, rgba(var(--ot-accent-rgb),.74) 0 2px, transparent 3px),
+      radial-gradient(circle at 59% 22%, rgba(var(--ot-accent-rgb),.88) 0 2px, transparent 3px),
+      radial-gradient(circle at 72% 67%, rgba(var(--ot-accent-rgb),.78) 0 2px, transparent 3px),
+      radial-gradient(circle at 84% 31%, rgba(var(--ot-accent-rgb),.92) 0 2px, transparent 3px),
+      radial-gradient(circle at 94% 72%, rgba(var(--ot-accent-rgb),.76) 0 2px, transparent 3px),
+      linear-gradient(17deg, transparent 47%, rgba(var(--ot-accent-rgb),.34) 48%, transparent 49%),
+      linear-gradient(163deg, transparent 47%, rgba(var(--ot-accent-rgb),.22) 48%, transparent 49%);
+    opacity: .72;
+    filter: drop-shadow(0 0 7px rgba(var(--ot-accent-rgb),.30));
+  }
+  .app-shell-desktop .novice-trend-guide {
+    min-height: 30px !important;
+    max-height: 32px !important;
+    margin-top: 4px !important;
+    padding: 2px 7px !important;
+    overflow: hidden !important;
+  }
+  .app-shell-desktop .novice-trend-guide .ntg-text { font-size: 8px !important; }
+  .app-shell-desktop .novice-trend-guide .ntg-actions button {
+    min-height: 24px !important;
+    height: 24px !important;
+    padding: 2px 6px !important;
+  }
+  .app-shell-desktop .market-command-main .decision-deck,
+  .app-shell-desktop .market-command-main .decision-deck-thesis,
+  .app-shell-desktop .market-command-main .decision-key-console {
+    height: 150px !important;
+    min-height: 150px !important;
+  }
+  .app-shell-desktop .market-command-main .decision-deck { margin-top: 4px !important; }
+  .app-shell-desktop .market-command-main .decision-key-grid,
+  .app-shell-desktop .market-command-main .decision-key {
+    height: 122px !important;
+    min-height: 122px !important;
+  }
+  .app-shell-desktop .command-right-content > .wrr .wrr-seat-card {
+    grid-template-columns: minmax(82px, 38%) minmax(0, 1fr) !important;
+    min-height: 88px !important;
+    height: 88px !important;
+  }
+  .app-shell-desktop .command-right-content > .wrr .wrr-avatar-wrap,
+  .app-shell-desktop .command-right-content > .wrr .wrr-avatar-img { height: 80px !important; }
+  .app-shell-desktop .reference-fund-instrument { min-height: 92px !important; }
+  .app-shell-desktop .reference-rail-instrument {
+    min-height: 58px !important;
+    padding: 6px 8px !important;
+  }
+  html[data-theme="neon"] .market-command-main .pcp-network-band::after {
+    opacity: .92;
+    filter: drop-shadow(0 0 8px rgba(24,214,255,.54)) drop-shadow(0 0 10px rgba(132,82,255,.24));
+  }
+  html[data-theme="amber"] .market-command-main .pcp-network-band::after {
+    opacity: .84;
+    filter: drop-shadow(0 0 8px rgba(255,178,54,.42));
+  }
+}
+
+@media (min-width: 1280px) and (max-height: 980px) {
+  .app-shell-desktop .market-command-main > .market-hero-stage { height: 486px !important; }
+  .app-shell-desktop .market-command-main .pcp-chart-stage {
+    min-height: 288px !important;
+    height: 288px !important;
+  }
+  .app-shell-desktop .market-command-main .pcp-network-band {
+    min-height: 92px !important;
+    height: 92px !important;
+  }
+}
