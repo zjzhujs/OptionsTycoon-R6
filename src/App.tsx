@@ -3088,6 +3088,16 @@ export default function App(): JSX.Element {
                   <span>NAV</span><span>DAY P&amp;L</span>
                   <b>{cashRatio == null ? '—' : `${Math.round(cashRatio * 100)}% CASH`}</b>
                 </div>
+                <div className="reference-fund-visual" data-visual-key="fund-cash-donut">
+                  <Donut
+                    source="fundVitals"
+                    value={cashRatio}
+                    size={66}
+                    thickness={7}
+                    centerLabel={cashRatio == null ? undefined : `${Math.round(cashRatio * 100)}%`}
+                  />
+                  <small>CASH / DEPLOYED</small>
+                </div>
                 <div className="reference-rail-track reference-fund-track"><i style={{ width: `${Math.min(100, Math.max(0, (cashRatio ?? 0) * 100))}%` }} /></div>
               </section>
 
@@ -3130,6 +3140,9 @@ export default function App(): JSX.Element {
                   <span>Γ <b>{view.portfolio_greeks ? view.portfolio_greeks.gamma.toFixed(3) : '—'}</b></span>
                   <span>Θ <b>{view.portfolio_greeks ? view.portfolio_greeks.theta.toFixed(2) : '—'}</b></span>
                   <span>V <b>{view.portfolio_greeks ? view.portfolio_greeks.vega.toFixed(2) : '—'}</b></span>
+                </div>
+                <div className="reference-greeks-visual" data-visual-key="portfolio-greeks-radar">
+                  <Radar source="portfolioGreeks" axes={normalizeGreeksForRadar(view.portfolio_greeks, view.equity, node.underlying_bar.close, marginUtil)} size={92} />
                 </div>
               </section>
 

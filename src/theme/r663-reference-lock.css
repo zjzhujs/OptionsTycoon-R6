@@ -99,3 +99,33 @@
     height: 92px !important;
   }
 }
+
+/* 014r repair: source-backed left-rail visual organs.
+   No chart-stage geometry changes in this patch. */
+@media (min-width: 1280px) {
+  .app-shell-desktop .reference-fund-instrument {
+    position: relative;
+    padding-right: 78px !important;
+  }
+  .app-shell-desktop .reference-fund-visual {
+    position: absolute;
+    right: 6px;
+    top: 22px;
+    width: 66px;
+    display: grid;
+    place-items: center;
+  }
+  .app-shell-desktop .reference-fund-visual small {
+    margin-top: -3px;
+    font: 700 6px/1 "IBM Plex Mono", monospace;
+    letter-spacing: .05em;
+    color: var(--ot-text-dim);
+  }
+  .app-shell-desktop .reference-greeks-instrument {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 92px;
+    align-items: center;
+  }
+  .app-shell-desktop .reference-greeks-instrument .reference-rail-head { grid-column: 1 / -1; }
+  .app-shell-desktop .reference-greeks-visual { display: grid; place-items: center; }
+}
