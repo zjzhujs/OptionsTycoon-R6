@@ -227,3 +227,9 @@
   .app-shell-desktop .market-command-main .decision-key-grid,
   .app-shell-desktop .market-command-main .decision-key { height: 104px !important; min-height: 104px !important; }
 }
+
+/* 015B-4 reference vertical rhythm: remove the desktop novice coaching strip absent from all three locked references. */
+@media (min-width: 1280px) {
+  .app-shell-desktop .novice-trend-guide { display: none !important; }
+  .app-shell-desktop .market-command-main .decision-deck { margin-top: 8px !important; }
+}
