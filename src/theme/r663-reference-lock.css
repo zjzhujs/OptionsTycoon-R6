@@ -375,3 +375,5 @@
   .app-shell-desktop .r663-market-timeline-track::after,
   .app-shell-desktop .r663-market-event.is-current i { animation: none !important; }
 }
+
+/* 016 recapture checkpoint: visual no-op; forces current-head acceptance artifact. */
