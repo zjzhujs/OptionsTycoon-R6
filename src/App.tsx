@@ -3446,6 +3446,21 @@ export default function App(): JSX.Element {
 
                 <div data-onboarding-panel="CHART">
                 <MarketHeroStage>
+                <div className="r663-market-timeline" data-visual-key="market-timeline" aria-label="Experienced market timeline">
+                  <div className="r663-market-timeline-head">
+                    <strong>MARKET TIMELINE</strong>
+                    <span>{node.date} / {view.market_clock?.paused === false ? 'LIVE' : 'PAUSED'}</span>
+                  </div>
+                  <div className="r663-market-timeline-track">
+                    {(chartEventPins.length ? chartEventPins.slice(-5) : [{ date: node.date, headline: node.label || 'CURRENT NODE', tone: 'neutral' as const }]).map((event, index, rows) => (
+                      <div className={`r663-market-event tone-${event.tone}${index === rows.length - 1 ? ' is-current' : ''}`} key={`${event.date}-${event.headline}-${index}`}>
+                        <i />
+                        <b>E{index + 1}</b>
+                        <small>{event.headline}</small>
+                      </div>
+                    ))}
+                  </div>
+                </div>
                 <Suspense fallback={<div className="chart-loading-placeholder">加载 K 线图表引擎...</div>}>
                   <PriceChartPanel
                     nodes={nodes}
@@ -3471,6 +3486,14 @@ export default function App(): JSX.Element {
                     eventPins={chartEventPins}
                   />
                 </Suspense>
+                <div className="r663-regime-strip" data-visual-key="market-regime-strip" aria-label="Market regime data strip">
+                  <div><span>MARKET REGIME</span><strong>DATA_UNAVAILABLE</strong></div>
+                  <div><span>VIX</span><strong>{node.vix?.close == null ? 'DATA_UNAVAILABLE' : node.vix.close.toFixed(1)}</strong></div>
+                  <div><span>MOVE</span><strong>DATA_UNAVAILABLE</strong></div>
+                  <div><span>BREADTH</span><strong>DATA_UNAVAILABLE</strong></div>
+                  <div><span>SENTIMENT</span><strong>DATA_UNAVAILABLE</strong></div>
+                  <div><span>SCORE</span><strong>DATA_UNAVAILABLE</strong></div>
+                </div>
                 </MarketHeroStage>
                 </div>
 

@@ -129,3 +129,26 @@
   .app-shell-desktop .reference-greeks-instrument .reference-rail-head { grid-column: 1 / -1; }
   .app-shell-desktop .reference-greeks-visual { display: grid; place-items: center; }
 }
+
+/* 015A command spine: experienced event timeline + source-honest regime strip. */
+@media (min-width: 1280px) {
+  .app-shell-desktop .market-command-main > .market-hero-stage { position: relative !important; overflow: hidden !important; }
+  .app-shell-desktop .r663-market-timeline { position:absolute; z-index:14; top:6px; left:72px; right:16px; min-height:42px; padding:5px 8px 4px; border:1px solid color-mix(in srgb,var(--ot-accent) 34%,var(--ot-line)); background:color-mix(in srgb,var(--ot-bg-0) 86%,transparent); backdrop-filter:blur(7px); pointer-events:none; }
+  .app-shell-desktop .r663-market-timeline-head { display:flex; align-items:center; justify-content:space-between; gap:10px; font:800 7px/1 "IBM Plex Mono",monospace; letter-spacing:.09em; color:var(--ot-text-dim); }
+  .app-shell-desktop .r663-market-timeline-head strong { color:var(--ot-accent); font-size:8px; letter-spacing:.14em; }
+  .app-shell-desktop .r663-market-timeline-track { position:relative; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:6px; margin-top:6px; }
+  .app-shell-desktop .r663-market-timeline-track::before { content:""; position:absolute; left:5px; right:5px; top:4px; height:1px; background:linear-gradient(90deg,transparent,rgba(var(--ot-accent-rgb),.50) 8%,rgba(var(--ot-accent-rgb),.50) 92%,transparent); box-shadow:0 0 8px rgba(var(--ot-accent-rgb),.24); }
+  .app-shell-desktop .r663-market-event { position:relative; min-width:0; padding:10px 3px 0 13px; font:700 7px/1 "IBM Plex Mono",monospace; }
+  .app-shell-desktop .r663-market-event i { position:absolute; z-index:2; left:2px; top:0; width:9px; height:9px; border:1px solid var(--ot-accent); background:var(--ot-bg-0); transform:rotate(45deg); box-shadow:0 0 8px rgba(var(--ot-accent-rgb),.42); }
+  .app-shell-desktop .r663-market-event.is-current i { background:var(--ot-accent); box-shadow:0 0 12px rgba(var(--ot-accent-rgb),.74); }
+  .app-shell-desktop .r663-market-event.tone-risk i { border-color:var(--ot-negative); }
+  .app-shell-desktop .r663-market-event.tone-good i { border-color:var(--ot-positive); }
+  .app-shell-desktop .r663-market-event b { color:var(--ot-accent); margin-right:4px; }
+  .app-shell-desktop .r663-market-event small { display:inline-block; max-width:calc(100% - 20px); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--ot-text); vertical-align:bottom; }
+  .app-shell-desktop .r663-market-regime-strip { position:absolute; z-index:15; left:12px; right:12px; bottom:7px; display:grid; grid-template-columns:1.35fr repeat(5,minmax(0,1fr)); min-height:38px; border:1px solid color-mix(in srgb,var(--ot-accent) 34%,var(--ot-line)); background:color-mix(in srgb,var(--ot-bg-0) 91%,transparent); backdrop-filter:blur(9px); pointer-events:none; }
+  .app-shell-desktop .r663-regime-strip > div { min-width:0; padding:5px 7px 4px; border-right:1px solid color-mix(in srgb,var(--ot-accent) 15%,var(--ot-line)); }
+  .app-shell-desktop .r663-regime-strip > div:last-child { border-right:0; }
+  .app-shell-desktop .r663-regime-strip span,.app-shell-desktop .r663-regime-strip strong { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-family:"IBM Plex Mono",monospace; }
+  .app-shell-desktop .r663-regime-strip span { font-size:6px; font-weight:800; letter-spacing:.10em; color:var(--ot-text-dim); }
+  .app-shell-desktop .r663-regime-strip strong { margin-top:3px; font-size:8px; color:var(--ot-text); }
+}
