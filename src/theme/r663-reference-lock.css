@@ -152,3 +152,8 @@
   .app-shell-desktop .r663-regime-strip span { font-size:6px; font-weight:800; letter-spacing:.10em; color:var(--ot-text-dim); }
   .app-shell-desktop .r663-regime-strip strong { margin-top:3px; font-size:8px; color:var(--ot-text); }
 }
+
+/* 015B-0 repair: bind the real JSX class; keep 015A source-honest data semantics unchanged. */
+@media (min-width: 1280px) {
+  .app-shell-desktop .r663-regime-strip { position:absolute; z-index:15; left:12px; right:12px; bottom:7px; display:grid; grid-template-columns:1.35fr repeat(5,minmax(0,1fr)); min-height:38px; border:1px solid color-mix(in srgb,var(--ot-accent) 34%,var(--ot-line)); background:color-mix(in srgb,var(--ot-bg-0) 91%,transparent); backdrop-filter:blur(9px); pointer-events:none; }
+}
