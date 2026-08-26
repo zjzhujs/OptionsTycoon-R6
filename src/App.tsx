@@ -588,17 +588,32 @@ export default function App(): JSX.Element {
    */
   const chartEventPins = useMemo(() => {
     const today = node?.date ?? '';
-    const rows = view?.decision_timeline ?? [];
-    return rows
-      .filter((e) => e?.game_date && (!today || e.game_date <= today))
-      .map((e) => {
-        const c = `${e.category ?? ''}`.toUpperCase();
-        const tone: 'risk' | 'good' | 'neutral' =
-          /RISK|CRISIS|MARGIN|LOSS|INVESTIGAT|GRUDGE/.test(c) ? 'risk'
-          : /PROFIT|WIN|OPPORTUNIT|GAIN/.test(c) ? 'good'
-          : 'neutral';
-        return { date: e.game_date, headline: e.headline ?? '事件', tone };
-      });
+    const rows = (view?.decision_timeline ?? [])
+      .filter((e) => e?.game_date && (!today || e.game_date <= today));
+    const headlineCounts = new Map<string, number>();
+    rows.forEach((event) => {
+      const category = `${event.category ?? ''}`.trim().replace(/_/g, ' ');
+      const headline = `${event.headline ?? ''}`.trim() || category || '事件';
+      headlineCounts.set(headline, (headlineCounts.get(headline) ?? 0) + 1);
+    });
+    return rows.map((e) => {
+      const rawCategory = `${e.category ?? ''}`.trim();
+      const category = rawCategory.replace(/_/g, ' ');
+      const baseHeadline = `${e.headline ?? ''}`.trim() || category || '事件';
+      const headline = (headlineCounts.get(baseHeadline) ?? 0) > 1
+        ? [
+            category && category.toUpperCase() !== baseHeadline.toUpperCase() ? category : '',
+            baseHeadline,
+            e.game_date,
+          ].filter(Boolean).join(' · ')
+        : baseHeadline;
+      const c = rawCategory.toUpperCase();
+      const tone: 'risk' | 'good' | 'neutral' =
+        /RISK|CRISIS|MARGIN|LOSS|INVESTIGAT|GRUDGE/.test(c) ? 'risk'
+        : /PROFIT|WIN|OPPORTUNIT|GAIN/.test(c) ? 'good'
+        : 'neutral';
+      return { date: e.game_date, headline, tone };
+    });
   }, [view?.decision_timeline, node?.date]);
 
   /**

@@ -216,40 +216,97 @@ export function Radar({
   };
   const ring = (k: number) =>
     list.map((_, i) => pt(i, k).map((v) => v.toFixed(1)).join(',')).join(' ');
+  const axisValue = (value: number | null | undefined) =>
+    isNum(value) ? Math.max(0, Math.min(1, value)) : 0;
   // 缺值的轴画到 0，并在标签上标出来——不要悄悄跳过，那会让图形形状说谎
   const shape = list
-    .map((a, i) => pt(i, isNum(a.value) ? Math.max(0, Math.min(1, a.value)) : 0).map((v) => v.toFixed(1)).join(','))
+    .map((axis, i) => pt(i, axisValue(axis.value)).map((v) => v.toFixed(1)).join(','))
     .join(' ');
   // 全 0 是**合法状态**（空仓的账本确实没有敞口），但画出来是个塌在中心的点，
   // 看着像坏了。这时候把话说明白，而不是留一个空网格让人猜。
   const allZero = list.every((a) => !isNum(a.value) || Math.abs(a.value) < 1e-9);
 
   return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="mv-radar" role="img" {...srcAttr(source)}>
-      {[0.33, 0.66, 1].map((k) => (
-        <polygon key={k} points={ring(k)} fill="none" stroke="var(--thm-line, var(--thm-muted))" opacity="0.55" />
+    <svg
+      width={size}
+      height={size}
+      viewBox={`0 0 ${size} ${size}`}
+      className="mv-radar mv-radar-instrument"
+      role="img"
+      aria-label="Portfolio Greeks exposure radar"
+      {...srcAttr(source)}
+    >
+      <polygon className="mv-radar-field" points={ring(1)} fill={color} fillOpacity="0.035" stroke="none" />
+      {[0.25, 0.5, 0.75, 1].map((k) => (
+        <polygon
+          key={k}
+          className="mv-radar-ring"
+          points={ring(k)}
+          fill="none"
+          stroke="var(--thm-line, var(--thm-muted))"
+          strokeWidth={k === 1 ? 1.15 : 0.7}
+          opacity={k === 1 ? 0.78 : 0.42}
+        />
       ))}
       {list.map((_, i) => {
         const [x2, y2] = pt(i, 1);
-        return <line key={i} x1={cx} y1={cy} x2={x2} y2={y2} stroke="var(--thm-line, var(--thm-muted))" opacity="0.4" />;
+        return (
+          <g key={i} className="mv-radar-axis">
+            <line x1={cx} y1={cy} x2={x2} y2={y2} stroke="var(--thm-line, var(--thm-muted))" strokeWidth="0.8" opacity="0.58" />
+            <circle cx={x2} cy={y2} r="1.45" fill="var(--thm-line, var(--thm-muted))" opacity="0.88" />
+          </g>
+        );
       })}
+      <circle cx={cx} cy={cy} r="2.2" fill="var(--thm-line, var(--thm-muted))" opacity="0.74" />
       {allZero ? (
-        <text x={cx} y={cy + 3} textAnchor="middle" fontSize="9" fill="var(--thm-muted)">
-          无敞口
-        </text>
+        <g className="mv-radar-zero">
+          <circle cx={cx} cy={cy} r={Math.max(8, r * 0.24)} fill="none" stroke={color} strokeWidth="1" opacity="0.42" />
+          <text x={cx} y={cy + 3} textAnchor="middle" fontSize="8.5" fontWeight="700" fill="var(--thm-muted)">
+            无敞口
+          </text>
+        </g>
       ) : (
-        <polygon points={shape} fill={color} fillOpacity="0.28" stroke={color} strokeWidth="1.6" />
+        <g className="mv-radar-data" style={{ color }}>
+          <polygon
+            className="mv-radar-exposure"
+            points={shape}
+            fill={color}
+            fillOpacity="0.36"
+            stroke={color}
+            strokeWidth="2"
+            strokeLinejoin="round"
+            style={{ filter: 'drop-shadow(0 0 4px currentColor)' }}
+          />
+          {list.map((axis, i) => {
+            if (!isNum(axis.value)) return null;
+            const [px, py] = pt(i, axisValue(axis.value));
+            return (
+              <circle
+                key={`${axis.label}-point`}
+                className="mv-radar-node"
+                cx={px}
+                cy={py}
+                r="2.5"
+                fill={color}
+                stroke="var(--thm-bg, transparent)"
+                strokeWidth="0.9"
+              />
+            );
+          })}
+        </g>
       )}
       {list.map((a, i) => {
         const [tx, ty] = pt(i, 1.24);
         return (
           <text
             key={a.label}
+            className="mv-radar-label"
             x={tx}
             y={ty + 3}
             textAnchor="middle"
-            fontSize="7.5"
-            fill={isNum(a.value) ? 'var(--thm-muted)' : 'var(--thm-risk)'}
+            fontSize="8"
+            fontWeight="800"
+            fill={isNum(a.value) ? 'var(--thm-text)' : 'var(--thm-risk)'}
           >
             {isNum(a.value) ? a.label : `${a.label}·无`}
           </text>

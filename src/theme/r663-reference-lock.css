@@ -269,3 +269,109 @@
   html[data-theme="amber"] .app-shell-desktop .market-command-main .pcp-network-band::after { opacity: .92; filter: drop-shadow(0 0 9px rgba(255,178,54,.46)); }
   html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band::after { opacity: 1; filter: drop-shadow(0 0 9px rgba(24,214,255,.62)) drop-shadow(0 0 12px rgba(132,82,255,.30)); }
 }
+
+/* 015B-7 Instrument + Material Closure: real Greeks organ, distinct theme surfaces, timeline motion. */
+@media (min-width: 1280px) {
+  html[data-theme="amber"] .app-shell-desktop .market-command-shell {
+    --r663-material-bg: linear-gradient(180deg,rgba(35,27,17,.94),rgba(13,10,7,.97));
+    --r663-material-overlay: linear-gradient(118deg,rgba(255,205,116,.055),transparent 34%,rgba(177,103,24,.025) 72%,transparent);
+    --r663-material-edge: rgba(230,164,58,.42);
+    --r663-material-bevel: rgba(255,224,164,.17);
+    --r663-material-shadow: 0 8px 22px rgba(0,0,0,.28),0 0 18px rgba(255,174,54,.075);
+    --r663-material-backdrop: blur(8px);
+  }
+  html[data-theme="calm"] .app-shell-desktop .market-command-shell {
+    --r663-material-bg: linear-gradient(180deg,rgba(24,39,47,.965),rgba(14,27,34,.985));
+    --r663-material-overlay: linear-gradient(180deg,rgba(205,235,241,.028),transparent 30%);
+    --r663-material-edge: rgba(126,172,186,.27);
+    --r663-material-bevel: rgba(218,239,243,.095);
+    --r663-material-shadow: 0 7px 18px rgba(0,0,0,.22);
+    --r663-material-backdrop: none;
+  }
+  html[data-theme="neon"] .app-shell-desktop .market-command-shell {
+    --r663-material-bg: linear-gradient(180deg,rgba(3,10,18,.91),rgba(2,5,12,.97));
+    --r663-material-overlay: repeating-linear-gradient(180deg,rgba(92,232,255,.034) 0 1px,transparent 1px 4px),linear-gradient(112deg,rgba(26,221,255,.045),transparent 36%,rgba(133,82,255,.045) 74%,transparent);
+    --r663-material-edge: rgba(25,216,255,.48);
+    --r663-material-bevel: rgba(151,241,255,.16);
+    --r663-material-shadow: 0 8px 24px rgba(0,0,0,.34),0 0 22px rgba(25,216,255,.10),0 0 30px rgba(132,82,255,.055);
+    --r663-material-backdrop: blur(10px);
+  }
+
+  html[data-theme] .app-shell-desktop .market-command-shell .reference-rail-instrument,
+  html[data-theme] .app-shell-desktop .market-command-shell .market-hero-stage,
+  html[data-theme] .app-shell-desktop .market-command-shell .decision-deck,
+  html[data-theme] .app-shell-desktop .market-command-shell .r663-market-timeline,
+  html[data-theme] .app-shell-desktop .market-command-shell .r663-regime-strip,
+  html[data-theme] .app-shell-desktop .market-command-shell .command-bottom-rail,
+  html[data-theme] .app-shell-desktop .market-command-shell .command-right-content > .wrr .wrr-seat-card {
+    background: var(--r663-material-overlay),var(--r663-material-bg) !important;
+    border-color: var(--r663-material-edge) !important;
+    box-shadow: inset 0 1px 0 var(--r663-material-bevel),var(--r663-material-shadow) !important;
+    backdrop-filter: var(--r663-material-backdrop);
+  }
+
+  .app-shell-desktop .reference-greeks-instrument {
+    grid-template-columns: minmax(0,1fr) 136px !important;
+    min-height: 150px !important;
+  }
+  .app-shell-desktop .reference-greeks-visual {
+    min-height: 136px !important;
+    display: grid !important;
+    place-items: center;
+    overflow: visible;
+    border: 1px solid color-mix(in srgb,var(--ot-accent) 28%,var(--ot-line));
+    background: radial-gradient(circle at 50% 50%,rgba(var(--ot-accent-rgb),.12),transparent 68%);
+    box-shadow: inset 0 0 22px rgba(var(--ot-accent-rgb),.075);
+  }
+  .app-shell-desktop .reference-greeks-visual svg {
+    width: 128px !important;
+    height: 128px !important;
+    overflow: visible !important;
+  }
+  .app-shell-desktop .reference-greeks-visual .mv-radar-exposure {
+    filter: drop-shadow(0 0 5px rgba(var(--ot-accent-rgb),.58)) !important;
+  }
+  .app-shell-desktop .reference-greeks-visual .mv-radar-node {
+    filter: drop-shadow(0 0 3px rgba(var(--ot-accent-rgb),.72));
+  }
+  html[data-theme="calm"] .app-shell-desktop .reference-greeks-visual {
+    background: radial-gradient(circle at 50% 50%,rgba(116,174,190,.055),transparent 70%);
+    box-shadow: inset 0 0 16px rgba(116,174,190,.035);
+  }
+  html[data-theme="neon"] .app-shell-desktop .reference-greeks-visual {
+    background: radial-gradient(circle at 50% 50%,rgba(25,216,255,.14),transparent 58%),repeating-linear-gradient(180deg,rgba(25,216,255,.025) 0 1px,transparent 1px 4px);
+  }
+
+  .app-shell-desktop .r663-market-timeline-track { overflow: hidden; }
+  .app-shell-desktop .r663-market-timeline-track::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: -18%;
+    width: 18%;
+    background: linear-gradient(90deg,transparent,rgba(var(--ot-accent-rgb),.16),rgba(var(--ot-accent-rgb),.42),transparent);
+    transform: skewX(-18deg);
+    animation: r663-timeline-sweep 4.8s linear infinite;
+    pointer-events: none;
+  }
+  .app-shell-desktop .r663-market-event.is-current i {
+    animation: r663-current-node-pulse 1.8s ease-in-out infinite;
+  }
+}
+
+@keyframes r663-timeline-sweep {
+  0% { left: -18%; opacity: 0; }
+  12% { opacity: 1; }
+  76% { opacity: .72; }
+  100% { left: 104%; opacity: 0; }
+}
+@keyframes r663-current-node-pulse {
+  0%,100% { box-shadow: 0 0 8px rgba(var(--ot-accent-rgb),.48); }
+  50% { box-shadow: 0 0 16px rgba(var(--ot-accent-rgb),.90); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-shell-desktop .r663-market-timeline-track::after,
+  .app-shell-desktop .r663-market-event.is-current i { animation: none !important; }
+}
