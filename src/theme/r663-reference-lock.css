@@ -238,3 +238,34 @@
 @media (min-width: 1280px) {
   .app-shell-desktop .market-command-main > .panel:first-child { display: none !important; }
 }
+
+/* 015B-6 MARKET GRAPH convergence: increase network-organ density without changing first-viewport geometry. */
+@media (min-width: 1280px) {
+  .app-shell-desktop .market-command-main .pcp-network-band::after {
+    inset: 4px 10px 4px 74px;
+    background:
+      radial-gradient(circle at 5% 66%, rgba(var(--ot-accent-rgb),.72) 0 2px, transparent 3px),
+      radial-gradient(circle at 11% 22%, rgba(var(--ot-accent-rgb),.88) 0 2px, transparent 3px),
+      radial-gradient(circle at 18% 78%, rgba(var(--ot-accent-rgb),.78) 0 2px, transparent 3px),
+      radial-gradient(circle at 25% 42%, rgba(var(--ot-accent-rgb),.94) 0 2px, transparent 3px),
+      radial-gradient(circle at 32% 18%, rgba(var(--ot-accent-rgb),.74) 0 2px, transparent 3px),
+      radial-gradient(circle at 39% 72%, rgba(var(--ot-accent-rgb),.90) 0 2px, transparent 3px),
+      radial-gradient(circle at 47% 34%, rgba(var(--ot-accent-rgb),.82) 0 2px, transparent 3px),
+      radial-gradient(circle at 54% 82%, rgba(var(--ot-accent-rgb),.72) 0 2px, transparent 3px),
+      radial-gradient(circle at 61% 24%, rgba(var(--ot-accent-rgb),.96) 0 2px, transparent 3px),
+      radial-gradient(circle at 68% 62%, rgba(var(--ot-accent-rgb),.80) 0 2px, transparent 3px),
+      radial-gradient(circle at 75% 38%, rgba(var(--ot-accent-rgb),.90) 0 2px, transparent 3px),
+      radial-gradient(circle at 82% 76%, rgba(var(--ot-accent-rgb),.76) 0 2px, transparent 3px),
+      radial-gradient(circle at 89% 20%, rgba(var(--ot-accent-rgb),.94) 0 2px, transparent 3px),
+      radial-gradient(circle at 96% 58%, rgba(var(--ot-accent-rgb),.82) 0 2px, transparent 3px),
+      linear-gradient(14deg, transparent 47%, rgba(var(--ot-accent-rgb),.28) 48%, transparent 49%),
+      linear-gradient(31deg, transparent 47%, rgba(var(--ot-accent-rgb),.22) 48%, transparent 49%),
+      linear-gradient(149deg, transparent 47%, rgba(var(--ot-accent-rgb),.24) 48%, transparent 49%),
+      linear-gradient(166deg, transparent 47%, rgba(var(--ot-accent-rgb),.30) 48%, transparent 49%);
+    opacity: .88;
+    filter: drop-shadow(0 0 8px rgba(var(--ot-accent-rgb),.34));
+  }
+  html[data-theme="calm"] .app-shell-desktop .market-command-main .pcp-network-band::after { opacity: .58; filter: drop-shadow(0 0 5px rgba(71,188,217,.18)); }
+  html[data-theme="amber"] .app-shell-desktop .market-command-main .pcp-network-band::after { opacity: .92; filter: drop-shadow(0 0 9px rgba(255,178,54,.46)); }
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band::after { opacity: 1; filter: drop-shadow(0 0 9px rgba(24,214,255,.62)) drop-shadow(0 0 12px rgba(132,82,255,.30)); }
+}
