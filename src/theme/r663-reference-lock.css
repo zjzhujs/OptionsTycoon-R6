@@ -233,3 +233,8 @@
   .app-shell-desktop .novice-trend-guide { display: none !important; }
   .app-shell-desktop .market-command-main .decision-deck { margin-top: 8px !important; }
 }
+
+/* 015B-5 reference top rhythm: remove the redundant center status/capital/clock panel absent from locked references. */
+@media (min-width: 1280px) {
+  .app-shell-desktop .market-command-main > .panel:first-child { display: none !important; }
+}
