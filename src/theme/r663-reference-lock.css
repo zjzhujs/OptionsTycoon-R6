@@ -218,3 +218,12 @@
   html[data-theme="calm"] .app-shell-desktop .command-bottom-rail { backdrop-filter: none; box-shadow: 0 -8px 20px rgba(0,0,0,.22), inset 0 1px 0 rgba(75,195,222,.10) !important; }
   html[data-theme="neon"] .app-shell-desktop .command-bottom-rail { box-shadow: 0 -10px 30px rgba(0,0,0,.42), 0 0 24px rgba(25,216,255,.08), inset 0 1px 0 rgba(136,92,255,.20) !important; }
 }
+
+/* 015B-3 viewport clearance: keep the five-key decision console fully readable above the fixed chassis. */
+@media (min-width: 1280px) and (max-height: 1050px) {
+  .app-shell-desktop .market-command-main .decision-deck,
+  .app-shell-desktop .market-command-main .decision-deck-thesis,
+  .app-shell-desktop .market-command-main .decision-key-console { height: 132px !important; min-height: 132px !important; }
+  .app-shell-desktop .market-command-main .decision-key-grid,
+  .app-shell-desktop .market-command-main .decision-key { height: 104px !important; min-height: 104px !important; }
+}
