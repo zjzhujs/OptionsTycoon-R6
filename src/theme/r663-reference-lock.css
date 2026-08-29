@@ -382,6 +382,18 @@
   html[data-theme="neon"] .app-shell-desktop .pcp-network-band { background:radial-gradient(circle at 28% 52%,rgba(22,220,255,.14),transparent 34%),radial-gradient(circle at 76% 48%,rgba(126,73,255,.13),transparent 36%),linear-gradient(180deg,rgba(4,12,25,.96),rgba(2,6,15,.99)) !important; }
 }
 
+/* 016B hard-reference first-viewport chassis anchor.
+   Full-page acceptance captures must preserve the same first-screen machine base seen in the locked refs. */
+@media (min-width: 1280px) {
+  .app-shell-desktop { position: relative !important; }
+  .app-shell-desktop .command-bottom-rail {
+    position: absolute !important;
+    top: calc(100vh - 76px) !important;
+    bottom: auto !important;
+  }
+  .app-shell-desktop .market-command-main > .execution-bay { margin-top: 82px !important; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .app-shell-desktop .r663-market-timeline-track::after,
   .app-shell-desktop .r663-market-event.is-current i { animation: none !important; }
