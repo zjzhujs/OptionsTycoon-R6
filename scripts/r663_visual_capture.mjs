@@ -90,7 +90,10 @@ for (const [name, theme, width, height] of cases) {
   const chartStage = page.locator('.pcp-chart-stage').first();
   const liveOverlay = page.getByTestId('live-price-overlay');
 
-  await page.screenshot({ path: `${out}/${name}.png`, fullPage: true });
+  // Primary acceptance image is the actual first viewport; fixed command hardware must be judged where the player sees it.
+  await page.screenshot({ path: `${out}/${name}.png`, fullPage: false });
+  // Preserve a diagnostic long capture without letting Playwright's fullPage fixed-element relocation contaminate first-screen judging.
+  await page.screenshot({ path: `${out}/${name}-fullpage.png`, fullPage: true });
   report.push({
     name, theme, width, height,
     status: response?.status() ?? null,

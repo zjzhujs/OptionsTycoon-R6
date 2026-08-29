@@ -387,11 +387,13 @@
 @media (min-width: 1280px) {
   .app-shell-desktop { position: relative !important; }
   .app-shell-desktop .command-bottom-rail {
-    position: absolute !important;
-    top: calc(100vh - 76px) !important;
-    bottom: auto !important;
+    position: fixed !important;
+    top: auto !important;
+    right: 12px !important;
+    bottom: 8px !important;
+    left: 12px !important;
   }
-  .app-shell-desktop .market-command-main > .execution-bay { margin-top: 82px !important; }
+  .app-shell-desktop .market-command-main > .execution-bay { margin-top: 8px !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
