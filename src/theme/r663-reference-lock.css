@@ -396,6 +396,42 @@
   .app-shell-desktop .market-command-main > .execution-bay { margin-top: 8px !important; }
 }
 
+/* 016D hard-reference MARKET GRAPH density: keep geometry fixed, replace sparse bead-chain read with a layered node field. */
+@media (min-width: 1280px) {
+  .app-shell-desktop .market-command-main .pcp-network-band::after {
+    inset: 4px 8px 4px 72px;
+    background:
+      radial-gradient(circle at 4% 64%, rgba(var(--ot-accent-rgb),.72) 0 1px, transparent 2px),
+      radial-gradient(circle at 9% 24%, rgba(var(--ot-accent-rgb),.92) 0 2px, transparent 3px),
+      radial-gradient(circle at 15% 48%, rgba(var(--ot-accent-rgb),.66) 0 1px, transparent 2px),
+      radial-gradient(circle at 20% 79%, rgba(var(--ot-accent-rgb),.82) 0 1px, transparent 2px),
+      radial-gradient(circle at 27% 31%, rgba(var(--ot-accent-rgb),.96) 0 2px, transparent 3px),
+      radial-gradient(circle at 34% 67%, rgba(var(--ot-accent-rgb),.70) 0 1px, transparent 2px),
+      radial-gradient(circle at 40% 18%, rgba(var(--ot-accent-rgb),.80) 0 1px, transparent 2px),
+      radial-gradient(circle at 46% 52%, rgba(var(--ot-accent-rgb),.98) 0 2px, transparent 3px),
+      radial-gradient(circle at 53% 82%, rgba(var(--ot-accent-rgb),.68) 0 1px, transparent 2px),
+      radial-gradient(circle at 59% 27%, rgba(var(--ot-accent-rgb),.86) 0 1px, transparent 2px),
+      radial-gradient(circle at 65% 61%, rgba(var(--ot-accent-rgb),.94) 0 2px, transparent 3px),
+      radial-gradient(circle at 72% 16%, rgba(var(--ot-accent-rgb),.70) 0 1px, transparent 2px),
+      radial-gradient(circle at 78% 46%, rgba(var(--ot-accent-rgb),.88) 0 1px, transparent 2px),
+      radial-gradient(circle at 84% 76%, rgba(var(--ot-accent-rgb),.98) 0 2px, transparent 3px),
+      radial-gradient(circle at 91% 29%, rgba(var(--ot-accent-rgb),.76) 0 1px, transparent 2px),
+      radial-gradient(circle at 97% 58%, rgba(var(--ot-accent-rgb),.90) 0 1px, transparent 2px),
+      radial-gradient(circle, rgba(var(--ot-accent-rgb),.44) 0 1px, transparent 1.7px) 7px 5px / 54px 32px,
+      radial-gradient(circle, rgba(var(--ot-accent-rgb),.28) 0 1px, transparent 1.6px) 31px 18px / 71px 43px,
+      repeating-linear-gradient(14deg, transparent 0 25px, rgba(var(--ot-accent-rgb),.14) 25px 26px, transparent 26px 52px),
+      repeating-linear-gradient(32deg, transparent 0 39px, rgba(var(--ot-accent-rgb),.10) 39px 40px, transparent 40px 78px),
+      repeating-linear-gradient(148deg, transparent 0 35px, rgba(var(--ot-accent-rgb),.11) 35px 36px, transparent 36px 70px),
+      repeating-linear-gradient(166deg, transparent 0 23px, rgba(var(--ot-accent-rgb),.15) 23px 24px, transparent 24px 48px);
+    opacity: .90;
+    mix-blend-mode: screen;
+    filter: drop-shadow(0 0 5px rgba(var(--ot-accent-rgb),.34)) drop-shadow(0 0 10px rgba(var(--ot-accent-rgb),.16));
+  }
+  html[data-theme="calm"] .app-shell-desktop .market-command-main .pcp-network-band::after { opacity: .66; filter: drop-shadow(0 0 4px rgba(71,188,217,.20)); }
+  html[data-theme="amber"] .app-shell-desktop .market-command-main .pcp-network-band::after { opacity: .94; filter: drop-shadow(0 0 6px rgba(255,178,54,.32)) drop-shadow(0 0 10px rgba(79,200,228,.18)); }
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band::after { opacity: 1; filter: drop-shadow(0 0 6px rgba(24,214,255,.52)) drop-shadow(0 0 12px rgba(132,82,255,.28)); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .app-shell-desktop .r663-market-timeline-track::after,
   .app-shell-desktop .r663-market-event.is-current i { animation: none !important; }
