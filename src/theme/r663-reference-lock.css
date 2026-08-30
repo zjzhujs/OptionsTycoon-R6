@@ -432,6 +432,29 @@
   html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band::after { opacity: 1; filter: drop-shadow(0 0 6px rgba(24,214,255,.52)) drop-shadow(0 0 12px rgba(132,82,255,.28)); }
 }
 
+/* 016E hard-reference cockpit material integration: unify stage, decision deck and rails without changing layout. */
+@media (min-width: 1280px) {
+  .app-shell-desktop .market-command-main > .market-hero-stage,
+  .app-shell-desktop .market-command-main .decision-deck,
+  .app-shell-desktop .command-left-rail .reference-rail-instrument,
+  .app-shell-desktop .command-right-content > .wrr .wrr-seat-card {
+    border-color: color-mix(in srgb,var(--ot-accent) 42%,var(--ot-line)) !important;
+    box-shadow: inset 0 1px 0 rgba(var(--ot-accent-rgb),.12), inset 0 -18px 34px rgba(var(--ot-accent-rgb),.025), 0 0 14px rgba(var(--ot-accent-rgb),.06);
+  }
+  .app-shell-desktop .market-command-main .decision-deck { margin-top: 2px !important; }
+  .app-shell-desktop .market-command-main .decision-key {
+    background: linear-gradient(180deg,rgba(var(--ot-accent-rgb),.055),transparent 42%), color-mix(in srgb,var(--ot-bg-0) 94%,transparent) !important;
+    box-shadow: inset 1px 0 0 rgba(var(--ot-accent-rgb),.10), inset 0 1px 0 rgba(var(--ot-accent-rgb),.10);
+  }
+  .app-shell-desktop .market-command-main .pcp-network-band {
+    box-shadow: inset 0 1px 0 rgba(var(--ot-accent-rgb),.18), inset 0 -1px 0 rgba(var(--ot-accent-rgb),.22), 0 0 18px rgba(var(--ot-accent-rgb),.07);
+  }
+  html[data-theme="neon"] .app-shell-desktop .market-command-main > .market-hero-stage,
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .decision-deck {
+    box-shadow: inset 0 1px 0 rgba(25,221,255,.22), inset 0 -22px 42px rgba(124,74,255,.045), 0 0 22px rgba(25,221,255,.10), 0 0 32px rgba(124,74,255,.06);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .app-shell-desktop .r663-market-timeline-track::after,
   .app-shell-desktop .r663-market-event.is-current i { animation: none !important; }
