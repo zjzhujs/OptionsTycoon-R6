@@ -455,6 +455,36 @@
   }
 }
 
+/* 016F hard-reference first-viewport vertical mass: fill the desktop cockpit instead of leaving a dead lower half. */
+@media (min-width: 1280px) {
+  .app-shell-desktop .market-command-shell .trading-floor-workspace {
+    min-height: calc(100vh - 112px) !important;
+    align-items: stretch !important;
+  }
+  .app-shell-desktop .market-command-main > .market-hero-stage {
+    height: clamp(548px, 61vh, 640px) !important;
+    min-height: 548px !important;
+  }
+  .app-shell-desktop .market-command-main .pcp-chart-stage {
+    height: clamp(330px, 38vh, 404px) !important;
+    min-height: 330px !important;
+  }
+  .app-shell-desktop .market-command-main .pcp-network-band {
+    height: 118px !important;
+    min-height: 118px !important;
+  }
+  .app-shell-desktop .market-command-main .decision-deck,
+  .app-shell-desktop .market-command-main .decision-deck-thesis,
+  .app-shell-desktop .market-command-main .decision-key-console {
+    height: 154px !important;
+    min-height: 154px !important;
+  }
+  .app-shell-desktop .market-command-main .decision-key-grid,
+  .app-shell-desktop .market-command-main .decision-key { height: 126px !important; min-height: 126px !important; }
+  .app-shell-desktop .command-left-rail,
+  .app-shell-desktop .command-right-content { min-height: calc(100vh - 170px) !important; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .app-shell-desktop .r663-market-timeline-track::after,
   .app-shell-desktop .r663-market-event.is-current i { animation: none !important; }
