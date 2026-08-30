@@ -496,6 +496,52 @@
   html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band { background:radial-gradient(ellipse 34% 88% at 38% 54%,rgba(22,220,255,.20),transparent 72%),radial-gradient(ellipse 38% 90% at 66% 48%,rgba(126,73,255,.18),transparent 74%),linear-gradient(180deg,rgba(4,12,25,.97),rgba(2,6,15,.995)) !important; box-shadow:inset 0 1px 0 rgba(25,221,255,.28),inset 0 -1px 0 rgba(126,73,255,.34),0 0 24px rgba(25,221,255,.13),0 10px 30px rgba(126,73,255,.08) !important; }
 }
 
+/* R6.6.3 016H — turn MARKET GRAPH into a denser relational organ without changing data. */
+@media (min-width: 1200px) {
+  .pcp-network-band::before {
+    content: "";
+    position: absolute;
+    inset: 16px 6% 14px;
+    pointer-events: none;
+    opacity: .72;
+    mix-blend-mode: screen;
+    background:
+      radial-gradient(circle at 8% 57%, currentColor 0 1px, transparent 1.8px),
+      radial-gradient(circle at 14% 38%, currentColor 0 1.3px, transparent 2.1px),
+      radial-gradient(circle at 20% 68%, currentColor 0 1px, transparent 1.8px),
+      radial-gradient(circle at 27% 47%, currentColor 0 1.6px, transparent 2.4px),
+      radial-gradient(circle at 33% 29%, currentColor 0 1px, transparent 1.8px),
+      radial-gradient(circle at 39% 64%, currentColor 0 1.4px, transparent 2.2px),
+      radial-gradient(circle at 45% 43%, currentColor 0 1.2px, transparent 2px),
+      radial-gradient(circle at 50% 55%, currentColor 0 2px, transparent 2.8px),
+      radial-gradient(circle at 55% 34%, currentColor 0 1.3px, transparent 2.1px),
+      radial-gradient(circle at 60% 69%, currentColor 0 1px, transparent 1.8px),
+      radial-gradient(circle at 66% 46%, currentColor 0 1.6px, transparent 2.4px),
+      radial-gradient(circle at 72% 28%, currentColor 0 1px, transparent 1.8px),
+      radial-gradient(circle at 78% 62%, currentColor 0 1.4px, transparent 2.2px),
+      radial-gradient(circle at 84% 42%, currentColor 0 1px, transparent 1.8px),
+      radial-gradient(circle at 91% 58%, currentColor 0 1.2px, transparent 2px),
+      linear-gradient(10deg, transparent 0 19%, currentColor 19.2% 19.35%, transparent 19.6% 36%, currentColor 36.2% 36.35%, transparent 36.6% 59%, currentColor 59.2% 59.35%, transparent 59.6%),
+      linear-gradient(-9deg, transparent 0 27%, currentColor 27.2% 27.34%, transparent 27.6% 48%, currentColor 48.2% 48.34%, transparent 48.6% 71%, currentColor 71.2% 71.34%, transparent 71.6%),
+      linear-gradient(4deg, transparent 0 42%, currentColor 42.15% 42.28%, transparent 42.5% 63%, currentColor 63.15% 63.28%, transparent 63.5%);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 52%, #000 0 58%, transparent 88%);
+    mask-image: radial-gradient(ellipse at 50% 52%, #000 0 58%, transparent 88%);
+    filter: drop-shadow(0 0 4px color-mix(in srgb, currentColor 48%, transparent));
+  }
+
+  .pcp-network-band::after {
+    opacity: .76;
+    filter:
+      drop-shadow(0 0 3px color-mix(in srgb, currentColor 60%, transparent))
+      drop-shadow(0 0 8px color-mix(in srgb, currentColor 22%, transparent));
+  }
+
+  html[data-theme="calm"] .pcp-network-band::before { opacity: .48; }
+  html[data-theme="neon"] .pcp-network-band::before { opacity: .9; }
+  html[data-theme="calm"] .pcp-network-band::after { opacity: .5; }
+  html[data-theme="neon"] .pcp-network-band::after { opacity: .9; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .app-shell-desktop .r663-market-timeline-track::after,
   .app-shell-desktop .r663-market-event.is-current i { animation: none !important; }
