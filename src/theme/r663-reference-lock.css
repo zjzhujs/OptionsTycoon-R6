@@ -585,6 +585,38 @@
   }
 }
 
+/* R6.6.3 016K — break the regular micro-grid into an asymmetric clustered network organ. */
+@media (min-width: 1280px) {
+  .app-shell-desktop .market-command-main .pcp-network-band::before {
+    background:
+      radial-gradient(circle at 7% 63%, currentColor 0 1.1px, transparent 1.9px),
+      radial-gradient(circle at 13% 34%, currentColor 0 1.8px, transparent 2.8px),
+      radial-gradient(circle at 22% 71%, currentColor 0 .9px, transparent 1.7px),
+      radial-gradient(circle at 31% 42%, currentColor 0 1.5px, transparent 2.4px),
+      radial-gradient(circle at 38% 58%, currentColor 0 2.1px, transparent 3.1px),
+      radial-gradient(circle at 49% 28%, currentColor 0 1px, transparent 1.8px),
+      radial-gradient(circle at 56% 66%, currentColor 0 1.7px, transparent 2.6px),
+      radial-gradient(circle at 67% 39%, currentColor 0 1.2px, transparent 2px),
+      radial-gradient(circle at 74% 73%, currentColor 0 2px, transparent 3px),
+      radial-gradient(circle at 83% 31%, currentColor 0 1px, transparent 1.8px),
+      radial-gradient(circle at 92% 57%, currentColor 0 1.6px, transparent 2.5px),
+      radial-gradient(circle, currentColor 0 .62px, transparent 1px) 2px 4px / 17px 13px,
+      radial-gradient(circle, color-mix(in srgb,currentColor 74%,transparent) 0 .75px, transparent 1.15px) 11px 7px / 31px 23px,
+      radial-gradient(circle, color-mix(in srgb,currentColor 56%,transparent) 0 .5px, transparent .9px) 5px 12px / 43px 31px,
+      linear-gradient(13deg, transparent 0 22%, color-mix(in srgb,currentColor 18%,transparent) 22.15% 22.34%, transparent 22.52% 51%, color-mix(in srgb,currentColor 14%,transparent) 51.15% 51.32%, transparent 51.5%),
+      linear-gradient(167deg, transparent 0 31%, color-mix(in srgb,currentColor 15%,transparent) 31.12% 31.3%, transparent 31.48% 67%, color-mix(in srgb,currentColor 12%,transparent) 67.12% 67.28%, transparent 67.46%),
+      linear-gradient(28deg, transparent 0 44%, color-mix(in srgb,currentColor 11%,transparent) 44.14% 44.31%, transparent 44.5%) !important;
+    opacity: .62 !important;
+    filter: drop-shadow(0 0 3px color-mix(in srgb,currentColor 38%,transparent)) !important;
+  }
+  html[data-theme="calm"] .app-shell-desktop .market-command-main .pcp-network-band::before { opacity: .38 !important; }
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band::before {
+    color: #55eaff;
+    opacity: .82 !important;
+    filter: drop-shadow(0 0 3px rgba(24,214,255,.46)) drop-shadow(0 0 8px rgba(132,82,255,.22)) !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .app-shell-desktop .r663-market-timeline-track::after,
   .app-shell-desktop .r663-market-event.is-current i { animation: none !important; }
