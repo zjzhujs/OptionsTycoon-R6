@@ -617,6 +617,20 @@
   }
 }
 
+
+/* R6.6.3 016L — dual-plane MARKET GRAPH depth from the locked references. */
+@media (min-width: 1280px) {
+  html[data-theme="amber"] .app-shell-desktop .market-command-main .pcp-network-band {
+    background: radial-gradient(circle,rgba(82,220,238,.30) 0 .65px,transparent 1px) 3px 7px/23px 17px, linear-gradient(14deg,transparent 0 24%,rgba(82,220,238,.13) 24.15% 24.3%,transparent 24.5% 58%,rgba(255,181,61,.10) 58.15% 58.3%,transparent 58.5%), linear-gradient(180deg,rgba(28,20,10,.94),rgba(8,8,7,.99)) !important;
+  }
+  html[data-theme="amber"] .app-shell-desktop .market-command-main .pcp-network-band::before { color:#58dce9; opacity:.76 !important; filter:drop-shadow(0 0 3px rgba(82,220,238,.42)) drop-shadow(0 0 7px rgba(255,181,61,.12)) !important; }
+  html[data-theme="calm"] .app-shell-desktop .market-command-main .pcp-network-band::before { color:#69cfe0; opacity:.46 !important; }
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band {
+    background: radial-gradient(circle,rgba(137,83,255,.34) 0 .7px,transparent 1.1px) 7px 3px/25px 19px, linear-gradient(15deg,transparent 0 23%,rgba(132,82,255,.17) 23.15% 23.32%,transparent 23.5% 54%,rgba(30,219,255,.12) 54.15% 54.32%,transparent 54.5%), linear-gradient(166deg,transparent 0 39%,rgba(30,219,255,.12) 39.15% 39.32%,transparent 39.5% 72%,rgba(132,82,255,.14) 72.15% 72.32%,transparent 72.5%), linear-gradient(180deg,rgba(4,12,25,.97),rgba(2,6,15,.997)) !important;
+  }
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band::before { opacity:.88 !important; filter:drop-shadow(0 0 3px rgba(24,214,255,.52)) drop-shadow(0 0 9px rgba(132,82,255,.28)) !important; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .app-shell-desktop .r663-market-timeline-track::after,
   .app-shell-desktop .r663-market-event.is-current i { animation: none !important; }
