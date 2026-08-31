@@ -561,6 +561,30 @@
   }
 }
 
+/* R6.6.3 016J — reference microfield: dense fine nodes/links behind the existing MARKET GRAPH hubs. */
+@media (min-width: 1280px) {
+  .app-shell-desktop .market-command-main .pcp-network-band::before {
+    inset: 7px 3% 7px 54px !important;
+    background:
+      radial-gradient(circle, currentColor 0 .65px, transparent 1px) 0 0 / 19px 15px,
+      radial-gradient(circle, currentColor 0 .85px, transparent 1.25px) 9px 6px / 37px 29px,
+      radial-gradient(circle, color-mix(in srgb,currentColor 72%,transparent) 0 .55px, transparent .9px) 3px 11px / 29px 23px,
+      repeating-linear-gradient(9deg, transparent 0 25px, color-mix(in srgb,currentColor 16%,transparent) 25px 25.55px, transparent 25.55px 51px),
+      repeating-linear-gradient(171deg, transparent 0 33px, color-mix(in srgb,currentColor 13%,transparent) 33px 33.45px, transparent 33.45px 67px),
+      repeating-linear-gradient(31deg, transparent 0 47px, color-mix(in srgb,currentColor 10%,transparent) 47px 47.45px, transparent 47.45px 93px) !important;
+    -webkit-mask-image: radial-gradient(ellipse 86% 96% at 50% 52%, #000 0 68%, transparent 100%) !important;
+    mask-image: radial-gradient(ellipse 86% 96% at 50% 52%, #000 0 68%, transparent 100%) !important;
+    opacity: .56 !important;
+    filter: drop-shadow(0 0 3px color-mix(in srgb,currentColor 34%,transparent)) !important;
+  }
+  html[data-theme="amber"] .app-shell-desktop .market-command-main .pcp-network-band::before { opacity: .60 !important; }
+  html[data-theme="calm"] .app-shell-desktop .market-command-main .pcp-network-band::before { opacity: .34 !important; }
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band::before {
+    opacity: .76 !important;
+    filter: drop-shadow(0 0 3px rgba(24,214,255,.40)) drop-shadow(0 0 7px rgba(132,82,255,.18)) !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .app-shell-desktop .r663-market-timeline-track::after,
   .app-shell-desktop .r663-market-event.is-current i { animation: none !important; }
