@@ -655,6 +655,18 @@
   html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band::before { opacity:.96 !important; filter:drop-shadow(0 0 4px rgba(24,214,255,.62)) drop-shadow(0 0 10px rgba(132,82,255,.34)) !important; }
 }
 
+/* R6.6.3 016O — raise fine-link occupancy toward the hard-reference network organ. */
+@media (min-width: 1280px) {
+  .app-shell-desktop .market-command-main .pcp-network-band::before {
+    background-size:11px 9px,23px 17px,19px 14px,auto,auto,auto !important;
+    transform:scaleY(1.20) scaleX(1.015);
+    transform-origin:50% 54%;
+  }
+  html[data-theme="calm"] .app-shell-desktop .market-command-main .pcp-network-band::before { opacity:.58 !important; }
+  html[data-theme="amber"] .app-shell-desktop .market-command-main .pcp-network-band::before { opacity:.88 !important; filter:drop-shadow(0 0 4px rgba(35,205,255,.34)) !important; }
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band::before { opacity:1 !important; filter:drop-shadow(0 0 5px rgba(24,214,255,.72)) drop-shadow(0 0 12px rgba(132,82,255,.40)) !important; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .app-shell-desktop .r663-market-timeline-track::after,
   .app-shell-desktop .r663-market-event.is-current i { animation: none !important; }
