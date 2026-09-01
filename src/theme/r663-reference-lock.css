@@ -631,6 +631,18 @@
   html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band::before { opacity:.88 !important; filter:drop-shadow(0 0 3px rgba(24,214,255,.52)) drop-shadow(0 0 9px rgba(132,82,255,.28)) !important; }
 }
 
+/* R6.6.3 016M — irregular clustered MARKET GRAPH topology; geometry/data stay locked. */
+@media (min-width: 1280px) {
+  .app-shell-desktop .market-command-main .pcp-network-band::before {
+    -webkit-mask-image: radial-gradient(ellipse 34% 88% at 27% 58%,#000 0 62%,transparent 100%),radial-gradient(ellipse 40% 94% at 53% 43%,#000 0 66%,transparent 100%),radial-gradient(ellipse 32% 86% at 78% 61%,#000 0 60%,transparent 100%) !important;
+    mask-image: radial-gradient(ellipse 34% 88% at 27% 58%,#000 0 62%,transparent 100%),radial-gradient(ellipse 40% 94% at 53% 43%,#000 0 66%,transparent 100%),radial-gradient(ellipse 32% 86% at 78% 61%,#000 0 60%,transparent 100%) !important;
+  }
+  .app-shell-desktop .market-command-main .pcp-network-band::after { inset:3px 1.5% 3px 48px !important; transform:scaleY(1.10); transform-origin:50% 52%; }
+  html[data-theme="calm"] .app-shell-desktop .market-command-main .pcp-network-band::after { opacity:.58 !important; }
+  html[data-theme="amber"] .app-shell-desktop .market-command-main .pcp-network-band::after { opacity:.98 !important; }
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band::after { opacity:1 !important; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .app-shell-desktop .r663-market-timeline-track::after,
   .app-shell-desktop .r663-market-event.is-current i { animation: none !important; }
