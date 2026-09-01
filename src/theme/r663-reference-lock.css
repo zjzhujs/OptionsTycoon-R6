@@ -643,6 +643,18 @@
   html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band::after { opacity:1 !important; }
 }
 
+/* R6.6.3 016N — densify the organic graph field without changing stage geometry. */
+@media (min-width: 1280px) {
+  .app-shell-desktop .market-command-main .pcp-network-band::before {
+    background-size:15px 12px,29px 22px,23px 18px,auto,auto,auto !important;
+    transform:scaleY(1.14);
+    transform-origin:50% 52%;
+  }
+  html[data-theme="calm"] .app-shell-desktop .market-command-main .pcp-network-band::before { opacity:.48 !important; }
+  html[data-theme="amber"] .app-shell-desktop .market-command-main .pcp-network-band::before { opacity:.76 !important; filter:drop-shadow(0 0 4px rgba(35,205,255,.28)) !important; }
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band::before { opacity:.96 !important; filter:drop-shadow(0 0 4px rgba(24,214,255,.62)) drop-shadow(0 0 10px rgba(132,82,255,.34)) !important; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .app-shell-desktop .r663-market-timeline-track::after,
   .app-shell-desktop .r663-market-event.is-current i { animation: none !important; }
