@@ -678,6 +678,16 @@
   html[data-theme="neon"] .app-shell-desktop .market-command-main>.market-hero-stage::before{opacity:.66;filter:saturate(1.34) drop-shadow(0 0 16px rgba(24,214,255,.08))}
 }
 
+/* R6.6.3 016Q — glass HUD projection: let the physical night scene breathe through the market plane. */
+@media (min-width:1280px){
+  .app-shell-desktop .market-command-main>.market-hero-stage{border-color:color-mix(in srgb,var(--ot-accent) 32%,transparent)!important;box-shadow:inset 0 1px 0 rgba(190,225,236,.09),inset 0 0 52px rgba(0,0,0,.18),0 0 22px rgba(var(--ot-accent-rgb),.06)!important}
+  .app-shell-desktop .market-command-main .pcp-chart-stage{background:linear-gradient(180deg,rgba(2,8,15,.46),rgba(2,7,13,.24) 58%,rgba(2,6,12,.40))!important;box-shadow:inset 0 0 38px rgba(0,0,0,.18)!important}
+  .app-shell-desktop .r663-market-timeline,.app-shell-desktop .r663-regime-strip{background:color-mix(in srgb,var(--ot-bg-0) 62%,transparent)!important;backdrop-filter:blur(4px) saturate(1.12)!important;box-shadow:inset 0 1px 0 rgba(190,225,236,.07),0 0 14px rgba(var(--ot-accent-rgb),.05)!important}
+  .app-shell-desktop .market-command-main .decision-deck,.app-shell-desktop .market-command-main .decision-deck-thesis,.app-shell-desktop .market-command-main .decision-key-console{background:linear-gradient(180deg,color-mix(in srgb,var(--ot-bg-0) 76%,transparent),color-mix(in srgb,var(--ot-bg-0) 60%,transparent))!important;backdrop-filter:blur(5px) saturate(1.10)!important}
+  html[data-theme="calm"] .app-shell-desktop .r663-market-timeline,html[data-theme="calm"] .app-shell-desktop .r663-regime-strip{background:color-mix(in srgb,var(--ot-bg-0) 72%,transparent)!important;backdrop-filter:blur(2px)!important}
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-chart-stage{background:linear-gradient(180deg,rgba(2,8,16,.38),rgba(3,7,16,.16) 56%,rgba(3,5,14,.34))!important;box-shadow:inset 0 0 46px rgba(0,0,0,.14),inset 0 -1px 0 rgba(126,82,255,.18)!important}
+}
+
 @media (prefers-reduced-motion: reduce) {
   .app-shell-desktop .r663-market-timeline-track::after,
   .app-shell-desktop .r663-market-event.is-current i { animation: none !important; }
