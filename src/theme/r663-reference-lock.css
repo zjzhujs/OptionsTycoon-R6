@@ -698,6 +698,17 @@
   html[data-theme="neon"] .app-shell-desktop .market-command-main>.market-hero-stage::before{opacity:.58!important;filter:saturate(1.36) drop-shadow(0 0 18px rgba(24,214,255,.10))!important}
 }
 
+
+/* R6.6.3 016S — asset-backed material pass: activate existing authored backplanes and ambient bloom. */
+@media (min-width:1280px){
+  html[data-theme="amber"] .app-shell-desktop .market-command-main>.market-hero-stage{background-image:linear-gradient(180deg,rgba(3,8,13,.38),rgba(1,4,8,.76)),url("/visual_assets/06_glows/amber/soft_ambient_bloom.webp"),url("/visual_assets/05_backplanes/amber/backplane_01.webp")!important;background-size:cover,cover,cover!important;background-position:center!important;background-blend-mode:normal,screen,screen!important}
+  html[data-theme="calm"] .app-shell-desktop .market-command-main>.market-hero-stage{background-image:linear-gradient(180deg,rgba(6,12,18,.46),rgba(3,7,11,.80)),url("/visual_assets/05_backplanes/calm/backplane_01.webp")!important;background-size:cover,cover!important;background-position:center!important;background-blend-mode:normal,soft-light!important}
+  html[data-theme="neon"] .app-shell-desktop .market-command-main>.market-hero-stage{background-image:linear-gradient(180deg,rgba(2,7,15,.32),rgba(2,4,10,.68)),url("/visual_assets/06_glows/neon/soft_ambient_bloom.webp"),url("/visual_assets/05_backplanes/neon/backplane_01.webp")!important;background-size:cover,cover,cover!important;background-position:center!important;background-blend-mode:normal,screen,screen!important}
+  .app-shell-desktop .market-command-main>.market-hero-stage::before{mix-blend-mode:screen!important}
+  .app-shell-desktop .market-command-main>.market-hero-stage::after{mix-blend-mode:screen!important}
+  .app-shell-desktop .market-command-main .pcp-chart-stage{background-color:rgba(2,7,13,.12)!important}
+}
+
 @media (prefers-reduced-motion: reduce) {
   .app-shell-desktop .r663-market-timeline-track::after,
   .app-shell-desktop .r663-market-event.is-current i { animation: none !important; }
