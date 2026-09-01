@@ -667,6 +667,17 @@
   html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band::before { opacity:1 !important; filter:drop-shadow(0 0 5px rgba(24,214,255,.72)) drop-shadow(0 0 12px rgba(132,82,255,.40)) !important; }
 }
 
+/* R6.6.3 016P — Manhattan glass-office scene base behind the trading projection. */
+@media (min-width:1280px){
+  .app-shell-desktop .market-command-main>.market-hero-stage{isolation:isolate!important;background:radial-gradient(ellipse at 52% 18%,rgba(var(--ot-accent-rgb),.10),transparent 46%),linear-gradient(180deg,rgba(6,14,24,.76),rgba(2,6,12,.92))!important}
+  .app-shell-desktop .market-command-main>.market-hero-stage::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(90deg,transparent 0 7%,rgba(2,6,11,.88) 7% 9%,transparent 9% 91%,rgba(2,6,11,.88) 91% 93%,transparent 93%),linear-gradient(180deg,transparent 0 50%,rgba(2,5,9,.20) 50% 57%,rgba(1,4,8,.80) 57% 100%),repeating-linear-gradient(90deg,transparent 0 18px,rgba(128,197,220,.16) 18px 20px,transparent 20px 37px),repeating-linear-gradient(180deg,transparent 0 13px,rgba(236,191,107,.12) 13px 15px,transparent 15px 29px);-webkit-mask-image:linear-gradient(180deg,transparent 0 30%,#000 46% 100%);mask-image:linear-gradient(180deg,transparent 0 30%,#000 46% 100%);opacity:.52}
+  .app-shell-desktop .market-command-main>.market-hero-stage::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(90deg,transparent 49.72%,rgba(129,198,220,.13) 49.86% 49.94%,rgba(2,5,9,.58) 50% 50.22%,transparent 50.34%),radial-gradient(ellipse at 50% 44%,transparent 0 42%,rgba(0,0,0,.24) 74%,rgba(0,0,0,.58) 100%);box-shadow:inset 0 0 70px rgba(0,0,0,.34),inset 0 1px 0 rgba(190,225,236,.08)}
+  .app-shell-desktop .market-command-main>.market-hero-stage>*{position:relative;z-index:1}
+  html[data-theme="amber"] .app-shell-desktop .market-command-main>.market-hero-stage::before{opacity:.60;filter:sepia(.14) saturate(1.08)}
+  html[data-theme="calm"] .app-shell-desktop .market-command-main>.market-hero-stage::before{opacity:.30;filter:saturate(.72)}
+  html[data-theme="neon"] .app-shell-desktop .market-command-main>.market-hero-stage::before{opacity:.66;filter:saturate(1.34) drop-shadow(0 0 16px rgba(24,214,255,.08))}
+}
+
 @media (prefers-reduced-motion: reduce) {
   .app-shell-desktop .r663-market-timeline-track::after,
   .app-shell-desktop .r663-market-event.is-current i { animation: none !important; }
