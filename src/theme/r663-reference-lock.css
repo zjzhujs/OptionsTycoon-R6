@@ -722,3 +722,12 @@
   html[data-theme="calm"] .app-shell-desktop .market-command-main>.market-hero-stage{background-image:url("../assets/r663/material-field-calm.svg"),linear-gradient(180deg,rgba(6,12,18,.42),rgba(3,7,11,.78)),url("/visual_assets/05_backplanes/calm/backplane_01.webp")!important;background-size:cover,cover,cover!important;background-position:center!important;background-blend-mode:soft-light,normal,soft-light!important}
   html[data-theme="neon"] .app-shell-desktop .market-command-main>.market-hero-stage{background-image:url("../assets/r663/material-field-neon.svg"),linear-gradient(180deg,rgba(2,7,15,.28),rgba(2,4,10,.64)),url("/visual_assets/06_glows/neon/soft_ambient_bloom.webp"),url("/visual_assets/05_backplanes/neon/backplane_01.webp")!important;background-size:cover,cover,cover,cover!important;background-position:center!important;background-blend-mode:screen,normal,screen,screen!important}
 }
+
+/* R6.6.3 016U — reference-derived optical overlay: move neural energy above the chart plane; black pixels disappear under screen blend. */
+@media (min-width:1280px){
+  .app-shell-desktop .market-commain>.market-hero-stage::after{content:""!important;position:absolute!important;inset:0!important;z-index:12!important;pointer-events:none!important;background-size:100% 100%!important;background-position:center!important;background-repeat:no-repeat!important;mix-blend-mode:screen!important}
+  html[data-theme="amber"] .app-shell-desktop .market-command-main>.market-hero-stage::after{background-image:url("../assets/r663/stage-overlay-amber.webp")!important;opacity:.90!important}
+  html[data-theme="calm"] .app-shell-desktop .market-command-main>.market-hero-stage::after{background-image:url("../assets/r663/stage-overlay-calm.webp")!important;opacity:.86!important}
+  html[data-theme="neon"] .app-shell-desktop .market-command-main>.market-hero-stage::after{background-image:url("../assets/r663/stage-overlay-neon.webp")!important;opacity:.90!important}
+  .app-shell-desktop .r663-market-timeline,.app-shell-desktop .r663-regime-strip{z-index:15!important}
+}
