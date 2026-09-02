@@ -823,3 +823,17 @@ html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-neural-canv
   .app-shell-desktop .market-command-main .pcp-network-readouts{padding-top:3px;padding-bottom:3px}
   .app-shell-desktop .market-command-main .decision-deck{margin-top:2px!important}
 }
+
+
+/* R6.6.3 017B — hard-reference horizontal mass + cockpit material closure. */
+@media (min-width:1280px){
+  .app-shell-desktop .market-command-shell .trading-floor-workspace{grid-template-columns:clamp(268px,17.8vw,300px) minmax(0,1fr) clamp(316px,20.8vw,350px)!important;gap:8px!important}
+  .app-shell-desktop .command-right-content>.wrr .wrr-seat-card{grid-template-columns:minmax(104px,43%) minmax(0,1fr)!important;min-height:106px!important;height:106px!important;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));box-shadow:inset 0 1px 0 rgba(var(--ot-accent-rgb),.18),0 0 18px rgba(var(--ot-accent-rgb),.07)!important}
+  .app-shell-desktop .command-right-content>.wrr .wrr-avatar-wrap,.app-shell-desktop .command-right-content>.wrr .wrr-avatar-img{height:98px!important}
+  .app-shell-desktop .market-command-main .decision-deck{border:1px solid color-mix(in srgb,var(--ot-accent) 34%,var(--ot-line))!important;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));box-shadow:inset 0 1px 0 rgba(var(--ot-accent-rgb),.16),0 -12px 32px rgba(var(--ot-accent-rgb),.055)!important}
+  html[data-theme="amber"] .app-shell-desktop .market-command-main .pcp-network-band{box-shadow:0 -28px 62px rgba(55,201,226,.07),0 34px 70px rgba(57,196,220,.075),inset 0 0 34px rgba(55,201,226,.055)!important}
+  html[data-theme="amber"] .app-shell-desktop .market-command-main .pcp-neural-canvas{opacity:1;filter:saturate(1.08) drop-shadow(0 0 8px rgba(62,205,228,.20))}
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band{box-shadow:0 -30px 66px rgba(35,218,255,.08),0 34px 74px rgba(126,76,255,.10),inset 0 -18px 34px rgba(132,82,255,.075)!important}
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-neural-canvas{filter:saturate(1.18) drop-shadow(0 0 7px rgba(36,220,255,.22)) drop-shadow(0 0 15px rgba(132,82,255,.16))}
+  html[data-theme="calm"] .app-shell-desktop .command-right-content>.wrr .wrr-seat-card{box-shadow:inset 0 1px 0 rgba(95,190,205,.12),0 8px 18px rgba(0,0,0,.16)!important}
+}
