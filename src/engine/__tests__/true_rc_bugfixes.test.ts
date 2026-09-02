@@ -161,14 +161,15 @@ describe("true RC bugfixes", () => {
   });
 
   it("contains no banned absolutist financial-term language", () => {
-    const path = resolve(process.cwd(), "..", "data", "financial_terms.json");
+    // Keep the guard self-contained so it works from any independent checkout.
+    const path = resolve(process.cwd(), "src", "engine", "data", "financial_terms.json");
     const raw = JSON.parse(readFileSync(path, "utf8")) as { terms?: Record<string, unknown>[] } | Record<string, unknown>[];
     const terms = Array.isArray(raw) ? raw : raw.terms ?? [];
     const banned = [
-      "璧氬彇鏃犻闄?", "閫氬父鐢?Citadel 鍦ㄥ彟涓€绔崠缁欎綘", "鍏锋湁楂樺害纭畾鎬ф垨鎬ヨ揩鍐呭箷",
-      "甯告瀯鎴愭仛甯傚晢瀵瑰啿鐨?Gamma Wall", "鑾峰埄浜嗙粨澶氬ご鑳滅巼鏋侀珮", "灏嗗彂鐢熸竻绠€у鍐叉姏鍞?",
-      "鏈€鍙潬鐨勫彸渚у仛澶氬脊鎬ф敮鎾?", "寮哄姏鍑忛渿鍣?", "鍗冪偣澶ц穼鐨勫姪鐕冨墏",
-      "娓呮櫚棰勫垽鏈潵", "涓诲姏鍊熸満瀹屾垚鍙嶅悜澶у畻寤轰粨", "蹇呯劧褰㈡垚鍚庣画", "棰勭ず鏈烘瀯涓诲姏璧勯噾鐨勬垬鐣ユ€у缓浠?",
+      "赚取无风险", "通常由Citadel 在另一端卖给你", "具有高度确定性或急迫内幕",
+      "常构成做市商对冲的Gamma Wall", "获利了结多头胜率极高", "将发生清算性对冲抛售",
+      "最可靠的右侧做多弹性支撑", "强力减震器", "千点大跌的助燃剂",
+      "清晰预判未来", "主力借机完成反向大宗建仓", "必然形成后续", "预示机构主力资金的战略性建仓",
     ];
     const offenders: [unknown, string][] = [];
     for (const term of terms) {
