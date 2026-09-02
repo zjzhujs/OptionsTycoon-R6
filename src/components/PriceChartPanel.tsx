@@ -13,6 +13,7 @@ import {
 } from 'lightweight-charts';
 import { fmt } from '../lib/format';
 import { cssStr, useThemeTick } from './fx/useMotionScale';
+import { CentralMarketField } from './fx/CentralMarketField';
 import type { MarketNode } from '../types';
 import type { RevealedPriceBar } from '../engine/schemas';
 import { hasValidOhlc, isChartReady } from '../lib/chartReadiness';
@@ -1184,6 +1185,7 @@ export function PriceChartPanel({
       })()}
 
       <div className="pcp-network-band" data-testid="chart-network-band" data-visual-key="network-plane" aria-label="Market decision network">
+        <CentralMarketField />
         <svg
           className="pcp-neural-field"
           viewBox="0 0 1000 360"

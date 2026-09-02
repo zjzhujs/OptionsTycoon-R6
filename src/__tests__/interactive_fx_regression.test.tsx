@@ -11,8 +11,20 @@ import { BorderBeam } from '../components/fx/BorderBeam';
 import { BorderGlow } from '../components/fx/BorderGlow';
 import { ElectricBorder } from '../components/fx/ElectricBorder';
 import { GlareHover } from '../components/fx/GlareHover';
+import { CentralMarketField, CENTRAL_MARKET_FIELD_COUNTS } from '../components/fx/CentralMarketField';
 
 describe('Interactive FX Regression Suite', () => {
+  it('CentralMarketField ships a dense deterministic WebGL layer with a no-WebGL-safe canvas contract', () => {
+    const { container } = render(<CentralMarketField />);
+    const canvas = container.querySelector('[data-testid="central-market-field"]');
+
+    expect(CENTRAL_MARKET_FIELD_COUNTS.nodes).toBe(228);
+    expect(CENTRAL_MARKET_FIELD_COUNTS.edges).toBeGreaterThan(400);
+    expect(CENTRAL_MARKET_FIELD_COUNTS.spines).toBe(3);
+    expect(canvas).toHaveAttribute('data-renderer', 'webgl-threshold-bloom');
+    expect(canvas).not.toHaveAttribute('data-webgl-ready');
+  });
+
   it('SpotlightCard updates --mouse-x and --mouse-y on mousemove', () => {
     const { container } = render(
       <SpotlightCard spotlightColor="rgba(0, 240, 255, 0.25)">

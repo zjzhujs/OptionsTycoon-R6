@@ -801,3 +801,16 @@ html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-neural-spin
 .app-shell-tablet .market-command-main .pcp-neural-aurora{fill:currentColor;opacity:.025}.app-shell-tablet .market-command-main .pcp-neural-links line{stroke:currentColor;stroke-width:.45;stroke-opacity:.18}.app-shell-tablet .market-command-main .pcp-neural-links line.is-major,.app-shell-tablet .market-command-main .pcp-neural-spines{fill:none;stroke:currentColor;stroke-width:.8;stroke-opacity:.34}.app-shell-tablet .market-command-main .pcp-neural-node-core{fill:currentColor}.app-shell-tablet .market-command-main .pcp-neural-node-ring{fill:none;stroke:currentColor;stroke-width:.6;stroke-opacity:.32}
 }
 @media (prefers-reduced-motion:reduce){.app-shell-desktop .market-command-main .pcp-neural-field{animation:none!important}}
+
+/* R6.6.3 016Y — selective-bloom central field: dense dark tissue, sparse HDR hubs and three weighted market spines. */
+.pcp-neural-canvas{display:none}
+@media (min-width:1280px){
+.app-shell-desktop .market-command-main .pcp-neural-canvas{display:block;position:absolute;z-index:2;left:38px;right:-4px;top:-108px;bottom:-88px;width:calc(100% - 34px);height:calc(100% + 196px);pointer-events:none;mix-blend-mode:screen;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 7%,#000 93%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 7%,#000 93%,transparent 100%)}
+.app-shell-desktop .market-command-main .pcp-neural-canvas[data-webgl-ready="true"]+.pcp-neural-field{opacity:0!important;visibility:hidden;animation:none!important}
+.app-shell-desktop .market-command-main .pcp-network-label,.app-shell-desktop .market-command-main .pcp-network-readouts{background:linear-gradient(90deg,color-mix(in srgb,var(--ot-bg-0) 36%,transparent),color-mix(in srgb,var(--ot-bg-0) 12%,transparent))!important;backdrop-filter:blur(1px)!important}
+.app-shell-desktop .market-command-main .pcp-volume-band,.app-shell-desktop .market-command-main .r663-regime-strip{background:color-mix(in srgb,var(--ot-bg-0) 27%,transparent)!important;backdrop-filter:none!important}
+.app-shell-desktop .market-command-main .decision-deck{background:linear-gradient(180deg,color-mix(in srgb,var(--ot-bg-0) 48%,transparent),color-mix(in srgb,var(--ot-bg-0) 31%,transparent))!important}
+html[data-theme="amber"] .app-shell-desktop .market-command-main .pcp-neural-canvas{opacity:.94}
+html[data-theme="calm"] .app-shell-desktop .market-command-main .pcp-neural-canvas{opacity:.72}
+html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-neural-canvas{opacity:1}
+}

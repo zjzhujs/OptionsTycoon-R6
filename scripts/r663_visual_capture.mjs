@@ -68,7 +68,13 @@ async function enterMarketWorkspace(page) {
   await page.waitForTimeout(2200);
 }
 
-const browser = await chromium.launch({ headless: true });
+// Chromium no longer guarantees automatic software-WebGL fallback. These
+// acceptance pages are trusted localhost content, so explicitly opt into
+// SwiftShader and ensure the artifact records the WebGL path under CI.
+const browser = await chromium.launch({
+  headless: true,
+  args: ['--enable-unsafe-swiftshader', '--use-gl=angle', '--use-angle=swiftshader'],
+});
 const report = [];
 
 for (const [name, theme, width, height] of cases) {
@@ -89,6 +95,13 @@ for (const [name, theme, width, height] of cases) {
   const workspace = page.getByTestId('workspace-scroll-region');
   const chartStage = page.locator('.pcp-chart-stage').first();
   const liveOverlay = page.getByTestId('live-price-overlay');
+  const centralField = page.getByTestId('central-market-field');
+
+  if (width >= 1280) {
+    await page.waitForFunction(() => (
+      document.querySelector('[data-testid="central-market-field"]')?.getAttribute('data-webgl-ready') === 'true'
+    ), { timeout: 10000 }).catch(() => {});
+  }
 
   // Primary acceptance image is the actual first viewport; fixed command hardware must be judged where the player sees it.
   await page.screenshot({ path: `${out}/${name}.png`, fullPage: false });
@@ -101,6 +114,11 @@ for (const [name, theme, width, height] of cases) {
     activeWorkspace: await workspace.getAttribute('data-active-workspace'),
     chartStageVisible: await chartStage.isVisible().catch(() => false),
     livePriceOverlayVisible: await liveOverlay.isVisible().catch(() => false),
+    centralMarketFieldVisible: await centralField.isVisible().catch(() => false),
+    centralMarketFieldReady: await centralField.getAttribute('data-webgl-ready').catch(() => null),
+    centralMarketFieldRenderer: await centralField.getAttribute('data-renderer').catch(() => null),
+    centralMarketFieldNodes: await centralField.getAttribute('data-node-count').catch(() => null),
+    centralMarketFieldEdges: await centralField.getAttribute('data-edge-count').catch(() => null),
     scrollHeight: await page.evaluate(() => document.documentElement.scrollHeight),
     clientHeight: await page.evaluate(() => document.documentElement.clientHeight),
     errors,
@@ -116,6 +134,7 @@ const failed = report.some(x =>
   x.activeWorkspace !== 'MARKET' ||
   !x.chartStageVisible ||
   !x.livePriceOverlayVisible ||
+  (x.width >= 1280 && x.centralMarketFieldReady !== 'true') ||
   x.errors.some(e => e.startsWith('pageerror:'))
 );
 if (failed) process.exit(1);
