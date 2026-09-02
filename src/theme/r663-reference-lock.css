@@ -725,9 +725,23 @@
 
 /* R6.6.3 016U — reference-derived optical overlay: move neural energy above the chart plane; black pixels disappear under screen blend. */
 @media (min-width:1280px){
-  .app-shell-desktop .market-commain>.market-hero-stage::after{content:""!important;position:absolute!important;inset:0!important;z-index:12!important;pointer-events:none!important;background-size:100% 100%!important;background-position:center!important;background-repeat:no-repeat!important;mix-blend-mode:screen!important}
+  .app-shell-desktop .market-command-main>.market-hero-stage::after{content:""!important;position:absolute!important;inset:0!important;z-index:12!important;pointer-events:none!important;background-size:100% 100%!important;background-position:center!important;background-repeat:no-repeat!important;mix-blend-mode:screen!important}
   html[data-theme="amber"] .app-shell-desktop .market-command-main>.market-hero-stage::after{background-image:url("../assets/r663/stage-overlay-amber.webp")!important;opacity:.90!important}
   html[data-theme="calm"] .app-shell-desktop .market-command-main>.market-hero-stage::after{background-image:url("../assets/r663/stage-overlay-calm.webp")!important;opacity:.86!important}
   html[data-theme="neon"] .app-shell-desktop .market-command-main>.market-hero-stage::after{background-image:url("../assets/r663/stage-overlay-neon.webp")!important;opacity:.90!important}
   .app-shell-desktop .r663-market-timeline,.app-shell-desktop .r663-regime-strip{z-index:15!important}
+}
+
+/* R6.6.3 016V — MARKET GRAPH second stage: concentrate the shipped optical field into the network organ instead of stretching it over the whole hero. */
+@media (min-width:1280px){
+  .app-shell-desktop .market-command-main .pcp-network-band{position:relative!important;min-height:136px!important;height:136px!important;margin-top:-20px!important;margin-bottom:-20px!important;overflow:visible!important;z-index:13!important;isolation:isolate!important;box-shadow:inset 0 1px 0 rgba(var(--ot-accent-rgb),.18),0 -16px 30px rgba(var(--ot-accent-rgb),.08),0 18px 30px rgba(var(--ot-accent-rgb),.07)!important}
+  .app-shell-desktop .market-command-main .pcp-network-band::after{content:""!important;position:absolute!important;inset:-28px 4px -20px 52px!important;z-index:2!important;pointer-events:none!important;background-size:100% auto!important;background-position:center 52%!important;background-repeat:no-repeat!important;mix-blend-mode:screen!important;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 15%,#000 84%,transparent 100%)!important;mask-image:linear-gradient(180deg,transparent 0,#000 15%,#000 84%,transparent 100%)!important;filter:drop-shadow(0 0 11px rgba(var(--ot-accent-rgb),.42)) drop-shadow(0 0 24px rgba(var(--ot-accent-rgb),.22))!important}
+  html[data-theme="amber"] .app-shell-desktop .market-command-main>.market-hero-stage::after{opacity:.18!important}
+  html[data-theme="calm"] .app-shell-desktop .market-command-main .market-hero-stage::after{opacity:.14!important}
+  html[data-theme="neon"] .app-shell-desktop .market-command-main>.market-hero-stage::after{opacity:.20!important}
+  html[data-theme="amber"] .app-shell-desktop .market-command-main .pcp-network-band::after{background-image:url("../assets/r663/stage-overlay-amber.webp")!important;opacity:.92!important}
+  html[data-theme="calm"] .app-shell-desktop .market-command-main .pcp-network-band::after{background-image:url("../assets/r663/stage-overlay-calm.webp")!important;opacity:.82!important}
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band::after{background-image:url("../assets/r663/stage-overlay-neon.webp")!important;opacity:1!important}
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band{box-shadow:inset 0 1px 0 rgba(24,214,255,.24),0 -18px 36px rgba(24,214,255,.13),0 20px 38px rgba(132,82,255,.12)!important}
+  html[data-theme="amber"] .app-shell-desktop .market-command-main .pcp-network-band{box-shadow:inset 0 1px 0 rgba(255,188,74,.22),0 -16px 32px rgba(255,168,42,.11),0 18px 32px rgba(255,168,42,.09)!important}
 }
