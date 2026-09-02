@@ -106,7 +106,12 @@ for (const [name, theme, width, height] of cases) {
   // Primary acceptance image is the actual first viewport; fixed command hardware must be judged where the player sees it.
   await page.screenshot({ path: `${out}/${name}.png`, fullPage: false });
   // Preserve a diagnostic long capture without letting Playwright's fullPage fixed-element relocation contaminate first-screen judging.
-  await page.screenshot({ path: `${out}/${name}-fullpage.png`, fullPage: true });
+  // This diagnostic must never veto a valid first-viewport acceptance capture.
+  try {
+    await page.screenshot({ path: `${out}/${name}-fullpage.png`, fullPage: true, timeout: 15000 });
+  } catch (error) {
+    console.warn(`FULLPAGE_DIAGNOSTIC_SKIPPED ${name}: ${error?.message ?? error}`);
+  }
   report.push({
     name, theme, width, height,
     status: response?.status() ?? null,
