@@ -766,3 +766,38 @@ html[data-theme="calm"] .app-shell-desktop .market-command-main .pcp-network-ban
 .app-shell-desktop .market-command-main .r663-regime-strip{box-shadow:0 -16px 30px rgba(var(--ot-accent-rgb),.06),inset 0 1px 0 rgba(var(--ot-accent-rgb),.08)!important}
 }
 @media (prefers-reduced-motion:reduce){.app-shell-desktop .market-command-main .pcp-network-band::after{animation:none!important}}
+
+/* R6.6.3 016X — cross-stage neural field: replace the boxed pseudo-element strip with a real SVG graph that flows through chart, volume and decision chassis. */
+.pcp-neural-field{display:none}
+@keyframes r663-neural-breathe{0%,100%{opacity:.76;transform:translate3d(0,0,0) scaleY(1)}50%{opacity:1;transform:translate3d(4px,-2px,0) scaleY(1.018)}}
+@media (min-width:1280px){
+.app-shell-desktop .market-command-main .market-hero-stage,.app-shell-desktop .market-command-main .pcp-panel{overflow:visible!important}
+.app-shell-desktop .market-command-main .pcp-network-band{z-index:13!important;overflow:visible!important;isolation:isolate!important;background:radial-gradient(ellipse at 50% 48%,rgba(var(--ot-accent-rgb),.075),transparent 58%),linear-gradient(180deg,rgba(2,7,14,.10),rgba(1,5,11,.44) 58%,rgba(1,4,9,.24))!important;border-top-color:transparent!important;border-bottom-color:transparent!important;box-shadow:0 -36px 70px rgba(var(--ot-accent-rgb),.045),0 42px 78px rgba(var(--ot-accent-rgb),.055)!important}
+.app-shell-desktop .market-command-main .pcp-network-band::before,.app-shell-desktop .market-command-main .pcp-network-band::after{content:none!important;background:none!important;animation:none!important}
+.app-shell-desktop .market-command-main .pcp-network-mesh{display:none!important}
+.app-shell-desktop .market-command-main .pcp-neural-field{display:block;position:absolute;z-index:2;left:38px;right:-4px;top:-108px;bottom:-88px;width:calc(100% - 34px);height:calc(100% + 196px);overflow:visible;pointer-events:none;color:#65d7ec;mix-blend-mode:screen;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 9%,#000 91%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 9%,#000 91%,transparent 100%);filter:drop-shadow(0 0 4px rgba(var(--ot-accent-rgb),.26)) drop-shadow(0 0 14px rgba(var(--ot-accent-rgb),.12));animation:r663-neural-breathe 9s ease-in-out infinite;transform-origin:50% 52%}
+.app-shell-desktop .market-command-main .pcp-neural-aurora{fill:currentColor;opacity:.035;filter:blur(24px)}
+.app-shell-desktop .market-command-main .pcp-neural-links line{stroke:currentColor;stroke-width:.52;stroke-opacity:.22}
+.app-shell-desktop .market-command-main .pcp-neural-links line.is-major{stroke-width:1;stroke-opacity:.48}
+.app-shell-desktop .market-command-main .pcp-neural-spines{fill:none;stroke:currentColor;stroke-width:.9;stroke-opacity:.34;stroke-dasharray:2 5}
+.app-shell-desktop .market-command-main .pcp-neural-node-core{fill:color-mix(in srgb,currentColor 78%,#fff);stroke:rgba(232,252,255,.72);stroke-width:.6;vector-effect:non-scaling-stroke}
+.app-shell-desktop .market-command-main .pcp-neural-node-ring{fill:none;stroke:currentColor;stroke-width:.7;stroke-opacity:.38;vector-effect:non-scaling-stroke}
+.app-shell-desktop .market-command-main .pcp-neural-node.energy-2{filter:drop-shadow(0 0 3px currentColor)}
+.app-shell-desktop .market-command-main .pcp-neural-node.energy-3{filter:drop-shadow(0 0 2px #fff) drop-shadow(0 0 7px currentColor)}
+.app-shell-desktop .market-command-main .pcp-network-label,.app-shell-desktop .market-command-main .pcp-network-readouts{position:relative;z-index:5;padding:6px;background:color-mix(in srgb,var(--ot-bg-0) 58%,transparent);backdrop-filter:blur(3px)}
+.app-shell-desktop .market-command-main .pcp-volume-band,.app-shell-desktop .market-command-main .r663-regime-strip{position:relative;z-index:4;background:color-mix(in srgb,var(--ot-bg-0) 48%,transparent)!important;backdrop-filter:blur(2px) saturate(1.08)!important}
+.app-shell-desktop .market-command-main .decision-deck{position:relative;z-index:3;background:linear-gradient(180deg,color-mix(in srgb,var(--ot-bg-0) 72%,transparent),color-mix(in srgb,var(--ot-bg-0) 54%,transparent))!important}
+html[data-theme="amber"] .app-shell-desktop .market-command-main .pcp-neural-field{color:#63cddd;filter:drop-shadow(0 0 4px rgba(73,207,226,.28)) drop-shadow(0 0 16px rgba(232,166,55,.16))}
+html[data-theme="calm"] .app-shell-desktop .market-command-main .pcp-neural-field{color:#73bdc9;opacity:.68;filter:drop-shadow(0 0 3px rgba(99,193,207,.18))}
+html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-neural-field{color:#29d8f3;filter:drop-shadow(0 0 4px rgba(34,220,248,.42)) drop-shadow(0 0 18px rgba(118,73,245,.22))}
+html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-neural-spines{stroke:#9d70ff;stroke-opacity:.42}
+}
+@media (min-width:768px) and (max-width:1279px){
+.app-shell-tablet .market-command-main .pcp-network-band::before,.app-shell-tablet .market-command-main .pcp-network-band::after{content:none!important}
+.app-shell-tablet .market-command-main .pcp-network-mesh{display:none!important}
+.app-shell-tablet .market-command-main .pcp-network-band{position:relative;isolation:isolate;overflow:hidden}
+.app-shell-tablet .market-command-main .pcp-neural-field{display:block;position:absolute;z-index:1;inset:4px 4px 4px 74px;width:calc(100% - 78px);height:calc(100% - 8px);pointer-events:none;color:#65d7ec;mix-blend-mode:screen;filter:drop-shadow(0 0 4px rgba(var(--ot-accent-rgb),.22))}
+.app-shell-tablet .market-command-main .pcp-network-label,.app-shell-tablet .market-command-main .pcp-network-readouts{position:relative;z-index:2}
+.app-shell-tablet .market-command-main .pcp-neural-aurora{fill:currentColor;opacity:.025}.app-shell-tablet .market-command-main .pcp-neural-links line{stroke:currentColor;stroke-width:.45;stroke-opacity:.18}.app-shell-tablet .market-command-main .pcp-neural-links line.is-major,.app-shell-tablet .market-command-main .pcp-neural-spines{fill:none;stroke:currentColor;stroke-width:.8;stroke-opacity:.34}.app-shell-tablet .market-command-main .pcp-neural-node-core{fill:currentColor}.app-shell-tablet .market-command-main .pcp-neural-node-ring{fill:none;stroke:currentColor;stroke-width:.6;stroke-opacity:.32}
+}
+@media (prefers-reduced-motion:reduce){.app-shell-desktop .market-command-main .pcp-neural-field{animation:none!important}}

@@ -89,6 +89,66 @@ interface LivePriceOverlay {
 const animatedCandleKeys = new Set<string>();
 const CANDLE_DEPTH_OPACITY = [1, 0.92, 0.84, 0.78, 0.73, 0.68, 0.64, 0.61, 0.59, 0.57, 0.55, 0.53] as const;
 
+interface NeuralFieldPoint {
+  x: number;
+  y: number;
+  energy: 1 | 2 | 3;
+}
+
+interface NeuralFieldEdge {
+  from: number;
+  to: number;
+  major: boolean;
+}
+
+/**
+ * A real, deterministic graph for the MARKET GRAPH optical field.
+ *
+ * Earlier reference passes drew this organ with two CSS pseudo-elements. That
+ * made it impossible to increase relational density without producing another
+ * flat texture. These points and edges are deliberately data-independent: the
+ * graph is cockpit material, never a claim about live market relationships.
+ */
+const NEURAL_FIELD_COLUMNS = 15;
+const NEURAL_FIELD_ROWS = 5;
+const NEURAL_FIELD_POINTS: NeuralFieldPoint[] = Array.from(
+  { length: NEURAL_FIELD_COLUMNS * NEURAL_FIELD_ROWS },
+  (_, index) => {
+    const column = index % NEURAL_FIELD_COLUMNS;
+    const row = Math.floor(index / NEURAL_FIELD_COLUMNS);
+    const x = 22 + (column / (NEURAL_FIELD_COLUMNS - 1)) * 956
+      + Math.sin(index * 1.73 + row * 0.61) * 13;
+    const y = 24 + (row / (NEURAL_FIELD_ROWS - 1)) * 312
+      + Math.cos(index * 1.11 + column * 0.47) * 15;
+    return {
+      x: Math.max(8, Math.min(992, Number(x.toFixed(2)))),
+      y: Math.max(8, Math.min(352, Number(y.toFixed(2)))),
+      energy: index % 19 === 0 ? 3 : index % 7 === 0 ? 2 : 1,
+    };
+  },
+);
+
+const NEURAL_FIELD_EDGES: NeuralFieldEdge[] = [];
+for (let index = 0; index < NEURAL_FIELD_POINTS.length; index += 1) {
+  const column = index % NEURAL_FIELD_COLUMNS;
+  const row = Math.floor(index / NEURAL_FIELD_COLUMNS);
+  const connect = (to: number, major = false): void => {
+    if (to >= 0 && to < NEURAL_FIELD_POINTS.length) {
+      NEURAL_FIELD_EDGES.push({ from: index, to, major });
+    }
+  };
+
+  if (column < NEURAL_FIELD_COLUMNS - 1) connect(index + 1, index % 9 === 0);
+  if (row < NEURAL_FIELD_ROWS - 1) {
+    connect(index + NEURAL_FIELD_COLUMNS, index % 11 === 0);
+    if (column < NEURAL_FIELD_COLUMNS - 1) connect(index + NEURAL_FIELD_COLUMNS + 1, index % 13 === 0);
+    if (column > 0 && (column + row) % 2 === 0) connect(index + NEURAL_FIELD_COLUMNS - 1);
+  }
+  if (row < NEURAL_FIELD_ROWS - 2 && column % 3 === 0) {
+    connect(index + (NEURAL_FIELD_COLUMNS * 2) + (column < NEURAL_FIELD_COLUMNS - 1 ? 1 : -1), true);
+  }
+}
+
 function colorWithAlpha(color: string, alpha: number): string {
   const hex = /^#([0-9a-f]{6})$/i.exec(color.trim());
   if (hex) {
@@ -1124,6 +1184,53 @@ export function PriceChartPanel({
       })()}
 
       <div className="pcp-network-band" data-testid="chart-network-band" data-visual-key="network-plane" aria-label="Market decision network">
+        <svg
+          className="pcp-neural-field"
+          viewBox="0 0 1000 360"
+          preserveAspectRatio="xMidYMid slice"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <g className="pcp-neural-aurora">
+            <ellipse cx="205" cy="218" rx="182" ry="112" />
+            <ellipse cx="512" cy="154" rx="230" ry="128" />
+            <ellipse cx="815" cy="221" rx="176" ry="108" />
+          </g>
+          <g className="pcp-neural-links">
+            {NEURAL_FIELD_EDGES.map((edge, index) => {
+              const from = NEURAL_FIELD_POINTS[edge.from];
+              const to = NEURAL_FIELD_POINTS[edge.to];
+              return (
+                <line
+                  key={`${edge.from}-${edge.to}-${index}`}
+                  className={edge.major ? 'is-major' : undefined}
+                  x1={from.x}
+                  y1={from.y}
+                  x2={to.x}
+                  y2={to.y}
+                  vectorEffect="non-scaling-stroke"
+                />
+              );
+            })}
+          </g>
+          <g className="pcp-neural-spines">
+            <path d="M4 268 C118 254 124 95 251 151 S408 314 520 185 S694 44 786 171 S925 278 996 112" vectorEffect="non-scaling-stroke" />
+            <path d="M8 115 C125 202 202 281 324 202 S493 41 618 143 S792 319 996 234" vectorEffect="non-scaling-stroke" />
+            <path d="M74 346 C181 275 292 312 392 236 S559 90 697 164 S837 255 954 42" vectorEffect="non-scaling-stroke" />
+          </g>
+          <g className="pcp-neural-nodes">
+            {NEURAL_FIELD_POINTS.map((point, index) => (
+              <g
+                key={index}
+                className={`pcp-neural-node energy-${point.energy}`}
+                transform={`translate(${point.x} ${point.y})`}
+              >
+                {point.energy > 1 && <circle className="pcp-neural-node-ring" r={point.energy === 3 ? 10 : 6.5} />}
+                <circle className="pcp-neural-node-core" r={point.energy === 3 ? 3.1 : point.energy === 2 ? 2.2 : 1.25} />
+              </g>
+            ))}
+          </g>
+        </svg>
         <div className="pcp-network-label">
           <span className="command-kicker">MARKET GRAPH</span>
           <small>PRICE · VOL · EVENTS · RISK</small>
