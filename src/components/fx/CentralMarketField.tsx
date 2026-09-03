@@ -16,6 +16,7 @@ interface FieldNode {
   tone: 0 | 1;
   phase: number;
   lane: number;
+  anchor: number;
 }
 
 interface FieldEdge {
@@ -23,6 +24,37 @@ interface FieldEdge {
   to: number;
   alpha: number;
   tone: number;
+}
+
+export interface MarketFieldSample {
+  time: string;
+  open: number;
+  high: number;
+  low: number;
+  close: number;
+  volume?: number | null;
+}
+
+interface MarketFieldProfile {
+  price: number[];
+  range: number[];
+  volume: number[];
+  densityCdf: number[];
+  visibilityPairs: Array<readonly [number, number]>;
+  visibleAnchors: Set<string>;
+}
+
+interface MarketFieldSpinePoint {
+  x: number;
+  y: number;
+  z: number;
+}
+
+export interface MarketFieldTopology {
+  nodes: FieldNode[];
+  edges: FieldEdge[];
+  spines: MarketFieldSpinePoint[][];
+  signature: string;
 }
 
 interface FieldPalette {
@@ -80,7 +112,7 @@ function clamp(value: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, value));
 }
 
-function spineY(lane: number, x: number): number {
+function staticSpineY(lane: number, x: number): number {
   const t = (x + 1) * 0.5;
   if (lane === 0) {
     return Math.sin((t * Math.PI * 2.18) + 0.35) * 0.31 + (t - 0.5) * 0.18;
@@ -91,18 +123,188 @@ function spineY(lane: number, x: number): number {
   return Math.cos((t * Math.PI * 2.42) + 0.76) * 0.25 - (t - 0.5) * 0.24;
 }
 
-function buildTopology(): { nodes: FieldNode[]; edges: FieldEdge[] } {
+function interpolate(values: readonly number[], t: number): number {
+  if (values.length === 0) return 0;
+  if (values.length === 1) return values[0];
+  const cursor = clamp(t, 0, 1) * (values.length - 1);
+  const low = Math.floor(cursor);
+  const high = Math.min(values.length - 1, low + 1);
+  const mix = cursor - low;
+  return values[low] * (1 - mix) + values[high] * mix;
+}
+
+function smooth(values: readonly number[]): number[] {
+  if (values.length < 3) return [...values];
+  return values.map((value, index) => {
+    const before = values[Math.max(0, index - 1)];
+    const after = values[Math.min(values.length - 1, index + 1)];
+    return before * 0.2 + value * 0.6 + after * 0.2;
+  });
+}
+
+export function buildNaturalVisibilityPairs(
+  values: readonly number[],
+  times: readonly number[],
+): Array<readonly [number, number]> {
+  const pairs: Array<readonly [number, number]> = [];
+  for (let from = 0; from < values.length - 1; from += 1) {
+    let steepestIntermediate = Number.NEGATIVE_INFINITY;
+    for (let to = from + 1; to < values.length; to += 1) {
+      const elapsed = times[to] - times[from];
+      if (!(elapsed > 0)) continue;
+      const slope = (values[to] - values[from]) / elapsed;
+      // This is the Natural Visibility Graph criterion in its incremental
+      // slope form: every intermediate point must stay below the sight line.
+      if (slope > steepestIntermediate + 1e-12) pairs.push([from, to]);
+      steepestIntermediate = Math.max(steepestIntermediate, slope);
+    }
+  }
+  return pairs;
+}
+
+function topologySignature(
+  nodes: readonly FieldNode[],
+  edges: readonly FieldEdge[],
+  spines: readonly MarketFieldSpinePoint[][],
+): string {
+  let hash = 0x811c9dc5;
+  const feed = (value: string): void => {
+    for (let index = 0; index < value.length; index += 1) {
+      hash ^= value.charCodeAt(index);
+      hash = Math.imul(hash, 0x01000193);
+    }
+  };
+  nodes.forEach((node) => feed(`${node.x.toFixed(4)},${node.y.toFixed(4)},${node.anchor};`));
+  edges.forEach((edge) => feed(`${edge.from}:${edge.to};`));
+  spines[1]?.forEach((point) => feed(`${point.y.toFixed(4)};`));
+  return (hash >>> 0).toString(16).padStart(8, '0');
+}
+
+function buildProfile(samples: readonly MarketFieldSample[]): MarketFieldProfile | null {
+  const admitted = samples
+    .map((sample) => {
+      const close = Number(sample.close);
+      if (!Number.isFinite(close) || close <= 0) return null;
+      const openValue = Number(sample.open);
+      const highValue = Number(sample.high);
+      const lowValue = Number(sample.low);
+      const open = Number.isFinite(openValue) && openValue > 0 ? openValue : close;
+      const high = Number.isFinite(highValue) && highValue > 0 ? Math.max(highValue, open, close) : Math.max(open, close);
+      const low = Number.isFinite(lowValue) && lowValue > 0 ? Math.min(lowValue, open, close) : Math.min(open, close);
+      const volumeValue = Number(sample.volume ?? 0);
+      const volume = Number.isFinite(volumeValue) && volumeValue > 0 ? volumeValue : null;
+      return { time: sample.time, open, high, low, close, volume };
+    })
+    .filter((sample): sample is NonNullable<typeof sample> => sample !== null);
+
+  if (admitted.length === 0) return null;
+
+  // One admitted candle still carries an honest open-to-close direction.
+  // High/low only widen the envelope; they are never arranged into a fake
+  // intraday path. With multiple bars every later anchor is a real close.
+  const baseline = admitted[0].open;
+  const rawPriceAnchors = [baseline, ...admitted.map((sample) => sample.close)];
+  const priceAnchors = rawPriceAnchors
+    .map((price) => clamp(Math.tanh(Math.log(price / baseline) * 10.5), -1, 1));
+  const rangeAnchors = [admitted[0], ...admitted]
+    .map((sample) => clamp(Math.tanh(((sample.high - sample.low) / sample.open) * 18), 0, 1));
+
+  // Match the chart's truth rule: an incomplete volume series is "unknown",
+  // not zero. In that case price still drives the field and density stays even.
+  const hasCompleteVolume = admitted.every((sample) => sample.volume !== null);
+  const rawVolumes = hasCompleteVolume
+    ? [admitted[0].volume, ...admitted.map((sample) => sample.volume)]
+      .map((volume) => Math.log1p(volume ?? 0))
+    : rawPriceAnchors.map(() => 0);
+  const minVolume = Math.min(...rawVolumes);
+  const maxVolume = Math.max(...rawVolumes);
+  const volumeSpan = maxVolume - minVolume;
+  const volume = rawVolumes.map((value) => {
+    if (maxVolume <= 0) return 0;
+    return volumeSpan > 1e-6 ? (value - minVolume) / volumeSpan : 0.55;
+  });
+
+  const segmentWeights = volume.slice(1).map((value) => 0.42 + value * 0.58);
+  const totalWeight = segmentWeights.reduce((sum, value) => sum + value, 0) || 1;
+  let cumulative = 0;
+  const densityCdf = [0];
+  segmentWeights.forEach((weight) => {
+    cumulative += weight / totalWeight;
+    densityCdf.push(cumulative);
+  });
+  densityCdf[densityCdf.length - 1] = 1;
+
+  const parsedTimes = admitted.map((sample) => Date.parse(sample.time));
+  const useClockTime = parsedTimes.every((time, index) => (
+    Number.isFinite(time) && (index === 0 || time > parsedTimes[index - 1])
+  ));
+  const firstStep = useClockTime && parsedTimes.length > 1
+    ? parsedTimes[1] - parsedTimes[0]
+    : 1;
+  const anchorTimes = useClockTime
+    ? [parsedTimes[0] - firstStep, ...parsedTimes]
+    : rawPriceAnchors.map((_, index) => index);
+  const startTime = anchorTimes[0];
+  const timeSpan = anchorTimes[anchorTimes.length - 1] - startTime || 1;
+  const normalizedTimes = anchorTimes.map((time) => (time - startTime) / timeSpan);
+  const visibilityPairs = buildNaturalVisibilityPairs(
+    rawPriceAnchors.map((price) => Math.log(price)),
+    normalizedTimes,
+  );
+
+  return {
+    price: smooth(priceAnchors),
+    range: smooth(rangeAnchors),
+    volume: smooth(volume),
+    densityCdf,
+    visibilityPairs,
+    visibleAnchors: new Set(visibilityPairs.map(([from, to]) => `${from}:${to}`)),
+  };
+}
+
+function volumeWeightedTime(profile: MarketFieldProfile | null, quantile: number): number {
+  if (!profile || profile.densityCdf.length < 2) return quantile;
+  const cdf = profile.densityCdf;
+  let segment = 0;
+  while (segment < cdf.length - 2 && quantile > cdf[segment + 1]) segment += 1;
+  const low = cdf[segment];
+  const high = cdf[segment + 1];
+  const within = high > low ? (quantile - low) / (high - low) : 0;
+  return (segment + clamp(within, 0, 1)) / (cdf.length - 1);
+}
+
+function spineY(lane: number, x: number, profile: MarketFieldProfile | null): number {
+  if (!profile) return staticSpineY(lane, x);
+  const t = clamp((x + 1.06) / 2.12, 0, 1);
+  const price = interpolate(profile.price, t);
+  const range = interpolate(profile.range, t);
+  const volume = interpolate(profile.volume, t);
+  const prior = interpolate(profile.price, Math.max(0, t - 0.045));
+  const next = interpolate(profile.price, Math.min(1, t + 0.045));
+  const slope = next - prior;
+  const center = clamp(price * 0.52 + slope * 0.16, -0.61, 0.61);
+  const envelope = 0.13 + range * 0.105 + volume * 0.075;
+  if (lane === 0) return clamp(center + envelope + slope * 0.06, -0.82, 0.82);
+  if (lane === 1) return center;
+  return clamp(center - envelope - slope * 0.06, -0.82, 0.82);
+}
+
+export function buildMarketFieldTopology(samples: readonly MarketFieldSample[]): MarketFieldTopology {
+  const profile = buildProfile(samples);
   const random = seededRandom(0x66301679);
   const nodes: FieldNode[] = [];
 
   for (let index = 0; index < 228; index += 1) {
-    const x = -1.04 + random() * 2.08;
+    const marketTime = volumeWeightedTime(profile, random());
+    const x = -1.04 + marketTime * 2.08;
     const lanePick = random();
     const lane = lanePick < 0.39 ? 0 : lanePick < 0.72 ? 1 : 2;
     const freeNode = index % 11 === 0;
     const y = freeNode
-      ? -0.84 + random() * 1.68
-      : clamp(spineY(lane, x) + (random() + random() - 1) * 0.22, -0.88, 0.88);
+      ? profile
+        ? clamp(spineY(lane, x, profile) + (random() - 0.5) * 0.76, -0.88, 0.88)
+        : -0.84 + random() * 1.68
+      : clamp(spineY(lane, x, profile) + (random() + random() - 1) * 0.22, -0.88, 0.88);
     const energyRoll = random();
     const energy: 1 | 2 | 3 = index % 37 === 0 || energyRoll > 0.965
       ? 3
@@ -119,6 +321,7 @@ function buildTopology(): { nodes: FieldNode[]; edges: FieldEdge[] } {
       tone: (lane === 2 || index % 13 === 0 ? 1 : 0),
       phase: random() * Math.PI * 2,
       lane,
+      anchor: profile ? Math.round(marketTime * (profile.price.length - 1)) : 0,
     });
   }
 
@@ -133,7 +336,14 @@ function buildTopology(): { nodes: FieldNode[]; edges: FieldEdge[] } {
         const lanePenalty = target.lane === source.lane ? 0 : 0.012;
         return { to, distance2: (dx * dx * 1.55) + (dy * dy) + lanePenalty };
       })
-      .filter(({ to }) => to !== from)
+      .filter(({ to }) => {
+        if (to === from) return false;
+        if (!profile) return true;
+        const targetAnchor = nodes[to].anchor;
+        const lowAnchor = Math.min(source.anchor, targetAnchor);
+        const highAnchor = Math.max(source.anchor, targetAnchor);
+        return lowAnchor === highAnchor || profile.visibleAnchors.has(`${lowAnchor}:${highAnchor}`);
+      })
       .sort((a, b) => a.distance2 - b.distance2);
     const targetCount = source.energy === 3 ? 5 : source.energy === 2 ? 4 : 3;
     let connected = 0;
@@ -156,15 +366,70 @@ function buildTopology(): { nodes: FieldNode[]; edges: FieldEdge[] } {
     }
   }
 
-  return { nodes, edges };
+  if (profile) {
+    const representative = (anchor: number, lane: number): number => {
+      const expectedX = -1.04 + (anchor / Math.max(1, profile.price.length - 1)) * 2.08;
+      let best = 0;
+      let bestDistance = Number.POSITIVE_INFINITY;
+      nodes.forEach((node, index) => {
+        const lanePenalty = node.lane === lane ? 0 : 0.24;
+        const anchorPenalty = Math.abs(node.anchor - anchor) * 0.18;
+        const distance = Math.abs(node.x - expectedX) + lanePenalty + anchorPenalty;
+        if (distance < bestDistance) {
+          best = index;
+          bestDistance = distance;
+        }
+      });
+      return best;
+    };
+
+    // Local tissue remains dense, but these bounded bridge edges are the part
+    // whose adjacency is dictated directly by the admitted close series.
+    const bridges = profile.visibilityPairs
+      .filter(([from, to]) => to - from > 1)
+      .sort((a, b) => (b[1] - b[0]) - (a[1] - a[0]))
+      .slice(0, 96);
+    bridges.forEach(([fromAnchor, toAnchor], bridgeIndex) => {
+      const lane = bridgeIndex % 3;
+      const from = representative(fromAnchor, lane);
+      const to = representative(toAnchor, lane);
+      if (from === to) return;
+      const low = Math.min(from, to);
+      const high = Math.max(from, to);
+      const key = `${low}:${high}`;
+      if (seen.has(key)) return;
+      seen.add(key);
+      const span = (toAnchor - fromAnchor) / Math.max(1, profile.price.length - 1);
+      edges.push({
+        from,
+        to,
+        alpha: clamp(0.18 + span * 0.11, 0.18, 0.29),
+        tone: lane === 2 ? 1 : lane === 1 ? 0.5 : 0,
+      });
+    });
+  }
+
+  const spines: MarketFieldSpinePoint[][] = Array.from({ length: 3 }, (_, lane) => (
+    Array.from({ length: 89 }, (__, index) => {
+      const x = -1.06 + (index / 88) * 2.12;
+      return { x, y: spineY(lane, x, profile), z: 0.04 + lane * 0.01 };
+    })
+  ));
+
+  return {
+    nodes,
+    edges,
+    spines,
+    signature: profile ? topologySignature(nodes, edges, spines) : 'static-fallback',
+  };
 }
 
-const FIELD_TOPOLOGY = buildTopology();
+const STATIC_FIELD_TOPOLOGY = buildMarketFieldTopology([]);
 
 export const CENTRAL_MARKET_FIELD_COUNTS = Object.freeze({
-  nodes: FIELD_TOPOLOGY.nodes.length,
-  edges: FIELD_TOPOLOGY.edges.length,
-  spines: 3,
+  nodes: STATIC_FIELD_TOPOLOGY.nodes.length,
+  edges: STATIC_FIELD_TOPOLOGY.edges.length,
+  spines: STATIC_FIELD_TOPOLOGY.spines.length,
 });
 
 function readTheme(): FieldTheme {
@@ -176,8 +441,8 @@ function setColor(target: THREE.Color, color: readonly [number, number, number])
   target.setRGB(color[0], color[1], color[2], THREE.LinearSRGBColorSpace);
 }
 
-function createNodeGeometry(): THREE.BufferGeometry {
-  const { nodes } = FIELD_TOPOLOGY;
+function createNodeGeometry(topology: MarketFieldTopology): THREE.BufferGeometry {
+  const { nodes } = topology;
   const positions = new Float32Array(nodes.length * 3);
   const sizes = new Float32Array(nodes.length);
   const energies = new Float32Array(nodes.length);
@@ -204,8 +469,8 @@ function createNodeGeometry(): THREE.BufferGeometry {
   return geometry;
 }
 
-function createEdgeGeometry(): THREE.BufferGeometry {
-  const { nodes, edges } = FIELD_TOPOLOGY;
+function createEdgeGeometry(topology: MarketFieldTopology): THREE.BufferGeometry {
+  const { nodes, edges } = topology;
   const positions = new Float32Array(edges.length * 6);
   const alphas = new Float32Array(edges.length * 2);
   const tones = new Float32Array(edges.length * 2);
@@ -294,7 +559,12 @@ const EDGE_FRAGMENT_SHADER = `
   }
 `;
 
-function setupMarketField(canvas: HTMLCanvasElement): () => void {
+interface MarketFieldRenderer {
+  updateTopology: (topology: MarketFieldTopology) => void;
+  dispose: () => void;
+}
+
+function setupMarketField(canvas: HTMLCanvasElement, topology: MarketFieldTopology): MarketFieldRenderer {
   let disposed = false;
   let animationFrame: number | null = null;
   let lastFrame = 0;
@@ -322,7 +592,7 @@ function setupMarketField(canvas: HTMLCanvasElement): () => void {
     uPrimary: { value: new THREE.Color() },
     uSecondary: { value: new THREE.Color() },
   };
-  const edgeGeometry = createEdgeGeometry();
+  let edgeGeometry = createEdgeGeometry(topology);
   const edgeMaterial = new THREE.ShaderMaterial({
     uniforms: edgeUniforms,
     vertexShader: EDGE_VERTEX_SHADER,
@@ -345,7 +615,7 @@ function setupMarketField(canvas: HTMLCanvasElement): () => void {
     uSecondary: { value: new THREE.Color() },
     uHot: { value: new THREE.Color() },
   };
-  const nodeGeometry = createNodeGeometry();
+  let nodeGeometry = createNodeGeometry(topology);
   const nodeMaterial = new THREE.ShaderMaterial({
     uniforms: pointUniforms,
     vertexShader: POINT_VERTEX_SHADER,
@@ -363,12 +633,9 @@ function setupMarketField(canvas: HTMLCanvasElement): () => void {
 
   const spineGeometries: LineGeometry[] = [];
   const spineMaterials: LineMaterial[] = [];
-  for (let lane = 0; lane < 3; lane += 1) {
-    const curvePoints: number[] = [];
-    for (let index = 0; index <= 88; index += 1) {
-      const x = -1.06 + (index / 88) * 2.12;
-      curvePoints.push(x, spineY(lane, x), 0.04 + lane * 0.01);
-    }
+  const spineLines: Line2[] = [];
+  topology.spines.forEach((spine, lane) => {
+    const curvePoints = spine.flatMap((point) => [point.x, point.y, point.z]);
     const geometry = new LineGeometry();
     geometry.setPositions(curvePoints);
     const material = new LineMaterial({
@@ -387,7 +654,8 @@ function setupMarketField(canvas: HTMLCanvasElement): () => void {
     scene.add(line);
     spineGeometries.push(geometry);
     spineMaterials.push(material);
-  }
+    spineLines.push(line);
+  });
 
   const bloom = new BloomEffect({
     luminanceThreshold: 0.92,
@@ -490,6 +758,31 @@ function setupMarketField(canvas: HTMLCanvasElement): () => void {
       canvas.removeAttribute('data-webgl-ready');
     }
   };
+  const updateTopology = (nextTopology: MarketFieldTopology): void => {
+    const nextEdgeGeometry = createEdgeGeometry(nextTopology);
+    const nextNodeGeometry = createNodeGeometry(nextTopology);
+    const nextSpineGeometries = nextTopology.spines.map((spine) => {
+      const geometry = new LineGeometry();
+      geometry.setPositions(spine.flatMap((point) => [point.x, point.y, point.z]));
+      return geometry;
+    });
+
+    const oldEdgeGeometry = edgeGeometry;
+    const oldNodeGeometry = nodeGeometry;
+    const oldSpineGeometries = [...spineGeometries];
+    edgeGeometry = nextEdgeGeometry;
+    nodeGeometry = nextNodeGeometry;
+    edges.geometry = edgeGeometry;
+    nodes.geometry = nodeGeometry;
+    nextSpineGeometries.forEach((geometry, index) => {
+      spineGeometries[index] = geometry;
+      spineLines[index].geometry = geometry;
+    });
+    oldEdgeGeometry.dispose();
+    oldNodeGeometry.dispose();
+    oldSpineGeometries.forEach((geometry) => geometry.dispose());
+    renderStaticFrame();
+  };
   const onVisibilityChange = (): void => {
     if (document.hidden) stop();
     else start();
@@ -528,7 +821,7 @@ function setupMarketField(canvas: HTMLCanvasElement): () => void {
   motionQuery.addEventListener('change', onMotionChange);
   canvas.addEventListener('webglcontextlost', onContextLost);
 
-  return () => {
+  const dispose = (): void => {
     disposed = true;
     stop();
     canvas.removeAttribute('data-webgl-ready');
@@ -548,28 +841,35 @@ function setupMarketField(canvas: HTMLCanvasElement): () => void {
     scene.clear();
     renderer.dispose();
   };
+
+  return { updateTopology, dispose };
 }
 
 /**
- * Desktop-only MARKET GRAPH renderer. The deterministic SVG sibling remains
- * mounted as the tablet path and as a no-WebGL/context-loss safety fallback.
+ * Desktop-only MARKET GRAPH renderer. PriceChartPanel builds one topology from
+ * admitted market data and shares it with this canvas and the SVG fallback.
  */
-export function CentralMarketField(): JSX.Element {
+export function CentralMarketField({ topology }: { topology: MarketFieldTopology }): JSX.Element {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const rendererRef = useRef<MarketFieldRenderer | null>(null);
+  const latestTopologyRef = useRef(topology);
+  const appliedTopologyRef = useRef(topology);
+  latestTopologyRef.current = topology;
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas || typeof window.matchMedia !== 'function') return;
     const desktopQuery = window.matchMedia('(min-width: 1280px)');
-    let teardown: (() => void) | undefined;
 
     const syncRenderer = (): void => {
-      teardown?.();
-      teardown = undefined;
+      rendererRef.current?.dispose();
+      rendererRef.current = null;
       canvas.removeAttribute('data-webgl-ready');
       if (!desktopQuery.matches) return;
       try {
-        teardown = setupMarketField(canvas);
+        const nextTopology = latestTopologyRef.current;
+        rendererRef.current = setupMarketField(canvas, nextTopology);
+        appliedTopologyRef.current = nextTopology;
       } catch {
         canvas.removeAttribute('data-webgl-ready');
       }
@@ -579,9 +879,16 @@ export function CentralMarketField(): JSX.Element {
     desktopQuery.addEventListener('change', syncRenderer);
     return () => {
       desktopQuery.removeEventListener('change', syncRenderer);
-      teardown?.();
+      rendererRef.current?.dispose();
+      rendererRef.current = null;
     };
   }, []);
+
+  useEffect(() => {
+    if (appliedTopologyRef.current === topology) return;
+    rendererRef.current?.updateTopology(topology);
+    appliedTopologyRef.current = topology;
+  }, [topology]);
 
   return (
     <canvas
@@ -592,9 +899,10 @@ export function CentralMarketField(): JSX.Element {
       aria-hidden="true"
       data-testid="central-market-field"
       data-renderer="webgl-threshold-bloom"
-      data-node-count={CENTRAL_MARKET_FIELD_COUNTS.nodes}
-      data-edge-count={CENTRAL_MARKET_FIELD_COUNTS.edges}
-      data-spine-count={CENTRAL_MARKET_FIELD_COUNTS.spines}
+      data-node-count={topology.nodes.length}
+      data-edge-count={topology.edges.length}
+      data-spine-count={topology.spines.length}
+      data-topology-signature={topology.signature}
     />
   );
 }

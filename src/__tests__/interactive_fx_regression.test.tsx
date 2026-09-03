@@ -11,18 +11,90 @@ import { BorderBeam } from '../components/fx/BorderBeam';
 import { BorderGlow } from '../components/fx/BorderGlow';
 import { ElectricBorder } from '../components/fx/ElectricBorder';
 import { GlareHover } from '../components/fx/GlareHover';
-import { CentralMarketField, CENTRAL_MARKET_FIELD_COUNTS } from '../components/fx/CentralMarketField';
+import {
+  CentralMarketField,
+  CENTRAL_MARKET_FIELD_COUNTS,
+  buildNaturalVisibilityPairs,
+  buildMarketFieldTopology,
+  type MarketFieldSample,
+} from '../components/fx/CentralMarketField';
 
 describe('Interactive FX Regression Suite', () => {
   it('CentralMarketField ships a dense deterministic WebGL layer with a no-WebGL-safe canvas contract', () => {
-    const { container } = render(<CentralMarketField />);
+    const samples: MarketFieldSample[] = [
+      { time: '2026-01-05', open: 100, high: 104, low: 99, close: 103, volume: 1_200_000 },
+      { time: '2026-01-06', open: 103, high: 108, low: 102, close: 107, volume: 2_400_000 },
+    ];
+    const topology = buildMarketFieldTopology(samples);
+    const { container } = render(<CentralMarketField topology={topology} />);
     const canvas = container.querySelector('[data-testid="central-market-field"]');
 
     expect(CENTRAL_MARKET_FIELD_COUNTS.nodes).toBe(228);
     expect(CENTRAL_MARKET_FIELD_COUNTS.edges).toBeGreaterThan(400);
     expect(CENTRAL_MARKET_FIELD_COUNTS.spines).toBe(3);
     expect(canvas).toHaveAttribute('data-renderer', 'webgl-threshold-bloom');
+    expect(canvas).toHaveAttribute('data-topology-signature', topology.signature);
     expect(canvas).not.toHaveAttribute('data-webgl-ready');
+  });
+
+  it('derives visibly different deterministic topology from admitted price and volume', () => {
+    const rally: MarketFieldSample[] = [
+      { time: 't0', open: 100, high: 103, low: 99, close: 102, volume: 1_000_000 },
+      { time: 't1', open: 102, high: 107, low: 101, close: 106, volume: 1_300_000 },
+      { time: 't2', open: 106, high: 111, low: 105, close: 110, volume: 4_800_000 },
+      { time: 't3', open: 110, high: 114, low: 109, close: 113, volume: 2_100_000 },
+    ];
+    const selloff: MarketFieldSample[] = [
+      { time: 't0', open: 100, high: 101, low: 96, close: 97, volume: 4_600_000 },
+      { time: 't1', open: 97, high: 98, low: 92, close: 93, volume: 2_100_000 },
+      { time: 't2', open: 93, high: 94, low: 87, close: 88, volume: 1_300_000 },
+      { time: 't3', open: 88, high: 90, low: 84, close: 85, volume: 900_000 },
+    ];
+
+    const rallyField = buildMarketFieldTopology(rally);
+    const repeatedRally = buildMarketFieldTopology(rally);
+    const selloffField = buildMarketFieldTopology(selloff);
+    const shiftedVolumeField = buildMarketFieldTopology(
+      rally.map((sample, index) => ({ ...sample, volume: rally[rally.length - 1 - index].volume })),
+    );
+    const incompleteVolumeField = buildMarketFieldTopology(
+      rally.map((sample, index) => ({ ...sample, volume: index === 1 ? null : sample.volume })),
+    );
+    const unknownVolumeField = buildMarketFieldTopology(
+      rally.map((sample) => ({ ...sample, volume: null })),
+    );
+
+    expect(repeatedRally).toEqual(rallyField);
+    expect(rallyField.signature).not.toBe(selloffField.signature);
+    expect(rallyField.spines[1][rallyField.spines[1].length - 1].y).toBeGreaterThan(0.35);
+    expect(selloffField.spines[1][selloffField.spines[1].length - 1].y).toBeLessThan(-0.35);
+    expect(rallyField.nodes.some((node, index) => (
+      Math.abs(node.x - selloffField.nodes[index].x) > 0.04
+      || Math.abs(node.y - selloffField.nodes[index].y) > 0.20
+    ))).toBe(true);
+    expect(rallyField.nodes.some((node, index) => (
+      Math.abs(node.x - shiftedVolumeField.nodes[index].x) > 0.04
+    ))).toBe(true);
+    expect(incompleteVolumeField.nodes.map((node) => node.x)).toEqual(
+      unknownVolumeField.nodes.map((node) => node.x),
+    );
+    expect(rallyField.nodes.map(({ size, energy, tone }) => ({ size, energy, tone }))).toEqual(
+      selloffField.nodes.map(({ size, energy, tone }) => ({ size, energy, tone })),
+    );
+    expect(rallyField.edges.map(({ from, to }) => `${from}:${to}`)).not.toEqual(
+      selloffField.edges.map(({ from, to }) => `${from}:${to}`),
+    );
+  });
+
+  it('uses price height and real spacing to determine visibility adjacency', () => {
+    expect(buildNaturalVisibilityPairs([3, 1, 2], [0, 1, 2])).toEqual([
+      [0, 1], [0, 2], [1, 2],
+    ]);
+    expect(buildNaturalVisibilityPairs([1, 3, 2], [0, 1, 2])).toEqual([
+      [0, 1], [1, 2],
+    ]);
+    expect(buildNaturalVisibilityPairs([1, 2, 4], [0, 1, 2])).toContainEqual([0, 2]);
+    expect(buildNaturalVisibilityPairs([1, 2, 4], [0, 1, 10])).not.toContainEqual([0, 2]);
   });
 
   it('SpotlightCard updates --mouse-x and --mouse-y on mousemove', () => {
