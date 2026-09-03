@@ -14,10 +14,11 @@ import {
 import { fmt } from '../lib/format';
 import { cssStr, useThemeTick } from './fx/useMotionScale';
 import {
-  CentralMarketField,
   buildMarketFieldTopology,
   type MarketFieldSample,
+  type MarketFieldTopology,
 } from './fx/CentralMarketField';
+import { MarketFieldStage } from './fx/MarketFieldStage';
 import type { MarketNode } from '../types';
 import type { RevealedPriceBar } from '../engine/schemas';
 import { hasValidOhlc, isChartReady } from '../lib/chartReadiness';
@@ -110,6 +111,63 @@ function fieldSvgX(x: number): number {
 
 function fieldSvgY(y: number): number {
   return Number(((1 - ((y + 1) / 2)) * 360).toFixed(2));
+}
+
+function MarketFieldFallback({ topology }: { topology: MarketFieldTopology }): JSX.Element {
+  return (
+    <svg
+      className="pcp-neural-field"
+      viewBox="0 0 1000 360"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+      focusable="false"
+      data-coordinate-space="market-field-stage"
+    >
+      <g className="pcp-neural-aurora">
+        <ellipse cx="205" cy="218" rx="182" ry="112" />
+        <ellipse cx="512" cy="154" rx="230" ry="128" />
+        <ellipse cx="815" cy="221" rx="176" ry="108" />
+      </g>
+      <g className="pcp-neural-links">
+        {topology.edges.map((edge, index) => {
+          const from = topology.nodes[edge.from];
+          const to = topology.nodes[edge.to];
+          return (
+            <line
+              key={`${edge.from}-${edge.to}-${index}`}
+              className={edge.alpha >= 0.22 ? 'is-major' : undefined}
+              x1={fieldSvgX(from.x)}
+              y1={fieldSvgY(from.y)}
+              x2={fieldSvgX(to.x)}
+              y2={fieldSvgY(to.y)}
+              vectorEffect="non-scaling-stroke"
+            />
+          );
+        })}
+      </g>
+      <g className="pcp-neural-spines">
+        {topology.spines.map((spine, lane) => (
+          <path
+            key={lane}
+            d={spine.map((point, index) => `${index === 0 ? 'M' : 'L'}${fieldSvgX(point.x)} ${fieldSvgY(point.y)}`).join(' ')}
+            vectorEffect="non-scaling-stroke"
+          />
+        ))}
+      </g>
+      <g className="pcp-neural-nodes">
+        {topology.nodes.map((point, index) => (
+          <g
+            key={index}
+            className={`pcp-neural-node energy-${point.energy}`}
+            transform={`translate(${fieldSvgX(point.x)} ${fieldSvgY(point.y)})`}
+          >
+            {point.energy > 1 && <circle className="pcp-neural-node-ring" r={point.energy === 3 ? 10 : 6.5} />}
+            <circle className="pcp-neural-node-core" r={point.energy === 3 ? 3.1 : point.energy === 2 ? 2.2 : 1.25} />
+          </g>
+        ))}
+      </g>
+    </svg>
+  );
 }
 
 export function PriceChartPanel({
@@ -1071,8 +1129,12 @@ export function PriceChartPanel({
         </div>
       </div>
 
-      {/* Main TradingView Lightweight Canvas Container */}
-      <div className="pcp-chart-stage">
+      {/* Price, volume, and the data-driven field now share one measured stage. */}
+      <MarketFieldStage
+        topology={marketFieldTopology}
+        fallback={<MarketFieldFallback topology={marketFieldTopology} />}
+      >
+      <div className="pcp-chart-stage pcp-market-stage-chart">
         <div ref={chartContainerRef} className="pcp-chart" aria-label="正股价格图" data-testid="chart-canvas" />
         {currentCandleOverlay && (
           <svg
@@ -1149,7 +1211,7 @@ export function PriceChartPanel({
         if (dense.length > 0) {
           const maxVolume = Math.max(1, ...dense.map((item) => Number(item.volume || 0)));
           return (
-            <div className="pcp-volume-band is-intraday" data-testid="chart-volume-band" data-visual-key="volume-strip" aria-label="Intraday volume field">
+            <div className="pcp-volume-band pcp-market-stage-volume is-intraday" data-testid="chart-volume-band" data-visual-key="volume-strip" aria-label="Intraday volume field">
               <span className="command-kicker">VOLUME</span>
               <div className="pcp-volume-bars" aria-hidden="true">
                 {dense.map((item, index) => (
@@ -1166,7 +1228,7 @@ export function PriceChartPanel({
         const points = visibleNodes.slice(-24);
         const maxVolume = Math.max(1, ...points.map((item) => Number(item.underlying_bar.volume ?? 0)));
         return (
-          <div className="pcp-volume-band" data-testid="chart-volume-band" data-visual-key="volume-strip" aria-label="Real reported volume">
+          <div className="pcp-volume-band pcp-market-stage-volume" data-testid="chart-volume-band" data-visual-key="volume-strip" aria-label="Real reported volume">
             <span className="command-kicker">VOLUME</span>
             <div className="pcp-volume-bars" aria-hidden="true">
               {points.map((item) => {
@@ -1178,59 +1240,7 @@ export function PriceChartPanel({
         );
       })()}
 
-      <div className="pcp-network-band" data-testid="chart-network-band" data-visual-key="network-plane" aria-label="Market decision network">
-        <CentralMarketField topology={marketFieldTopology} />
-        <svg
-          className="pcp-neural-field"
-          viewBox="0 0 1000 360"
-          preserveAspectRatio="xMidYMid slice"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <g className="pcp-neural-aurora">
-            <ellipse cx="205" cy="218" rx="182" ry="112" />
-            <ellipse cx="512" cy="154" rx="230" ry="128" />
-            <ellipse cx="815" cy="221" rx="176" ry="108" />
-          </g>
-          <g className="pcp-neural-links">
-            {marketFieldTopology.edges.map((edge, index) => {
-              const from = marketFieldTopology.nodes[edge.from];
-              const to = marketFieldTopology.nodes[edge.to];
-              return (
-                <line
-                  key={`${edge.from}-${edge.to}-${index}`}
-                  className={edge.alpha >= 0.22 ? 'is-major' : undefined}
-                  x1={fieldSvgX(from.x)}
-                  y1={fieldSvgY(from.y)}
-                  x2={fieldSvgX(to.x)}
-                  y2={fieldSvgY(to.y)}
-                  vectorEffect="non-scaling-stroke"
-                />
-              );
-            })}
-          </g>
-          <g className="pcp-neural-spines">
-            {marketFieldTopology.spines.map((spine, lane) => (
-              <path
-                key={lane}
-                d={spine.map((point, index) => `${index === 0 ? 'M' : 'L'}${fieldSvgX(point.x)} ${fieldSvgY(point.y)}`).join(' ')}
-                vectorEffect="non-scaling-stroke"
-              />
-            ))}
-          </g>
-          <g className="pcp-neural-nodes">
-            {marketFieldTopology.nodes.map((point, index) => (
-              <g
-                key={index}
-                className={`pcp-neural-node energy-${point.energy}`}
-                transform={`translate(${fieldSvgX(point.x)} ${fieldSvgY(point.y)})`}
-              >
-                {point.energy > 1 && <circle className="pcp-neural-node-ring" r={point.energy === 3 ? 10 : 6.5} />}
-                <circle className="pcp-neural-node-core" r={point.energy === 3 ? 3.1 : point.energy === 2 ? 2.2 : 1.25} />
-              </g>
-            ))}
-          </g>
-        </svg>
+      <div className="pcp-network-band pcp-market-stage-network" data-testid="chart-network-band" data-visual-key="network-plane" aria-label="Market decision network">
         <div className="pcp-network-label">
           <span className="command-kicker">MARKET GRAPH</span>
           <small>PRICE · VOL · EVENTS · RISK</small>
@@ -1244,6 +1254,7 @@ export function PriceChartPanel({
           <span>PX</span><span>VOL</span><span>EVT</span><span>RISK</span>
         </div>
       </div>
+      </MarketFieldStage>
 
       <div className="pcp-secondary-controls" data-testid="chart-secondary-controls">
         <div className="pcp-display-group" role="group" aria-label="图表显示模式">

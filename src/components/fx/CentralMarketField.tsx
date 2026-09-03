@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, type RefObject } from 'react';
 import * as THREE from 'three';
 import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocessing';
 import { Line2 } from 'three/addons/lines/Line2.js';
@@ -564,7 +564,11 @@ interface MarketFieldRenderer {
   dispose: () => void;
 }
 
-function setupMarketField(canvas: HTMLCanvasElement, topology: MarketFieldTopology): MarketFieldRenderer {
+function setupMarketField(
+  canvas: HTMLCanvasElement,
+  topology: MarketFieldTopology,
+  viewport: HTMLElement,
+): MarketFieldRenderer {
   let disposed = false;
   let animationFrame: number | null = null;
   let lastFrame = 0;
@@ -696,7 +700,7 @@ function setupMarketField(canvas: HTMLCanvasElement, topology: MarketFieldTopolo
   };
 
   const resize = (): boolean => {
-    const bounds = canvas.getBoundingClientRect();
+    const bounds = viewport.getBoundingClientRect();
     const width = Math.round(bounds.width);
     const height = Math.round(bounds.height);
     if (width < 2 || height < 2) return false;
@@ -813,7 +817,7 @@ function setupMarketField(canvas: HTMLCanvasElement, topology: MarketFieldTopolo
 
   if (typeof ResizeObserver !== 'undefined') {
     resizeObserver = new ResizeObserver(renderStaticFrame);
-    resizeObserver.observe(canvas);
+    resizeObserver.observe(viewport);
   } else {
     window.addEventListener('resize', renderStaticFrame);
   }
@@ -849,7 +853,15 @@ function setupMarketField(canvas: HTMLCanvasElement, topology: MarketFieldTopolo
  * Desktop-only MARKET GRAPH renderer. PriceChartPanel builds one topology from
  * admitted market data and shares it with this canvas and the SVG fallback.
  */
-export function CentralMarketField({ topology }: { topology: MarketFieldTopology }): JSX.Element {
+interface CentralMarketFieldProps {
+  topology: MarketFieldTopology;
+  viewportRef?: RefObject<HTMLElement>;
+}
+
+export function CentralMarketField({
+  topology,
+  viewportRef,
+}: CentralMarketFieldProps): JSX.Element {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rendererRef = useRef<MarketFieldRenderer | null>(null);
   const latestTopologyRef = useRef(topology);
@@ -868,7 +880,7 @@ export function CentralMarketField({ topology }: { topology: MarketFieldTopology
       if (!desktopQuery.matches) return;
       try {
         const nextTopology = latestTopologyRef.current;
-        rendererRef.current = setupMarketField(canvas, nextTopology);
+        rendererRef.current = setupMarketField(canvas, nextTopology, viewportRef?.current ?? canvas);
         appliedTopologyRef.current = nextTopology;
       } catch {
         canvas.removeAttribute('data-webgl-ready');
@@ -899,6 +911,7 @@ export function CentralMarketField({ topology }: { topology: MarketFieldTopology
       aria-hidden="true"
       data-testid="central-market-field"
       data-renderer="webgl-threshold-bloom"
+      data-size-source={viewportRef ? 'market-field-stage' : 'canvas'}
       data-node-count={topology.nodes.length}
       data-edge-count={topology.edges.length}
       data-spine-count={topology.spines.length}

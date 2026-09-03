@@ -90,6 +90,17 @@
 .pcp-header, .pcp-range-strip, .pcp-secondary-controls { border-color: var(--ot-line); }
 .pcp-chart-stage { min-height: var(--cmd-chart-min-h); }
 
+.pcp-market-field-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto auto;
+  min-width: 0;
+  isolation: isolate;
+}
+.pcp-market-stage-chart { grid-area: 1 / 1 / 2 / 2; z-index: 1; }
+.pcp-market-stage-volume { grid-area: 2 / 1 / 3 / 2; z-index: 3; }
+.pcp-market-stage-network { grid-area: 3 / 1 / 4 / 2; z-index: 3; }
+
 .pcp-volume-band {
   display: grid;
   grid-template-columns: 68px minmax(0, 1fr);

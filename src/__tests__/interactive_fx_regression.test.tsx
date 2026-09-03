@@ -18,6 +18,7 @@ import {
   buildMarketFieldTopology,
   type MarketFieldSample,
 } from '../components/fx/CentralMarketField';
+import { MarketFieldStage } from '../components/fx/MarketFieldStage';
 
 describe('Interactive FX Regression Suite', () => {
   it('CentralMarketField ships a dense deterministic WebGL layer with a no-WebGL-safe canvas contract', () => {
@@ -35,6 +36,37 @@ describe('Interactive FX Regression Suite', () => {
     expect(canvas).toHaveAttribute('data-renderer', 'webgl-threshold-bloom');
     expect(canvas).toHaveAttribute('data-topology-signature', topology.signature);
     expect(canvas).not.toHaveAttribute('data-webgl-ready');
+  });
+
+  it('mounts the market field beside chart, volume, and network chrome in one measured stage', () => {
+    const topology = buildMarketFieldTopology([
+      { time: '2026-01-05', open: 100, high: 104, low: 99, close: 103, volume: 1_200_000 },
+      { time: '2026-01-06', open: 103, high: 108, low: 102, close: 107, volume: 2_400_000 },
+    ]);
+    render(
+      <MarketFieldStage
+        topology={topology}
+        fallback={<svg data-testid="market-field-fallback" />}
+      >
+        <div data-testid="market-stage-chart" />
+        <div data-testid="market-stage-volume" />
+        <div data-testid="market-stage-network" />
+      </MarketFieldStage>,
+    );
+
+    const stage = screen.getByTestId('market-field-stage');
+    const field = screen.getByTestId('central-market-field');
+    const fallback = screen.getByTestId('market-field-fallback');
+    const network = screen.getByTestId('market-stage-network');
+
+    expect(stage).toHaveAttribute('data-coordinate-space', 'chart-volume-network');
+    expect(field).toHaveAttribute('data-size-source', 'market-field-stage');
+    expect(field.parentElement).toBe(stage);
+    expect(fallback.parentElement).toBe(stage);
+    expect(screen.getByTestId('market-stage-chart').parentElement).toBe(stage);
+    expect(screen.getByTestId('market-stage-volume').parentElement).toBe(stage);
+    expect(network.parentElement).toBe(stage);
+    expect(network).not.toContainElement(field);
   });
 
   it('derives visibly different deterministic topology from admitted price and volume', () => {
