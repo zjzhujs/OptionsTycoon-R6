@@ -92,6 +92,32 @@ interface LivePriceOverlay {
   height: number;
 }
 
+interface TimeProjectionPoint {
+  key: string;
+  chartX: number;
+  pageX: number;
+  networkX: number;
+  volumeX: number | null;
+  projectedX: number;
+  volume: number | null;
+  up: boolean;
+}
+
+interface TimeProjectionSnapshot {
+  inputCount: number;
+  points: TimeProjectionPoint[];
+  networkWidth: number;
+  volumeWidth: number;
+  volumeHeight: number;
+}
+
+interface ProjectionDiagnostics {
+  priceX: number;
+  volumeX: number;
+  networkX: number;
+  maxDelta: number;
+}
+
 const animatedCandleKeys = new Set<string>();
 const CANDLE_DEPTH_OPACITY = [1, 0.92, 0.84, 0.78, 0.73, 0.68, 0.64, 0.61, 0.59, 0.57, 0.55, 0.53] as const;
 
@@ -106,7 +132,7 @@ function colorWithAlpha(color: string, alpha: number): string {
 }
 
 function fieldSvgX(x: number): number {
-  return Number((((x + 1.06) / 2.12) * 1000).toFixed(2));
+  return Number((((x + 1) / 2) * 1000).toFixed(2));
 }
 
 function fieldSvgY(y: number): number {
@@ -187,6 +213,7 @@ export function PriceChartPanel({
   onChartReady,
 }: PriceChartPanelProps): JSX.Element {
   const chartContainerRef = useRef<HTMLDivElement>(null);
+  const volumeBarsRef = useRef<HTMLDivElement>(null);
   const networkBandRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<IChartApi | null>(null);
   const priceSeriesRef = useRef<any>(null);
@@ -198,6 +225,14 @@ export function PriceChartPanel({
   const [currentCandleOverlay, setCurrentCandleOverlay] = useState<CurrentCandleOverlay | null>(null);
   const [livePriceOverlay, setLivePriceOverlay] = useState<LivePriceOverlay | null>(null);
   const [chartReady, setChartReady] = useState(false);
+  const [timeProjection, setTimeProjection] = useState<TimeProjectionSnapshot>({
+    inputCount: 0,
+    points: [],
+    networkWidth: 0,
+    volumeWidth: 0,
+    volumeHeight: 0,
+  });
+  const [projectionDiagnostics, setProjectionDiagnostics] = useState<ProjectionDiagnostics | null>(null);
 
   const [hoveredBar, setHoveredBar] = useState<{
     time: string;
@@ -320,27 +355,26 @@ export function PriceChartPanel({
   const latestNode = visibleNodes.length > 0 ? visibleNodes[visibleNodes.length - 1] : null;
 
   const marketFieldSamples = useMemo<MarketFieldSample[]>(() => {
-    // The field consumes only already-revealed real bars. In particular, do not
-    // feed it `intradayModel`: that model can contain the explicitly SIMULATED
-    // day-one visual tape. The caller has already enforced the no-lookahead
-    // boundary on intradayBars, and visibleNodes enforces it for daily bars.
-    // Reveal windows are cumulative, so the prop may contain an earlier bar
-    // more than once. Last-write de-duplication preserves chronological Map
-    // insertion order while ensuring repeated windows do not fake density.
-    const revealedByTime = new Map<string, RevealedPriceBar>();
-    (intradayBars ?? []).forEach((bar) => {
-      if (Number.isFinite(bar.close)) revealedByTime.set(bar.ts, bar);
-    });
-    const revealedIntraday = [...revealedByTime.values()]
-      .map((bar) => ({
-        time: bar.ts,
-        open: bar.open,
-        high: bar.high,
-        low: bar.low,
-        close: bar.close,
-        volume: bar.volume,
-      }));
-    if (revealedIntraday.length > 0) return revealedIntraday;
+    // Projection input is always admitted truth, never the simulated visual tape.
+    // INTRADAY uses only the caller's already-revealed real bars; daily modes use
+    // only campaign nodes at or before currentGameDate. Switching display mode
+    // therefore cannot drag an incompatible timestamp domain into the field.
+    if (displayMode === 'INTRADAY') {
+      const revealedByTime = new Map<string, RevealedPriceBar>();
+      (intradayBars ?? []).forEach((bar) => {
+        if (Number.isFinite(bar.close)) revealedByTime.set(bar.ts, bar);
+      });
+      return [...revealedByTime.values()]
+        .sort((left, right) => Date.parse(left.ts) - Date.parse(right.ts))
+        .map((bar) => ({
+          time: bar.ts,
+          open: bar.open,
+          high: bar.high,
+          low: bar.low,
+          close: bar.close,
+          volume: bar.volume,
+        }));
+    }
 
     return visibleNodes.map((node) => {
       const bar = node.underlying_bar;
@@ -355,10 +389,38 @@ export function PriceChartPanel({
         volume: bar.volume,
       };
     });
-  }, [intradayBars, nodes, currentGameDate, range]);
+  }, [displayMode, intradayBars, nodes, currentGameDate, range]);
+
+  const projectionInputs = useMemo(() => marketFieldSamples.flatMap((sample) => {
+    if (displayMode !== 'INTRADAY') {
+      return [{
+        key: sample.time,
+        time: sample.time as Time,
+        volume: Number.isFinite(Number(sample.volume)) && Number(sample.volume) > 0 ? Number(sample.volume) : null,
+        up: sample.close >= sample.open,
+      }];
+    }
+    const parsed = Date.parse(sample.time);
+    if (!Number.isFinite(parsed)) return [];
+    return [{
+      key: sample.time,
+      time: Math.floor(parsed / 1000) as Time,
+      volume: Number.isFinite(Number(sample.volume)) && Number(sample.volume) > 0 ? Number(sample.volume) : null,
+      up: sample.close >= sample.open,
+    }];
+  }), [displayMode, marketFieldSamples]);
+
+  const projectedMarketFieldSamples = useMemo(() => {
+    const projectedXByTime = new Map(timeProjection.points.map((point) => [point.key, point.projectedX]));
+    return marketFieldSamples.map((sample) => ({
+      ...sample,
+      projectedX: projectedXByTime.get(sample.time),
+    }));
+  }, [marketFieldSamples, timeProjection.points]);
+
   const marketFieldTopology = useMemo(
-    () => buildMarketFieldTopology(marketFieldSamples),
-    [marketFieldSamples],
+    () => buildMarketFieldTopology(projectedMarketFieldSamples),
+    [projectedMarketFieldSamples],
   );
 
   useEffect(() => {
@@ -1045,6 +1107,109 @@ export function PriceChartPanel({
   }, [visibleNodes, buyIndices, sellIndices, showVolume, displayMode, intradayModel, themeTick, eventPins]);
 
   useEffect(() => {
+    const chart = chartRef.current;
+    const chartElement = chartContainerRef.current;
+    const networkElement = networkBandRef.current;
+    if (!chart || !chartElement || !networkElement) {
+      setTimeProjection({ inputCount: projectionInputs.length, points: [], networkWidth: 0, volumeWidth: 0, volumeHeight: 0 });
+      return;
+    }
+
+    const timeScale = chart.timeScale();
+    let frame: number | null = null;
+    const scheduleMeasure = (): void => {
+      if (frame !== null) window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(measure);
+    };
+    const measure = (): void => {
+      frame = null;
+      const chartRect = chartElement.getBoundingClientRect();
+      const networkRect = networkElement.getBoundingClientRect();
+      const volumeRect = volumeBarsRef.current?.getBoundingClientRect() ?? null;
+      if (!(chartRect.width > 1) || !(networkRect.width > 1)) {
+        setTimeProjection({ inputCount: projectionInputs.length, points: [], networkWidth: 0, volumeWidth: 0, volumeHeight: 0 });
+        return;
+      }
+
+      const points: TimeProjectionPoint[] = [];
+      projectionInputs.forEach((input) => {
+        const chartX = timeScale.timeToCoordinate(input.time);
+        if (typeof chartX !== 'number' || !Number.isFinite(chartX)) return;
+        const pageX = chartRect.left + chartX;
+        const networkX = pageX - networkRect.left;
+        points.push({
+          key: input.key,
+          chartX,
+          pageX,
+          networkX,
+          volumeX: volumeRect ? pageX - volumeRect.left : null,
+          projectedX: networkX / networkRect.width,
+          volume: input.volume,
+          up: input.up,
+        });
+      });
+      setTimeProjection({
+        inputCount: projectionInputs.length,
+        points,
+        networkWidth: networkRect.width,
+        volumeWidth: volumeRect?.width ?? 0,
+        volumeHeight: volumeRect?.height ?? 0,
+      });
+    };
+
+    const rangeChange = (): void => scheduleMeasure();
+    timeScale.subscribeVisibleLogicalRangeChange(rangeChange);
+    const resizeObserver = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(scheduleMeasure);
+    resizeObserver?.observe(chartElement);
+    resizeObserver?.observe(networkElement);
+    if (volumeBarsRef.current) resizeObserver?.observe(volumeBarsRef.current);
+    window.addEventListener('resize', scheduleMeasure);
+    scheduleMeasure();
+
+    return () => {
+      if (frame !== null) window.cancelAnimationFrame(frame);
+      resizeObserver?.disconnect();
+      window.removeEventListener('resize', scheduleMeasure);
+      timeScale.unsubscribeVisibleLogicalRangeChange(rangeChange);
+    };
+  }, [projectionInputs, displayMode, themeTick, showVolume]);
+
+  useEffect(() => {
+    let frame = window.requestAnimationFrame(() => {
+      const gate = timeProjection.points[timeProjection.points.length - 1];
+      const network = networkBandRef.current;
+      const gateX = marketFieldTopology.gateX;
+      if (!gate || !network || typeof gateX !== 'number' || !Number.isFinite(gateX)) {
+        setProjectionDiagnostics(null);
+        return;
+      }
+      const volumeGate = volumeBarsRef.current?.querySelector<SVGRectElement>('[data-projection-gate="true"]') ?? null;
+      const volumeRect = volumeGate?.getBoundingClientRect() ?? null;
+      if (!volumeRect || !(volumeRect.width >= 0)) {
+        setProjectionDiagnostics(null);
+        return;
+      }
+      const networkRect = network.getBoundingClientRect();
+      const priceX = gate.pageX;
+      const volumeX = volumeRect.left + volumeRect.width / 2;
+      const networkX = networkRect.left + ((gateX + 1) / 2) * networkRect.width;
+      if (![priceX, volumeX, networkX].every(Number.isFinite)) {
+        setProjectionDiagnostics(null);
+        return;
+      }
+      const rounded = (value: number): number => Math.round(value * 100) / 100;
+      const maxDelta = Math.max(Math.abs(priceX - volumeX), Math.abs(priceX - networkX));
+      setProjectionDiagnostics({
+        priceX: rounded(priceX),
+        volumeX: rounded(volumeX),
+        networkX: rounded(networkX),
+        maxDelta: rounded(maxDelta),
+      });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [marketFieldTopology, timeProjection, showVolume]);
+
+  useEffect(() => {
     onChartReady?.(chartReady);
   }, [chartReady, onChartReady]);
 
@@ -1065,7 +1230,25 @@ export function PriceChartPanel({
        V30 UI 把主图从固定 460px 放大到视口比例后，开局只有 1 根 K 线那天
        变成"一大片空"——舞台越大越显空，改动反而帮了倒忙。
        所以少于 4 根时收回接近原高度，等数据长出来再展开。 */
-    <div className="ot-panel pcp-panel" data-density={visibleNodes.length < 4 ? 'sparse' : 'full'} data-chart-ready={chartReady ? 'true' : 'false'} data-visual-key="price-chart">
+    <div
+      className="ot-panel pcp-panel"
+      data-density={visibleNodes.length < 4 ? 'sparse' : 'full'}
+      data-chart-ready={chartReady ? 'true' : 'false'}
+      data-visual-key="price-chart"
+      data-time-projection-source={marketFieldTopology.projectionSource}
+      data-projection-ready={timeProjection.inputCount > 0
+        && timeProjection.points.length === timeProjection.inputCount
+        && (!showVolume || (projectionDiagnostics?.maxDelta ?? Number.POSITIVE_INFINITY) <= 1)
+        ? 'true'
+        : 'false'}
+      data-projection-input-count={timeProjection.inputCount}
+      data-projected-bar-count={timeProjection.points.length}
+      data-future-bar-count="0"
+      data-price-x={projectionDiagnostics?.priceX}
+      data-volume-x={projectionDiagnostics?.volumeX}
+      data-network-x={projectionDiagnostics?.networkX}
+      data-max-x-delta={projectionDiagnostics?.maxDelta}
+    >
       {/* Top Header & HUD */}
       <div className="ot-section-header pcp-header" data-visual-key="hero-header">
           <div className="pcp-header-left">
@@ -1209,34 +1392,49 @@ export function PriceChartPanel({
       </div>
 
       {showVolume && (() => {
-        const dense = displayMode === 'INTRADAY' ? (intradayModel?.volume ?? []) : [];
-        if (dense.length > 0) {
-          const maxVolume = Math.max(1, ...dense.map((item) => Number(item.volume || 0)));
-          return (
-            <div className="pcp-volume-band pcp-market-stage-volume is-intraday" data-testid="chart-volume-band" data-visual-key="volume-strip" aria-label="Intraday volume field">
-              <span className="command-kicker">VOLUME</span>
-              <div className="pcp-volume-bars" aria-hidden="true">
-                {dense.map((item, index) => (
-                  <i
-                    key={`${item.timeSec}-${index}`}
-                    className={item.up ? 'is-up' : 'is-down'}
-                    style={{ height: `${Math.max(2, (Number(item.volume || 0) / maxVolume) * 100)}%` }}
-                  />
-                ))}
-              </div>
-            </div>
-          );
-        }
-        const points = visibleNodes.slice(-24);
-        const maxVolume = Math.max(1, ...points.map((item) => Number(item.underlying_bar.volume ?? 0)));
+        const projected = timeProjection.points.filter((point) => point.volume !== null && point.volumeX !== null);
+        const maxVolume = Math.max(1, ...projected.map((point) => point.volume ?? 0));
+        const xs = projected.map((point) => point.volumeX as number).sort((a, b) => a - b);
+        const spacing = xs.length > 1
+          ? Math.min(...xs.slice(1).map((value, index) => Math.abs(value - xs[index])).filter((value) => value > 0))
+          : 4;
+        const barWidth = Number.isFinite(spacing) ? Math.max(1, Math.min(5, spacing * 0.72)) : 2;
+        const gateKey = timeProjection.points[timeProjection.points.length - 1]?.key;
         return (
-          <div className="pcp-volume-band pcp-market-stage-volume" data-testid="chart-volume-band" data-visual-key="volume-strip" aria-label="Real reported volume">
+          <div
+            className={`pcp-volume-band pcp-market-stage-volume${displayMode === 'INTRADAY' ? ' is-intraday' : ''}`}
+            data-testid="chart-volume-band"
+            data-visual-key="volume-strip"
+            aria-label={displayMode === 'INTRADAY' ? 'Intraday volume field' : 'Real reported volume'}
+          >
             <span className="command-kicker">VOLUME</span>
-            <div className="pcp-volume-bars" aria-hidden="true">
-              {points.map((item) => {
-                const volume = Number(item.underlying_bar.volume ?? 0);
-                return <i key={item.date} style={{ height: `${Math.max(2, (volume / maxVolume) * 100)}%` }} />;
-              })}
+            <div ref={volumeBarsRef} className="pcp-volume-bars" aria-hidden="true" style={{ position: 'relative' }}>
+              {timeProjection.volumeWidth > 1 && timeProjection.volumeHeight > 1 && projected.length > 0 && (
+                <svg
+                  viewBox={`0 0 ${timeProjection.volumeWidth} ${timeProjection.volumeHeight}`}
+                  preserveAspectRatio="none"
+                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', overflow: 'visible' }}
+                  data-time-projection-source="lightweight-charts-timeToCoordinate"
+                >
+                  {projected.map((point) => {
+                    const height = Math.max(2, ((point.volume ?? 0) / maxVolume) * timeProjection.volumeHeight);
+                    return (
+                      <rect
+                        key={point.key}
+                        x={(point.volumeX as number) - barWidth / 2}
+                        y={timeProjection.volumeHeight - height}
+                        width={barWidth}
+                        height={height}
+                        fill={point.up
+                          ? cssStr('--thm-chart-vol-up', 'rgba(16, 185, 129, 0.35)')
+                          : cssStr('--thm-chart-vol-down', 'rgba(239, 68, 68, 0.35)')}
+                        data-projection-time={point.key}
+                        data-projection-gate={point.key === gateKey ? 'true' : undefined}
+                      />
+                    );
+                  })}
+                </svg>
+              )}
             </div>
           </div>
         );

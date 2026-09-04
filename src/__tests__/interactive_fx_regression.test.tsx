@@ -144,18 +144,36 @@ describe('Interactive FX Regression Suite', () => {
       Math.abs(node.x - selloffField.nodes[index].x) > 0.04
       || Math.abs(node.y - selloffField.nodes[index].y) > 0.20
     ))).toBe(true);
-    expect(rallyField.nodes.some((node, index) => (
-      Math.abs(node.x - shiftedVolumeField.nodes[index].x) > 0.04
-    ))).toBe(true);
+    expect(rallyField.nodes.map((node) => node.x)).toEqual(
+      shiftedVolumeField.nodes.map((node) => node.x),
+    );
     expect(incompleteVolumeField.nodes.map((node) => node.x)).toEqual(
       unknownVolumeField.nodes.map((node) => node.x),
     );
-    expect(rallyField.nodes.map(({ size, energy, tone }) => ({ size, energy, tone }))).toEqual(
+    expect(rallyField.nodes.map(({ size, energy, tone }) => ({ size, energy, tone }))).not.toEqual(
       selloffField.nodes.map(({ size, energy, tone }) => ({ size, energy, tone })),
     );
     expect(rallyField.edges.map(({ from, to }) => `${from}:${to}`)).not.toEqual(
       selloffField.edges.map(({ from, to }) => `${from}:${to}`),
     );
+  });
+
+  it('anchors the field gate to the final canonical chart projection', () => {
+    const projected: MarketFieldSample[] = [
+      { time: '2026-01-05T14:30:00Z', open: 100, high: 103, low: 99, close: 102, volume: 1_000_000, projectedX: 0.08 },
+      { time: '2026-01-05T15:30:00Z', open: 102, high: 107, low: 101, close: 106, volume: 1_300_000, projectedX: 0.21 },
+      { time: '2026-01-05T18:30:00Z', open: 106, high: 111, low: 105, close: 110, volume: 4_800_000, projectedX: 0.74 },
+      { time: '2026-01-05T20:30:00Z', open: 110, high: 114, low: 109, close: 113, volume: 2_100_000, projectedX: 0.92 },
+    ];
+    const topology = buildMarketFieldTopology(projected);
+    const gate = topology.nodes[topology.nodes.length - 1];
+
+    expect(topology.projectionSource).toBe('lightweight-charts-timeToCoordinate');
+    expect(topology.projectedBarCount).toBe(projected.length);
+    expect(topology.gateAnchor).toBe(projected.length - 1);
+    expect(topology.gateX).toBeCloseTo(0.84, 8);
+    expect(gate.anchor).toBe(projected.length - 1);
+    expect(gate.x).toBeCloseTo(topology.gateX as number, 8);
   });
 
   it('uses price height and real spacing to determine visibility adjacency', () => {

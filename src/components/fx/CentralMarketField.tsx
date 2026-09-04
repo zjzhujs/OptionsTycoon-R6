@@ -33,13 +33,19 @@ export interface MarketFieldSample {
   low: number;
   close: number;
   volume?: number | null;
+  /** Network-local x / width from lightweight-charts timeToCoordinate(). */
+  projectedX?: number;
 }
 
 interface MarketFieldProfile {
   price: number[];
   range: number[];
   volume: number[];
-  densityCdf: number[];
+  activity: number[];
+  direction: Array<0 | 1>;
+  timelineX: number[];
+  projectedCount: number;
+  projectionSource: 'lightweight-charts-timeToCoordinate' | 'market-time-fallback';
   visibilityPairs: Array<readonly [number, number]>;
   visibleAnchors: Set<string>;
 }
@@ -55,6 +61,10 @@ export interface MarketFieldTopology {
   edges: FieldEdge[];
   spines: MarketFieldSpinePoint[][];
   signature: string;
+  projectionSource: 'lightweight-charts-timeToCoordinate' | 'market-time-fallback' | 'static-fallback';
+  projectedBarCount: number;
+  gateAnchor: number | null;
+  gateX: number | null;
 }
 
 interface FieldPalette {
@@ -193,60 +203,64 @@ function buildProfile(samples: readonly MarketFieldSample[]): MarketFieldProfile
       const low = Number.isFinite(lowValue) && lowValue > 0 ? Math.min(lowValue, open, close) : Math.min(open, close);
       const volumeValue = Number(sample.volume ?? 0);
       const volume = Number.isFinite(volumeValue) && volumeValue > 0 ? volumeValue : null;
-      return { time: sample.time, open, high, low, close, volume };
+      const projectedValue = Number(sample.projectedX);
+      const projectedX = Number.isFinite(projectedValue) ? projectedValue : null;
+      return { time: sample.time, open, high, low, close, volume, projectedX };
     })
     .filter((sample): sample is NonNullable<typeof sample> => sample !== null);
 
   if (admitted.length === 0) return null;
 
-  // One admitted candle still carries an honest open-to-close direction.
-  // High/low only widen the envelope; they are never arranged into a fake
-  // intraday path. With multiple bars every later anchor is a real close.
+  // Every profile anchor is one admitted bar. Do not insert a synthetic open
+  // timestamp: the first bar's open can influence return intensity without
+  // pretending that an extra market time exists before the first reveal.
   const baseline = admitted[0].open;
-  const rawPriceAnchors = [baseline, ...admitted.map((sample) => sample.close)];
-  const priceAnchors = rawPriceAnchors
-    .map((price) => clamp(Math.tanh(Math.log(price / baseline) * 10.5), -1, 1));
-  const rangeAnchors = [admitted[0], ...admitted]
-    .map((sample) => clamp(Math.tanh(((sample.high - sample.low) / sample.open) * 18), 0, 1));
+  const rawPriceAnchors = admitted.map((sample) => sample.close);
+  const priceAnchors = admitted.map((sample, index) => {
+    const reference = index === 0 ? sample.open : baseline;
+    return clamp(Math.tanh(Math.log(sample.close / reference) * 10.5), -1, 1);
+  });
+  const rawRanges = admitted.map((sample) => Math.max(0, (sample.high - sample.low) / sample.open));
+  const rangeAnchors = rawRanges.map((value) => clamp(Math.tanh(value * 18), 0, 1));
+  const rawReturns = admitted.map((sample) => Math.abs(sample.close - sample.open) / sample.open);
 
-  // Match the chart's truth rule: an incomplete volume series is "unknown",
-  // not zero. In that case price still drives the field and density stays even.
-  const hasCompleteVolume = admitted.every((sample) => sample.volume !== null);
-  const rawVolumes = hasCompleteVolume
-    ? [admitted[0].volume, ...admitted.map((sample) => sample.volume)]
-      .map((volume) => Math.log1p(volume ?? 0))
-    : rawPriceAnchors.map(() => 0);
-  const minVolume = Math.min(...rawVolumes);
-  const maxVolume = Math.max(...rawVolumes);
+  const logVolumes = admitted.map((sample) => sample.volume === null ? null : Math.log1p(sample.volume));
+  const knownVolumes = logVolumes.filter((value): value is number => value !== null);
+  const minVolume = knownVolumes.length > 0 ? Math.min(...knownVolumes) : 0;
+  const maxVolume = knownVolumes.length > 0 ? Math.max(...knownVolumes) : 0;
   const volumeSpan = maxVolume - minVolume;
-  const volume = rawVolumes.map((value) => {
-    if (maxVolume <= 0) return 0;
+  const volume = logVolumes.map((value) => {
+    if (value === null || maxVolume <= 0) return 0;
     return volumeSpan > 1e-6 ? (value - minVolume) / volumeSpan : 0.55;
   });
-
-  const segmentWeights = volume.slice(1).map((value) => 0.42 + value * 0.58);
-  const totalWeight = segmentWeights.reduce((sum, value) => sum + value, 0) || 1;
-  let cumulative = 0;
-  const densityCdf = [0];
-  segmentWeights.forEach((weight) => {
-    cumulative += weight / totalWeight;
-    densityCdf.push(cumulative);
+  const maxReturn = Math.max(...rawReturns, 1e-9);
+  const maxRange = Math.max(...rawRanges, 1e-9);
+  const activity = admitted.map((sample, index) => {
+    const returnSignal = rawReturns[index] / maxReturn;
+    const rangeSignal = rawRanges[index] / maxRange;
+    let weighted = returnSignal * 0.36 + rangeSignal * 0.28;
+    let weight = 0.64;
+    if (sample.volume !== null) {
+      weighted += volume[index] * 0.36;
+      weight += 0.36;
+    }
+    return clamp(weighted / weight, 0, 1);
   });
-  densityCdf[densityCdf.length - 1] = 1;
+  const direction = admitted.map((sample): 0 | 1 => sample.close >= sample.open ? 0 : 1);
 
   const parsedTimes = admitted.map((sample) => Date.parse(sample.time));
   const useClockTime = parsedTimes.every((time, index) => (
     Number.isFinite(time) && (index === 0 || time > parsedTimes[index - 1])
   ));
-  const firstStep = useClockTime && parsedTimes.length > 1
-    ? parsedTimes[1] - parsedTimes[0]
-    : 1;
-  const anchorTimes = useClockTime
-    ? [parsedTimes[0] - firstStep, ...parsedTimes]
-    : rawPriceAnchors.map((_, index) => index);
-  const startTime = anchorTimes[0];
-  const timeSpan = anchorTimes[anchorTimes.length - 1] - startTime || 1;
-  const normalizedTimes = anchorTimes.map((time) => (time - startTime) / timeSpan);
+  const fallbackTimes = useClockTime ? parsedTimes : admitted.map((_, index) => index);
+  const startTime = fallbackTimes[0];
+  const timeSpan = fallbackTimes[fallbackTimes.length - 1] - startTime || 1;
+  const normalizedTimes = fallbackTimes.map((time) => (time - startTime) / timeSpan);
+  const projectedCount = admitted.filter((sample) => sample.projectedX !== null).length;
+  const fullyProjected = projectedCount === admitted.length;
+  const timelineX = fullyProjected
+    ? admitted.map((sample) => sample.projectedX as number)
+    : normalizedTimes;
   const visibilityPairs = buildNaturalVisibilityPairs(
     rawPriceAnchors.map((price) => Math.log(price)),
     normalizedTimes,
@@ -256,26 +270,50 @@ function buildProfile(samples: readonly MarketFieldSample[]): MarketFieldProfile
     price: smooth(priceAnchors),
     range: smooth(rangeAnchors),
     volume: smooth(volume),
-    densityCdf,
+    activity: smooth(activity),
+    direction,
+    timelineX,
+    projectedCount,
+    projectionSource: fullyProjected ? 'lightweight-charts-timeToCoordinate' : 'market-time-fallback',
     visibilityPairs,
     visibleAnchors: new Set(visibilityPairs.map(([from, to]) => `${from}:${to}`)),
   };
 }
 
-function volumeWeightedTime(profile: MarketFieldProfile | null, quantile: number): number {
-  if (!profile || profile.densityCdf.length < 2) return quantile;
-  const cdf = profile.densityCdf;
+function projectedTimeline(
+  profile: MarketFieldProfile | null,
+  quantile: number,
+): { x: number; sampleT: number; anchor: number } {
+  if (!profile || profile.timelineX.length === 0) return { x: quantile, sampleT: quantile, anchor: 0 };
+  if (profile.timelineX.length === 1) return { x: profile.timelineX[0], sampleT: 0, anchor: 0 };
+  const cursor = clamp(quantile, 0, 1) * (profile.timelineX.length - 1);
+  const low = Math.floor(cursor);
+  const high = Math.min(profile.timelineX.length - 1, low + 1);
+  const mix = cursor - low;
+  return {
+    x: profile.timelineX[low] * (1 - mix) + profile.timelineX[high] * mix,
+    sampleT: cursor / (profile.timelineX.length - 1),
+    anchor: Math.round(cursor),
+  };
+}
+
+function sampleTimeAtScreenX(profile: MarketFieldProfile, screenX: number): number {
+  const values = profile.timelineX;
+  if (values.length < 2) return 0;
+  if (screenX <= values[0]) return 0;
+  if (screenX >= values[values.length - 1]) return 1;
   let segment = 0;
-  while (segment < cdf.length - 2 && quantile > cdf[segment + 1]) segment += 1;
-  const low = cdf[segment];
-  const high = cdf[segment + 1];
-  const within = high > low ? (quantile - low) / (high - low) : 0;
-  return (segment + clamp(within, 0, 1)) / (cdf.length - 1);
+  while (segment < values.length - 2 && screenX > values[segment + 1]) segment += 1;
+  const low = values[segment];
+  const high = values[segment + 1];
+  const within = high > low ? (screenX - low) / (high - low) : 0;
+  return (segment + clamp(within, 0, 1)) / (values.length - 1);
 }
 
 function spineY(lane: number, x: number, profile: MarketFieldProfile | null): number {
   if (!profile) return staticSpineY(lane, x);
-  const t = clamp((x + 1.06) / 2.12, 0, 1);
+  const screenX = clamp((x + 1) / 2, 0, 1);
+  const t = sampleTimeAtScreenX(profile, screenX);
   const price = interpolate(profile.price, t);
   const range = interpolate(profile.range, t);
   const volume = interpolate(profile.volume, t);
@@ -295,8 +333,11 @@ export function buildMarketFieldTopology(samples: readonly MarketFieldSample[]):
   const nodes: FieldNode[] = [];
 
   for (let index = 0; index < 228; index += 1) {
-    const marketTime = volumeWeightedTime(profile, random());
-    const x = -1.04 + marketTime * 2.08;
+    // Reserve the final node as the current gate: it is always anchored to the
+    // final revealed bar. All other tissue samples interpolate between canonical
+    // chart coordinates, never between uniform or volume-weighted fake times.
+    const timeline = projectedTimeline(profile, profile && index === 227 ? 1 : random());
+    const x = -1 + timeline.x * 2;
     const lanePick = random();
     const lane = lanePick < 0.39 ? 0 : lanePick < 0.72 ? 1 : 2;
     const freeNode = index % 11 === 0;
@@ -305,23 +346,22 @@ export function buildMarketFieldTopology(samples: readonly MarketFieldSample[]):
         ? clamp(spineY(lane, x, profile) + (random() - 0.5) * 0.76, -0.88, 0.88)
         : -0.84 + random() * 1.68
       : clamp(spineY(lane, x, profile) + (random() + random() - 1) * 0.22, -0.88, 0.88);
-    const energyRoll = random();
-    const energy: 1 | 2 | 3 = index % 37 === 0 || energyRoll > 0.965
-      ? 3
-      : energyRoll > 0.75
-        ? 2
-        : 1;
+    const activity = profile ? interpolate(profile.activity, timeline.sampleT) : random();
+    const energy: 1 | 2 | 3 = activity >= 0.72 ? 3 : activity >= 0.38 ? 2 : 1;
+    const size = profile
+      ? 1.25 + activity * 6.15
+      : energy === 3 ? 6.4 + random() * 2.8 : energy === 2 ? 3.0 + random() * 1.9 : 1.25 + random() * 1.15;
 
     nodes.push({
       x,
       y,
       z: -0.08 + random() * 0.16,
-      size: energy === 3 ? 6.4 + random() * 2.8 : energy === 2 ? 3.0 + random() * 1.9 : 1.25 + random() * 1.15,
+      size,
       energy,
-      tone: (lane === 2 || index % 13 === 0 ? 1 : 0),
+      tone: profile ? profile.direction[timeline.anchor] : (lane === 2 || index % 13 === 0 ? 1 : 0),
       phase: random() * Math.PI * 2,
       lane,
-      anchor: profile ? Math.round(marketTime * (profile.price.length - 1)) : 0,
+      anchor: profile ? timeline.anchor : 0,
     });
   }
 
@@ -368,7 +408,7 @@ export function buildMarketFieldTopology(samples: readonly MarketFieldSample[]):
 
   if (profile) {
     const representative = (anchor: number, lane: number): number => {
-      const expectedX = -1.04 + (anchor / Math.max(1, profile.price.length - 1)) * 2.08;
+      const expectedX = -1 + profile.timelineX[anchor] * 2;
       let best = 0;
       let bestDistance = Number.POSITIVE_INFINITY;
       nodes.forEach((node, index) => {
@@ -421,6 +461,10 @@ export function buildMarketFieldTopology(samples: readonly MarketFieldSample[]):
     edges,
     spines,
     signature: profile ? topologySignature(nodes, edges, spines) : 'static-fallback',
+    projectionSource: profile?.projectionSource ?? 'static-fallback',
+    projectedBarCount: profile?.projectedCount ?? 0,
+    gateAnchor: profile ? profile.timelineX.length - 1 : null,
+    gateX: profile ? -1 + profile.timelineX[profile.timelineX.length - 1] * 2 : null,
   };
 }
 
@@ -916,6 +960,10 @@ export function CentralMarketField({
       data-edge-count={topology.edges.length}
       data-spine-count={topology.spines.length}
       data-topology-signature={topology.signature}
+      data-time-projection-source={topology.projectionSource}
+      data-projected-bar-count={topology.projectedBarCount}
+      data-gate-anchor={topology.gateAnchor ?? undefined}
+      data-gate-x={topology.gateX ?? undefined}
     />
   );
 }
