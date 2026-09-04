@@ -55,17 +55,20 @@ describe('Interactive FX Regression Suite', () => {
     );
 
     const stage = screen.getByTestId('market-field-stage');
+    const viewport = screen.getByTestId('market-field-viewport');
     const field = screen.getByTestId('central-market-field');
     const fallback = screen.getByTestId('market-field-fallback');
     const network = screen.getByTestId('market-stage-network');
 
     expect(stage).toHaveAttribute('data-coordinate-space', 'chart-volume-network');
     expect(field).toHaveAttribute('data-size-source', 'market-field-stage');
-    expect(field.parentElement).toBe(stage);
-    expect(fallback.parentElement).toBe(stage);
+    expect(viewport.parentElement).toBe(stage);
+    expect(field.parentElement).toBe(viewport);
+    expect(fallback.parentElement).toBe(viewport);
     expect(screen.getByTestId('market-stage-chart').parentElement).toBe(stage);
     expect(screen.getByTestId('market-stage-volume').parentElement).toBe(stage);
     expect(network.parentElement).toBe(stage);
+    expect(network).not.toContainElement(viewport);
     expect(network).not.toContainElement(field);
   });
 

@@ -14,24 +14,31 @@ interface MarketFieldStageProps {
 /**
  * One coordinate space for the price chart, volume, MARKET GRAPH chrome, and
  * the data-driven field. Grid layering keeps every surface attached to normal
- * layout; the field is no longer sized from the legacy network strip.
+ * layout; the renderer measures a dedicated MARKET GRAPH viewport so its canvas
+ * cannot feed intrinsic size back into the chart/volume rows.
  */
 export function MarketFieldStage({
   topology,
   fallback,
   children,
 }: MarketFieldStageProps): JSX.Element {
-  const stageRef = useRef<HTMLDivElement>(null);
+  const fieldViewportRef = useRef<HTMLDivElement>(null);
 
   return (
     <div
-      ref={stageRef}
       className="pcp-market-field-stage"
       data-testid="market-field-stage"
       data-coordinate-space="chart-volume-network"
     >
-      <CentralMarketField topology={topology} viewportRef={stageRef} />
-      {fallback}
+      <div
+        ref={fieldViewportRef}
+        className="pcp-market-field-viewport"
+        data-testid="market-field-viewport"
+        aria-hidden="true"
+      >
+        <CentralMarketField topology={topology} viewportRef={fieldViewportRef} />
+        {fallback}
+      </div>
       {children}
     </div>
   );

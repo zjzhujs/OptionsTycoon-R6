@@ -97,6 +97,25 @@
   min-width: 0;
   isolation: isolate;
 }
+.pcp-market-field-viewport {
+  grid-area: 3 / 1 / 4 / 2;
+  display: grid;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  min-height: 0;
+  contain: layout size;
+  pointer-events: none;
+}
+.pcp-market-field-viewport > .pcp-neural-canvas,
+.pcp-market-field-viewport > .pcp-neural-field {
+  grid-area: 1 / 1 / 2 / 2 !important;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
 .pcp-market-stage-chart { grid-area: 1 / 1 / 2 / 2; z-index: 1; }
 .pcp-market-stage-volume { grid-area: 2 / 1 / 3 / 2; z-index: 3; }
 .pcp-market-stage-network { grid-area: 3 / 1 / 4 / 2; z-index: 3; }
