@@ -187,6 +187,7 @@ export function PriceChartPanel({
   onChartReady,
 }: PriceChartPanelProps): JSX.Element {
   const chartContainerRef = useRef<HTMLDivElement>(null);
+  const networkBandRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<IChartApi | null>(null);
   const priceSeriesRef = useRef<any>(null);
   const volumeSeriesRef = useRef<any>(null);
@@ -1133,6 +1134,7 @@ export function PriceChartPanel({
       <MarketFieldStage
         topology={marketFieldTopology}
         fallback={<MarketFieldFallback topology={marketFieldTopology} />}
+        networkRef={networkBandRef}
       >
       <div className="pcp-chart-stage pcp-market-stage-chart">
         <div ref={chartContainerRef} className="pcp-chart" aria-label="正股价格图" data-testid="chart-canvas" />
@@ -1240,7 +1242,7 @@ export function PriceChartPanel({
         );
       })()}
 
-      <div className="pcp-network-band pcp-market-stage-network" data-testid="chart-network-band" data-visual-key="network-plane" aria-label="Market decision network">
+      <div ref={networkBandRef} className="pcp-network-band pcp-market-stage-network" data-testid="chart-network-band" data-market-field-region="network" data-visual-key="network-plane" aria-label="Market decision network">
         <div className="pcp-network-label">
           <span className="command-kicker">MARKET GRAPH</span>
           <small>PRICE · VOL · EVENTS · RISK</small>

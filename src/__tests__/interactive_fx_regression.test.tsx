@@ -38,38 +38,75 @@ describe('Interactive FX Regression Suite', () => {
     expect(canvas).not.toHaveAttribute('data-webgl-ready');
   });
 
-  it('mounts the market field beside chart, volume, and network chrome in one measured stage', () => {
-    const topology = buildMarketFieldTopology([
-      { time: '2026-01-05', open: 100, high: 104, low: 99, close: 103, volume: 1_200_000 },
-      { time: '2026-01-06', open: 103, high: 108, low: 102, close: 107, volume: 2_400_000 },
-    ]);
-    render(
-      <MarketFieldStage
-        topology={topology}
-        fallback={<svg data-testid="market-field-fallback" />}
-      >
-        <div data-testid="market-stage-chart" />
-        <div data-testid="market-stage-volume" />
-        <div data-testid="market-stage-network" />
-      </MarketFieldStage>,
-    );
+  it('binds the market field viewport to the real network border box without changing grid ownership', () => {
+    const rect = (left: number, top: number, width: number, height: number): DOMRect => ({
+      x: left,
+      y: top,
+      left,
+      top,
+      right: left + width,
+      bottom: top + height,
+      width,
+      height,
+      toJSON: () => ({}),
+    });
+    const rectSpy = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect')
+      .mockImplementation(function getTestRect(this: HTMLElement): DOMRect {
+        const testId = this.dataset.testid;
+        if (testId === 'market-field-stage') return rect(100, 200, 763, 466);
+        if (testId === 'market-stage-network') return rect(100, 564, 763, 112);
+        if (testId === 'market-field-viewport') return rect(100, 564, 763, 112);
+        return rect(0, 0, 0, 0);
+      });
+    try {
+      const topology = buildMarketFieldTopology([
+        { time: '2026-01-05', open: 100, high: 104, low: 99, close: 103, volume: 1_200_000 },
+        { time: '2026-01-06', open: 103, high: 108, low: 102, close: 107, volume: 2_400_000 },
+      ]);
+      const networkRef = React.createRef<HTMLDivElement>();
+      render(
+        <MarketFieldStage
+          topology={topology}
+          fallback={<svg data-testid="market-field-fallback" />}
+          networkRef={networkRef}
+        >
+          <div data-testid="market-stage-chart" />
+          <div data-testid="market-stage-volume" />
+          <div ref={networkRef} data-testid="market-stage-network" data-market-field-region="network" />
+        </MarketFieldStage>,
+      );
 
-    const stage = screen.getByTestId('market-field-stage');
-    const viewport = screen.getByTestId('market-field-viewport');
-    const field = screen.getByTestId('central-market-field');
-    const fallback = screen.getByTestId('market-field-fallback');
-    const network = screen.getByTestId('market-stage-network');
+      const stage = screen.getByTestId('market-field-stage');
+      const viewport = screen.getByTestId('market-field-viewport');
+      const field = screen.getByTestId('central-market-field');
+      const fallback = screen.getByTestId('market-field-fallback');
+      const network = screen.getByTestId('market-stage-network');
 
-    expect(stage).toHaveAttribute('data-coordinate-space', 'chart-volume-network');
-    expect(field).toHaveAttribute('data-size-source', 'market-field-stage');
-    expect(viewport.parentElement).toBe(stage);
-    expect(field.parentElement).toBe(viewport);
-    expect(fallback.parentElement).toBe(viewport);
-    expect(screen.getByTestId('market-stage-chart').parentElement).toBe(stage);
-    expect(screen.getByTestId('market-stage-volume').parentElement).toBe(stage);
-    expect(network.parentElement).toBe(stage);
-    expect(network).not.toContainElement(viewport);
-    expect(network).not.toContainElement(field);
+      expect(stage).toHaveAttribute('data-coordinate-space', 'chart-volume-network');
+      expect(stage).toHaveStyle({ position: 'relative' });
+      expect(field).toHaveAttribute('data-size-source', 'market-field-stage');
+      expect(viewport.parentElement).toBe(stage);
+      expect(viewport).toHaveAttribute('data-geometry-source', 'chart-network-band-border-box');
+      expect(viewport).toHaveAttribute('data-geometry-ready', 'true');
+      expect(viewport).toHaveAttribute('data-network-alignment-delta', '0,0,0');
+      expect(viewport).toHaveStyle({
+        position: 'absolute',
+        left: '0px',
+        top: '364px',
+        width: '763px',
+        height: '112px',
+      });
+      expect(viewport.style.gridArea).toBe('auto');
+      expect(field.parentElement).toBe(viewport);
+      expect(fallback.parentElement).toBe(viewport);
+      expect(screen.getByTestId('market-stage-chart').parentElement).toBe(stage);
+      expect(screen.getByTestId('market-stage-volume').parentElement).toBe(stage);
+      expect(network.parentElement).toBe(stage);
+      expect(network).not.toContainElement(viewport);
+      expect(network).not.toContainElement(field);
+    } finally {
+      rectSpy.mockRestore();
+    }
   });
 
   it('derives visibly different deterministic topology from admitted price and volume', () => {
