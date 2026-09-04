@@ -19,6 +19,7 @@ import {
   type MarketFieldSample,
 } from '../components/fx/CentralMarketField';
 import { MarketFieldStage } from '../components/fx/MarketFieldStage';
+import { buildChartEventAdmission } from '../components/PriceChartPanel';
 
 describe('Interactive FX Regression Suite', () => {
   it('CentralMarketField ships a dense deterministic WebGL layer with a no-WebGL-safe canvas contract', () => {
@@ -60,6 +61,39 @@ describe('Interactive FX Regression Suite', () => {
     expect(degraded.projectionSource).toBe('market-time-fallback');
     expect(degraded.projectionState).toBe('degraded');
     expect(degraded.projectedBarCount).toBe(1);
+  });
+
+  it('admits events once and never leaks future events through markers or the event strip', () => {
+    const pins = [
+      { date: '2025-01-23', headline: 'revealed one', tone: 'neutral' as const },
+      { date: '2025-01-24', headline: 'revealed two', tone: 'good' as const },
+      { date: '2025-01-24', headline: 'same-day detail', tone: 'risk' as const },
+      { date: '2025-01-25', headline: 'future leak', tone: 'risk' as const },
+      { date: '', headline: 'invalid date', tone: 'neutral' as const },
+    ];
+
+    const daily = buildChartEventAdmission(pins, '2025-01-24', '2025-01-30', 'CANDLE');
+    expect(daily.source).toBe('current-game-date');
+    expect(daily.revealCutoff).toBe('2025-01-24');
+    expect(daily.inputCount).toBe(5);
+    expect(daily.admittedPins.map((pin) => pin.headline)).toEqual([
+      'revealed one', 'revealed two', 'same-day detail',
+    ]);
+    expect(daily.markerPins.map((pin) => pin.headline)).toEqual(['revealed one', 'revealed two']);
+    expect(daily.stripPins.map((pin) => pin.headline)).toEqual([
+      'revealed one', 'revealed two', 'same-day detail',
+    ]);
+    expect(daily.futureCount).toBe(1);
+    expect(daily.invalidCount).toBe(1);
+
+    const intraday = buildChartEventAdmission(pins, '2025-01-24', '2025-01-30', 'INTRADAY');
+    expect(intraday.markerPins).toEqual([]);
+    expect(intraday.stripPins.map((pin) => pin.headline)).not.toContain('future leak');
+
+    const historyFallback = buildChartEventAdmission(pins, undefined, '2025-01-24', 'CANDLE');
+    expect(historyFallback.source).toBe('latest-admitted-history');
+    expect(historyFallback.revealCutoff).toBe('2025-01-24');
+    expect(historyFallback.futureCount).toBe(1);
   });
 
   it('binds the market field viewport to the real network border box without changing grid ownership', () => {

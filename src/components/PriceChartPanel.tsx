@@ -73,6 +73,76 @@ export interface ChartEventPin {
   tone?: 'risk' | 'good' | 'neutral';
 }
 
+export type ChartEventAdmissionSource = 'current-game-date' | 'latest-admitted-history' | 'unbounded';
+
+export interface ChartEventAdmission {
+  source: ChartEventAdmissionSource;
+  revealCutoff: string;
+  inputCount: number;
+  admittedPins: ChartEventPin[];
+  markerPins: ChartEventPin[];
+  stripPins: ChartEventPin[];
+  futureCount: number;
+  invalidCount: number;
+}
+
+/**
+ * One admission truth for every event surface in the chart panel.
+ *
+ * `currentGameDate` owns reveal truth during gameplay. The latest admitted
+ * history date is only a compatibility fallback for non-game callers. Range
+ * controls never participate: zooming to 1D must not make a known event secret
+ * again. Date-only events remain visible in the strip during INTRADAY, but they
+ * never receive a fabricated intraday timestamp.
+ */
+export function buildChartEventAdmission(
+  eventPins: ChartEventPin[] | undefined,
+  currentGameDate: string | undefined,
+  latestAdmittedHistoryDate: string | undefined,
+  displayMode: DisplayMode,
+): ChartEventAdmission {
+  const revealCutoff = currentGameDate || latestAdmittedHistoryDate || '';
+  const source: ChartEventAdmissionSource = currentGameDate
+    ? 'current-game-date'
+    : latestAdmittedHistoryDate
+      ? 'latest-admitted-history'
+      : 'unbounded';
+  let futureCount = 0;
+  let invalidCount = 0;
+  const admittedPins = (eventPins ?? []).filter((pin) => {
+    if (!pin.date) {
+      invalidCount += 1;
+      return false;
+    }
+    if (revealCutoff && pin.date > revealCutoff) {
+      futureCount += 1;
+      return false;
+    }
+    return true;
+  });
+
+  const markerPins: ChartEventPin[] = [];
+  if (displayMode !== 'INTRADAY') {
+    const seenDates = new Set<string>();
+    for (const pin of admittedPins) {
+      if (seenDates.has(pin.date)) continue;
+      seenDates.add(pin.date);
+      markerPins.push(pin);
+    }
+  }
+
+  return {
+    source,
+    revealCutoff,
+    inputCount: eventPins?.length ?? 0,
+    admittedPins,
+    markerPins,
+    stripPins: admittedPins.slice(-6),
+    futureCount,
+    invalidCount,
+  };
+}
+
 interface CurrentCandleOverlay {
   x: number;
   yOpen: number;
@@ -347,6 +417,13 @@ export function PriceChartPanel({
   // show campaign nodes that have actually been revealed, but must never splice
   // the 260-row indicator lookback into that same canvas.
   const availableHistory = nodes.filter((n) => !currentGameDate || n.date <= currentGameDate);
+  const latestAdmittedHistoryDate = availableHistory.length > 0
+    ? availableHistory[availableHistory.length - 1].date
+    : undefined;
+  const eventAdmission = useMemo(
+    () => buildChartEventAdmission(eventPins, currentGameDate, latestAdmittedHistoryDate, displayMode),
+    [eventPins, currentGameDate, latestAdmittedHistoryDate, displayMode],
+  );
   const rangeCount = range === CAMPAIGN_RANGE
     ? availableHistory.length
     : Math.min(RANGE_TRADING_DAYS[range as Exclude<RangeKey, '本场战役'>], availableHistory.length);
@@ -916,17 +993,9 @@ export function PriceChartPanel({
      * 把它钉在开盘那根 bar 上等于声称"这事发生在 09:30"，那是编的。
      * 盘中模式下针脚交给下方事件条，日线模式才画针。
      */
-    const dateAxis = displayMode !== 'INTRADAY';
-    const lastDate = visibleNodes.length ? visibleNodes[visibleNodes.length - 1].date : '';
-    const pinnable = dateAxis
-      ? (eventPins ?? []).filter((p) => p.date && (!lastDate || p.date <= lastDate))
-      : [];
-    // 同一天多条事件只画一根针，文字取第一条——一天堆五根针会糊成一片
-    const byDate = new Map<string, ChartEventPin>();
-    for (const p of pinnable) if (!byDate.has(p.date)) byDate.set(p.date, p);
-    for (const [date, pin] of byDate) {
+    for (const pin of eventAdmission.markerPins) {
       markers.push({
-        time: date as Time,
+        time: pin.date as Time,
         position: 'aboveBar',
         color:
           pin.tone === 'risk'
@@ -1104,7 +1173,7 @@ export function PriceChartPanel({
     // themeTick 必须在这里也列一份：切主题会重建图表、series ref 全部换新，
     // 这个 effect 不跟着重跑的话，新图表拿不到数据 —— 会白屏。
     // （displayMode 在这两处都出现，也正是同一个原因。）
-  }, [visibleNodes, buyIndices, sellIndices, showVolume, displayMode, intradayModel, themeTick, eventPins]);
+  }, [visibleNodes, buyIndices, sellIndices, showVolume, displayMode, intradayModel, themeTick, eventAdmission.markerPins]);
 
   useEffect(() => {
     const chart = chartRef.current;
@@ -1260,6 +1329,14 @@ export function PriceChartPanel({
       data-projection-input-count={timeProjection.inputCount}
       data-projected-bar-count={timeProjection.points.length}
       data-future-bar-count="0"
+      data-event-admission-source={eventAdmission.source}
+      data-event-reveal-cutoff={eventAdmission.revealCutoff || undefined}
+      data-event-input-count={eventAdmission.inputCount}
+      data-event-admitted-count={eventAdmission.admittedPins.length}
+      data-future-event-count={eventAdmission.futureCount}
+      data-invalid-event-count={eventAdmission.invalidCount}
+      data-event-marker-count={eventAdmission.markerPins.length}
+      data-event-strip-count={eventAdmission.stripPins.length}
       data-price-x={projectionDiagnostics?.priceX}
       data-volume-x={projectionDiagnostics?.volumeX}
       data-network-x={projectionDiagnostics?.networkX}
@@ -1511,13 +1588,13 @@ export function PriceChartPanel({
         * 只显示最近 6 条：全部铺出来会变成一个日志面板，
         * 那是"复盘与档案"页的事，不是主图该干的。
         */}
-      {(eventPins?.length ?? 0) > 0 && (
+      {eventAdmission.stripPins.length > 0 && (
         <div className="pcp-event-strip" data-testid="chart-event-strip">
           <span className="pcp-event-strip-label">
             事件 <span className="en-secondary">EVENTS</span>
           </span>
           <div className="pcp-event-strip-items">
-            {(eventPins ?? []).slice(-6).map((p, i) => (
+            {eventAdmission.stripPins.map((p, i) => (
               <span key={`${p.date}-${i}`} className={`pcp-event-chip pcp-event-${p.tone ?? 'neutral'}`}>
                 <span className="pcp-event-dot" aria-hidden />
                 <span className="pcp-event-date font-mono">{p.date.slice(5)}</span>
