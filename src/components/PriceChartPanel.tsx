@@ -1213,6 +1213,23 @@ export function PriceChartPanel({
     onChartReady?.(chartReady);
   }, [chartReady, onChartReady]);
 
+  const projectionState = timeProjection.inputCount === 0
+    ? 'empty'
+    : timeProjection.points.length === timeProjection.inputCount
+      && (!showVolume || (projectionDiagnostics?.maxDelta ?? Number.POSITIVE_INFINITY) <= 1)
+      ? 'ready'
+      : 'degraded';
+  const projectionEmptyReason = projectionState === 'empty'
+    ? displayMode === 'INTRADAY'
+      ? 'no-admitted-intraday-bars'
+      : 'no-admitted-daily-bars'
+    : undefined;
+  const projectionXContract = projectionState === 'empty'
+    ? 'not-applicable'
+    : projectionState === 'ready'
+      ? 'aligned'
+      : 'unverified';
+
   const activeDisplay = hoveredBar || (latestNode ? {
     time: latestNode.date,
     open: latestNode.underlying_bar.open ?? latestNode.underlying_bar.close,
@@ -1236,11 +1253,10 @@ export function PriceChartPanel({
       data-chart-ready={chartReady ? 'true' : 'false'}
       data-visual-key="price-chart"
       data-time-projection-source={marketFieldTopology.projectionSource}
-      data-projection-ready={timeProjection.inputCount > 0
-        && timeProjection.points.length === timeProjection.inputCount
-        && (!showVolume || (projectionDiagnostics?.maxDelta ?? Number.POSITIVE_INFINITY) <= 1)
-        ? 'true'
-        : 'false'}
+      data-time-projection-state={projectionState}
+      data-projection-empty-reason={projectionEmptyReason}
+      data-projection-x-contract={projectionXContract}
+      data-projection-ready={projectionState === 'ready' ? 'true' : 'false'}
       data-projection-input-count={timeProjection.inputCount}
       data-projected-bar-count={timeProjection.points.length}
       data-future-bar-count="0"

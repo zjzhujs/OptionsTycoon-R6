@@ -62,6 +62,7 @@ export interface MarketFieldTopology {
   spines: MarketFieldSpinePoint[][];
   signature: string;
   projectionSource: 'lightweight-charts-timeToCoordinate' | 'market-time-fallback' | 'static-fallback';
+  projectionState: 'empty' | 'ready' | 'degraded';
   projectedBarCount: number;
   gateAnchor: number | null;
   gateX: number | null;
@@ -462,6 +463,11 @@ export function buildMarketFieldTopology(samples: readonly MarketFieldSample[]):
     spines,
     signature: profile ? topologySignature(nodes, edges, spines) : 'static-fallback',
     projectionSource: profile?.projectionSource ?? 'static-fallback',
+    projectionState: !profile
+      ? 'empty'
+      : profile.projectionSource === 'lightweight-charts-timeToCoordinate'
+        ? 'ready'
+        : 'degraded',
     projectedBarCount: profile?.projectedCount ?? 0,
     gateAnchor: profile ? profile.timelineX.length - 1 : null,
     gateX: profile ? -1 + profile.timelineX[profile.timelineX.length - 1] * 2 : null,
@@ -961,6 +967,8 @@ export function CentralMarketField({
       data-spine-count={topology.spines.length}
       data-topology-signature={topology.signature}
       data-time-projection-source={topology.projectionSource}
+      data-projection-state={topology.projectionState}
+      data-projection-empty-reason={topology.projectionState === 'empty' ? 'no-admitted-bars' : undefined}
       data-projected-bar-count={topology.projectedBarCount}
       data-gate-anchor={topology.gateAnchor ?? undefined}
       data-gate-x={topology.gateX ?? undefined}

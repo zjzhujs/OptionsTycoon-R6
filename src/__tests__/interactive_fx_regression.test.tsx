@@ -38,6 +38,30 @@ describe('Interactive FX Regression Suite', () => {
     expect(canvas).not.toHaveAttribute('data-webgl-ready');
   });
 
+  it('makes zero-truth projection explicit without inventing a canonical x', () => {
+    const empty = buildMarketFieldTopology([]);
+    const degraded = buildMarketFieldTopology([
+      { time: '2026-01-05', open: 100, high: 104, low: 99, close: 103, volume: 1_200_000, projectedX: 0.18 },
+      { time: '2026-01-06', open: 103, high: 108, low: 102, close: 107, volume: 2_400_000 },
+    ]);
+    const { container } = render(<CentralMarketField topology={empty} />);
+    const canvas = container.querySelector('[data-testid="central-market-field"]');
+
+    expect(empty.projectionSource).toBe('static-fallback');
+    expect(empty.projectionState).toBe('empty');
+    expect(empty.projectedBarCount).toBe(0);
+    expect(empty.gateAnchor).toBeNull();
+    expect(empty.gateX).toBeNull();
+    expect(canvas).toHaveAttribute('data-projection-state', 'empty');
+    expect(canvas).toHaveAttribute('data-projection-empty-reason', 'no-admitted-bars');
+    expect(canvas).not.toHaveAttribute('data-gate-anchor');
+    expect(canvas).not.toHaveAttribute('data-gate-x');
+
+    expect(degraded.projectionSource).toBe('market-time-fallback');
+    expect(degraded.projectionState).toBe('degraded');
+    expect(degraded.projectedBarCount).toBe(1);
+  });
+
   it('binds the market field viewport to the real network border box without changing grid ownership', () => {
     const rect = (left: number, top: number, width: number, height: number): DOMRect => ({
       x: left,
