@@ -1534,6 +1534,9 @@ export function PriceChartPanel({
       })()}
 
       <div ref={networkBandRef} className="pcp-network-band pcp-market-stage-network" data-testid="chart-network-band" data-market-field-region="network" data-visual-key="network-plane" aria-label="Market decision network">
+        <div className="nb-layer nb-l1" aria-hidden="true" />
+        <div className="nb-layer nb-l2" aria-hidden="true" />
+        <div className="nb-layer nb-l3" aria-hidden="true" />
         <div className="pcp-network-label">
           <span className="command-kicker">MARKET GRAPH</span>
           <small>PRICE · VOL · EVENTS · RISK</small>

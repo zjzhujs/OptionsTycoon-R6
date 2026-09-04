@@ -897,3 +897,78 @@ html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-neural-canv
   html[data-theme="neon"] .app-shell-desktop .command-right-content>.wrr .wrr-seat-card{box-shadow:inset 0 1px 0 rgba(67,225,255,.20),inset 0 -1px 0 rgba(143,76,255,.24),0 0 24px rgba(136,73,255,.15),0 10px 24px rgba(0,0,0,.24)!important}
   html[data-theme="calm"] .app-shell-desktop .command-right-content>.wrr .wrr-seat-card{box-shadow:inset 0 1px 0 rgba(199,226,239,.12),inset 0 -1px 0 rgba(0,0,0,.34),0 10px 24px rgba(0,0,0,.24)!important}
 }
+
+/* R6.6.3 017X-r3 — generated MARKET GRAPH substrate; live WebGL remains the truth layer. */
+@keyframes r663-nb-breathe {
+  0%,100% { transform:scale(1); }
+  50% { transform:scale(1.035); }
+}
+@keyframes r663-nb-drift {
+  from { background-position-x:0; }
+  to { background-position-x:-1700px; }
+}
+@keyframes r663-nb-twinkle {
+  0%,100% { opacity:.05; }
+  44% { opacity:.16; }
+}
+@media (min-width:1280px) {
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band {
+    position:relative!important;
+    isolation:isolate!important;
+    overflow:hidden!important;
+    background:#010612!important;
+  }
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band .nb-layer {
+    position:absolute!important;
+    inset:0!important;
+    z-index:1!important;
+    pointer-events:none!important;
+    background-image:url("/assets/neon/neon-network-band.webp")!important;
+    will-change:opacity,transform;
+  }
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band .nb-l1 {
+    background-size:100% 100%!important;
+    background-position:center!important;
+    background-repeat:no-repeat!important;
+    opacity:.72;
+    animation:r663-nb-breathe 23s ease-in-out infinite!important;
+  }
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band .nb-l2 {
+    background-size:auto 190%!important;
+    background-position-y:center!important;
+    background-repeat:repeat-x!important;
+    opacity:.14;
+    mix-blend-mode:screen;
+    animation:r663-nb-drift 78s linear infinite!important;
+  }
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band .nb-l3 {
+    background-size:100% 100%!important;
+    background-position:center!important;
+    background-repeat:no-repeat!important;
+    opacity:.10;
+    mix-blend-mode:screen;
+    animation:r663-nb-twinkle 5.7s ease-in-out infinite!important;
+  }
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-market-field-viewport {
+    z-index:3!important;
+    pointer-events:none!important;
+  }
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band::before,
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band::after {
+    content:""!important;
+    display:block!important;
+    background:none!important;
+    opacity:0!important;
+    filter:none!important;
+    animation:none!important;
+  }
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-mesh { display:none!important; }
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-label,
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-readouts {
+    position:relative!important;
+    z-index:5!important;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band .nb-layer { animation:none!important; }
+}
