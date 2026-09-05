@@ -190,9 +190,9 @@
 @media (min-width: 1280px) {
   .app-shell-desktop .market-command-shell .trading-floor-workspace {
     grid-template-columns:
-      clamp(270px, 18vw, 310px)
+      clamp(224px, 15vw, 250px)
       minmax(0, 1fr)
-      clamp(292px, 19.5vw, 330px) !important;
+      clamp(282px, 18.5vw, 312px) !important;
     gap: 7px !important;
   }
 
