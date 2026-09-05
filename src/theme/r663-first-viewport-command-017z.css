@@ -71,3 +71,45 @@
 
   .app-shell-desktop .market-command-main .decision-deck { margin-top: 3px !important; }
 }
+
+/* 018A-r1 — reference hierarchy: preserve all geometry/truth layers, reduce boxiness
+   and let the live graph, people, and command surface read as one cockpit. */
+@media (min-width: 1280px) {
+  .app-shell-desktop .market-command-main .decision-deck {
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)) !important;
+    background:
+      radial-gradient(80% 110% at 50% -12%, rgba(var(--ot-accent-rgb), .11), transparent 54%),
+      linear-gradient(180deg, color-mix(in srgb, var(--ot-accent) 5%, var(--ot-bg-1)) 0%, var(--ot-bg-0) 100%) !important;
+  }
+
+  .app-shell-desktop .market-command-main .decision-key {
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px)) !important;
+    background: linear-gradient(180deg, rgba(var(--ot-accent-rgb), .035), rgba(0,0,0,.10)) !important;
+    border-color: color-mix(in srgb, var(--ot-accent) 30%, var(--ot-line)) !important;
+  }
+
+  .app-shell-desktop .command-right-content > .wrr .wrr-seat-card {
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)) !important;
+    background:
+      linear-gradient(115deg, rgba(var(--ot-accent-rgb), .055), transparent 42%),
+      color-mix(in srgb, var(--ot-bg-1) 92%, black) !important;
+    border-color: color-mix(in srgb, var(--ot-accent) 42%, var(--ot-line)) !important;
+  }
+
+  .app-shell-desktop .command-right-content > .wrr .wrr-avatar-img {
+    filter: saturate(1.07) contrast(1.05) brightness(1.04) !important;
+  }
+
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-market-field-viewport {
+    filter: brightness(1.28) saturate(1.22) contrast(1.06) drop-shadow(0 0 7px rgba(42,225,255,.22)) !important;
+    mix-blend-mode: screen !important;
+  }
+
+  html[data-theme="amber"] .app-shell-desktop .market-command-main .pcp-market-field-viewport {
+    filter: brightness(1.16) saturate(1.10) contrast(1.04) drop-shadow(0 0 5px rgba(255,180,62,.16)) !important;
+  }
+
+  html[data-theme="calm"] .app-shell-desktop .market-command-main .pcp-market-field-viewport {
+    filter: brightness(1.08) saturate(.88) contrast(1.03) !important;
+  }
+}
