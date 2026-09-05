@@ -140,3 +140,46 @@
     min-height: 142px !important;
   }
 }
+
+/* 018C-r2 — fuse chart stage into the luminous MARKET GRAPH floor without touching truth/data. */
+@media (min-width: 1280px) {
+  .app-shell-desktop .market-command-main > .market-hero-stage {
+    box-shadow:
+      inset 0 1px 0 rgba(var(--ot-accent-rgb), .12),
+      inset 0 -24px 44px rgba(var(--ot-accent-rgb), .035),
+      0 10px 30px rgba(0, 0, 0, .18) !important;
+  }
+
+  .app-shell-desktop .market-command-main .pcp-chart-stage {
+    box-shadow:
+      inset 0 -34px 52px rgba(var(--ot-accent-rgb), .055),
+      inset 0 -1px 0 color-mix(in srgb, var(--ot-accent) 34%, transparent) !important;
+  }
+
+  .app-shell-desktop .market-command-main .pcp-network-band {
+    position: relative !important;
+    margin-top: -2px !important;
+    box-shadow:
+      0 -18px 42px rgba(var(--ot-accent-rgb), .085),
+      inset 0 18px 34px rgba(0, 0, 0, .10),
+      inset 0 1px 0 rgba(var(--ot-accent-rgb), .24),
+      inset 0 -1px 0 rgba(var(--ot-accent-rgb), .16) !important;
+  }
+
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-network-band {
+    box-shadow:
+      0 -24px 56px rgba(34, 220, 255, .18),
+      0 8px 34px rgba(108, 58, 255, .14),
+      inset 0 18px 34px rgba(0, 0, 0, .08),
+      inset 0 1px 0 rgba(84, 235, 255, .38),
+      inset 0 -1px 0 rgba(136, 78, 255, .32) !important;
+  }
+
+  html[data-theme="amber"] .app-shell-desktop .market-command-main .pcp-network-band {
+    box-shadow: 0 -18px 44px rgba(255, 178, 56, .12), inset 0 1px 0 rgba(255, 194, 82, .30), inset 0 -1px 0 rgba(255, 169, 42, .20) !important;
+  }
+
+  html[data-theme="calm"] .app-shell-desktop .market-command-main .pcp-network-band {
+    box-shadow: 0 -16px 38px rgba(77, 194, 255, .08), inset 0 1px 0 rgba(116, 214, 255, .22), inset 0 -1px 0 rgba(66, 153, 214, .14) !important;
+  }
+}
