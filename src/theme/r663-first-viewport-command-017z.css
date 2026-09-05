@@ -183,3 +183,35 @@
     box-shadow: 0 -16px 38px rgba(77, 194, 255, .08), inset 0 1px 0 rgba(116, 214, 255, .22), inset 0 -1px 0 rgba(66, 153, 214, .14) !important;
   }
 }
+
+
+/* 018D-r1 — restore reference cockpit proportions: rails carry command weight,
+   while the live chart/network truth layer remains untouched. */
+@media (min-width: 1280px) {
+  .app-shell-desktop .market-command-shell .trading-floor-workspace {
+    grid-template-columns:
+      clamp(270px, 18vw, 310px)
+      minmax(0, 1fr)
+      clamp(292px, 19.5vw, 330px) !important;
+    gap: 7px !important;
+  }
+
+  .app-shell-desktop .command-right-content > .wrr .wrr-seat-card {
+    min-height: 118px !important;
+    height: 118px !important;
+    grid-template-columns: minmax(112px, 44%) minmax(0, 1fr) !important;
+  }
+
+  .app-shell-desktop .command-right-content > .wrr .wrr-avatar-wrap,
+  .app-shell-desktop .command-right-content > .wrr .wrr-avatar-img {
+    height: 110px !important;
+  }
+
+  .app-shell-desktop .fund-risk-rail > *,
+  .app-shell-desktop .command-right-content > * {
+    box-shadow:
+      inset 2px 0 rgba(var(--ot-accent-rgb), .34),
+      inset 0 1px 0 rgba(var(--ot-accent-rgb), .13),
+      0 10px 26px rgba(0, 0, 0, .24) !important;
+  }
+}
