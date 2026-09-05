@@ -250,3 +250,17 @@
     margin-top: 1px !important;
   }
 }
+
+/* 018G-r1 — restore reference-visible MARKET GRAPH energy in Amber/Calm by
+   compositing the existing live WebGL viewport; truth geometry remains unchanged. */
+@media (min-width: 1280px) {
+  html[data-theme=\"amber\"] .app-shell-desktop .market-command-main .pcp-market-field-viewport {
+    filter: brightness(1.66) saturate(1.24) contrast(1.10) drop-shadow(0 0 12px rgba(255, 184, 72, .28)) drop-shadow(0 0 22px rgba(67, 214, 255, .22)) !important;
+    mix-blend-mode: screen !important;
+  }
+
+  html[data-theme=\"calm\"] .app-shell-desktop .market-command-main .pcp-market-field-viewport {
+    filter: brightness(1.46) saturate(.98) contrast(1.08) drop-shadow(0 0 10px rgba(90, 166, 220, .22)) drop-shadow(0 0 18px rgba(68, 132, 188, .14)) !important;
+    mix-blend-mode: screen !important;
+  }
+}
