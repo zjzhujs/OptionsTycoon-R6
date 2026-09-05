@@ -113,3 +113,30 @@
     filter: brightness(1.08) saturate(.88) contrast(1.03) !important;
   }
 }
+
+/* 018B-r1 — reference floor proportion; preserve the live graph truth layer. */
+@media (min-width: 1280px) and (max-height: 980px) {
+  .app-shell-desktop .market-command-main > .market-hero-stage {
+    height: 460px !important;
+    min-height: 460px !important;
+  }
+  .app-shell-desktop .market-command-main .pcp-chart-stage {
+    height: 244px !important;
+    min-height: 244px !important;
+  }
+  .app-shell-desktop .market-command-main .pcp-network-band {
+    height: 148px !important;
+    min-height: 148px !important;
+  }
+}
+
+@media (min-width: 1280px) and (min-height: 981px) and (max-height: 1100px) {
+  .app-shell-desktop .market-command-main .pcp-chart-stage {
+    height: 288px !important;
+    min-height: 288px !important;
+  }
+  .app-shell-desktop .market-command-main .pcp-network-band {
+    height: 142px !important;
+    min-height: 142px !important;
+  }
+}
