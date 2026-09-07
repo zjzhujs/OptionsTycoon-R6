@@ -400,7 +400,7 @@ export function buildMarketFieldTopology(samples: readonly MarketFieldSample[]):
       edges.push({
         from,
         to: candidate.to,
-        alpha: clamp(0.10 + (1 - distance / Math.sqrt(0.15)) * 0.20 + (source.energy - 1) * 0.025, 0.09, 0.34),
+        alpha: clamp(0.16 + (1 - distance / Math.sqrt(0.15)) * 0.28 + (source.energy - 1) * 0.040, 0.14, 0.52),
         tone: source.tone === nodes[candidate.to].tone ? source.tone : 0.5,
       });
       connected += 1;
@@ -444,7 +444,7 @@ export function buildMarketFieldTopology(samples: readonly MarketFieldSample[]):
       edges.push({
         from,
         to,
-        alpha: clamp(0.18 + span * 0.11, 0.18, 0.29),
+        alpha: clamp(0.24 + span * 0.16, 0.24, 0.40),
         tone: lane === 2 ? 1 : lane === 1 ? 0.5 : 0,
       });
     });
