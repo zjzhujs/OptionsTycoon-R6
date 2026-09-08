@@ -13,13 +13,13 @@
     height: clamp(472px, 54vh, 560px) !important;
   }
   .app-shell-desktop .market-command-main .pcp-chart-stage {
-    min-height: 286px !important;
-    height: clamp(286px, 34vh, 350px) !important;
+    min-height: 252px !important;
+    height: clamp(252px, 30vh, 316px) !important;
   }
   .app-shell-desktop .market-command-main .pcp-volume-band { height: 48px !important; }
   .app-shell-desktop .market-command-main .pcp-network-band {
-    min-height: 96px !important;
-    height: 96px !important;
+    min-height: 132px !important;
+    height: 132px !important;
     background-size: auto, auto, auto, 24px 24px, 32px 24px, auto !important;
   }
   .app-shell-desktop .market-command-main .pcp-network-band::after {
@@ -83,20 +83,24 @@
     filter: drop-shadow(0 0 8px rgba(24,214,255,.54)) drop-shadow(0 0 10px rgba(132,82,255,.24));
   }
   html[data-theme="amber"] .market-command-main .pcp-network-band::after {
-    opacity: .84;
-    filter: drop-shadow(0 0 8px rgba(255,178,54,.42));
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(255,178,54,.52));
+  }
+  html[data-theme="calm"] .market-command-main .pcp-network-band::after {
+    opacity: .88;
+    filter: drop-shadow(0 0 7px rgba(84,208,238,.34));
   }
 }
 
 @media (min-width: 1280px) and (max-height: 980px) {
   .app-shell-desktop .market-command-main > .market-hero-stage { height: 486px !important; }
   .app-shell-desktop .market-command-main .pcp-chart-stage {
-    min-height: 288px !important;
-    height: 288px !important;
+    min-height: 252px !important;
+    height: 252px !important;
   }
   .app-shell-desktop .market-command-main .pcp-network-band {
-    min-height: 92px !important;
-    height: 92px !important;
+    min-height: 128px !important;
+    height: 128px !important;
   }
 }
 
