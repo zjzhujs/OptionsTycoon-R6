@@ -712,11 +712,11 @@ function setupMarketField(
   });
 
   const bloom = new BloomEffect({
-    luminanceThreshold: 0.92,
+    luminanceThreshold: 0.58,
     luminanceSmoothing: 0.14,
     mipmapBlur: true,
     intensity: FIELD_PALETTES.neon.bloom,
-    radius: 0.62,
+    radius: 0.42,
     levels: 6,
   });
 
