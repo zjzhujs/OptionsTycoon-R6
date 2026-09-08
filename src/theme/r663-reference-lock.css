@@ -38,6 +38,10 @@
       radial-gradient(circle at 94% 72%, rgba(var(--ot-accent-rgb),.76) 0 2px, transparent 3px),
       linear-gradient(17deg, transparent 47%, rgba(var(--ot-accent-rgb),.34) 48%, transparent 49%),
       linear-gradient(163deg, transparent 47%, rgba(var(--ot-accent-rgb),.22) 48%, transparent 49%);
+    background-size: 23% 58%, 29% 63%, 31% 54%, 27% 67%, 34% 61%, 25% 72%, 37% 57%, 32% 69%, 100% 100%, 100% 100%;
+    background-position: 0 0, 7% 13%, 13% 3%, 3% 21%, 19% 8%, 11% 29%, 23% 17%, 5% 35%, 0 0, 0 0;
+    background-repeat: repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, no-repeat, no-repeat;
+    mix-blend-mode: screen;
     opacity: .72;
     filter: drop-shadow(0 0 7px rgba(var(--ot-accent-rgb),.30));
   }
