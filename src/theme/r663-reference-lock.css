@@ -88,10 +88,12 @@
   }
   html[data-theme="amber"] .market-command-main .pcp-network-band::after {
     opacity: 1;
+    z-index: 3;
     filter: drop-shadow(0 0 8px rgba(255,178,54,.52));
   }
   html[data-theme="calm"] .market-command-main .pcp-network-band::after {
     opacity: .88;
+    z-index: 3;
     filter: drop-shadow(0 0 7px rgba(84,208,238,.34));
   }
 }
