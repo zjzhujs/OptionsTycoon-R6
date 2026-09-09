@@ -2,6 +2,21 @@
    Desktop-only first-viewport composition pass.
    Keeps gameplay and mobile geometry untouched. */
 
+/* 018W hard-reference first-viewport closure: override legacy 016G hero expansion
+   without touching chart/network topology, rails, or mobile geometry. */
+@media (min-width: 1280px) and (max-height: 980px) {
+  html[data-theme] .app-shell-desktop .market-command-main > .market-hero-stage {
+    height: 520px !important;
+    min-height: 520px !important;
+  }
+}
+@media (min-width: 1280px) and (min-height: 981px) and (max-height: 1040px) {
+  html[data-theme] .app-shell-desktop .market-command-main > .market-hero-stage {
+    height: 620px !important;
+    min-height: 620px !important;
+  }
+}
+
 /* 018U decision-console unity: one material chassis, five inset action bays.
    Geometry stays locked; this pass only restores the reference cut/glow hierarchy. */
 @media (min-width: 1280px) {
