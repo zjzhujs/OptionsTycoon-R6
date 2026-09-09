@@ -2,6 +2,47 @@
    Desktop-only first-viewport composition pass.
    Keeps gameplay and mobile geometry untouched. */
 
+/* 018U decision-console unity: one material chassis, five inset action bays.
+   Geometry stays locked; this pass only restores the reference cut/glow hierarchy. */
+@media (min-width: 1280px) {
+  .app-shell-desktop .market-command-main .decision-key-console {
+    position: relative !important;
+    isolation: isolate;
+    overflow: hidden !important;
+    border: 1px solid color-mix(in srgb, var(--ot-accent) 36%, var(--ot-line)) !important;
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+    box-shadow:
+      inset 0 1px 0 rgba(var(--ot-accent-rgb), .18),
+      inset 0 -12px 28px rgba(var(--ot-accent-rgb), .045),
+      0 0 16px rgba(var(--ot-accent-rgb), .08);
+  }
+  .app-shell-desktop .market-command-main .decision-key-console::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: 5px;
+    pointer-events: none;
+    border: 1px solid rgba(var(--ot-accent-rgb), .13);
+    background:
+      linear-gradient(90deg, rgba(var(--ot-accent-rgb), .08), transparent 16% 84%, rgba(var(--ot-accent-rgb), .08)),
+      linear-gradient(180deg, rgba(var(--ot-accent-rgb), .05), transparent 38%);
+  }
+  .app-shell-desktop .market-command-main .decision-key-grid {
+    position: relative;
+    z-index: 1;
+    gap: 5px !important;
+    padding: 7px !important;
+  }
+  .app-shell-desktop .market-command-main .decision-key {
+    border: 1px solid color-mix(in srgb, var(--ot-accent) 28%, var(--ot-line)) !important;
+    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+    box-shadow: inset 0 1px 0 rgba(var(--ot-accent-rgb), .13), inset 0 -16px 26px rgba(var(--ot-accent-rgb), .035);
+  }
+  html[data-theme="amber"] .app-shell-desktop .market-command-main .decision-key-console { box-shadow: inset 0 1px 0 rgba(255,196,92,.22), 0 0 20px rgba(255,170,48,.10); }
+  html[data-theme="calm"] .app-shell-desktop .market-command-main .decision-key-console { box-shadow: inset 0 1px 0 rgba(112,226,245,.18), 0 0 16px rgba(70,190,226,.06); }
+  html[data-theme="neon"] .app-shell-desktop .market-command-main .decision-key-console { box-shadow: inset 0 1px 0 rgba(70,231,255,.24), 0 0 18px rgba(28,219,255,.12), 0 0 26px rgba(116,74,255,.08); }
+}
+
 @media (min-width: 1280px) {
   .app-shell-desktop .market-command-shell .trading-floor-workspace {
     grid-template-columns: clamp(206px, 13.2vw, 238px) minmax(0, 1fr) clamp(224px, 14.6vw, 258px) !important;
