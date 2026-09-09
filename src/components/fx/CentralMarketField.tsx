@@ -601,11 +601,12 @@ const EDGE_VERTEX_SHADER = `
 const EDGE_FRAGMENT_SHADER = `
   uniform vec3 uPrimary;
   uniform vec3 uSecondary;
+  uniform float uAlphaGain;
   varying float vAlpha;
   varying float vTone;
 
   void main() {
-    gl_FragColor = vec4(mix(uPrimary, uSecondary, vTone), vAlpha);
+    gl_FragColor = vec4(mix(uPrimary, uSecondary, vTone), clamp(vAlpha * uAlphaGain, 0.0, 1.0));
   }
 `;
 
@@ -645,6 +646,7 @@ function setupMarketField(
   const edgeUniforms = {
     uPrimary: { value: new THREE.Color() },
     uSecondary: { value: new THREE.Color() },
+    uAlphaGain: { value: 1 },
   };
   let edgeGeometry = createEdgeGeometry(topology);
   const edgeMaterial = new THREE.ShaderMaterial({
@@ -735,12 +737,14 @@ function setupMarketField(
   }
 
   const applyTheme = (): void => {
-    const palette = FIELD_PALETTES[readTheme()];
+    const theme = readTheme();
+    const palette = FIELD_PALETTES[theme];
     setColor(pointUniforms.uPrimary.value, palette.primary);
     setColor(pointUniforms.uSecondary.value, palette.secondary);
     setColor(pointUniforms.uHot.value, palette.hot);
     setColor(edgeUniforms.uPrimary.value, palette.tissuePrimary);
     setColor(edgeUniforms.uSecondary.value, palette.tissueSecondary);
+    edgeUniforms.uAlphaGain.value = theme === 'amber' ? 2.35 : theme === 'calm' ? 2.60 : 1;
     spineMaterials.forEach((material, index) => {
       const color = index === 0 ? palette.primary : index === 1 ? palette.spine : palette.secondary;
       setColor(material.color, color);
