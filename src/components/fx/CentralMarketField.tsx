@@ -742,7 +742,7 @@ function setupMarketField(
     setColor(pointUniforms.uPrimary.value, palette.primary);
     setColor(pointUniforms.uSecondary.value, palette.secondary);
     setColor(pointUniforms.uHot.value, palette.hot);
-    const pointGain = theme === 'amber' ? 1.72 : theme === 'calm' ? 1.58 : 1;
+    const pointGain = theme === 'amber' ? 2.80 : theme === 'calm' ? 2.60 : 1;
     pointUniforms.uPrimary.value.multiplyScalar(pointGain);
     pointUniforms.uSecondary.value.multiplyScalar(pointGain);
     pointUniforms.uHot.value.multiplyScalar(pointGain);
