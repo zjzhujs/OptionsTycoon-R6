@@ -546,6 +546,7 @@ function createEdgeGeometry(topology: MarketFieldTopology): THREE.BufferGeometry
 const POINT_VERTEX_SHADER = `
   uniform float uTime;
   uniform float uDpr;
+  uniform float uPointSizeGain;
   attribute float aSize;
   attribute float aEnergy;
   attribute float aTone;
@@ -558,7 +559,7 @@ const POINT_VERTEX_SHADER = `
     vEnergy = aEnergy;
     vTone = aTone;
     vPulse = 0.88 + 0.12 * sin(uTime * (0.62 + aEnergy * 0.07) + aPhase);
-    gl_PointSize = aSize * uDpr * (0.92 + vPulse * 0.12);
+    gl_PointSize = aSize * uDpr * uPointSizeGain * (0.92 + vPulse * 0.12);
     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
   }
 `;
@@ -667,6 +668,7 @@ function setupMarketField(
   const pointUniforms = {
     uTime: { value: 0 },
     uDpr: { value: 1 },
+    uPointSizeGain: { value: 1 },
     uPrimary: { value: new THREE.Color() },
     uSecondary: { value: new THREE.Color() },
     uHot: { value: new THREE.Color() },
@@ -743,6 +745,8 @@ function setupMarketField(
     setColor(pointUniforms.uSecondary.value, palette.secondary);
     setColor(pointUniforms.uHot.value, palette.hot);
     const pointGain = theme === 'amber' ? 2.80 : theme === 'calm' ? 2.60 : 1;
+    const pointSizeGain = theme === 'amber' ? 1.55 : theme === 'calm' ? 1.45 : 1;
+    pointUniforms.uPointSizeGain.value = pointSizeGain;
     pointUniforms.uPrimary.value.multiplyScalar(pointGain);
     pointUniforms.uSecondary.value.multiplyScalar(pointGain);
     pointUniforms.uHot.value.multiplyScalar(pointGain);
