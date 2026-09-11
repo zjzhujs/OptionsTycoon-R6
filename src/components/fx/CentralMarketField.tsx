@@ -386,7 +386,7 @@ export function buildMarketFieldTopology(samples: readonly MarketFieldSample[]):
         return lowAnchor === highAnchor || profile.visibleAnchors.has(`${lowAnchor}:${highAnchor}`);
       })
       .sort((a, b) => a.distance2 - b.distance2);
-    const targetCount = source.energy === 3 ? 5 : source.energy === 2 ? 4 : 3;
+    const targetCount = source.energy === 3 ? 7 : source.energy === 2 ? 6 : 5;
     let connected = 0;
 
     for (const candidate of candidates) {
