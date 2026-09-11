@@ -1059,3 +1059,11 @@ html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-neural-canv
     display:none!important;
   }
 }
+
+/* R6.6.3 019E-r1 — true-reference calm MARKET GRAPH compositing.
+   The real graph is already present; keep it luminous over graphite instead of multiplying into it. */
+@media (min-width:1280px) {
+  html[data-theme="calm"] .app-shell-desktop .market-command-main .pcp-neural-canvas {
+    mix-blend-mode:screen!important;
+  }
+}
