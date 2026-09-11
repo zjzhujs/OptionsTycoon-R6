@@ -581,8 +581,8 @@ const POINT_FRAGMENT_SHADER = `
     vec3 base = mix(uPrimary, uSecondary, vTone);
     base = mix(base, uHot, hotMask);
     float gain = vEnergy < 1.5 ? 0.48 : (vEnergy < 2.5 ? 1.05 : 1.95);
-    float alpha = (halo * 0.44 + core * 0.82) * (0.42 + vEnergy * 0.18) * vPulse;
-    gl_FragColor = vec4(base * gain * (0.62 + core * 0.92), alpha);
+    float alpha = (halo * 0.18 + core * 0.96) * (0.42 + vEnergy * 0.18) * vPulse;
+    gl_FragColor = vec4(base * gain * (0.48 + core * 1.18), alpha);
   }
 `;
 
