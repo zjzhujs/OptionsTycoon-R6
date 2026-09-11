@@ -1051,3 +1051,11 @@ html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-neural-canv
     min-height:500px!important;
   }
 }
+
+/* R6.6.3 019D-r1 — hard-reference War Room rail rhythm.
+   Keep the ledger action, but remove explanatory prose that the three target refs do not carry. */
+@media (min-width:1280px) {
+  .app-shell-desktop .command-right-content > .wrr .wrr-note {
+    display:none!important;
+  }
+}
