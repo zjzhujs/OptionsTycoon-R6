@@ -346,7 +346,7 @@ export function buildMarketFieldTopology(samples: readonly MarketFieldSample[]):
       ? profile
         ? clamp(spineY(lane, x, profile) + (random() - 0.5) * 0.76, -0.88, 0.88)
         : -0.84 + random() * 1.68
-      : clamp(spineY(lane, x, profile) + (random() + random() - 1) * 0.22, -0.88, 0.88);
+      : clamp(spineY(lane, x, profile) + (random() + random() - 1) * 0.34, -0.88, 0.88);
     const activity = profile ? interpolate(profile.activity, timeline.sampleT) : random();
     const energy: 1 | 2 | 3 = activity >= 0.72 ? 3 : activity >= 0.38 ? 2 : 1;
     const size = profile
