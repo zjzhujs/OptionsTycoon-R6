@@ -72,14 +72,11 @@ function localGeometry(
 ): MarketFieldGeometry | null {
   const stageRect = stage.getBoundingClientRect();
   const networkRect = network.getBoundingClientRect();
-  const chartRect = stage.querySelector<HTMLElement>('.pcp-market-stage-chart')?.getBoundingClientRect();
-  const fieldTop = chartRect && Number.isFinite(chartRect.top) ? chartRect.top : networkRect.top;
-  const fieldBottom = networkRect.bottom;
   if (
-    ![stageRect.left, stageRect.top, networkRect.left, networkRect.width, fieldTop, fieldBottom]
+    ![stageRect.left, stageRect.top, networkRect.left, networkRect.top, networkRect.width, networkRect.height]
       .every(Number.isFinite)
     || networkRect.width < 2
-    || fieldBottom - fieldTop < 2
+    || networkRect.height < 2
   ) return null;
 
   // getBoundingClientRect() includes ancestor transforms. Divide those back out
@@ -96,10 +93,10 @@ function localGeometry(
       (networkRect.left - stageRect.left - stage.clientLeft * scaleX) / scaleX + stage.scrollLeft,
     ),
     top: roundedGeometry(
-      (fieldTop - stageRect.top - stage.clientTop * scaleY) / scaleY + stage.scrollTop,
+      (networkRect.top - stageRect.top - stage.clientTop * scaleY) / scaleY + stage.scrollTop,
     ),
     width: roundedGeometry(networkRect.width / scaleX),
-    height: roundedGeometry((fieldBottom - fieldTop) / scaleY),
+    height: roundedGeometry(networkRect.height / scaleY),
   };
 }
 
