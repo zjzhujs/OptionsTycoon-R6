@@ -86,7 +86,7 @@ const FIELD_PALETTES: Record<FieldTheme, FieldPalette> = {
     tissuePrimary: [0.04, 0.35, 0.48],
     tissueSecondary: [0.24, 0.14, 0.48],
     spine: [1.55, 0.72, 2.25],
-    bloom: 1.22,
+    bloom: 0.82,
   },
   amber: {
     primary: [0.38, 1.92, 2.28],
@@ -752,7 +752,7 @@ function setupMarketField(
     pointUniforms.uHot.value.multiplyScalar(pointGain);
     setColor(edgeUniforms.uPrimary.value, palette.tissuePrimary);
     setColor(edgeUniforms.uSecondary.value, palette.tissueSecondary);
-    edgeUniforms.uAlphaGain.value = theme === 'amber' ? 3.60 : theme === 'calm' ? 4.40 : 1;
+    edgeUniforms.uAlphaGain.value = theme === 'amber' ? 4.80 : theme === 'calm' ? 5.20 : 1.32;
     spineMaterials.forEach((material, index) => {
       const color = index === 0 ? palette.primary : index === 1 ? palette.spine : palette.secondary;
       setColor(material.color, color);
