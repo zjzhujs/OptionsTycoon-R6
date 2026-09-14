@@ -1067,3 +1067,16 @@ html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-neural-canv
     mix-blend-mode:screen!important;
   }
 }
+
+/* R6.6.3 019N-r1 — hard-reference graph-to-decision integration.
+   Compress only the desktop separator bands so MARKET GRAPH reads as one cockpit with Decision Deck. */
+@media (min-width:1280px) and (max-height:1040px) {
+  .app-shell-desktop .market-command-main .pcp-volume-band,
+  .app-shell-desktop .market-command-main .r663-regime-strip {
+    min-height:34px!important;
+    height:34px!important;
+  }
+  .app-shell-desktop .market-command-main .decision-deck {
+    margin-top:0!important;
+  }
+}
