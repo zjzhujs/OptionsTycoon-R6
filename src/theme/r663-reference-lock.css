@@ -1080,3 +1080,10 @@ html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-neural-canv
     margin-top:0!important;
   }
 }
+
+/* R6.6.3 019O-r1 — hard-reference rail balance: return width to the central MARKET stage. */
+@media (min-width:1280px) {
+  .app-shell-desktop .market-command-shell .trading-floor-workspace {
+    grid-template-columns:clamp(268px,17.8vw,300px) minmax(0,1fr) clamp(280px,18vw,310px)!important;
+  }
+}
