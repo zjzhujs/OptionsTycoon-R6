@@ -744,7 +744,7 @@ function setupMarketField(
     setColor(pointUniforms.uPrimary.value, palette.primary);
     setColor(pointUniforms.uSecondary.value, palette.secondary);
     setColor(pointUniforms.uHot.value, palette.hot);
-    const pointGain = theme === 'amber' ? 4.40 : theme === 'calm' ? 4.00 : 1.30;
+    const pointGain = theme === 'amber' ? 6.00 : theme === 'calm' ? 6.50 : 1.30;
     const pointSizeGain = theme === 'amber' ? 1.85 : theme === 'calm' ? 1.70 : 1.10;
     pointUniforms.uPointSizeGain.value = pointSizeGain;
     pointUniforms.uPrimary.value.multiplyScalar(pointGain);
@@ -752,7 +752,7 @@ function setupMarketField(
     pointUniforms.uHot.value.multiplyScalar(pointGain);
     setColor(edgeUniforms.uPrimary.value, palette.tissuePrimary);
     setColor(edgeUniforms.uSecondary.value, palette.tissueSecondary);
-    edgeUniforms.uAlphaGain.value = theme === 'amber' ? 6.20 : theme === 'calm' ? 6.60 : 1.32;
+    edgeUniforms.uAlphaGain.value = theme === 'amber' ? 8.50 : theme === 'calm' ? 10.00 : 1.32;
     spineMaterials.forEach((material, index) => {
       const color = index === 0 ? palette.primary : index === 1 ? palette.spine : palette.secondary;
       setColor(material.color, color);
