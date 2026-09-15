@@ -1087,15 +1087,3 @@ html[data-theme="neon"] .app-shell-desktop .market-command-main .pcp-neural-canv
     grid-template-columns:clamp(268px,17.8vw,300px) minmax(0,1fr) clamp(280px,18vw,310px)!important;
   }
 }
-
-/* R6.6.3 019Q-r1 — hard-reference 941px viewport stage proportion.
-   Give Amber/Calm chart height back to the central MARKET stage without touching network topology or mobile. */
-@media (min-width:1280px) and (max-height:980px) {
-  .app-shell-desktop .market-command-main > .market-hero-stage {
-    height:526px!important;
-  }
-  .app-shell-desktop .market-command-main .pcp-chart-stage {
-    min-height:292px!important;
-    height:292px!important;
-  }
-}
